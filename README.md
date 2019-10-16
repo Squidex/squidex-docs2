@@ -1,0 +1,33 @@
+---
+description: Lets get started with Squidex.
+---
+
+# Welcome to Squidex
+
+![Squidex Headless CMS](.gitbook/assets/logo-wide.png)
+
+## What is Squidex?
+
+Squidex is a content management hub. A central place to manage all your content.
+
+For example:
+
+* Dynamic elements for your mobile apps.
+* Blog posts and articles for your website.
+* Configuration data for your backend.
+* Rich and structured data for your application.
+
+In contrast to a traditional CMS, Squidex is headless and does not provide the frontend. This makes you free to choose a technology of your choice to create an awesome User Experience.
+
+## How to get started?
+
+### I want to start immediately with Squidex Cloud
+
+### I want to install Squidex on my own \(virtual\) machines
+
+{% page-ref page="user-guide/installation/" %}
+
+### I want to contribute as a developer or understand the architecture
+
+{% page-ref page="user-guide/contributing/" %}
+
