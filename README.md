@@ -4,8 +4,6 @@ description: Lets get started with Squidex.
 
 # Welcome to Squidex
 
-![Squidex Headless CMS](.gitbook/assets/logo-wide.png)
-
 ## What is Squidex?
 
 Squidex is a content management hub. A central place to manage all your content.
