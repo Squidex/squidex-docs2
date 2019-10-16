@@ -1,3 +1,7 @@
+---
+description: Custom workflows with scripting.
+---
+
 # Scripting
 
 Security and validation are difficult to solve, because there are a lot of different use cases. Scripting can be used to handle gaps in the Squidex feature set. You can create scripts that run whenever a content is created, updated, deleted, queried or when the status changes \(e.g. from Draft to Published\).

@@ -1,3 +1,7 @@
+---
+description: A short tutorial how to use Squidex.
+---
+
 # Postman
 
 This is a short tutorial how to make the first requests with postman.

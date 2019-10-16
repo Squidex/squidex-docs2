@@ -1,4 +1,4 @@
-# API Compatibility
+# Squidex 3.0: API Compatibility
 
 The API for Squidex 3.0 contains a lot of changes to 2.0. This document describes the main differences.
 

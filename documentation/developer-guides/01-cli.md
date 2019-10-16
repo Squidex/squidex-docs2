@@ -1,4 +1,10 @@
-# CLI
+---
+description: >-
+  The CLI (command line interface) helps you to automate your administration
+  processes.
+---
+
+# Automation Tools
 
 The CLI \(command line interface\) is terminal application for Windows, Linux and OS X.
 

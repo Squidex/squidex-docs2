@@ -1,3 +1,7 @@
+---
+description: Basic concepts and functionality of the API.
+---
+
 # API
 
 We demonstrate the API concepts based on the following example:

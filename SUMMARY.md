@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Welcome to Squidex](README.md)
-* [Untitled](untitled.md)
 
 ## Getting Started
 
@@ -26,7 +25,7 @@
   * [Permissions](documentation/concepts/permissions.md)
   * [Rules](documentation/concepts/rules.md)
 * [Developer Guides](documentation/developer-guides/README.md)
-  * [CLI](documentation/developer-guides/01-cli.md)
+  * [Automation Tools](documentation/developer-guides/01-cli.md)
   * [API](documentation/developer-guides/02-api.md)
   * [Postman](documentation/developer-guides/04-postman.md)
   * [Assets API](documentation/developer-guides/how-to-use-the-assets-api.md)
@@ -37,7 +36,7 @@
 
 ## Next
 
-* [API Compatibility](next/02-api-compatibility.md)
+* [Squidex 3.0: API Compatibility](next/02-api-compatibility.md)
 
 ## Architecture
 
