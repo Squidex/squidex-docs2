@@ -4,11 +4,11 @@ Security and validation are difficult to solve, because there are a lot of diffe
 
 Scripts can be defined in the schema editor. The link can be found in the extended menu:
 
-![Path to Editor](../.gitbook/assets/dialog-to.png)
+![Path to Editor](../../.gitbook/assets/dialog-to.png)
 
 In the editor you can define all scripts
 
-![Editor](../.gitbook/assets/dialog%20%281%29.png)
+![Editor](../../.gitbook/assets/dialog%20%281%29.png)
 
 Lets have a look to some use cases:
 

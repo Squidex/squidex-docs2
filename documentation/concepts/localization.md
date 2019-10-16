@@ -35,7 +35,7 @@ Each field value is a set of values that are associated to keys. In javascript i
 
 The languages an fallback rules can be configured in the Management UI:
 
-![Settings](../.gitbook/assets/settings.png)
+![Settings](../../.gitbook/assets/settings.png)
 
 In this example we have 3 languages:
 

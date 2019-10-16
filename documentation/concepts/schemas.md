@@ -20,7 +20,7 @@ If a field is not required it can also be null or omitted.
 
 ### String
 
-![String](../.gitbook/assets/string.png)
+![String](../../.gitbook/assets/string.png)
 
 A string is the most used field type and can be used for any kind of texts, like product names, descriptions and additional information. It is also the most flexible field and the usage depends very much on the editor you are using:
 
@@ -41,7 +41,7 @@ A string is the most used field type and can be used for any kind of texts, like
 
 ### Number
 
-![Number](../.gitbook/assets/number.png)
+![Number](../../.gitbook/assets/number.png)
 
 A number can either be a point number or integer. Typical examples when to use numbers are quantities, IDs and prices.
 
@@ -71,7 +71,7 @@ Booleans have only 2 states: True or false, yes or no, 1 or 0.
 
 ### DateTime
 
-![DateTime](../.gitbook/assets/datetime.png)
+![DateTime](../../.gitbook/assets/datetime.png)
 
 Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ss.sssZ`.
 
@@ -85,9 +85,9 @@ Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ss.sssZ`
 
 ### Assets
 
-![Assets](../.gitbook/assets/assets.png)
+![Assets](../../.gitbook/assets/assets.png)
 
-Asset fields are used to maintain a list of assset IDs. You can also restrict the number of assets with a minimum and maximum limit, for example when you want to have a single avatar or preview image for a content. You can use the IDs load the asset. Read more about [here](../guides/05-assets.md). When you delete an asset a cleanup process will remove the asset id from your contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an id to an deleted asset.
+Asset fields are used to maintain a list of assset IDs. You can also restrict the number of assets with a minimum and maximum limit, for example when you want to have a single avatar or preview image for a content. You can use the IDs load the asset. Read more about [here](). When you delete an asset a cleanup process will remove the asset id from your contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an id to an deleted asset.
 
 #### API representation
 
@@ -102,7 +102,7 @@ Asset fields are used to maintain a list of assset IDs. You can also restrict th
 
 ### References & Array
 
-![References](../.gitbook/assets/references.png)
+![References](../../.gitbook/assets/references.png)
 
 References fields are used to model relationship to other content items. For example you could have a schema for products and a schema for product categories. A product has a field with references to the categories it belongs to. Both, products and categories can be created, updated and managed independently. Please think about the direction of the reference very carefully. For example a typical product is only in very few categories, but a product category could have thousand of products. Therefore it is not recommended to reference the products from the categories. When you delete an content a cleanup process will remove the referenced id from all contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an reference to an deleted content.
 
@@ -119,7 +119,7 @@ References fields are used to model relationship to other content items. For exa
 
 ### Array
 
-![Arrays](../.gitbook/assets/array.png)
+![Arrays](../../.gitbook/assets/array.png)
 
 Some content items only exist as child content for another content item. For example a product could have variations like different sizes and prices. These content items can be represented with array fields, where each item in the field has a specified structured, that is called `nested schema`.
 
@@ -141,7 +141,7 @@ Some content items only exist as child content for another content item. For exa
 
 ### Geolocation
 
-![Geolocation](../.gitbook/assets/geolocation.png)
+![Geolocation](../../.gitbook/assets/geolocation.png)
 
 The geolocation field represents a tuple of latitude and longitude and is designed to be used in combination with maps. It does not store additional data about the location, such as names, addresses or other information. You have to add additional fields for this purpose.
 
@@ -156,7 +156,7 @@ The geolocation field represents a tuple of latitude and longitude and is design
 
 ### Tags
 
-![Tags](../.gitbook/assets/tags.png)
+![Tags](../../.gitbook/assets/tags.png)
 
 Tags are list of strings that are use in the combination tag editor in the Management UI. It is especially useful if you enrich your content with external systems. At the moment the tag editor does not support advanced tag management, such as global lists of tags, renaming and merging of tags.
 
@@ -173,9 +173,9 @@ Tags are list of strings that are use in the combination tag editor in the Manag
 
 ### Json
 
-![Json](../.gitbook/assets/json.png)
+![Json](../../.gitbook/assets/json.png)
 
-A json field is for developers. Whenever you have some structured or unstructured content, that you cannot cover with the built in field types or editors you should the json field. You should either write a [custom editor](../guides/07-custom-editors.md) when the content editors can edit the field or disable the field when the content for this field comes from an external source. Editing the json manually is fragile and can easily break your processes.
+A json field is for developers. Whenever you have some structured or unstructured content, that you cannot cover with the built in field types or editors you should the json field. You should either write a [custom editor](../developer-guides/07-custom-editors.md) when the content editors can edit the field or disable the field when the content for this field comes from an external source. Editing the json manually is fragile and can easily break your processes.
 
 #### API representation
 

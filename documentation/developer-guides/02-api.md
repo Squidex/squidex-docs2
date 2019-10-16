@@ -185,7 +185,7 @@ By default the content api returns published content only. You can use the `X-Un
 
 ## Consistency
 
-The API uses the eventual consistency. Events are handled in the background as described under [architecture](../architecture/01-overview.md). This means that it can take to up a second until the data is available to the query side. Under very high load it can even take more time. If you receive a success status code when you create or update an content you have the guarantee, that it has been written to the database successfully. You can also make another write operation directly, e.g. to publish the content.
+The API uses the eventual consistency. Events are handled in the background as described under [architecture](../../architecture/01-overview.md). This means that it can take to up a second until the data is available to the query side. Under very high load it can even take more time. If you receive a success status code when you create or update an content you have the guarantee, that it has been written to the database successfully. You can also make another write operation directly, e.g. to publish the content.
 
 There are some tricks to deal with it in the UI: [http://danielwhittaker.me/2014/10/27/4-ways-handle-eventual-consistency-ui/](http://danielwhittaker.me/2014/10/27/4-ways-handle-eventual-consistency-ui/). In our opinion this leads to a more stable and faster UI and server and it is worth it.
 

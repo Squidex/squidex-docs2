@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Welcome to Squidex](README.md)
-* [Assets API](how-to-use-the-assets-api.md)
 
 ## Getting Started
 
@@ -11,38 +10,34 @@
   * [Install on Azure](getting-started/installation/install-azure.md)
   * [Install Identity](getting-started/installation/install-identity.md)
   * [Configuration](getting-started/installation/configuration.md)
+* [Contributing and Developing](getting-started/contributing-and-developing/README.md)
+  * [Building](getting-started/contributing-and-developing/02-building.md)
+  * [Developing](getting-started/contributing-and-developing/01-developing.md)
+  * [Extensions](getting-started/contributing-and-developing/02-extensions.md)
+* [Roadmap](getting-started/01-roadmap.md)
 
-## Contributing
+## Documentation
 
-* [Building](contributing/02-building.md)
-* [Developing](contributing/01-developing.md)
-
-## Concepts
-
-* [Schemas](concepts/schemas.md)
-* [Localization](concepts/localization.md)
-* [Permissions](concepts/permissions.md)
-* [Rules](concepts/rules.md)
+* [Concepts](documentation/concepts/README.md)
+  * [Schemas](documentation/concepts/schemas.md)
+  * [Localization](documentation/concepts/localization.md)
+  * [Permissions](documentation/concepts/permissions.md)
+  * [Rules](documentation/concepts/rules.md)
+* [Developer Guides](documentation/developer-guides/README.md)
+  * [CLI](documentation/developer-guides/01-cli.md)
+  * [API](documentation/developer-guides/02-api.md)
+  * [Postman](documentation/developer-guides/04-postman.md)
+  * [Assets API](documentation/developer-guides/how-to-use-the-assets-api.md)
+  * [Scripting](documentation/developer-guides/06-scripting.md)
+  * [Custom Workflows](documentation/developer-guides/10-workflow.md)
+  * [Custom Editors](documentation/developer-guides/07-custom-editors.md)
+  * [Preview Content](documentation/developer-guides/09-preview.md)
 
 ## Next
 
-* [Roadmap](next/01-roadmap.md)
 * [API Compatibility](next/02-api-compatibility.md)
-
-## Guides
-
-* [CLI](guides/01-cli.md)
-* [API](guides/02-api.md)
-* [Postman](guides/04-postman.md)
-* [Troubleshooting](guides/03-troubleshooting.md)
-* [Assets](guides/05-assets.md)
-* [Scripting](guides/06-scripting.md)
-* [Custom Editors](guides/07-custom-editors.md)
-* [Custom Workflows](guides/10-workflow.md)
-* [Preview Content](guides/09-preview.md)
 
 ## Architecture
 
 * [Overview](architecture/01-overview.md)
-* [Extensions](architecture/02-extensions.md)
 

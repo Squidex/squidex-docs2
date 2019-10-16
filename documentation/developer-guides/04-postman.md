@@ -6,29 +6,29 @@ This is a short tutorial how to make the first requests with postman.
 
 The first step is to create an application. Choose a name of your choice.
 
-![Create App](../.gitbook/assets/create-app.png)
+![Create App](../../.gitbook/assets/create-app.png)
 
 ## 2. Create a Schema
 
 Next create a schema. In this example we added a single field.
 
-![Create Schema](../.gitbook/assets/create-schema.png)
+![Create Schema](../../.gitbook/assets/create-schema.png)
 
 Ensure that the schema is published. Otherwise you cannot create content for the schema.
 
-![Create Fields](../.gitbook/assets/create-fields.png)
+![Create Fields](../../.gitbook/assets/create-fields.png)
 
 ## 3. Add Content
 
 Add some content to your schema.
 
-![Create Contents](../.gitbook/assets/create-content.png)
+![Create Contents](../../.gitbook/assets/create-content.png)
 
 ## 4. Create a Client
 
 Create a client for each application. Choose a name.
 
-![Create Client](../.gitbook/assets/create-client.png)
+![Create Client](../../.gitbook/assets/create-client.png)
 
 We have implemented the OpenID client credentials flow: [https://docs.axway.com/u/documentation/api\_gateway/7.5.3/webhelp\_portal\_oauth/Content/OAuthGuideTopics/oauth\_flows\_client\_credentials.htm](https://docs.axway.com/u/documentation/api_gateway/7.5.3/webhelp_portal_oauth/Content/OAuthGuideTopics/oauth_flows_client_credentials.htm) to make requests.
 
@@ -46,13 +46,13 @@ $ curl
 
 For now we just use the 'Create Token' button to get the access token.
 
-![Get Token](../.gitbook/assets/get-token.png)
+![Get Token](../../.gitbook/assets/get-token.png)
 
 ## 5. Download Swagger Specification
 
 Open the API documentation under _API\Swagger_ and download the swagger specification:
 
-![Download Swagger](../.gitbook/assets/download-swagger.png)
+![Download Swagger](../../.gitbook/assets/download-swagger.png)
 
 ## 6. Make the request with Postman
 
@@ -62,5 +62,5 @@ Open the API documentation under _API\Swagger_ and download the swagger specific
 4. Just delete the query strings for now.
 5. Add an authorization header and copy the access token from Step4.
 
-![Make Request](../.gitbook/assets/make-request.png)
+![Make Request](../../.gitbook/assets/make-request.png)
 

@@ -13,7 +13,7 @@ A rule has two parts:
 
 For example
 
-![A rule that creates a twitter update when content has changed](../.gitbook/assets/rule.png)
+![A rule that creates a twitter update when content has changed](../../.gitbook/assets/rule.png)
 
 ## Workflow
 
@@ -98,7 +98,7 @@ It is important to understand the structure because we use it in the matching st
 
 Lets just have a look to a trigger definition first:
 
-![Triggers when a blog post is published or restored](../.gitbook/assets/content-trigger.png)
+![Triggers when a blog post is published or restored](../../.gitbook/assets/content-trigger.png)
 
 In the matching process we check whether the action should be executed. There are several conditions:
 

@@ -20,7 +20,7 @@ Therefore we have 3 states for content:
 
 The following diagram vizualizes our workflow.
 
-![Workflow](../.gitbook/assets/workflow.png)
+![Workflow](../../.gitbook/assets/workflow.png)
 
 ## Step 1: Create the schema
 
@@ -38,7 +38,7 @@ The schema in the UI:
 
 In the content list the schema will look like this:
 
-![Articles](../.gitbook/assets/content-list.png)
+![Articles](../../.gitbook/assets/content-list.png)
 
 Now we can very easily see all articles and their status. But as a reviewer I am probably only interested in the articles that is ready to be reviewed.
 
@@ -46,19 +46,19 @@ We can search for these articles with the following query: `$filter=data/status/
 
 It looks a little bit like technical stuff and our reviewers should not care about this. But we can save the query and give it a friendly name so it can be reused.
 
-![Save Query](../.gitbook/assets/save-query.png)
+![Save Query](../../.gitbook/assets/save-query.png)
 
 The basic setup is already done and it might work well enough in a small team. It requires a little bit of discipline and corporation of all team members. But if we have critical content like product texts or a big team where we don't want to rely that everybody has a good day we need some rules to enforce that our workflow is used correctly.
 
 You can also use the new comments feature to share information between reviewer and writer:
 
-![Comments](../.gitbook/assets/comments.png)
+![Comments](../../.gitbook/assets/comments.png)
 
 ## Step 2: Enforce the workflow
 
 We start by creating our Roles in Squidex:
 
-![Roles](../.gitbook/assets/roles.png)
+![Roles](../../.gitbook/assets/roles.png)
 
 As you can see in the screenshot above, the `Creator` can only create and update content, but not publish it and the `Reviewer` can only update content. we use the default role `Editor` for the `Publisher`.
 
@@ -77,7 +77,7 @@ I will not show everything in this tutorial, it is just too much and the solutio
 
 The solution is scripting. If you click the three dots in the schema editor a menu will pop up with a menu item to the scripting editor. Here you can define scripts that are invoked when a content item is queried, created, updated, deleted or when the status is changed.
 
-![Scripting](../.gitbook/assets/scripting.png)
+![Scripting](../../.gitbook/assets/scripting.png)
 
 ### The create script:
 
@@ -95,7 +95,7 @@ Thats it, we do not have to do more, because the permission system already enfor
 
 The UI will show the error message from the script:
 
-![Error Message](../.gitbook/assets/error.png)
+![Error Message](../../.gitbook/assets/error.png)
 
 ### The update script:
 

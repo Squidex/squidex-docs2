@@ -35,7 +35,7 @@ public async Task<IActionResult> OnGet(string slug, bool secretQueryParameter = 
 
 You can define preview urls per schema in the following menu item:
 
-![Menu Item](../.gitbook/assets/menu.png)
+![Menu Item](../../.gitbook/assets/menu.png)
 
 In the dialog you can define as preview urls as you want. The following example shows 2 preview urls:
 
@@ -51,11 +51,11 @@ As you can see, you can use a placeholder with the javascript interpolation synt
 5. `${data.title.en-US}`: Title in American English
 6. `${version}`: Version of the content item.
 
-![Preview Urls](../.gitbook/assets/dialog.png)
+![Preview Urls](../../.gitbook/assets/dialog.png)
 
 ## Step 3: Use the preview button to go the corresponding URL:
 
 If you open a saved content item, you will see the buttons with the preview urls:
 
-![Preview Buttons](../.gitbook/assets/button.png)
+![Preview Buttons](../../.gitbook/assets/button.png)
 
