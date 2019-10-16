@@ -1,3 +1,7 @@
+---
+description: Rules are used to automate workflows.
+---
+
 # Rules
 
 A rule is a system to react to events.

@@ -1,6 +1,8 @@
-# Schemas
+---
+description: Schemas define the structure of your content.
+---
 
-Schemas define the structure of your content.
+# Schemas
 
 You have to publish your schema before you can create content.
 

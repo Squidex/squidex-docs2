@@ -1,3 +1,7 @@
+---
+description: Permissions give you access to resources or actions.
+---
+
 # Permissions
 
 The purpose of a permission is to control the ability of the users to view, change and delete contents, assets and settings.

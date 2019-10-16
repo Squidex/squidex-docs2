@@ -6,7 +6,7 @@
 ## Getting Started
 
 * [User Guide](getting-started/user-guide.md)
-* [Installation](getting-started/installation/README.md)
+* [Installation Instructions](getting-started/installation/README.md)
   * [Install with IIS](getting-started/installation/install-windows-iis.md)
   * [Install with Docker](getting-started/installation/install-docker.md)
   * [Install on Azure](getting-started/installation/install-azure.md)

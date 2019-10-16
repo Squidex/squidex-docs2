@@ -1,4 +1,2 @@
 # Contributing and Developing
 
-C
-
