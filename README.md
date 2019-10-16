@@ -25,9 +25,5 @@ In contrast to a traditional CMS, Squidex is headless and does not provide the f
 
 ### I want to install Squidex on my own \(virtual\) machines
 
-{% page-ref page="user-guide/installation/" %}
-
 ### I want to contribute as a developer or understand the architecture
-
-{% page-ref page="user-guide/contributing/" %}
 
