@@ -15,6 +15,7 @@
   * [Building](getting-started/contributing-and-developing/02-building.md)
   * [Developing](getting-started/contributing-and-developing/01-developing.md)
   * [Extensions](getting-started/contributing-and-developing/02-extensions.md)
+  * [Architecture](getting-started/contributing-and-developing/01-overview.md)
 * [Roadmap](getting-started/01-roadmap.md)
 
 ## Documentation
@@ -33,12 +34,13 @@
   * [Custom Workflows](documentation/developer-guides/10-workflow.md)
   * [Custom Editors](documentation/developer-guides/07-custom-editors.md)
   * [Preview Content](documentation/developer-guides/09-preview.md)
+* [User Guides](documentation/user-guides/README.md)
+  * [How to implement your workflows in Squidex](documentation/user-guides/how-to-implement-your-workflows-in-squidex.md)
+  * [How to manage your team in Squidex](documentation/user-guides/how-to-manage-your-team-in-squidex.md)
 
 ## Next
 
 * [Squidex 3.0: API Compatibility](next/02-api-compatibility.md)
 
 ## Architecture
-
-* [Overview](architecture/01-overview.md)
 
