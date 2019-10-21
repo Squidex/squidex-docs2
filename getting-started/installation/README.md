@@ -13,7 +13,7 @@
 
 * [Configuration Options](configuration.md)
 
-## Optional: configure Squidex.Identity
+## Optional: Configure Squidex.Identity
 
 * [How to use Squidex Identity](https://github.com/Squidex/squidex-docs2/tree/8d35c365b74878aa247c2d0b90867aceea77df1b/01-getting-started/identity/use-squidex-identity.md)
 
