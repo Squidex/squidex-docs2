@@ -1,5 +1,5 @@
 ---
-description: A short tutorial how to use Squidex.
+description: A short tutorial how to use Squidex with Postman.
 ---
 
 # Postman
