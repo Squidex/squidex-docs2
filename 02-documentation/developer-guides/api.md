@@ -38,9 +38,7 @@ Then your content has the following structure in the API:
 
 Please note that each field has an partitioning defined. It says how each field is structured. The most simple partitioning is the invariant partitition, which only allows a single key `iv`. If the field is localizable we use the iso codes from the languages that you defined in your app settings as keys.
 
-Read more about it at 
-
-{% page-ref page="../concepts/localization.md" %}
+Read more about it at [here](https://github.com/Squidex/squidex-docs2/tree/b2a368965b422e9e3c7d8e12a959c6412e74b23c/04-concepts/01-localization.md).
 
 ## OData Conventions
 
