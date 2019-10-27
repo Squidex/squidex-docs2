@@ -1,10 +1,8 @@
 ---
-description: How to provide your content in multiple languages.
+description: Localization allows you to define content in multiple languages.
 ---
 
 # Localization
-
-Localization allows you to define content in multiple languages.
 
 ## Basic concept
 
