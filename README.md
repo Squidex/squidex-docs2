@@ -23,17 +23,17 @@ In contrast to a traditional CMS, Squidex is headless and does not provide the f
 
 Read our guide for new users and learn how to publish your first content with Squidex.
 
-{% page-ref page="getting-started/user-guide.md" %}
+{% page-ref page="01-getting-started/user-guide.md" %}
 
 ### I want to install Squidex on my own \(virtual\) machines
 
 Follow our installation instructions to install Squidex on your own hardware.
 
-{% page-ref page="getting-started/installation/" %}
+{% page-ref page="01-getting-started/installation/" %}
 
 ### I want to contribute as a developer or understand the architecture
 
 Check out the contributor guide with instructions how to build, run and extend Squidex.
 
-{% page-ref page="getting-started/contributing-and-developing/" %}
+{% page-ref page="01-getting-started/contributing-and-developing/" %}
 
