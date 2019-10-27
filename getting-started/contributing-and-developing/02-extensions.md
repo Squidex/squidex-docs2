@@ -1,3 +1,7 @@
+---
+description: How to extend squidex and the different extension points for customization's.
+---
+
 # Extensions
 
 This document describes how to write extensions for Squidex. We use interfaces for all components that could be replaced and register them in the service locator.
@@ -80,7 +84,7 @@ You can provide other implementations for repositories, e.g. for Elastic Search 
 
 Command handlers are used to handle commands. They can be compared with ASP.NET Core Middlewares and run in a pipeline.
 
-```text
+```csharp
 namespace Squidex.Infrastructure.CQRS.Commands
 {
     public interface ICommandHandler

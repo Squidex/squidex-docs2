@@ -123,7 +123,7 @@ It is very important that you restart IIS after you have installed .NET Core Win
 
 This can happen when you try to make an API call with the PUT or DELETE Verb. For example when you use the Management UI. The reason is that WebDAV might be installed on your server and it blocks these verbs. You have to add the following lines to the `Web.config` file.
 
-```text
+```markup
 <system.webServer>
     <modules runAllManagedModulesForAllRequests="false">
         <remove name="WebDAVModule" />

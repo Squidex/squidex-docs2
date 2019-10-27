@@ -1,3 +1,7 @@
+---
+description: Short description about the Squidex Architecture.
+---
+
 # Architecture
 
 ## Concepts
@@ -21,7 +25,7 @@ A traditional representation of database state can be entirely recreated by repr
 Although this approach adds a lot of complexity to the system it also has a lot of advantages:
 
 1. You have a history of all your changes.
-2. You can consume the events to create your custom storages, e.g. you can use the Elastic Search Stack for full text search or statistics.
+2. You can consume the events to create your custom storage's, e.g. you can use the Elastic Search Stack for full text search or statistics.
 3. We never delete data and even for bigger bugs we can provide fixes that restore all your content.
 4. We don't have to care about data migration when we change the read models with a new version; you just have to run the event consumers from the beginning to populate the read store with the updated data.
 
@@ -31,7 +35,7 @@ Squidex is based on the following frameworks and tools:
 
 * ASP.NET Core for the backend.
 * Angular for the Management UI
-* MongoDB for the event Store and persistency
+* MongoDB for the event Store and persistence
 * Orleans as a backend technology.
 
 Of course we use a dozens of external dependencies, because we do not want to reinvent the wheel, but it would just be too much to list them here.

@@ -15,7 +15,7 @@ We provide docker images on docker hub: [https://hub.docker.com/r/squidex/squide
 
 To build a custom image use our multistage dockerfile. Just run:
 
-```text
+```bash
 docker build . -t my/squidex
 ```
 
@@ -33,14 +33,14 @@ You can then find the files under `$SQUIDEX/publish`.
 
 Run the following commands in Powershell or bash to build Squidex with docker:
 
-```text
+```bash
 # Build the image
 docker build . -t squidex-build-image -f dockerfile.build
 
 # Open the image
 docker create --name squidex-build-container squidex-build-image
 
-#Copy the output to the host file system
+# Copy the output to the host file system
 docker cp squidex-build-container:/out ./publish
 
 # Cleanup
@@ -62,13 +62,13 @@ If you don't want to use docker, you can also build it manually. The project str
 The new structure differentiates between the frontend and the backend:  
 
 
-![Project structure](../../.gitbook/assets/image.png)
+![Project structure](../../.gitbook/assets/image%20%281%29.png)
 
 This has the advantage that the code is separated and that we can using multiple contains to build them independently and make better use of caching in docker. After both, frontend and backend, have been built, you need to copy the build artifacts to a common folder. We just assume that we use `$SQUIDEX/publish` for that.
 
 To build the backend you have to run the following commands.
 
-```text
+```bash
 cd backend
 cd src/Squidex
 dotnet publish --configuration Release --output "../../../publish"
@@ -76,18 +76,16 @@ dotnet publish --configuration Release --output "../../../publish"
 
 To build the frontend you have to use the following commands.
 
-```text
+```bash
 cd frontend
-npm i // Install npm packages
+npm i # Install npm packages
 npm run build
 copy build "../publish/wwwroot/build"
-
 ```
 
 #### 2.2.2. Build the .NET 2.X without docker
 
-```text
-
+```bash
 npm i
 npm run build
 
@@ -97,7 +95,7 @@ dotnet publish --configuration Release --output "../../publish"
 
 Please note that on windows to install all required build tools for node-sass you have to run
 
-```text
+```bash
 npm install --global --production windows-build-tools
 ```
 

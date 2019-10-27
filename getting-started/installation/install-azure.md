@@ -43,7 +43,7 @@ Choose `Access Keys` and copy one of the keys for the setup of the MongoDB and o
 
 The following setup of the container instance can only be done using the azure-cli at the moment. Open a terminal, login to azure using _az login_ and run the following command.
 
-```text
+```bash
   az container create --resource-group [YOUR VALUE HERE] --name mongodb --image mongo --azure-file-volume-account-name [YOUR VALUE HERE] --azure-file-volume-account-key "[YOUR VALUE HERE]" --azure-file-volume-share-name etc-squidex-mongodb --azure-file-volume-mount-path "/data/mongoaz" --ports 27017 --cpu 2 --ip-address public --memory 2 --os-type Linux --protocol TCP --command-line "mongod --dbpath=/data/mongoaz --bind_ip_all"
 ```
 
