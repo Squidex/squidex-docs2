@@ -1,3 +1,7 @@
+---
+description: How to build Squidex using Docker or manually.
+---
+
 # Building
 
 ## 1. Build for docker
@@ -17,7 +21,13 @@ docker build . -t my/squidex
 
 ## 2. Build for manual deployment
 
-When you want to deploy to IIS or Nginx you have to build manually. You can then find the files under `$SQUIDEX/publish`.
+In this paragraph `$SQUIDEX`is a placeholder for the path to your local copy of the Squidex source code.
+
+When you want to deploy to IIS or Nginx you might want to build it manually. But keep in mind that we also provide the prebuild binaries on Github:
+
+[https://github.com/Squidex/squidex/releases](https://github.com/Squidex/squidex/releases)
+
+You can then find the files under `$SQUIDEX/publish`.
 
 ### 2.1. Build with docker
 
@@ -39,12 +49,44 @@ docker rm squidex-build-container
 
 Under windows just use the `build.ps` script.
 
-### 2.2. Build without docker
+{% hint style="info" %}
+We recommend to give your Docker machine at least 4GB of memory.
+{% endhint %}
 
-If you don't want to use docker, you can also build it manually. You have to execute the following commands:
+### 2.2. Build it manually
+
+If you don't want to use docker, you can also build it manually. The project structure has changed slightly when we migrated Squidex from .NET Core 2.X to .NET Core 3.0.
+
+#### 2.2.1. Build the .NET 3.0 version
+
+The new structure differentiates between the frontend and the backend:  
+
+
+![Project structure](../../.gitbook/assets/image.png)
+
+This has the advantage that the code is separated and that we can using multiple contains to build them independently and make better use of caching in docker. After both, frontend and backend, have been built, you need to copy the build artifacts to a common folder. We just assume that we use `$SQUIDEX/publish` for that.
+
+To build the backend you have to run the following commands.
 
 ```text
-cd $SQUIDEX$/src/Squidex
+cd backend
+cd src/Squidex
+dotnet publish --configuration Release --output "../../../publish"
+```
+
+To build the frontend you have to use the following commands.
+
+```text
+cd frontend
+npm i // Install npm packages
+npm run build
+copy build "../publish/wwwroot/build"
+
+```
+
+#### 2.2.2. Build the .NET 2.X without docker
+
+```text
 
 npm i
 npm run build
@@ -61,5 +103,7 @@ npm install --global --production windows-build-tools
 
 from an elevated PowerShell or CMD.exe \(run as Administrator\).
 
+{% hint style="info" %}
 We recommend to build Squidex with docker, because it ensures that you have a clean environment. Because of the docker [layers](http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/) the build is not much slower and can be even faster in some situations.
+{% endhint %}
 
