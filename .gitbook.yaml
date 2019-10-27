@@ -1,5 +1,7 @@
+root: ./
+
 redirects:
-  next/02-api-compatibility: 04-next/3.0-compatibility
-  guides/09-preview: 02-documentation/developer-guides/preview
-  04-guides/02-api: 02-documentation/developer-guides/api
-  04-guides/02-api.html: 02-documentation/developer-guides/api
+  next/02-api-compatibility: 04-next/3.0-compatibility.md
+  guides/09-preview: 02-documentation/developer-guides/preview.md
+  04-guides/02-api: 02-documentation/developer-guides/api.md
+  04-guides/02-api.html: 02-documentation/developer-guides/api.md
