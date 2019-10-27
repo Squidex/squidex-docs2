@@ -7,4 +7,4 @@ You can use the default roles:
 * **Developer**: Can also create, modify and delete schemas and rules.
 * **Owner**: Can also manage settings and manage contributors and subscriptions.
 
-Read more about our [permission system](../04-concepts/permissions) before you create custom roles.
+Read more about our [permission system](../02-documentation/concepts/permissions) before you create custom roles.

@@ -39,7 +39,7 @@ A rule execution will be treated as failed if it does not complete successfully 
 
 Rule executions will be stored as events for 2 days for debugging and will be deleted automatically.
 
-Read more about rules in the [Documentation](../04-concepts/rules).
+Read more about rules in the [Documentation](../02-documentation/concepts/rules).
 
 ## Webhooks
 
