@@ -1,3 +1,7 @@
+---
+description: Build and use custom editors to support your content editors.
+---
+
 # Custom Editors
 
 ## How to write your own editor

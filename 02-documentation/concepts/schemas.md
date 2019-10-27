@@ -4,7 +4,19 @@ description: Schemas define the structure of your content.
 
 # Schemas
 
-You have to publish your schema before you can create content.
+Schemas define the structure of your content:
+
+![Blog schema](../../.gitbook/assets/image%20%284%29.png)
+
+In the screenshot above we define a blog schema with several fields.
+
+Each field is identified by the following properties that cannot be changed:
+
+1. The **name**, which cannot be changed later and is also used in the API.
+2. The **type**, e.g. text or number.
+3. The **partitioning**, which defines if the field is localized or not.
+
+Furthermore a schema has a published change. Only published schemas can have content.
 
 ## Field States
 
@@ -26,7 +38,7 @@ If a field is not required it can also be null or omitted.
 
 A string is the most used field type and can be used for any kind of texts, like product names, descriptions and additional information. It is also the most flexible field and the usage depends very much on the editor you are using:
 
-1. **HTML**: With a wysiwyg editor.
+1. **HTML**: With a WYSIWYG editor.
 2. **Markdown**: With a markdown editor.
 3. **Singleline text**: With an input control.
 4. **Multiline text**: With a textarea control.

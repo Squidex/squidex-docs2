@@ -21,6 +21,7 @@
 ## Documentation <a id="02-documentation"></a>
 
 * [Concepts](02-documentation/concepts/README.md)
+  * [Apps](02-documentation/concepts/apps.md)
   * [Schemas](02-documentation/concepts/schemas.md)
   * [Localization](02-documentation/concepts/localization.md)
   * [Permissions](02-documentation/concepts/permissions.md)

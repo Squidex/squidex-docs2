@@ -1,3 +1,7 @@
+---
+description: Provide a live preview on your website for your content editors.
+---
+
 # Preview Content
 
 By default, Squidex will only deliver content that has been published. But it can be very useful to review content in your production environment before you actually publish it. This guide shows you how to do it.
