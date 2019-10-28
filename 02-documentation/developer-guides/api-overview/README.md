@@ -2,14 +2,14 @@
 description: Gives you an overview about the different APIs.
 ---
 
-# API Overview
+# API
 
 With the API you can:
 
 * ... create, change or query your content.
 * ... upload, download or query assets.
-* ... Make complex queries with the GraphQL endpoint.
-* ...execute all management operations such as creating apps, schemas, rules and updating settings.
+* ... make complex queries with the GraphQL endpoint.
+* ... execute all management operations such as creating apps, schemas, rules and updating settings.
 
 The Management UI is using the same endpoints. If you can do something manually you can also do it with code.
 

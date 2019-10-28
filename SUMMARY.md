@@ -27,7 +27,7 @@
   * [Permissions](02-documentation/concepts/permissions.md)
   * [Rules](02-documentation/concepts/rules.md)
 * [Developer Guides](02-documentation/developer-guides/README.md)
-  * [API Overview](02-documentation/developer-guides/api-overview/README.md)
+  * [API](02-documentation/developer-guides/api-overview/README.md)
     * [Postman](02-documentation/developer-guides/api-overview/postman.md)
     * [Query System](02-documentation/developer-guides/api-overview/api.md)
     * [Assets](02-documentation/developer-guides/api-overview/assets-api.md)
