@@ -2,7 +2,7 @@
 description: How to use the Assets API to resize images.
 ---
 
-# Assets API
+# Assets
 
 ### How to retrieve assets and content?
 
@@ -93,7 +93,6 @@ Cache-Contro: public,max-age=<cache>
     <tr>
       <th style="text-align:left">Parameter</th>
       <th style="text-align:left">Description</th>
-      <th style="text-align:left"></th>
     </tr>
   </thead>
   <tbody>
@@ -102,8 +101,6 @@ Cache-Contro: public,max-age=<cache>
       <td style="text-align:left">If you have update the asset with a new version of the file you can retrieve
         old versions of the file by adding the version header. The first version
         has value <code>0</code>, then <code>1</code>, <code>2</code> and so on.</td>
-      <td
-      style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left">
@@ -115,7 +112,6 @@ Cache-Contro: public,max-age=<cache>
         Therefore most browsers will download the file, which might be not desired
         for images. By setting this parameter to <code>0</code> you can prevent the
         download for images.</td>
-      <td style="text-align:left"></td>
     </tr>
   </tbody>
 </table>

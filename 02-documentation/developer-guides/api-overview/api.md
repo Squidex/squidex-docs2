@@ -2,11 +2,11 @@
 description: Basic concepts and functionality of the API.
 ---
 
-# API
-
-We demonstrate the API concepts based on the following example:
+# Query System
 
 ## Example
+
+We demonstrate the API concepts based on the following example:
 
 Lets assume you have an app `geodata` with two languages \(en, de\) and a schema `cities` with two fields:
 
@@ -181,17 +181,17 @@ e.g. find the top 20 biggest cities by population:
 https://cloud.squidex.io/api/content/geodata/cities?$orderby=data/population/iv desc$top=20
 ```
 
-Read more about OData at: [http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part2-url-conventions.html](http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part2-url-conventions.html)
+Read more about OData at: 
+
+{% embed url="http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part2-url-conventions.html" %}
+
+{% hint style="info" %}
+Property names with dashes are not supported in OData. Replace your dashes with underscore in your filter or order statements.
+{% endhint %}
 
 ## Published
 
-By default the content api returns published content only. You can use the `X-Unpublished` header to also return draft content.
-
-## Consistency
-
-The API uses the eventual consistency. Events are handled in the background as described under [architecture](../../01-getting-started/contributing-and-developing/overview.md). This means that it can take to up a second until the data is available to the query side. Under very high load it can even take more time. If you receive a success status code when you create or update an content you have the guarantee, that it has been written to the database successfully. You can also make another write operation directly, e.g. to publish the content.
-
-There are some tricks to deal with it in the UI: [http://danielwhittaker.me/2014/10/27/4-ways-handle-eventual-consistency-ui/](http://danielwhittaker.me/2014/10/27/4-ways-handle-eventual-consistency-ui/). In our opinion this leads to a more stable and faster UI and server and it is worth it.
+By default the content api returns only published content. You can use the `X-Unpublished` header to also return draft content.
 
 ### Versioning
 
@@ -202,7 +202,7 @@ You can use this header for two use cases:
 1. When you make an update you get the new version. This information can be used to find out if your change has already been written to the read store when you receive the same resource after your update.
 2. When you make an update you can use the `If-Match` header to pass the expected version to the API. If the version does not match to the version in the database another user or client has changed the same resource. Then the `412 (Precondition Failed)` status code is returned. You should provide this information to the user and ask if the user wants to reload the data or if the resource should be overwritten \(just do not use the `If-Match` header for the second request\).
 
-Read more about the If-Match header at: [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Match](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Match)
+Read more about the If-Match header at
 
-> NOTE: Property names with dashes are not supported in OData. Use underscore instead.
+{% embed url="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Match" %}
 
