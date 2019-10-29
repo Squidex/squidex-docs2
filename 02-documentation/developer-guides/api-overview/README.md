@@ -4,6 +4,8 @@ description: Gives you an overview about the different APIs.
 
 # API
 
+## Introduction
+
 With the API you can:
 
 * ... create, change or query your content.
@@ -13,7 +15,7 @@ With the API you can:
 
 The Management UI is using the same endpoints. If you can do something manually you can also do it with code.
 
-The next paragraph will give you and introduction about the different endpoints. Then we have some useful links to additional pages about specific aspects of the API.
+The next paragraph will give you a short introduction about the different endpoints. After that we have some useful links to additional pages about specific aspects of the API.
 
 ## Different endpoints
 
