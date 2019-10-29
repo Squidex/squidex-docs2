@@ -6,11 +6,11 @@ description: How to extend squidex and the different extension points for custom
 
 ## Introduction
 
-This document describes how to write extensions for Squidex. We use interfaces for all components, which can then be replaced with custom implementations.
+This document describes how to write extensions for Squidex. We assume that you know the Basic principles of C\# and ASP.NET Core. Otherwise it might be very hard to write custom extensions.
 
-We use the standard dependency injection for that. \(see [https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)\).
+We use interfaces for all components, which can then be replaced with custom implementations. The default dependency injection system is used to register services. \(see [https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)\).
 
-Furthermore you can extend Squidex with custom HTTP endpoints. Due to the static nature of the Management UI which is build with Typescript and Angular and has a compilation and bundling process it is not possible to extend the UI, except a few cases where it has been made possible.
+Furthermore you can extend Squidex with custom HTTP endpoints. Due to the static nature of the Management UI which is build with Typescript and Angular and has a compilation and bundling process it you cannot extend the UI, except in a few cases where it has been made possible.
 
 Read the following article to understand how to write custom editors for the Management UI:
 
