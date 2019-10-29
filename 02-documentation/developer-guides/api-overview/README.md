@@ -25,7 +25,7 @@ Each app has its own content API. The documentation is generated when you change
 
 You can find the link to your Content API in the API section of the Management UI:
 
-![Link to content API](../../../.gitbook/assets/image%20%289%29.png)
+![Link to content API](../../../.gitbook/assets/image%20%2813%29.png)
 
 For example, this this is the Content API for my \(Sebastian, CTO\) personal profile page:
 
@@ -35,7 +35,7 @@ For example, this this is the Content API for my \(Sebastian, CTO\) personal pro
 
 The [GraphQL ](https://graphql.org/)endpoint is also generated per client. The documentation is provided by GraphiQL, an integrated, interactive GraphQL query editor. This endpoint can only be used to query content items and assets. Mutations have not been implemented yet, due several restrictions with the underlying GraphQL framework.
 
-![Link to your GraphQL API](../../../.gitbook/assets/image%20%281%29.png)
+![Link to your GraphQL API](../../../.gitbook/assets/image%20%282%29.png)
 
 ### General API
 
