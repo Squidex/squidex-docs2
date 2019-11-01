@@ -1,4 +1,4 @@
-A schema defines the structure of the content.
+A schema defines the structure of the content and is defined by the fields and their settings.
 
 Each field can have the following states:
 
@@ -10,4 +10,4 @@ Each field can have the following states:
 
 You have to publish your schema before you can create content.
 
-Read more about schemas in the [Documentation](../02-documentation/schemas).
+Read more about schemas in the [Documentation](../02-documentation/concepts/schemas).
