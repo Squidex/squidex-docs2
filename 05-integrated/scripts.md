@@ -16,6 +16,12 @@ For example:
 
 * `ctx.contentId`: The id of the content item.
 
+Possible operations are:
 
+* `replace()`: Replaces the content with the modified version.
 
-Read more about schemas in the [Documentation](../02-documentation/developer-guides/scripting).
+* `reject()`: Reject the operation and return a HTTP 400 (Bad request) instead.
+
+* `disallow()`: Reject the operation because of security reasons and return a HTTP 403 (Forbidden) instead.
+
+Read more about scripting in the [Documentation](../02-documentation/developer-guides/scripting).
