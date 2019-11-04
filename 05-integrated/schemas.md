@@ -1,6 +1,6 @@
 A schema defines the structure of the content and is defined by the fields and their settings.
 
-### General
+### Fields
 
 Each field can have the following states:
 
@@ -19,9 +19,7 @@ Read more about schemas in the
 
 ### Scripts
 
-Scripts can be used to implement custom workflows.
-
-In scripts all available information are available from the `ctx` (Context) variable.
+Scripts can be used to implement custom workflows. In scripts all available information are available from the `ctx` (Context) variable.
 
 For example:
 
