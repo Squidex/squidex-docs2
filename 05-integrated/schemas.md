@@ -4,7 +4,7 @@ A schema defines the structure of the content and is defined by the fields and t
 
 Each field can have the following states:
 
-1. **Locked**: The field cannot be updated or deleted.
+1. **Locked**: The field cannot be updated, unlocked or deleted anymore.
 
 2. **Hidden**: The field will not be returned by the api and only visible in the Management UI.
 
@@ -12,8 +12,7 @@ Each field can have the following states:
 
 You have to publish your schema before you can create content.
 
-Read more about schemas in the
-[Documentation](../02-documentation/concepts/schemas).
+Read more about schemas in the [Docs](../02-documentation/concepts/schemas).
 
 ---
 
@@ -29,11 +28,11 @@ For example:
 
 * `ctx.dataOld` will provide the current data value of the content item.
 
-* `ctx.status`: The new status when a content is changed.
+* `ctx.status`: The new status when a content is changed or the current status otherwise.
 
-* `ctx.statusOld`: The current status of a content item.
+* `ctx.statusOld`: The current status of a content item. Undefined for new items.
 
-* `ctx.contentId`: The id of the content item.
+* `ctx.contentId`: The id of the content item as a string.
 
 Possible operations are:
 
@@ -43,5 +42,4 @@ Possible operations are:
 
 * `disallow()`: Reject the operation because of security reasons and return a HTTP 403 (Forbidden) instead.
 
-Read more about scripting in the
-[Documentation](../02-documentation/developer-guides/scripting).
+Read more about scripting in the [Docs](../02-documentation/developer-guides/scripting).
