@@ -1,4 +1,4 @@
 # User Guide
 
-COMING SOON
+COMING SOON, really!
 
