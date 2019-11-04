@@ -1,6 +1,6 @@
 A schema defines the structure of the content and is defined by the fields and their settings.
 
-## General
+### General
 
 Each field can have the following states:
 
@@ -12,9 +12,12 @@ Each field can have the following states:
 
 You have to publish your schema before you can create content.
 
-Read more about schemas in the [Documentation](../02-documentation/concepts/schemas).
+Read more about schemas in the
+[Documentation](../02-documentation/concepts/schemas).
 
-## Scripts
+---
+
+### Scripts
 
 Scripts can be used to implement custom workflows.
 
@@ -42,4 +45,5 @@ Possible operations are:
 
 * `disallow()`: Reject the operation because of security reasons and return a HTTP 403 (Forbidden) instead.
 
-Read more about scripting in the [Documentation](../02-documentation/developer-guides/scripting).
+Read more about scripting in the
+[Documentation](../02-documentation/developer-guides/scripting).
