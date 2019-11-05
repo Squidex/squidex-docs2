@@ -2,7 +2,7 @@
 description: Basic concepts and functionality of the API.
 ---
 
-# Query System
+# Queries
 
 ## Example
 

@@ -27,7 +27,7 @@ Each app has its own content API. The documentation is generated when you change
 
 You can find the link to your Content API in the API section of the Management UI:
 
-![Link to content API](../../../.gitbook/assets/image%20%2813%29.png)
+![Link to content API](../../../.gitbook/assets/image%20%2819%29.png)
 
 For example, this this is the Content API for my \(Sebastian, CTO\) personal profile page:
 
@@ -53,11 +53,11 @@ If you want to jump into the details of the API these pages might be helpful:
 
 {% page-ref page="postman.md" %}
 
-### How to use the Query system to filter Content
+### How to use the query system to filter content
 
 {% page-ref page="api.md" %}
 
-### How to download and resize Assets
+### How to download and resize assets
 
 {% page-ref page="assets-api.md" %}
 

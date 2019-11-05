@@ -14,7 +14,8 @@
 * [Contributing and Developing](01-getting-started/contributing-and-developing/README.md)
   * [Building](01-getting-started/contributing-and-developing/building.md)
   * [Developing](01-getting-started/contributing-and-developing/developing.md)
-  * [Extensions](01-getting-started/contributing-and-developing/extensions.md)
+  * [Extensions](01-getting-started/contributing-and-developing/extensions/README.md)
+    * [How to write custom rule actions.](01-getting-started/contributing-and-developing/extensions/how-to-write-custom-rule-actions..md)
   * [Architecture](01-getting-started/contributing-and-developing/overview.md)
 * [Roadmap](01-getting-started/roadmap.md)
 
@@ -29,7 +30,7 @@
 * [Developer Guides](02-documentation/developer-guides/README.md)
   * [API](02-documentation/developer-guides/api-overview/README.md)
     * [Postman](02-documentation/developer-guides/api-overview/postman.md)
-    * [Query System](02-documentation/developer-guides/api-overview/api.md)
+    * [Queries](02-documentation/developer-guides/api-overview/api.md)
     * [Assets](02-documentation/developer-guides/api-overview/assets-api.md)
   * [Automation Tools](02-documentation/developer-guides/automation-tools.md)
   * [Scripting](02-documentation/developer-guides/scripting.md)

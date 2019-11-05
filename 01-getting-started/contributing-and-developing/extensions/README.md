@@ -14,7 +14,7 @@ Furthermore you can extend Squidex with custom HTTP endpoints. Due to the static
 
 Read the following article to understand how to write custom editors for the Management UI:
 
-{% page-ref page="../../02-documentation/developer-guides/editors.md" %}
+{% page-ref page="../../../02-documentation/developer-guides/editors.md" %}
 
 ## How to write a custom Plugin
 
@@ -36,7 +36,7 @@ You only need the source code for Development. There are other approaches how to
 
 First you have to create a new .NET class library to the backend solution:
 
-![Squidex.Extensions Plugin](../../.gitbook/assets/image%20%2810%29.png)
+![Squidex.Extensions Plugin](../../../.gitbook/assets/image%20%2816%29.png)
 
 Ensure that you target `netcoreapp3.0`.
 
@@ -80,25 +80,27 @@ namespace Squidex.Extensions.Samples.AssetStore
 
 Add a reference to your plugin to the `Squidex` project.
 
-![Add reference to your plugin](../../.gitbook/assets/image.png)
+![Add reference to your plugin](../../../.gitbook/assets/image.png)
 
 Furthermore you need to add the path to your plugin to the configuration, for example to the `appSettings`file. Because we reference the plugin, it will be automatically copied to the output folder when the build or packaging is executed.
 
-![Reference your plugin in the configuration file](../../.gitbook/assets/image%20%2811%29.png)
+![Reference your plugin in the configuration file](../../../.gitbook/assets/image%20%2817%29.png)
 
 There is also a project on Github that demonstrates how to create a plugin for SendGrid with an older version of Squidex: [https://github.com/squidexcontrib/sendgrid](https://github.com/squidexcontrib/sendgrid)
-
-## How to publish custom plugins
-
-COMING SOON
 
 ## Extension Points
 
 There are a few extension points that can be used for custom functionality.
 
+### Rule Actions
+
+Rule actions are used to integrate external systems to Squidex. Therefore we have written a guide to show you how to write your first rule action.
+
+{% page-ref page="how-to-write-custom-rule-actions..md" %}
+
 ### Controllers
 
-You can write your own controllers, but you have to derive from `ApiCOntroller`: 
+You can write your own controllers, but you have to derive from `ApiController` class. Your controllers are available under the `/api` path, because all other requests will be forwarded to the Management UI. The `ApiController`enforces this rule and ensures the correct routing.
 
 ```csharp
 public sealed class PluginController : ApiController
