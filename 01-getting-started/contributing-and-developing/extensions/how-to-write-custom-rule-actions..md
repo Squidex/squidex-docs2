@@ -4,7 +4,7 @@ description: >-
   we will show you how to extend the rule system with custom actions.
 ---
 
-# How to write custom rule actions.
+# How to write custom rule actions
 
 In this guide we use the webhook action as an example to show you the basic principles.
 
