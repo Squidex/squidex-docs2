@@ -96,7 +96,7 @@ There are a few extension points that can be used for custom functionality.
 
 Rule actions are used to integrate external systems to Squidex. Therefore we have written a guide to show you how to write your first rule action.
 
-{% page-ref page="how-to-write-custom-rule-actions..md" %}
+{% page-ref page="how-to-write-custom-rule-actions.md" %}
 
 ### Controllers
 
