@@ -26,7 +26,7 @@ In this tutorial we use `Squidex.Extensions` project as an example, which also c
 
 Just checkout the source code from Github:
 
-```text
+```
 git@github.com:Squidex/squidex.git
 ```
 
@@ -55,7 +55,7 @@ The references projects contain interfaces as well as implementations, which is 
 
 A plugin class is used to register all implementations to Squidex. In this example we create a custom plugin that registers an asset store that keeps all files in Memory. We register it only when it is activated via the configuration system, so either from `appSettings.json`, command line arguments or environment variables.
 
-```csharp
+```
 namespace Squidex.Extensions.Samples.AssetStore
 {
     public sealed class MemoryAssetStorePlugin : IPlugin
@@ -102,7 +102,7 @@ Rule actions are used to integrate external systems to Squidex. Therefore we hav
 
 You can write your own controllers, but you have to derive from `ApiController` class. Your controllers are available under the `/api` path, because all other requests will be forwarded to the Management UI. The `ApiController`enforces this rule and ensures the correct routing.
 
-```csharp
+```
 public sealed class PluginController : ApiController
 {
     public PluginController(ICommandBus commandBus)
@@ -170,7 +170,7 @@ You can provide other implementations for repositories, e.g. for Elastic Search 
 
 Command middlewares are used to handle commands, for example when a new content item is created. They run in a pipeline and can be used to for a lot of different purposes. It is safe to implement the `ICustomCommandMiddleware` interface, that ensures that your commands are running in the correct order.
 
-```csharp
+```
 namespace Squidex.Infrastructure.CQRS.Commands
 {
     public interface ICustomCommandMiddleware
@@ -186,7 +186,7 @@ They accept two parameters. The first is the command context, that also includes
 
 If you can accept the command, handle it and call `Complete()`.
 
-```csharp
+```
 class MyHandler : ICustomCommandMiddleware
 {
     public async Task HandleAsync(CommandContext context, Func<Task> next) 
@@ -206,7 +206,7 @@ class MyHandler : ICustomCommandMiddleware
 
 #### Example 2: Measure Performance
 
-```csharp
+```
 class MyHandler : ICustomCommandMiddleware
 {
     public async Task HandleAsync(CommandContext context, Func<Task> next) 
@@ -229,7 +229,7 @@ class MyHandler : ICustomCommandMiddleware
 
 #### Example 3: Enrich Command
 
-```csharp
+```
 class MyHandler : ICustomCommandMiddleware
 {
     public async Task HandleAsync(CommandContext context, Func<Task> next) 
@@ -248,7 +248,7 @@ class MyHandler : ICustomCommandMiddleware
 
 Event consumers are invoked when new events are created or when an event consumer is restarted and old events are replayed. You should not raise new events, but of course you can create a new events.
 
-```csharp
+```
 namespace Squidex.Infrastructure.CQRS.Events
 {
     public interface IEventConsumer

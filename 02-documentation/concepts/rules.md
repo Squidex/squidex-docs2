@@ -34,7 +34,7 @@ The enriched events have the following structure:
 
 #### Content Events
 
-```javascript
+```
 {
     "id": "123...", // Id of the content.
     "actor": { "type": "subject", "id": "123..." }, // Id of the user
@@ -67,7 +67,7 @@ The enriched events have the following structure:
 
 #### Asset Events
 
-```javascript
+```
 {
     "id": "123...", // Id of the asset
     "actor": { "type": "subject", "id": "123..." }, // Id of the user
@@ -115,19 +115,19 @@ Here are some examples to demonstrate it:
 
 Specific asset events:
 
-```text
+```
 event.type == 'Created' || event.type == 'Updated'
 ```
 
 Large assets only:
 
-```text
+```
 event.fileSize > 100000000
 ```
 
 Images only:
 
-```text
+```
 event.isImage
 ```
 
@@ -157,37 +157,33 @@ For content events you can also use:
 
 Furthermore you can also use javascript expressions with the following syntax:
 
-```text
+```
 Script(<YOUR_SCRIPT>)
 ```
 
 [Javascript template string](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/template_strings) are very useful here. The placeholders above can be translated to the following expressions:
 
-```javascript
-Script(`${event.appId.id}`)
-Script(`${event.appId.Name}`)
-Script(`${event.user.id}`)
-Script(`${event.user.email}`)
-Script(`${formatDate(event.user.timestamp, 'yyyy-MM-dd')}`)
-Script(`${formatDate(event.user.timestamp, 'yyyy-MM-dd-hh-mm-ss')}`)
+    Script(`${event.appId.id}`)
+    Script(`${event.appId.Name}`)
+    Script(`${event.user.id}`)
+    Script(`${event.user.email}`)
+    Script(`${formatDate(event.user.timestamp, 'yyyy-MM-dd')}`)
+    Script(`${formatDate(event.user.timestamp, 'yyyy-MM-dd-hh-mm-ss')}`)
 
-// For content events
-Script(`${event.schemaId.id}`)
-Script(`${event.schemaId.Name}`)
-Script(`${contentUrl()}`)
-Script(`${contentAction()}`)
-Script(`${event.data.city.de}`)
-```
+    // For content events
+    Script(`${event.schemaId.id}`)
+    Script(`${event.schemaId.Name}`)
+    Script(`${contentUrl()}`)
+    Script(`${contentAction()}`)
+    Script(`${event.data.city.de}`)
 
 You can also reference any other field from the event and you can use if-statements and other javascript language features.
 
-```javascript
-if (event.fileSize > 100000) {
-    return `I just uploaded a large image ${event.fileName}`;
-} else {
-    return `I just uploaded a small image ${event.fileName}`;
-}
-```
+    if (event.fileSize > 100000) {
+        return `I just uploaded a large image ${event.fileName}`;
+    } else {
+        return `I just uploaded a small image ${event.fileName}`;
+    }
 
 ### 4. Execution
 

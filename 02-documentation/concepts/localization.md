@@ -10,7 +10,7 @@ You can define per field if the field is localizable or not. We call this system
 
 It is easy to understand when you have a look to an content object from the API:
 
-```javascript
+```
 { 
     "id": "01",
     "created": "2017-02-25T19:56:35Z",
@@ -53,7 +53,7 @@ The rest endpoint provides two headers that can be used to query the correct lan
 
 You can filter the languages with the `X-Languages` header. Other languages will be omitted. We do not use the `Accept-Language` header because we want to avoid compatibility issues. If you define a language that is not supported, this language will be ignored. For example: If you set: `X-Languages: en,sv,de` for our example above you will only retrieve English \(en\) and Swedish \(sv\).
 
-```javascript
+```
 X-Languages: en,sv
 { 
     ...,
@@ -71,7 +71,7 @@ X-Languages: en,sv
 
 If none of the specified languages is provided you will retrieve the master language only.
 
-```javascript
+```
 X-Languages: de
 { 
     ...,
@@ -90,7 +90,7 @@ X-Languages: de
 
 If you add this header, fields that only have a single value will be flattened. So the example above will be transformed to:
 
-```javascript
+```
 X-Flatten: true
 { 
     ...,
@@ -108,7 +108,7 @@ Both headers can be combined. If you define a single language with the `X-Langua
 
 So our example from above might look like:
 
-```javascript
+```
 X-Languages: de
 X-Flatten: true
 { 

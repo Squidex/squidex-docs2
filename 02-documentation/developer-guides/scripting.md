@@ -22,7 +22,7 @@ Lets have a look to some use cases:
 
 ### Use Case \#1: Don’t return sensitive information when queried by client.
 
-```javascript
+```
 if (ctx.isClient) { // ctx Variable contains all Context information
     ctx.data.password.iv = '********';
     // Tell Squidex that the content should be replaced.
@@ -32,7 +32,7 @@ if (ctx.isClient) { // ctx Variable contains all Context information
 
 ### Use Case \#2: Ensure that two fields are the same when content created.
 
-```javascript
+```
 var data = ctx.data;
 if (data.password.iv !== data.passwordConfirm.iv) {
     // Tell Squidex to return a 400 (Bad Request)
@@ -42,7 +42,7 @@ if (data.password.iv !== data.passwordConfirm.iv) {
 
 ### Use Case \#3: Do not allow the client to set fields.
 
-```javascript
+```
 if (ctx.isClient && ctx.data.password.iv) {
     // Tell Squidex to return a 403 (Forbidden)
     disallow();
@@ -53,7 +53,7 @@ if (ctx.isClient && ctx.data.password.iv) {
 
 ### Use Case \#4: Compute field from other values.
 
-```javascript
+```
 ctx.data.hasPassword = { iv: !!ctx.data.password.iv };
 // Tell Squidex that the content should be replaced.
 replace();
@@ -61,7 +61,7 @@ replace();
 
 ### Use Case \#5: Only a specific user can publish content.
 
-```javascript
+```
 if (ctx.operation === 'Published' && ctx.user.email !== 'content@master.com') {
     // Reject the call if the publisher has another email address.
     reject('You are not allowed to publish the content');

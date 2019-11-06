@@ -15,7 +15,7 @@ We provide docker images on docker hub: [https://hub.docker.com/r/squidex/squide
 
 To build a custom image use our multistage dockerfile. Just run:
 
-```bash
+```
 docker build . -t my/squidex
 ```
 
@@ -33,7 +33,7 @@ You can then find the files under `$SQUIDEX/publish`.
 
 Run the following commands in Powershell or bash to build Squidex with docker:
 
-```bash
+```
 # Build the image
 docker build . -t squidex-build-image -f dockerfile.build
 
@@ -68,7 +68,7 @@ This has the advantage that the code is separated and that we can using multiple
 
 To build the backend you have to run the following commands.
 
-```bash
+```
 cd backend
 cd src/Squidex
 dotnet publish --configuration Release --output "../../../publish"
@@ -76,7 +76,7 @@ dotnet publish --configuration Release --output "../../../publish"
 
 To build the frontend you have to use the following commands.
 
-```bash
+```
 cd frontend
 npm i # Install npm packages
 npm run build
@@ -85,7 +85,7 @@ copy build "../publish/wwwroot/build"
 
 #### 2.2.2. Build the .NET 2.X without docker
 
-```bash
+```
 npm i
 npm run build
 
@@ -95,7 +95,7 @@ dotnet publish --configuration Release --output "../../publish"
 
 Please note that on windows to install all required build tools for node-sass you have to run
 
-```bash
+```
 npm install --global --production windows-build-tools
 ```
 

@@ -43,13 +43,13 @@ You can keep the other settings empty for now.
 
 The data will be stored outside of the docker container to simplify the backups. Create the folder with
 
-```bash
+```
 sudo mkdir /var/mongo/db
 ```
 
 ### 4. Run the docker-compose file
 
-```bash
+```
 docker-compose up -d
 ```
 

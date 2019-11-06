@@ -60,7 +60,7 @@ Create a folder for your squidex installation and extract the archive to this fo
 2. Create a file called `appsettings.Production.json` where we override the default settings. When you make an upload and download a newer release your customized settings will not be overriden.
 3. Enter the following content and choose a custom username and password and the path to your assets.
 
-```javascript
+```
 {
   "urls": {
     /*
@@ -123,7 +123,7 @@ It is very important that you restart IIS after you have installed .NET Core Win
 
 This can happen when you try to make an API call with the PUT or DELETE Verb. For example when you use the Management UI. The reason is that WebDAV might be installed on your server and it blocks these verbs. You have to add the following lines to the `Web.config` file.
 
-```markup
+```
 <system.webServer>
     <modules runAllManagedModulesForAllRequests="false">
         <remove name="WebDAVModule" />
@@ -137,7 +137,7 @@ Ensure that the `ASPNETCORE_ENVIRONMENT` environment variable is set to `Product
 
 Squidex logs all environment variables on the first start. Search for the following output in the logs:
 
-```javascript
+```
 {
   "logLevel": "Information",
   "message": "Application started",

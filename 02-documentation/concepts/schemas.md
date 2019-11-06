@@ -46,7 +46,7 @@ A string is the most used field type and can be used for any kind of texts, like
 
 #### API representation
 
-```javascript
+```
 {
     "name": "Squidex T-Shirt",
     "description": "For our fans. <p>Available in <strong>multiple colors ..."
@@ -61,7 +61,7 @@ A number can either be a point number or integer. Typical examples when to use n
 
 #### API representation
 
-```javascript
+```
 {
     "quantity": 100,
     "price": 9.99
@@ -76,7 +76,7 @@ Booleans have only 2 states: True or false, yes or no, 1 or 0.
 
 #### API representation
 
-```javascript
+```
 {
     "isSoldOut": true,
     "isOffer": null
@@ -91,7 +91,7 @@ Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ss.sssZ`
 
 #### API representation
 
-```javascript
+```
 {
     "sellUntil": "2020-02-02T12:00:00Z"
 }
@@ -105,7 +105,7 @@ Asset fields are used to maintain a list of assset IDs. You can also restrict th
 
 #### API representation
 
-```javascript
+```
 {
     "images": [
         "7722daf6-1ba7-4b2a-a5bb-fc57e22f5645",
@@ -122,7 +122,7 @@ References fields are used to model relationship to other content items. For exa
 
 #### API representation
 
-```javascript
+```
 {
     "categories": [
         "7722daf6-1ba7-4b2a-a5bb-fc57e22f5645",
@@ -139,7 +139,7 @@ Some content items only exist as child content for another content item. For exa
 
 #### API representation
 
-```javascript
+```
 {
     "sizes": [{
         "size": "XL",
@@ -159,7 +159,7 @@ Some content items only exist as child content for another content item. For exa
 
 The geolocation field represents a tuple of latitude and longitude and is designed to be used in combination with maps. It does not store additional data about the location, such as names, addresses or other information. You have to add additional fields for this purpose.
 
-```javascript
+```
 {
     "location": {
         "latitude": 14.9212444,
@@ -176,7 +176,7 @@ Tags are list of strings that are use in the combination tag editor in the Manag
 
 #### API representation
 
-```javascript
+```
 {
     "tags": [
         "t-shirts",
@@ -193,7 +193,7 @@ A json field is for developers. Whenever you have some structured or unstructure
 
 #### API representation
 
-```javascript
+```
 {
     "sold": {
         "Europe": {

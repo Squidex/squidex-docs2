@@ -12,7 +12,7 @@ Squidex Identity server based on Squidex Headless CMS. It implements the OpenId 
 
 Clone the Squidex identity repository with the following command:
 
-```text
+```
 git clone https://github.com/Squidex/squidex-identity.git
 ```
 
@@ -30,7 +30,7 @@ Update the configureation with the url to your squidex instance and the client i
 
 Update the configuration file at: `Squidex.Identity/appsettings.json`
 
-```javascript
+```
 "app": {
     // ...
     "url": "https://cloud.squidex.io",
@@ -89,7 +89,7 @@ In the first step you have to create a new client:
 
 In the second step you have to update the Squidex configuration at `Squidex/appsettings.json`
 
-```javascript
+```
 "identity": {
     ...
     "oidcName": "selfHostedName",

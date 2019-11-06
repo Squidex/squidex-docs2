@@ -15,7 +15,7 @@ Lets assume you have an app `geodata` with two languages \(en, de\) and a schema
 
 Then your content has the following structure in the API:
 
-```javascript
+```
 {
     "id": "01",
     "created": "2017-02-25T19:56:35Z",
@@ -50,7 +50,7 @@ We support the following query options.
 
 The `$top` query option requests the number of items in the queried collection to be included in the result. The default value is 20 and the maximum allowed value is 200.
 
-```text
+```
 https://cloud.squidex.io/api/content/geodata/cities?$top=30
 ```
 
@@ -58,13 +58,13 @@ https://cloud.squidex.io/api/content/geodata/cities?$top=30
 
 The `$skip` query option requests the number of items in the queried collection that are to be skipped and not included in the result. Use it together with $top to read the all your data page by page.
 
-```text
+```
 https://cloud.squidex.io/api/content/geodata/cities?$skip=20
 ```
 
 or combined with top
 
-```text
+```
 https://cloud.squidex.io/api/content/geodata/cities?$skip=20&$top=30
 ```
 
@@ -72,7 +72,7 @@ https://cloud.squidex.io/api/content/geodata/cities?$skip=20&$top=30
 
 The $search query option allows clients to request entities matching a free-text search expression. We add the data of all fields for all keys to a single field in the database and use this combined field to implement the full text search.
 
-```text
+```
 https://cloud.squidex.io/api/content/geodata/cities?$search=Munich
 ```
 
@@ -84,19 +84,19 @@ The $filter system query option allows clients to filter a collection of resourc
 
 Find the city with the english name Munich
 
-```text
+```
 https://cloud.squidex.io/api/content/geodata/cities?$filter=data/name/de eq Munich
 ```
 
 Find all cities with a population or more than 100000 people
 
-```text
+```
 https://cloud.squidex.io/api/content/geodata/cities?$filter=data/population/iv gt 100000
 ```
 
 Find all the term items which belong to a certain vocabulary item: let's say you'd like to `tag` your articles and you'd like to categorize these tags. In this case you would have a `term` schema and a `vocabulary` schema. Each `term` would have a reference field to `vocabulary` with the validation set to only allow a single element. To find only those `term` items which belong to `vocabulary` with id `e46aca5e-5067-408f-b90f-ea441314385a` you would do the following request:
 
-```text
+```
 https://cloud.squidex.io/api/content/testapp/term?$filter=data/vocabulary/iv eq 'e46aca5e-5067-408f-b90f-ea441314385a'
 ```
 
@@ -106,44 +106,44 @@ https://cloud.squidex.io/api/content/testapp/term?$filter=data/vocabulary/iv eq 
 
 Date must match value:
 
-```text
+```
 $filter=created eq 1988-01-19T12:00:00Z
 ```
 
 Date must match one of many values:
 
-```text
+```
 $filter=created in ('1988-01-19T12:00:00Z', '2011-01-22T08:00:00Z')
 ```
 
 Id must match value:
 
-```text
+```
 $filter=id eq B5FE25E3-B262-4B17-91EF-B3772A6B62BB
 $filter=id in (B5FE25E3-B262-4B17-91EF-B3772A6B62BB, 311DD333-B262-4B17-91EF-B3772A6B62BB)
 ```
 
 Name must match string value:
 
-```text
+```
 $filter=firstName eq 'Dagobert'
 ```
 
 Boolean must match value:
 
-```text
+```
 $filter=isComicFigure eq true
 ```
 
 Age must must be equal to number:
 
-```text
+```
 $filter=age eq 60
 ```
 
 String property should start with, ends with or contain a string:
 
-```text
+```
 $filter=startswith(lastName, 'Duck')
 $filter=endswith(lastName, 'Duck')
 $filter=contains(lastName, 'Duck')
@@ -151,7 +151,7 @@ $filter=contains(lastName, 'Duck')
 
 Different conditions
 
-```text
+```
 $filter=age ne 1 // Not equals
 $filter=age eq 1 // Equals
 $filter=age lt 1 // Less than
@@ -162,7 +162,7 @@ $filter=age ge 1 // Greater or equals than
 
 Combine different conditions:
 
-```text
+```
 $filter=contains(lastName, 'Duck') eq false and isComicFigure eq true // AND: Both condition must be true
 $filter=contains(lastName, 'Duck') eq false or  isComicFigure eq true // OR: One condition must be true
 ```
@@ -177,7 +177,7 @@ The $orderby system query option allows clients to request resources in a partic
 
 e.g. find the top 20 biggest cities by population:
 
-```text
+```
 https://cloud.squidex.io/api/content/geodata/cities?$orderby=data/population/iv desc$top=20
 ```
 

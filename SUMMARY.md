@@ -16,6 +16,7 @@
   * [Developing](01-getting-started/contributing-and-developing/developing.md)
   * [Extensions](01-getting-started/contributing-and-developing/extensions/README.md)
     * [How to write custom rule actions](01-getting-started/contributing-and-developing/extensions/how-to-write-custom-rule-actions.md)
+  * [Contributing](01-getting-started/contributing-and-developing/contributing.md)
   * [Architecture](01-getting-started/contributing-and-developing/overview.md)
 * [Roadmap](01-getting-started/roadmap.md)
 

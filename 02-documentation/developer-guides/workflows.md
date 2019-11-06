@@ -87,7 +87,7 @@ The solution is scripting. If you click the three dots in the schema editor a me
 
 The script for creating content is very simple:
 
-```text
+```
 // Check the status field is set to draft.
 if (ctx.data.status.iv !== 'Draft') {
     // If not reject this operation with a custom validation message.
@@ -105,7 +105,7 @@ The UI will show the error message from the script:
 
 Lets have a look to the update script:
 
-```text
+```
 // Our code for the Creator
 if (ctx.user.claims.role.indexOf('Creator')) {
     // Check the old status of our content.
