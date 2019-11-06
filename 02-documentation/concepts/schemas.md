@@ -70,7 +70,7 @@ A number can either be a point number or integer. Typical examples when to use n
 
 ### Boolean
 
-![Boolean](https://github.com/Squidex/squidex-docs2/tree/b2a368965b422e9e3c7d8e12a959c6412e74b23c/images/fields/boolean)
+![Boolean](../../.gitbook/assets/boolean.png)
 
 Booleans have only 2 states: True or false, yes or no, 1 or 0.
 
