@@ -114,7 +114,7 @@ Asset fields are used to maintain a list of assset IDs. You can also restrict th
 }
 ```
 
-### References & Array
+### References
 
 ![References](../../.gitbook/assets/references.png)
 
