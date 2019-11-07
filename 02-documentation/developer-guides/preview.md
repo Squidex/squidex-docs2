@@ -12,7 +12,7 @@ To retrieve unpublished content you can add the `X-Unpublished` header to all yo
 
 The following example shows how you can do it with the C\# client library:
 
-```
+```csharp
 public BlogPost Post { get; set; }
 
 public async Task<IActionResult> OnGet(string slug, bool secretQueryParameter = false)

@@ -43,7 +43,7 @@ Choose `Access Keys` and copy one of the keys for the setup of the MongoDB and o
 
 The following setup of the container instance can only be done using the azure-cli at the moment. Open a terminal, login to azure using _az login_ and run the following command.
 
-```
+```bash
   az container create --resource-group [YOUR VALUE HERE] --name mongodb --image mongo --azure-file-volume-account-name [YOUR VALUE HERE] --azure-file-volume-account-key "[YOUR VALUE HERE]" --azure-file-volume-share-name etc-squidex-mongodb --azure-file-volume-mount-path "/data/mongoaz" --ports 27017 --cpu 2 --ip-address public --memory 2 --os-type Linux --protocol TCP --command-line "mongod --dbpath=/data/mongoaz --bind_ip_all"
 ```
 
@@ -51,7 +51,7 @@ This will create a container Instance with a single container running mongo db.
 
 > **IMPORTANT**: At this point your MongoDB will run without authentication. Connect to it with a Tool of your choice like [Robo 3T](https://robomongo.org/) and create an admin user. After that run the above command again, but change the _--command-line_ argument to
 >
-> ```
+> ```text
 > "mongod --dbpath=/data/mongoaz --bind_ip_all --auth"
 > ```
 
@@ -69,7 +69,7 @@ Configuration values for external authentication providers are empty to turn the
 
 All basic settings:
 
-```
+```javascript
 [
   {
     "name": "ASSETSTORE__AZUREBLOB__CONNECTIONSTRING",

@@ -17,7 +17,7 @@ Read the comments of the `appsettings.json` file to understand all configuration
 
 In this example we want to override the following setting from the configuration file:
 
-```
+```javascript
 {
   "assetStore": {
     "folder": {
@@ -31,13 +31,13 @@ If you combine all keys from the json root to the setting you get the full key o
 
 Aggregate the keys by two underscores to get the name of the environment variable:
 
-```
+```text
 ASSETSTORE__FOLDER__PATH="MyAssets"
 ```
 
 Aggregate the keys by colon and you get the name of the command line argument
 
-```
+```text
 assetstore:folder:path="AssetStore"
 ```
 
@@ -75,16 +75,18 @@ Ensure that you have configured a strong password if you use `identity:adminPass
 
 You will see the following entry in your logs:
 
-    {
-      "logLevel": "Error",
-      "action": "createAdmin",
-      "status": "failed",
-      "exception": {
-        ...
-        "message": "Cannot create user:...",
-        ...
-      }
-    }`
+```javascript
+{
+  "logLevel": "Error",
+  "action": "createAdmin",
+  "status": "failed",
+  "exception": {
+    ...
+    "message": "Cannot create user:...",
+    ...
+  }
+}`
+```
 
 The password requirements are:
 

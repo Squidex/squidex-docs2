@@ -37,7 +37,7 @@ We also provide ready to use docker configurations: [https://github.com/squidex/
 
 Just execute the following commands to get a MongoDB installation for development:
 
-```
+```bash
 git clone https://github.com/squidex/squidex-docker
 cd squidex-docker/dependencies
 docker-compose up -d
@@ -69,7 +69,7 @@ The frontend is written with [Angular](https://angular.io) and [webpack](https:/
 
 #### How to run the Webpack Dev Server?
 
-```
+```text
 cd frontend # Go to the frontend
 npm i # Install all dependencies, only needed the first time
 npm start
@@ -89,7 +89,7 @@ Btw: As the name _webpack dev server_ indicates, it is only used for development
 
 ### Backend
 
-```
+```bash
 cd backend
 cd src/Squidex
 dotnet restore # Install all dependencies

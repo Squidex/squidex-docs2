@@ -14,7 +14,7 @@ Technically speaking a UI editor lives in a sandboxed iframe,which interacts wit
 
 Lets see how the code looks like:
 
-```
+```markup
 <!DOCTYPE html>
 <html>
 
@@ -99,7 +99,7 @@ Reference: [https://squidex.github.io/squidex-samples/editors/tags-category.html
 
 The data format is a list of url like paths for each product category that will be converted to a tree strucuture.
 
-```
+```javascript
 [
   "/laptops-and-netbooks/thinkpad-x-series-chromebook-laptops/",
   "/laptops-and-netbooks/thinkpad-edge-laptops/thinkpad-edge-e330/",

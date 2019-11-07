@@ -10,25 +10,25 @@ All assets are publicly available and not secured. But the IDs are randomly gene
 
 You can download and link assets from the following URL:
 
-```
+```text
 http://<YOUR-DOMAIN>/api/assets/{app}/{idOrSlug}/{*more}
 ```
 
 So in case you are using the API you have to use:
 
-```
+```text
 https://cloud.squidex.io/api/assets/{app}/{idOrSlug}/{*more}
 ```
 
 Typically an asset URL will look like this:
 
-```
+```text
 https://cloud.squidex.io/api/assets/my-app/7ba1eb41-4943-442e-b033-dac4893dbd6c
 ```
 
 In case your assets have a slug you can also use it for your URL:
 
-```
+```text
 https://cloud.squidex.io/api/assets/my-app/sebastians-avatar
 ```
 
@@ -36,7 +36,7 @@ If multiple assets with the slug exist it will return the first asset with this 
 
 The more parameter can be used to add additional text to the URL to improve your link quality:
 
-```
+```text
 https://cloud.squidex.io/api/assets/my-app/sebastians-avatar/cto-of-squidex
 ```
 
@@ -82,7 +82,7 @@ More about the ETag header at [Wikipedia](https://en.wikipedia.org/wiki/HTTP_ETa
 You can add the `cache` query parameter as a number of seconds to cache the image in the Browser.   
 Then the following header is added to the response:
 
-```
+```text
 Cache-Contro: public,max-age=<cache>
 ```
 

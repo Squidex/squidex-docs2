@@ -48,7 +48,7 @@ You have to use generated client id and client secret to make a request to the i
 
 This token is valid for 30 days, but can be renewed as often as you want.
 
-```
+```text
 $ curl
     -X POST 'https://cloud.squidex.io/identity-server/connect/token/' 
     -H 'Content-Type: application/x-www-form-urlencoded' 
