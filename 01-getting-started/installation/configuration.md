@@ -67,7 +67,7 @@ Please check the logs to see detailed error messages.
 
 ### Login screen shows 'Operation failed' message.
 
-Typically the login fails, because the `urls:baseUrl` setting has an invalid value. Ensure that the domain that is used by your users is configured here. Squidex mght run behind several other servers like Cloudflare, load balancers and reverse proxies and does not know the original domain. Therefore we must configure the URL.
+Typically the login fails, because the `urls:baseUrl` setting has an invalid value. Ensure that the domain that is used by your users is configured here. Squidex might run behind several other servers like Cloudflare, load balancers and reverse proxies and does not know the original domain. Therefore we must configure the URL.
 
 ### I see the login screen but I cannot login.
 
@@ -95,4 +95,6 @@ The password requirements are:
 3. Passwords must have at least one digit \('0'-'9'\). 
 4. Passwords must have at least one lowercase \('a'-'z'\). 
 5. Passwords must not have been appeared in a data breach before: [https://haveibeenpwned.com/](https://haveibeenpwned.com/)
+
+In case you have forgotten your admin password you can use the `identity:adminRecreate=true` to always update the admin account with the password from the configuration.
 
