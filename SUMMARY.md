@@ -30,6 +30,7 @@
   * [Rules](02-documentation/concepts/rules.md)
 * [Developer Guides](02-documentation/developer-guides/README.md)
   * [API](02-documentation/developer-guides/api-overview/README.md)
+    * [Authentication](02-documentation/developer-guides/api-overview/authentication.md)
     * [Postman](02-documentation/developer-guides/api-overview/postman.md)
     * [Queries](02-documentation/developer-guides/api-overview/api.md)
     * [Assets](02-documentation/developer-guides/api-overview/assets-api.md)
