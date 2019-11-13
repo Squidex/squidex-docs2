@@ -11,7 +11,7 @@ You can configure Squidex using the following ways:
 3. Environment variables.
 4. Command line arguments.
 
-The ordering is important. Command line arguments override other settings, enironment variables override the json files and so on. Using a combination of all these options can be very helpful.
+The ordering is important. Command line arguments override other settings, environment variables override the json files and so on. Using a combination of all these options can be very helpful.
 
 Read the comments of the `appsettings.json` file to understand all configuration settings.
 

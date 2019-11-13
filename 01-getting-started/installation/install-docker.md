@@ -16,9 +16,9 @@ We provide a docker-compose configuration:
 It will run 4 containers:
 
 * Squidex
-* Nginx as Reverse Proxy to support HTTPS
-* Nginx Sidecar to provision certificates with LetsEncrypt.
-* MongoDB
+* [NGINX ](https://www.nginx.com/)as Reverse Proxy to support HTTPS
+* NGINX sidecar to provision free and secure certificates with [LetsEncrypt](https://letsencrypt.org/de/).
+* [MongoDB](https://www.mongodb.com/de)
 
 ### 1. Download the files
 
@@ -29,13 +29,15 @@ Download the following files to your server:
 
 ### 2. Configure Squidex
 
-Open the `.env` file and set all variables:
+Open the `.env` file and set the following variables:
 
-* `SQUIDEX_PROTOCOL`: Keep it unchanged. You can set it to http to disable secure connections.
-* `SQUIDEX_FORCE_HTTPS`: Keep it unchanged. You can set it to false to disable permanent redirects from http to https.
-* `SQUIDEX_DOMAIN`: Your domain name, e.g. we use `cloud.squidex.io`
-* `SQUIDEX_ADMINEMAIL`: The email address of the admin user.
-* `SQUIDEX_ADMINPASSWORD`: The password of the admin user \(Must contain a lowercase and uppercase letter, a number and a special character\).
+| Variable | Description |
+| :--- | :--- |
+| `SQUIDEX_FORCE_HTTPS` | Your domain name, e.g. we use `cloud.squidex.io` |
+| `SQUIDEX_ADMINEMAIL` | The email address of the admin user. |
+| `SQUIDEX_ADMINPASSWORD` | The password of the admin user \(Must contain a lowercase and uppercase letter, a number and a special character\). |
+| `SQUIDEX_FORCE_HTTPS` | Keep it unchanged. You can set it to false to disable permanent redirects from http to https. |
+| `SQUIDEX_PROTOCOL` | Keep it unchanged. You can set it to http to disable secure connections. |
 
 You can keep the other settings empty for now.
 
@@ -55,5 +57,9 @@ docker-compose up -d
 
 ### More issues?
 
-It is very likely a configuration problem and not related to hosting under Docker. Go to the [Configuration](configuration.md) page.
+It is very likely a configuration problem and not related to hosting under Docker.  Checkout
+
+{% page-ref page="configuration.md" %}
+
+
 
