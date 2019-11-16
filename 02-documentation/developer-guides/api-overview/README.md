@@ -27,7 +27,7 @@ Each app has its own content API. The documentation is generated when you change
 
 You can find the link to your Content API in the API section of the Management UI:
 
-![Link to content API](../../../.gitbook/assets/image%20%2820%29.png)
+![Link to content API](../../../.gitbook/assets/image%20%2822%29.png)
 
 For example, this this is the Content API for my \(Sebastian, CTO\) personal profile page:
 

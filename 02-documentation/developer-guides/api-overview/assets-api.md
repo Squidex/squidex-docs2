@@ -4,7 +4,7 @@ description: How to use the Assets API to resize images.
 
 # Assets
 
-### How to retrieve assets and content?
+## How to retrieve assets and content?
 
 All assets are publicly available and not secured. But the IDs are randomly generated as 128 bit number \([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)\) and almost impossible to find out by just trial and error. So you are assets are safe.
 
@@ -42,7 +42,7 @@ https://cloud.squidex.io/api/assets/my-app/sebastians-avatar/cto-of-squidex
 
 The API reference with all parameters is provided here: [https://cloud.squidex.io/api/docs\#operation/AssetContent\_GetAssetContent](https://cloud.squidex.io/api/docs#operation/AssetContent_GetAssetContent)
 
-### How can I resize images?
+## How can I resize images?
 
 The API provides several parameters to provide and manipulate images. Resized images are cached permanently to improve the performance for the next requests.
 
@@ -71,7 +71,7 @@ Squidex supports the following resize modes:
 
 You can also add the `quality` parameter to the asset URL to define the quality from 0 \(lowest\) to 100 \(best\). If you define the quality the image will always be returned as jpeg format and you might loose transparency information.
 
-### How caching works
+## How caching works
 
 Squidex provides the `ETag` __header for each asset. The browser caches the asset, along with its ETag. If the user wants retrieve the same URL resource again, it will first determine whether the locally cached version of the URL has expired \(through the `Cache-Control` and the `Expire` __headers\).  
 If the URL has not expired, it will retrieve the locally cached resource. If it is determined that the URL has expired \(is stale\), the client will contact the server and send its previously-saved copy of the ETag along with the request in an `If-None-Match` field.   
@@ -114,4 +114,21 @@ Cache-Contro: public,max-age=<cache>
         download for images.</td>
     </tr>
   </tbody>
-</table>
+</table>## Resolve references assets
+
+When you have content items with asset fields, the assets are added as IDs to content item. Therefore by default you will only retrieve the IDs when you query content items and you have to do additional requests to get asset information.
+
+You have two options to solve this:
+
+### Use GraphQL
+
+With GraphQL you can get exactly the information you are looking for. You have to define the fields you want to retrieve, also from referenced assets or referenced contents. In the following example I have built a query to retrieve the testimonials with the associated company logo the fields I am interested for.
+
+![Use GraphQL to get asset information](../../../.gitbook/assets/image%20%2821%29.png)
+
+### Use headers in the REST endpoint
+
+When using the normal REST endpoint you can use the `X-Resolve-Urls` to define the fields that should be resolved. The value of this header must be a comma-separated list of field names:
+
+![Resolve the image URL](../../../.gitbook/assets/image%20%2814%29.png)
+
