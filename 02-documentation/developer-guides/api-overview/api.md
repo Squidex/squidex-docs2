@@ -227,6 +227,8 @@ https://.../api/content/geodata/cities?$filter=data/population/iv gt 100000
 
 As you can see the query systems use a different notation to address nested properties. While OData separates the properties by a slash \(/\) character, JSON queries make use of a dot \(.\) notation, to be closer to Javascript. You can actually use slash in JSON queries as well, but the recommendation is to use dot.
 
+#### OData restrictions
+
 Please also note that dash \(-\) characters are not allowed in OData and that you have to use underscore instead. This restriction does not exist in JSON queries.
 
 For example when you want to filter by the foundation year \(foundation\).
@@ -250,6 +252,8 @@ https://.../api/content/geodata/cities?$filter=data/foundation_year/iv lt 1000
 ```
 {% endtab %}
 {% endtabs %}
+
+#### Array
 
 If you have fields that have array of values, for example references that are represented as an array of content ids, you can still the equal operator. The API will return a content item if at least one item in the array is equal to the passed in value.
 
