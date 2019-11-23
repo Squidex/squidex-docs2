@@ -8,7 +8,7 @@
 * Mac with [Docker for Mac](https://docs.docker.com/docker-for-mac/)
 
 {% hint style="info" %}
-Digital Ocean [Droplets](https://www.digitalocean.com/products/droplets) are not supported right now, because their DNS prevents that a container can make a request to itself, which is needed to get OIDC via Identity Server working properly.
+Digital Ocean [Droplets](https://www.digitalocean.com/products/droplets) are not supported right now, because their DNS prevents that a container can make a request to itself, which is needed to get OIDC via Identity Server working properly. The issue has been discussed in the [support forum](https://support.squidex.io/t/non-standard-port-installation/1262).
 {% endhint %}
 
 ## Use the docker-compose setup
