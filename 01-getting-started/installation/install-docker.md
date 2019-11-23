@@ -7,6 +7,10 @@
 * Windows with [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/)
 * Mac with [Docker for Mac](https://docs.docker.com/docker-for-mac/)
 
+{% hint style="info" %}
+Digital Ocean [Droplets](https://www.digitalocean.com/products/droplets) are not supported right now, because their DNS prevents that a container can make a request to itself, which is needed to get OIDC via Identity Server working properly.
+{% endhint %}
+
 ## Use the docker-compose setup
 
 We provide a docker-compose configuration:
