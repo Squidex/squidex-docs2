@@ -507,7 +507,7 @@ not contains(Name, 'Duck')
 {% endtabs %}
 
 {% hint style="info" %}
-n **OData** single quotes \(`'`\) in text values must be replaced with double single quotes \(`''`\).
+In **OData** single quotes \(`'`\) in text values must be replaced with double single quotes \(`''`\).
 {% endhint %}
 
 Different conditions
