@@ -65,20 +65,20 @@ or as table
 
 ```text
 .\sq.exe config use app1
-.\sq.exe config schemas get schema1 > schema.json
+.\sq.exe schemas get schema1 > schema.json
 ```
 
 1. Go to second app and sync the schema from the saved file
 
 ```text
 .\sq.exe config use app2
-.\sq.exe config schemas sync schema.json
+.\sq.exe schemas sync schema.json
 ```
 
 1. OR: Sync it to another schema name
 
 ```text
-.\sq.exe config schemas sync schema.json --name other-schema
+.\sq.exe schemas sync schema.json --name other-schema
 ```
 
 ## Use Case: How to start a backup
