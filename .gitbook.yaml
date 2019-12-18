@@ -5,3 +5,5 @@ redirects:
   guides/09-preview: ./02-documentation/developer-guides/preview.md
   04-guides/02-api: ./02-documentation/developer-guides/api.md
   04-guides/02-api.html: ./02-documentation/developer-guides/api.md
+  concepts/rules: ./02-documentation/concepts/rules.md
+  concepts/rules.html: ./02-documentation/concepts/rules.md
