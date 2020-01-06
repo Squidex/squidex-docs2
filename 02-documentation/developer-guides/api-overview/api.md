@@ -121,7 +121,7 @@ The `skip` query option requests the number of items in the queried collection t
 {% tabs %}
 {% tab title="OData" %}
 ```markup
-https://.../api/content/geodata/cities?$$skip=20
+https://.../api/content/geodata/cities?$skip=20
 ```
 {% endtab %}
 
