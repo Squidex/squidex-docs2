@@ -36,7 +36,7 @@ You only need the source code for Development. There are other approaches how to
 
 First you have to create a new .NET class library to the backend solution:
 
-![Squidex.Extensions Plugin](../../../.gitbook/assets/image%20%2818%29.png)
+![Squidex.Extensions Plugin](../../../.gitbook/assets/image%20%2821%29.png)
 
 Ensure that you target `netcoreapp3.0`.
 
@@ -80,11 +80,11 @@ namespace Squidex.Extensions.Samples.AssetStore
 
 Add a reference to your plugin to the `Squidex` project.
 
-![Add reference to your plugin](../../../.gitbook/assets/image.png)
+![Add reference to your plugin](../../../.gitbook/assets/image%20%281%29.png)
 
 Furthermore you need to add the path to your plugin to the configuration, for example to the `appSettings`file. Because we reference the plugin, it will be automatically copied to the output folder when the build or packaging is executed.
 
-![Reference your plugin in the configuration file](../../../.gitbook/assets/image%20%2819%29.png)
+![Reference your plugin in the configuration file](../../../.gitbook/assets/image%20%2822%29.png)
 
 There is also a project on Github that demonstrates how to create a plugin for SendGrid with an older version of Squidex: [https://github.com/squidexcontrib/sendgrid](https://github.com/squidexcontrib/sendgrid)
 

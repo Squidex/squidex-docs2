@@ -124,11 +124,11 @@ You have two options to solve this:
 
 With GraphQL you can get exactly the information you are looking for. You have to define the fields you want to retrieve, also from referenced assets or referenced contents. In the following example I have built a query to retrieve the testimonials with the associated company logo the fields I am interested for.
 
-![Use GraphQL to get asset information](../../../.gitbook/assets/image%20%2821%29.png)
+![Use GraphQL to get asset information](../../../.gitbook/assets/image%20%2824%29.png)
 
 ### Use headers in the REST endpoint
 
 When using the normal REST endpoint you can use the `X-Resolve-Urls` to define the fields that should be resolved. The value of this header must be a comma-separated list of field names:
 
-![Resolve the image URL](../../../.gitbook/assets/image%20%2814%29.png)
+![Resolve the image URL](../../../.gitbook/assets/image%20%2816%29.png)
 
