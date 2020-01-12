@@ -57,7 +57,11 @@ or as table
 .\sq.exe config use [CONFIG_NAME]
 ```
 
-## Use Case: How to sync schemas
+## Use Cases
+
+The following section describes the most common use cases and how to execute them with the CLI:
+
+### Synchronize schemas
 
 > You need **Developer** role for this use case.
 
@@ -78,10 +82,10 @@ or as table
 1. OR: Sync it to another schema name
 
 ```text
-.\sq.exe schemas sync schema.json --name other-schema
+.\sq.exe schemas sync schema.json --name <schema-name>
 ```
 
-## Use Case: How to start a backup
+### Start a backup
 
 > You need **Owner** role for this use case.
 
@@ -89,10 +93,10 @@ or as table
 .\sq.exe backup create backup.zip
 ```
 
-## Use Case: Export content to CSV
+### Export content to CSV
 
 ```text
-.\sq.exe content export features --fields=id,version
+.\sq.exe content export <schema-name> --fields=id,version
 ```
 
 You have to define the fields you want to export. The general syntax is:
@@ -125,16 +129,16 @@ More exeamples \(not from the example operation above\):
 
 If the extract value is a json array of object it will be serialized to a string.
 
-## Use Case: Export content to JSON
+### Export content to JSON
 
 ```text
-.\sq.exe content export features --format=JSON
+.\sq.exe content export <schema-name>--format=JSON
 ```
 
-## Use Case: Import content from CSV
+### Import content from CSV
 
 ```text
-.\sq.exe content import features File.csv --fields=text
+.\sq.exe content import <schema-name> File.csv --fields=text
 ```
 
 You have to define the fields you want to import. The general syntax is:
@@ -143,7 +147,7 @@ You have to define the fields you want to import. The general syntax is:
 <JSON_PATH>(=<CSV_COLUM>)?
 ```
 
-The csv column is optional and can be skipped. If no column name is specified the path string will be used.
+The CSV column is optional and can be skipped. If no column name is specified the path string will be used.
 
 To get a good understanding of the paths, it is helpful to have a look to the API documentation of your schemas, e.g.
 
@@ -154,7 +158,7 @@ Some sample paths
 * `personName.iv=personName` 
 * `personName` \(`iv` is added by default for non-localized fields\)
 
-More exeamples \(not from the example operation above\):
+More examples \(not from the example operation above\):
 
 * `text.en=text` \(Localized field\)
 * `hobbies.iv.0.name=firstHobby`\(For array of objects\)
@@ -163,4 +167,34 @@ More exeamples \(not from the example operation above\):
 * `json.iv=json` \(To serialize the whole object to a string\)
 
 If the extract value is a json array of object it will be serialized to a string.
+
+### Import content from JSON
+
+```text
+.\sq.exe content import <schema-name>File.json --format=JSON
+```
+
+### Use Case: Generate Test Data
+
+Sometimes it is useful to generate test data for a field, e.g. if you need several hundred of items to test a user interface.
+
+This can be done with the CLI as well:
+
+```text
+.\sq.exe content test-data <schema-name> --count 100
+```
+
+Before you generate the data you can also test it by dumping the data to a file first:
+
+```text
+.\sq.exe content test-data <schema-name> --count 100 --file Test-Data
+```
+
+The CLI does not support all field types, it has the following restrictions:
+
+* No support for references.
+* No support for assets.
+* No support for string fields with a pattern validator.
+
+Obviously it can also not support custom validations via scripts or custom extensions.
 
