@@ -20,7 +20,7 @@ Squidex uses a fine granular permission system. Permissions are defined with a d
 
 `{app}` and `{schema}` are placeholder that will be replaced with your current app name or schema name.
 
-The full list of permissions can be found here: [https://github.com/Squidex/squidex/blob/master/src/Squidex.Shared/Permissions.cs](https://github.com/Squidex/squidex/blob/master/src/Squidex.Shared/Permissions.cs)
+The full list of permissions can be found here: [https://github.com/Squidex/squidex/blob/master/backend/src/Squidex.Shared/Permissions.cs](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex.Shared/Permissions.cs)
 
 The system is expressed as a hierarchy. If you visualize them as a tree you get the following structure
 
@@ -55,7 +55,7 @@ And furthermore exceptions \(not implemented yet\):
 
 ### Special permissions
 
-If you have a look to the list of [available permissions](https://github.com/Squidex/squidex/blob/master/src/Squidex.Shared/Permissions.cs) the meaning should be obvious, but there is one exception:
+If you have a look to the list of [available permissions](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex.Shared/Permissions.cs) the meaning should be obvious, but there is one exception:
 
 `squidex.apps.{app}.common` gives you the minimum permissions to access and app. If you create a role that can view content only, this role also needs the permissions to query the configured languages and published schemas for an app. Therefore all app roles have this permissions implicitly.
 
