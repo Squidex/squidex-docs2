@@ -96,7 +96,7 @@ As you can see it is horrible to read, therefore we will just show normal JSON e
 
 ### Limiting the number of results
 
-The `top` query option requests the number of items in the queried collection to be included in the result. The default value is 20 and the maximum allowed value is 200.
+The `top` / `take`query option requests the number of items in the queried collection to be included in the result. The default value is 20 and the maximum allowed value is 200.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -108,15 +108,19 @@ https://.../api/content/geodata/cities?$top=30
 {% tab title="JSON" %}
 ```javascript
 {
-    "top": 30
+    "take": 30
 }
 ```
 {% endtab %}
 {% endtabs %}
 
+{% hint style="info" %}
+Because of a stupid error the parameter is called `top`in OData and `take`in JSON.
+{% endhint %}
+
 ### Skipping items in the result set
 
-The `skip` query option requests the number of items in the queried collection that are to be skipped and not included in the result. Use it together with `top` to read the all your data page by page.
+The `skip` query option requests the number of items in the queried collection that are to be skipped and not included in the result. Use it together with `top` / `take` to read the all your data page by page.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -134,7 +138,7 @@ https://.../api/content/geodata/cities?$skip=20
 {% endtab %}
 {% endtabs %}
 
-or combined with top
+or combined with `top` / `take`
 
 {% tabs %}
 {% tab title="OData" %}
@@ -147,7 +151,7 @@ https://.../api/content/geodata/cities?$skip=20&$top=30
 ```javascript
 {
     "skip": 20,
-    "top": 30
+    "take": 30
 }
 ```
 {% endtab %}
@@ -667,7 +671,7 @@ https://.../api/content/geodata/cities?$orderby=data/population/iv desc$top=20
         "path": "data.population.iv",
         "order": "descending"
     }],
-    "top": 20
+    "take": 20
 }
 ```
 {% endtab %}
