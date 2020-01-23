@@ -39,7 +39,7 @@ Open the `.env` file and set the following variables:
 | :--- | :--- |
 | `SQUIDEX_FORCE_HTTPS` | Your domain name, e.g. we use `cloud.squidex.io` |
 | `SQUIDEX_ADMINEMAIL` | The email address of the admin user. |
-| `SQUIDEX_ADMINPASSWORD` | The password of the admin user \(Must contain a lowercase and uppercase letter, a number and a special character\). |
+| `SQUIDEX_ADMINPASSWORD` | The password of the admin user. Must contain a lowercase and uppercase letter, a number and a special character. Leaked passwords are also forbidden, check [https://haveibeenpwned.com/Passwords](https://haveibeenpwned.com/Passwords) first. |
 | `SQUIDEX_FORCE_HTTPS` | Keep it unchanged. You can set it to false to disable permanent redirects from http to https. |
 | `SQUIDEX_PROTOCOL` | Keep it unchanged. You can set it to http to disable secure connections. |
 
@@ -57,6 +57,32 @@ sudo mkdir /var/mongo/db
 
 ```bash
 docker-compose up -d
+```
+
+## Troubleshooting
+
+Please check the logs first using docker.
+
+```bash
+docker ps # Get the container id first
+docker logs <CONTAINER-ID> # Read the logs
+```
+
+### I get a 502 Bad Gateway
+
+In my tests it took sometime to issue the certificate. Probably around 10 minutes. 
+
+Also ensure that your DNS server is configured correctly.
+
+### I cannot login and see a IDX20803 error code in my logs
+
+In some cases, especially on CentOS 7, the communication between docker containers on the same host is blocked by the firewall. There is an open [issue on Github](https://github.com/moby/moby/issues/32138) for this problem.
+
+The solution that worked in our cases was to add https as a service to the firewall:
+
+```bash
+sudo firewall-cmd --add-service=https --permanent --zone=trusted
+sudo firewall-cmd --reload
 ```
 
 ### More issues?

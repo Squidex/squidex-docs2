@@ -1,6 +1,6 @@
 # Install with IIS
 
-You can also read the guide from Microsoft, how to [Host ASP.NET Core on Windows with IIS](https://docs.microsoft.com/en-US/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2#install-the-net-core-hosting-bundle).
+You can also read the guide from Microsoft, how to [Host ASP.NET Core on Windows with IIS](https://docs.microsoft.com/en-US/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2#install-the-net-core-hosting-bundle)
 
 ## Supported operating systems
 
@@ -109,9 +109,7 @@ Create a folder for your squidex installation and extract the archive to this fo
 
 ### Where can I see the logs?
 
-Squidex logs to standard output. 
-
-To forward the logs to a file, open `web.config` and set `stdoutLogEnabled="true"`.
+Squidex logs to stdout. To forward the logs to a file, open `web.config` and set `stdoutLogEnabled="true"`.
 
 ### I get a HTTP Error 404.0 - Not Found
 
@@ -119,11 +117,11 @@ Ensure that the **Physical path** of your site points to the correct location.
 
 ### I get a HTTP Error 502.5 - Process Failure
 
-It is very important that you restart IIS after you have installed .NET Core Windows Server Hosting. Restart the server or execute `net stop was /y` followed by `net start w3svc` from a command prompt with elevated permissions to pick up a change to the system PATH.
+It is very important that you restart IIS after you have installed .NET Core Windows Server Hosting. Restart the server or execute net stop was /y followed by net start w3svc from a command prompt with elevated permissions to pick up a change to the system PATH.
 
 ### I get a HTTP Error 504 - Method not allowed
 
-This can happen when you try to make an API call with the PUT or DELETE Verb. For example when you use the Management UI. The reason is that WebDAV might be installed on your server and it blocks these verbs. You have to add the following lines to the `web.config` file.
+This can happen when you try to make an API call with the PUT or DELETE Verb. For example when you use the Management UI. The reason is that WebDAV might be installed on your server and it blocks these verbs. You have to add the following lines to the `Web.config` file.
 
 ```markup
 <system.webServer>
