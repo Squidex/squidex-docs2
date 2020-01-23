@@ -104,5 +104,5 @@ You can also run and debug the backend with Visual Studio 2019. But here are som
 2. Recommended: Toggle of the `Launch browser` setting. You just want to keep Squidex open during development and not close and open the window all the time to make debugging the frontend with your browser easier.
 3. Ensure that you use port **5000** for development. This is required to have a proper setting for identity server and authentication in general. 
 
-![Visual Studio Settings](../../.gitbook/assets/image%20%2813%29.png)
+![Visual Studio Settings](../../.gitbook/assets/image%20%2815%29.png)
 

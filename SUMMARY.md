@@ -4,7 +4,6 @@
 
 ## Getting Started <a id="01-getting-started"></a>
 
-* [User Guide](01-getting-started/user-guide.md)
 * [Installation Instructions](01-getting-started/installation/README.md)
   * [Install with IIS](01-getting-started/installation/install-windows-iis.md)
   * [Install with Docker](01-getting-started/installation/install-docker.md)
@@ -41,7 +40,7 @@
   * [Preview Content](02-documentation/developer-guides/preview.md)
 * [User Guides](02-documentation/user-guides/README.md)
   * [How to implement your workflows in Squidex](02-documentation/user-guides/how-to-implement-your-workflows-in-squidex.md)
-  * [How to manage your team in Squidex](02-documentation/user-guides/how-to-manage-your-team-in-squidex.md)
+  * [How to make backups and when to use it](02-documentation/user-guides/how-to-manage-your-team-in-squidex.md)
 
 ## Next <a id="04-next"></a>
 

@@ -6,7 +6,7 @@ description: Schemas define the structure of your content.
 
 Schemas define the structure of your content:
 
-![Blog schema](../../.gitbook/assets/image%20%2818%29.png)
+![Blog schema](../../.gitbook/assets/image%20%2823%29.png)
 
 In the screenshot above we define a blog schema with several fields.
 
