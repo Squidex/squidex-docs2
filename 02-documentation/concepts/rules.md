@@ -179,14 +179,18 @@ Script(`${contentAction()}`)
 Script(`${event.data.city.de}`)
 ```
 
-You can also reference any other field from the event and you can use if-statements and other javascript language features.
+You can also reference any other field from the event and you can use if-statements and other JavaScript language features.
+
+In the following example we create different payloads depending on the asset size.
 
 ```javascript
-if (event.fileSize > 100000) {
-    return `I just uploaded a large image ${event.fileName}`;
-} else {
-    return `I just uploaded a small image ${event.fileName}`;
-}
+Script(
+    if (event.fileSize > 100000) {
+        return `I just uploaded a large image ${event.fileName}`;
+    } else {
+        return `I just uploaded a small image ${event.fileName}`;
+    }
+)
 ```
 
 ### 4. Execution
@@ -200,4 +204,24 @@ Squidex will make several attempts to execute an job:
 5. After 12 hours.
 
 Jobs expire after 2 days and will be deleted automatically.
+
+## Webhooks
+
+Webhooks are the most flexible rule actions. You have to provide a HTTP endpoint to Squidex and each event will be sent to this endpoint as `POST` request.
+
+#### Request Headers
+
+* `X-Application` and `User-Agent`
+
+Used to identity the sender and has the static value: `Squidex Webhook`
+
+* `X-Signature`
+
+The signature can be used to verify that a request is from Squidex and not from a potential attacker. The signature is calculated in the following way:
+
+```text
+ToBase64String(Sha256(RequestBody + Secret))
+```
+
+Do **not expose** the secret to the public and keep it private.
 
