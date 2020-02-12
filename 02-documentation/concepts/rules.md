@@ -65,6 +65,15 @@ The enriched events have the following structure:
 }
 ```
 
+The content event type can be one of the following values:
+
+* `Created`: The content has been created.
+* `Updated`: The content has been updated.
+* `Published`: The status of the content has been changed to `Published`.
+* `Unpublished`: The status of the content has been changed from `Published` to another status.
+* `StatusChanged`: The status has been changed, e.g. `Draft` to `Archived`.
+* `Deleted`: The content has been deleted.
+
 #### Asset Events
 
 ```javascript
@@ -93,6 +102,13 @@ The enriched events have the following structure:
     "version": 1 // Version of the asset, increased with any operation
 }
 ```
+
+The asset event type can be one of the following values:
+
+* `Created`: The asset has been uploaded.
+* `Updated`: The file of the asset has been replaced with a newer version.
+* `Annotated`: The metadata or slug has been changed.
+* `Deleted`: The asset has been deleted.
 
 It is important to understand the structure because we use it in the matching step. Furthermore some actions just pass over the enriched events to other systems: For example, the webhook action adds the event to the request body in \(almost\) the same format.
 
