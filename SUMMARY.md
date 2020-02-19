@@ -27,6 +27,8 @@
   * [Localization](02-documentation/concepts/localization.md)
   * [Permissions](02-documentation/concepts/permissions.md)
   * [Rules](02-documentation/concepts/rules.md)
+* [Software Development Kits](02-documentation/software-development-kits/README.md)
+  * [.NET Standard](02-documentation/software-development-kits/.net-standard.md)
 * [Developer Guides](02-documentation/developer-guides/README.md)
   * [API](02-documentation/developer-guides/api-overview/README.md)
     * [Authentication](02-documentation/developer-guides/api-overview/authentication.md)
@@ -38,9 +40,6 @@
   * [Custom Workflows](02-documentation/developer-guides/workflows.md)
   * [Custom Editors](02-documentation/developer-guides/editors.md)
   * [Preview Content](02-documentation/developer-guides/preview.md)
-* [User Guides](02-documentation/user-guides/README.md)
-  * [How to implement your workflows in Squidex](02-documentation/user-guides/how-to-implement-your-workflows-in-squidex.md)
-  * [How to make backups and when to use it](02-documentation/user-guides/how-to-manage-your-team-in-squidex.md)
 
 ## Next <a id="04-next"></a>
 
