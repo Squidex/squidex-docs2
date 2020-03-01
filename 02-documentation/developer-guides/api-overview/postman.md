@@ -56,7 +56,7 @@ Go to the contents section, select your schema and click the "+ New" Button.
 
 Enter your text and press "Save and Publish". Only published content is visible in the API.
 
-![Save and publish a new content item](../../../.gitbook/assets/content.png)
+![Save and publish a new content item](../../../.gitbook/assets/content%20%281%29.png)
 
 ### 4. Connect to your app using a client
 
