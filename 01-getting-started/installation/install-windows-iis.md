@@ -150,6 +150,20 @@ Squidex logs all environment variables on the first start. Search for the follow
 }
 ```
 
+### I do not see referenced content items or assets when I add a lot of references
+
+To fetch the referenced content items or assets the user interfaces makes an API call where all IDs are added to the query string. When you have too many items, the query string becomes too long and IIS will return a `404`status code. Newer versions of Squidex will fallback to POST requests but you can also increase the request limit.
+
+```markup
+<system.webServer>
+    <security>
+        <requestFiltering>
+            <requestLimits maxQueryString="8192" />
+        </requestFiltering>
+    </security>
+</system.webServer>
+```
+
 ### More issues?
 
 It is very likely a configuration problem and not related to hosting under IIS. Go to the [Configuration](configuration.md) page.
