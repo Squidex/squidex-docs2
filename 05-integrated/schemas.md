@@ -22,7 +22,7 @@ For example:
 
  * `ctx.user` will provide user information, for example `ctx.user.id` or `ctx.user.email`.
  * `ctx.data` will provide the new data value of the content item.
- * `ctx.dataOld` will provide the current data value of the content item.
+ * `ctx.oldData` will provide the current data value of the content item.
  * `ctx.status`: The new status when a content is changed or the current status otherwise.
  * `ctx.statusOld`: The current status of a content item. Undefined for new items.
  * `ctx.contentId`: The id of the content item as a string.
