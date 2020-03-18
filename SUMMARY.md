@@ -40,6 +40,7 @@
   * [Custom Workflows](02-documentation/developer-guides/workflows.md)
   * [Custom Editors](02-documentation/developer-guides/editors.md)
   * [Preview Content](02-documentation/developer-guides/preview.md)
+  * [Rule Formatting](02-documentation/developer-guides/rule-formatting.md)
 
 ## Next <a id="04-next"></a>
 

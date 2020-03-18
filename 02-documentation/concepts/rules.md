@@ -153,61 +153,11 @@ Of course it can be more complex if necessary.
 
 When you configure an action you have to define several settings. In our example above we create a twitter update and have to define the text we want to publish.
 
-Almost all text settings for actions support placeholders that allow you to integrate information from the enriched event.
+Almost all text settings for actions support placeholders that allow you to integrate information from the enriched event. Furthermore JavaScript expressions are used for complex use cases.
 
-* `$APP_ID`: The id of your app \(guid\).
-* `$APP_NAME`: The name of your app.
-* `$USER_ID`: The id of the user \(or client\).
-* `$USER_NAME`: The display name of the user \(or client name\).
-* `$USER_EMAIL`: The email address of the user \(or client name\).
-* `$TIMESTAMP_DATE`: The date when the event has happened \(usually different from the time when the rule is executed\) in the following format: `yyyy-MM-dd`.
-* `$TIMESTAMP_DATETIME`; The date when the event has happened \(usually different from the time when the rule is executed\) in the following format: `yyyy-MM-dd-hh-mm-ss`.
+More information can be found at:
 
-For content events you can also use:
-
-* `$SCHEMA_ID`: The id of the schema.
-* `$SCHEMA_NAME`: The name of the schema.
-* `$CONTENT_URL`: The url to the content in the administration tool.
-* `$CONTENT_ACTION`: The content action, e.g. _CityContentCreated_.
-* `$CONTENT_DATA.city.de`: Reference a data field.
-
-Furthermore you can also use javascript expressions with the following syntax:
-
-```text
-Script(<YOUR_SCRIPT>)
-```
-
-[Javascript template string](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/template_strings) are very useful here. The placeholders above can be translated to the following expressions:
-
-```javascript
-Script(`${event.appId.id}`)
-Script(`${event.appId.Name}`)
-Script(`${event.user.id}`)
-Script(`${event.user.email}`)
-Script(`${formatDate(event.user.timestamp, 'yyyy-MM-dd')}`)
-Script(`${formatDate(event.user.timestamp, 'yyyy-MM-dd-hh-mm-ss')}`)
-
-// For content events
-Script(`${event.schemaId.id}`)
-Script(`${event.schemaId.Name}`)
-Script(`${contentUrl()}`)
-Script(`${contentAction()}`)
-Script(`${event.data.city.de}`)
-```
-
-You can also reference any other field from the event and you can use if-statements and other JavaScript language features.
-
-In the following example we create different payloads depending on the asset size.
-
-```javascript
-Script(
-    if (event.fileSize > 100000) {
-        return `I just uploaded a large image ${event.fileName}`;
-    } else {
-        return `I just uploaded a small image ${event.fileName}`;
-    }
-)
-```
+{% page-ref page="../developer-guides/rule-formatting.md" %}
 
 ### 4. Execution
 
