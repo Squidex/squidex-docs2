@@ -27,7 +27,7 @@ Each app has its own content API. The documentation is generated when you change
 
 You can find the link to your Content API in the API section of the Management UI:
 
-![Link to Content API](../../../.gitbook/assets/content.png)
+![](../../../.gitbook/assets/untitled.png)
 
 For example, this this is the Content API for the app that serves the content for the Squidex website:
 
