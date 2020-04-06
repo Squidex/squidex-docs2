@@ -37,7 +37,7 @@ Open the `.env` file and set the following variables:
 
 | Variable | Description |
 | :--- | :--- |
-| `SQUIDEX_FORCE_HTTPS` | Your domain name, e.g. we use `cloud.squidex.io` |
+| `SQUIDEX_DOMAIN` | Your domain name, e.g. we use `cloud.squidex.io` |
 | `SQUIDEX_ADMINEMAIL` | The email address of the admin user. |
 | `SQUIDEX_ADMINPASSWORD` | The password of the admin user. Must contain a lowercase and uppercase letter, a number and a special character. Leaked passwords are also forbidden, check [https://haveibeenpwned.com/Passwords](https://haveibeenpwned.com/Passwords) first. |
 | `SQUIDEX_FORCE_HTTPS` | Keep it unchanged. You can set it to false to disable permanent redirects from http to https. |
