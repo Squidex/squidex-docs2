@@ -23,7 +23,6 @@ The general structure of each command is
 
 ```text
 .\sq.exe [FEATURE] [COMMAND] [ARGS] [OPTIONAL_PARAMETERS]
-`
 ```
 
 Depending on your use cases you need a client in the **Developer** or even **Owner** role.
