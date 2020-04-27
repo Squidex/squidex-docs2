@@ -31,13 +31,13 @@ Depending on your use cases you need a client in the **Developer** or even **Own
 
 The CLI can manage multiple configurations, so that you do not have to define the app, client and secret for each command.
 
-1. Add a configuration
+STEP 1: Add a configuration
 
 ```text
 .\sq.exe config add [APP_NAME] [CLIENT_ID] [CLIENT_SECRET]
 ```
 
-1. Show all configurations
+STEP 3: Show all configurations
 
 ```text
 .\sq.exe config list
@@ -50,7 +50,7 @@ or as table
 .\sq.exe config list --table
 ```
 
-1. Switch to another config
+STEP 3: Switch to another config
 
 ```text
 .\sq.exe config use [CONFIG_NAME]
@@ -64,21 +64,21 @@ The following section describes the most common use cases and how to execute the
 
 > You need **Developer** role for this use case.
 
-1. Go to first app and save the schema to a file
+STEP 1: Go to first app and save the schema to a file
 
 ```text
 .\sq.exe config use app1
 .\sq.exe schemas get schema1 > schema.json
 ```
 
-1. Go to second app and sync the schema from the saved file
+STEP 2: Go to second app and sync the schema from the saved file
 
 ```text
 .\sq.exe config use app2
 .\sq.exe schemas sync schema.json
 ```
 
-1. OR: Sync it to another schema name
+OR: Sync it to another schema name
 
 ```text
 .\sq.exe schemas sync schema.json --name <schema-name>
