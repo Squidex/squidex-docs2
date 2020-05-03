@@ -85,6 +85,14 @@ sudo firewall-cmd --add-service=https --permanent --zone=trusted
 sudo firewall-cmd --reload
 ```
 
+### I see a IDX20803: Unable to obtain configuration from: &lt;IP&gt; in the logs
+
+This problem is because you use an host name or IP address that is not reachable from the docker itself. You can think about the Squidex being two processes in one application. There is the OpenID Connect Server \(Identity Server\) that generates the access tokens and the API. When the API receives an access token it makes a request to the Identity Server to validate the token \(See following diagram\).
+
+![Authentication Flow](../../.gitbook/assets/untitled-presentation.png)
+
+When you use a local host name or IP address such as `localhost` or `127.0.0.1`your are referring to the host name. But containers inside docker cannot resolve the network routes and therefore the authentication flow fails. The solution is to either use another local hostname, that you have to configure in the host file of your Operation system or to use a real hostname, such as a public domain name.
+
 ### More issues?
 
 It is very likely a configuration problem and not related to hosting under Docker.  Checkout
