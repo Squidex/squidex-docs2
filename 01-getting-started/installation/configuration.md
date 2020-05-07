@@ -21,7 +21,7 @@ In this example we want to override the following setting from the configuration
 {
   "assetStore": {
     "folder": {
-      "path": "Assets"
+      "path": "MyAssets"
     }
   }
 }
@@ -38,7 +38,7 @@ ASSETSTORE__FOLDER__PATH="MyAssets"
 Aggregate the keys by colon and you get the name of the command line argument
 
 ```text
-assetstore:folder:path="AssetStore"
+assetstore:folder:path="MyAssets"
 ```
 
 Casing does not matter.
