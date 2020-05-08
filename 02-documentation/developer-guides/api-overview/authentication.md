@@ -20,7 +20,7 @@ Before you get an access token you have to create a client first. A client is ju
 
 If you create a new app, it has already a default client.
 
-![Create a new client](../../../.gitbook/assets/image%20%289%29.png)
+![Create a new client](../../../.gitbook/assets/image%20%2810%29.png)
 
 Each client has also a role assigned to define which updates or queries can be performance with the client. This is particularly useful when your client is a public application that can easily be reversed engineer like a mobile app or single page application. You can store your client credentials \(client id and client secret\) in the application but you have to ensure, that you give your client only the necessary permissions and not more.
 

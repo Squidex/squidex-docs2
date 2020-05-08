@@ -68,9 +68,9 @@ You have to provide the following information:
 | \(4\) Description | A short description about your action |
 | \(5\) ReadMore | An optional link to additional information, e.g. the website of the integrated solution. |
 
-![The metadata in the rule overview](../../../.gitbook/assets/image%20%2813%29.png)
+![The metadata in the rule overview](../../../.gitbook/assets/image%20%2814%29.png)
 
-![The metadata when selecting an asset](../../../.gitbook/assets/image%20%287%29.png)
+![The metadata when selecting an asset](../../../.gitbook/assets/image%20%288%29.png)
 
 ### Configuration values and editors
 
@@ -110,7 +110,7 @@ A hint that describes whether the property supports formatting via scripting or 
 [Formattable]
 ```
 
-![The generated editor](../../../.gitbook/assets/image%20%2812%29.png)
+![The generated editor](../../../.gitbook/assets/image%20%2813%29.png)
 
 #### Data Type
 
