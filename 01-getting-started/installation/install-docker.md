@@ -45,13 +45,10 @@ Open the `.env` file and set the following variables:
 
 You can keep the other settings empty for now.
 
-### 3. Create the MongoDB database folder
+### 3. Data Folder
 
-The data will be stored outside of the docker container to simplify the backups. Create the folder with
-
-```bash
-sudo mkdir /var/mongo/db
-```
+The data will be stored outside of the docker container to simplify the backups. 
+The default path /etc/squidex will be created by docker.
 
 ### 4. Run the docker-compose file
 
