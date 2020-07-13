@@ -114,7 +114,9 @@ Cache-Contro: public,max-age=<cache>
         download for images.</td>
     </tr>
   </tbody>
-</table>## Resolve references assets
+</table>
+
+## Resolve references assets
 
 When you have content items with asset fields, the assets are added as IDs to content item. Therefore by default you will only retrieve the IDs when you query content items and you have to do additional requests to get asset information.
 

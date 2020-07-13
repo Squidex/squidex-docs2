@@ -182,3 +182,13 @@ Create a visual tree for a JSON object.
 
 ![JSON Tree](../../.gitbook/assets/jstree-editor.png)
 
+### 5. JSON Schema Editor
+
+Reference: [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
+
+This editor downloads json schema from the url that is defined via the URL fragment \(everything after \#\):
+
+[https://squidex.github.io/squidex-samples/editors/react-jsonschema.html\#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
+
+![JSON Schema from external URL](../../.gitbook/assets/image%20%2833%29.png)
+

@@ -47,8 +47,7 @@ You can keep the other settings empty for now.
 
 ### 3. Data Folder
 
-The data will be stored outside of the docker container to simplify the backups. 
-The default path /etc/squidex will be created by docker.
+The data will be stored outside of the docker container to simplify the backups. The default path /etc/squidex will be created by docker.
 
 ### 4. Run the docker-compose file
 
@@ -67,7 +66,7 @@ docker logs <CONTAINER-ID> # Read the logs
 
 ### I get a 502 Bad Gateway
 
-In my tests it took sometime to issue the certificate. Probably around 10 minutes. 
+In my tests it took sometime to issue the certificate. Probably around 10 minutes.
 
 Also ensure that your DNS server is configured correctly.
 
@@ -92,9 +91,7 @@ When you use a local host name or IP address such as `localhost` or `127.0.0.1`y
 
 ### More issues?
 
-It is very likely a configuration problem and not related to hosting under Docker.  Checkout
+It is very likely a configuration problem and not related to hosting under Docker. Checkout
 
 {% page-ref page="configuration.md" %}
-
-
 
