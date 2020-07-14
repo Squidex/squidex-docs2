@@ -101,7 +101,7 @@ Open [http://localhost:5000](http://localhost:5000) to run Squidex.
 You can also run and debug the backend with Visual Studio 2019. But here are some things you should do before you start your debug session:
 
 1. Recommended: Ensure that you `Squidex`which means that you use the integrated Kestrel web server, which starts faster than IIS Express.
-2. Recommended: Toggle of the `Launch browser` setting. You just want to keep Squidex open during development and not close and open the window all the time to make debugging the frontend with your browser easier.
+2. Recommended: Toggle off the `Launch browser` setting. You just want to keep Squidex open during development and not close and open the window all the time to make debugging the frontend with your browser easier.
 3. Ensure that you use port **5000** for development. This is required to have a proper setting for identity server and authentication in general. 
 
 ![Visual Studio Settings](../../.gitbook/assets/image%20%2816%29.png)
