@@ -87,7 +87,7 @@ Booleans have only 2 states: True or false, yes or no, 1 or 0.
 
 ![DateTime](../../.gitbook/assets/datetime.png)
 
-Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ss.sssZ`.
+Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ssZ`.
 
 #### API representation
 
