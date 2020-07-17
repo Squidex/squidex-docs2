@@ -101,7 +101,7 @@ Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ssZ`.
 
 ![Assets](../../.gitbook/assets/assets.png)
 
-Asset fields are used to maintain a list of assset IDs. You can also restrict the number of assets with a minimum and maximum limit, for example when you want to have a single avatar or preview image for a content. You can use the IDs load the asset. Read more about [here](). When you delete an asset a cleanup process will remove the asset id from your contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an id to an deleted asset.
+Asset fields are used to maintain a list of assset IDs. You can also restrict the number of assets with a minimum and maximum limit, for example when you want to have a single avatar or preview image for a content. You can use the IDs load the asset. Read more about [here](schemas.md). When you delete an asset a cleanup process will remove the asset id from your contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an id to an deleted asset.
 
 #### API representation
 

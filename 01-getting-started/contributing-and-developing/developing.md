@@ -33,7 +33,7 @@ Personally I was not able to setup the newer Docker Versions on Windows 10 Home.
 
 #### Setup
 
-We also provide ready to use docker configurations: [https://github.com/squidex/squidex-docker](https://github.com/squidex/squidex-docker). 
+We also provide ready to use docker configurations: [https://github.com/squidex/squidex-docker](https://github.com/squidex/squidex-docker).
 
 Just execute the following commands to get a MongoDB installation for development:
 
@@ -62,6 +62,10 @@ You can use any editor you want, but our recommendation is to use:
 ## How to run Squidex
 
 You have to run both, frontend and backend, independently. The first time it feels redundant and annoying and we also had some code to run the webpack dev server automatically when the application is started. But you will recognize that it takes a minute for the webpack dev server to start. Therefore we decoupled the commands, so that you can keep the webpack dev server running, even when you have to restart the backend application.
+
+{% hint style="info" %}
+Before you start you should also ensure that the certificates for the test environment are installed. They can be found under `/dev` in the squidex folder.
+{% endhint %}
 
 ### Frontend
 
@@ -96,13 +100,10 @@ dotnet restore # Install all dependencies
 dotnet run
 ```
 
-Open [http://localhost:5000](http://localhost:5000) to run Squidex.
+Open [https://localhost:5001](http://localhost:5000) to run Squidex.
 
 You can also run and debug the backend with Visual Studio 2019. But here are some things you should do before you start your debug session:
 
 1. Recommended: Ensure that you `Squidex`which means that you use the integrated Kestrel web server, which starts faster than IIS Express.
 2. Recommended: Toggle off the `Launch browser` setting. You just want to keep Squidex open during development and not close and open the window all the time to make debugging the frontend with your browser easier.
-3. Ensure that you use port **5000** for development. This is required to have a proper setting for identity server and authentication in general. 
-
-![Visual Studio Settings](../../.gitbook/assets/image%20%2816%29.png)
 
