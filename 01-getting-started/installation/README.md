@@ -11,7 +11,7 @@ If you want to install Squidex on a bare metal server or virtual machine.
 
 If you want to install Squidex in the Cloud.
 
-* [Install on Azure App Service](https://github.com/Squidex/squidex-docs2/tree/8d35c365b74878aa247c2d0b90867aceea77df1b/01-getting-started/Installation/install-azure.md)
+* [Install on Azure App Service](install-azure.md)
 
 ## How to configure Squidex
 
