@@ -12,6 +12,7 @@ Before you start you have to setup a few things first:
 2. A service plan to host squidex \(Linux\).
 3. A storage account for your assets and mongo db \(general purpose v1 or v2\).
 4. [Azure-CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
+5. The [Microsoft.ContainerInstance](https://azure.microsoft.com/en-gb/services/container-instances/) provider registered in your Azure subscription.
 
 ## 1. Create the web app
 
@@ -48,6 +49,14 @@ The following setup of the container instance can only be done using the azure-c
 ```
 
 This will create a container Instance with a single container running mongo db.
+
+If you receivce the error message `The subscription is not registered to use namespace Microsoft.ContainerInstance` when creating the container, then the Container Instances provider is not registered in your Azure subscription. See [this article](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/error-register-resource-provider) for details.
+
+To register the provider, run the following command:
+
+```bash
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 > **IMPORTANT**: At this point your MongoDB will run without authentication. Connect to it with a Tool of your choice like [Robo 3T](https://robomongo.org/) and create an admin user. After that run the above command again, but change the _--command-line_ argument to
 >
