@@ -128,13 +128,21 @@ Example:
       "expires_at": 1573405262
     }
   },
-  "apiUrl": "http://localhost:5000/api"
+  "apiUrl": "http://localhost:5000/api",
+  "appName": "my-app"
 }
 ```
 
-You can use `apiUrl`, `access_token` and `token_type` to retrieve additional information from the API, for example when you build a special editor to manage references or assets.  
-  
-Use the sample editor [https://cloud.squidex.io/scripts/context-editor.html](http://localhost:5000/scripts/context-editor.html) to view your context.
+You can use `apiUrl`, `access_token` and `token_type` to retrieve additional information from the API, for example when you build a special editor to manage references or assets.
+
+## Example editors
+
+Squidex contains a few example editors that can help you to understand the flow, for example:
+
+* [https://cloud.squidex.io/scripts/editor-context.html](https://cloud.squidex.io/scripts/editor-context.html): Demonstrates the structure of the context object by displaying the JSON representation in a text field.
+* [https://cloud.squidex.io/scripts/editor-combined.html](https://cloud.squidex.io/scripts/editor-combined.html): Demonstrates how to use the values of the other fields to calculate the value of the current field.
+* [https://cloud.squidex.io/scripts/editor-log.html](https://cloud.squidex.io/scripts/editor-log.html): Demonstrates the different callbacks by logging them the Browser console.
+* [https://cloud.squidex.io/scripts/editor-simple.html](https://cloud.squidex.io/scripts/editor-simple.html): Demonstrates how to integrate the CKE editor into Squidex.
 
 ## All Examples
 
@@ -158,7 +166,7 @@ Reference: [https://squidex.github.io/squidex-samples/editors/country-selector.h
 
 Reference: [https://squidex.github.io/squidex-samples/editors/tags-category.html](https://squidex.github.io/squidex-samples/editors/tags-category.html)
 
-The data format is a list of url like paths for each product category that will be converted to a tree strucuture.
+The data format is a list of URL like paths for each product category that will be converted to a tree structure.
 
 ```javascript
 [
@@ -186,7 +194,7 @@ Create a visual tree for a JSON object.
 
 Reference: [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
-This editor downloads json schema from the url that is defined via the URL fragment \(everything after \#\):
+This editor downloads json schema from the URL that is defined via the URL fragment \(everything after \#\):
 
 [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html\#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
