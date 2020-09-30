@@ -77,7 +77,7 @@ You just have to reference the editor SDK and handle the events. You also have t
 
 ## API
 
-The \``SquidexFormField` class is the entry point to your editor. 
+The `SquidexFormField` class is the entry point to your editor. 
 
 Create a new instance when your editor is initialized.
 
@@ -94,6 +94,7 @@ Create a new instance when your editor is initialized.
 | `editor.onDisabled(callback)` | Registers the disabled callback. This callback is invoked whenever the editor should either be enabled or disabled. A boolean value will be passed with either `true` \(disabled\) or `false` \(enabled\). |
 | `editor.onValueChanged(callback)` | Registers the value changed callback. This callback is invoked whenever the value of the field has changed. The value will be passed to the callback as argument. |
 | `editor.onFormValueChanged(callback)` | Registers the value changed callback. This callback is invoked whenever the value of the content form has changed. The value will be passed to the callback as argument. |
+| `editor.navigate(url)` | Navigates the Management UI to a new URL. Because the plugin is integrated as an iframe, you cannot use normal links as it would only change the URL within the iframe and not the URL of the Management UI. |
 
 ### Context
 

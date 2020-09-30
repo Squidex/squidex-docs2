@@ -40,6 +40,7 @@
   * [Scripting](02-documentation/developer-guides/scripting.md)
   * [Custom Workflows](02-documentation/developer-guides/workflows.md)
   * [Custom Editors](02-documentation/developer-guides/editors.md)
+  * [Custom Sidebars](02-documentation/developer-guides/custom-sidebars.md)
   * [Preview Content](02-documentation/developer-guides/preview.md)
   * [Rule Formatting](02-documentation/developer-guides/rule-formatting.md)
 
