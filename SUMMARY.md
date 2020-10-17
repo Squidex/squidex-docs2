@@ -10,6 +10,7 @@
   * [Install on Azure](01-getting-started/installation/install-azure.md)
   * [Install Identity](01-getting-started/installation/install-identity.md)
   * [Configuration](01-getting-started/installation/configuration.md)
+  * [Troubleshooting and Support](01-getting-started/installation/troubleshooting-and-support.md)
 * [Contributing and Developing](01-getting-started/contributing-and-developing/README.md)
   * [Building](01-getting-started/contributing-and-developing/building.md)
   * [Developing](01-getting-started/contributing-and-developing/developing.md)
