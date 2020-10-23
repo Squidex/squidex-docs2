@@ -69,8 +69,10 @@ Please provide the logs as an easy to read file. You can upload them to Dropbox,
 
 If the logs are less than 10 MB you can just provide the full logs. Otherwise you can provide a subset of the logs around the timestamp when you have experienced the issue. The more logs you can provide the better. It can also be helpful to restart Squidex and to reproduce your issue and then collect the logs from this test. Then we get a full history from the time Squidex was started to the time you have reproduced the issue.
 
+If you have a few lines only, you can add them to the post, but please ensure that the logs are formatted properly with code blocks.
+
 {% hint style="info" %}
-Do not insert your log as a plain text or formatted code block to your topic. The topic becomes just hard to read and very often the logs are not complete.
+Do not insert long logs as a plain text or formatted code block to your topic. The topic becomes just hard to read and very often the logs are not complete.
 {% endhint %}
 
 ### Prepare browser logs
@@ -81,7 +83,7 @@ Also check your browser console for errors. It is very likely that you are a sof
 
 Here are a few other things that are relevant:
 
-1. If you have code examples use proper code blocks to format them properly.
+1. If you have code examples or logs use code blocks to format them properly.
 2. If you have relevant screenshots for UI problems you should also upload them. But do not upload screenshots for error messages because we cannot copy and paste them to search for the error message in our code or somewhere else.
 3. Provides as many details as possible.
 
