@@ -77,9 +77,9 @@ Create a new instance when your plugin is initialized.
 | :--- | :--- |
 | `plugin.getContext()` | Gets the current context information. More about that later. |
 | `plugin.clean()` | Cleanup the plugin. Usually it is not needed to call this method. |
-| `plugin.onInit(callback)` | Registers the init handler. This callback is invoked once the messaging communication with the management UI is established. After the callback is invoked you get retrieve values with the get methods. The context object will be passed to the callback. |
-| `editor.onContentChanged(callback)` | Registers the content changed callback. This callback is invoked whenever the the current content item is changed. This callback is never triggered when your sidebar plugin is used for single content items. |
-| `editor.navigate(url)` | Navigates the Management UI to a new URL. Because the plugin is integrated as an iframe, you cannot use normal links as it would only change the URL within the iframe and not the URL of the Management UI. |
+| `plugin.onInit(callback)` | Register a function that is invoked when the messaging communication with the management UI is established. After the callback is invoked you get retrieve values with the get methods. The context object will be passed to the callback. |
+| `plugin.onContentChanged(callback)` | Register a function that is invoked whenever the the current content item is changed. This callback is never triggered when your sidebar plugin is used for single content items. |
+| `plugin.navigate(url)` | Navigates the Management UI to a new URL. Because the plugin is integrated as an iframe, you cannot use normal links as it would only change the URL within the iframe and not the URL of the Management UI. |
 
 ### Context
 
