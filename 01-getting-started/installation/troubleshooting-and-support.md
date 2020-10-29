@@ -110,6 +110,33 @@ Please keep in mind that you are getting free support. Respect the time of every
 If it is very obvious that an topic creator has not read this guidelines, we will just delete the topic. We just do not have the time to ask for logs over and over again.
 {% endhint %}
 
+## Known Tools and Solutions
+
+### My Mongo database is corrupt
+
+Squidex uses event sourcing, an architectural principle, where everything that happens is recorded as an event. An example for such an event is `ContentCreated` or `ContentDeleted`. Other state or collections are derived from events. Therefore they can be recreated if necessary.
+
+You can have a look to the `appSettings.json` file for all restore options: [https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json\#L683](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json#L683)
+
+To start such an rebuild you have to execute the following steps:
+
+1. Enable rebuilding, for example by setting the environment variable `REBUILD__APPS=true`.
+2. Restart Squidex and wait until your instance is started.
+3. Remove the environment variables or set the value to `false`.
+4. Restart Squidex again and wait until your instance is available.
+
+Read more about how to to use the configuration system:
+
+{% page-ref page="configuration.md" %}
+
+### My migration is broken
+
+In same cases Squidex needs to run a migration script to convert the database structure to a new version. These cases are described in the changelog: [https://github.com/Squidex/squidex/blob/master/CHANGELOG.md](https://github.com/Squidex/squidex/blob/master/CHANGELOG.md)
+
+Sometimes a migration fails, for example if the application is restarted before the migration is complete or in case of a bug. Very often it is recommended in the support forum to run the migrations again. The state of the migration is stored in MongoDB. Use a tool of your choice and connect to your MongoDB database. Then search for the `Migration` collection. There is only one document. Decrement to version and ensure that `IsLocked` is set to `false`. Then restart Squidex.
+
+![The migration status](../../.gitbook/assets/image%20%2839%29.png)
+
 
 
 
