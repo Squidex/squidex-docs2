@@ -79,6 +79,23 @@ Do not insert long logs as a plain text or formatted code block to your topic. T
 
 Also check your browser console for errors. It is very likely that you are a software developer and frontend engineer so you probably know how to do that.
 
+{% hint style="info" %}
+Usually browser logs contain only a handful of useful log lines. Therefore you can post them directly in the support ticket as code block.
+{% endhint %}
+
+### Prepare a backup of your mongo database
+
+Sometimes it is useful to have a backup of your database ready. Squidex provides its own backup tool but these backups are not useful for troubleshooting because the final result could differ from the state of your database.
+
+Therefore use `mongodump` to create a backup: [https://docs.mongodb.com/database-tools/mongodump/\#mongodump-options](https://docs.mongodb.com/database-tools/mongodump/#mongodump-options)
+
+1. Ensure that you have access to your mongo database. It might be necessary to open ports temporarily.
+2. Create a backup of your mongo databases. Do not use the `archive`flag.
+3. Create a ZIP-file of the generated dump folder and upload it to a online storage like Dropbox.
+4. Ensure that the ZIP-archive can be downloaded as anonymous user.
+5. Click the profile picture of the supporting developer in the support forum and send the link to the archive as private message.
+6. Also provide the name of the app that causes the problems.
+
 ### What else?
 
 Here are a few other things that are relevant:
