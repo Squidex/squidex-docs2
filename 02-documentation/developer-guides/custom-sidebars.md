@@ -39,7 +39,7 @@ You create a very simple HTML page and then you reference the editor SDK. In you
 
 <body>
     <textarea name="content" id="content"></textarea>
-    <textarea name="context" id="contexttor"></textarea>
+    <textarea name="context" id="context"></textarea>
 
     <script>
         var contentElement = document.getElementById('content');
