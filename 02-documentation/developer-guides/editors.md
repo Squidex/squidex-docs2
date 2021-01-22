@@ -205,5 +205,5 @@ This editor downloads json schema from the URL that is defined via the URL fragm
 
 [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html\#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
-![JSON Schema from external URL](../../.gitbook/assets/image%20%2833%29.png)
+![JSON Schema from external URL](../../.gitbook/assets/image%20%2834%29.png)
 

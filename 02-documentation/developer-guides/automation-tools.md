@@ -4,7 +4,7 @@ description: >-
   processes.
 ---
 
-# Automation Tools
+# Automation Tools \(CLI\)
 
 The CLI \(command line interface\) is terminal application for Windows, Linux and OS X.
 

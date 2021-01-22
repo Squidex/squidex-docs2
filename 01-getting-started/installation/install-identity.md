@@ -20,13 +20,13 @@ git clone https://github.com/Squidex/squidex-identity.git
 
 You can create the app with predefined schemas either in the cloud or in your custom installation:
 
-![Create Identity App](../../.gitbook/assets/new-identity-app%20%281%29.png)
+![Create Identity App](../../.gitbook/assets/new-identity-app%20%281%29%20%281%29.png)
 
 ### 1.3. Update the identity configuration
 
 Update the configureation with the url to your squidex instance and the client id and secret of the default client.
 
-![Copy Default Client](../../.gitbook/assets/default-client%20%281%29.png)
+![Copy Default Client](../../.gitbook/assets/default-client%20%281%29%20%281%29.png)
 
 Update the configuration file at: `Squidex.Identity/appsettings.json`
 
@@ -102,5 +102,5 @@ In the second step you have to update the Squidex configuration at `Squidex/apps
 
 Then you can register at Squidex identity.
 
-![Self-Hosted](../../.gitbook/assets/self-hosted-register%20%281%29.png)
+![Self-Hosted](../../.gitbook/assets/self-hosted-register%20%281%29%20%281%29.png)
 

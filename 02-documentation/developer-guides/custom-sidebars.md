@@ -6,7 +6,7 @@ description: Build and use custom sidebar extensions to support your editorial w
 
 ## How to write your own sidebar plugin
 
-Custom sidebar plugins are enabling developers to add custom UI extensions to the sidebar of a single content item or a list of content items. 
+Custom sidebar plugins are enabling developers to add custom UI extensions to the sidebar of a single content item or a list of content items.
 
 Technically speaking a UI editor lives in a sandboxed iframe, which interacts with the web application through a small SDK using messaging. You cannot directly interact with other elements of the Management UI.
 
@@ -22,7 +22,7 @@ The following code snippet shows a very simple sidecar plugin. It renders two te
 
 You create a very simple HTML page and then you reference the editor SDK. In your custom script element you create new instance of the `SquidexPlugin` class. This instance is responsible to communicate via the Management UI via messaging:
 
-1.  First it sends a `ready`message to the Management UI to tell it that it is available now and ready for communication. It also sends the height of plugin to the Management UI.
+1. First it sends a `ready`message to the Management UI to tell it that it is available now and ready for communication. It also sends the height of plugin to the Management UI.
 2. When the Management UI receives the `ready`message it sends an `init`message back with the context object, that contains information like the name of the api and the user profile. You should subscribe to the `init`message and then initialize your sidebar plugin.
 3. When the sidebar plugin is used for a single content item, the full content item is also send to the plugin and resend, whenever it is changed. You can get the current content item by subscribing with the `onContentChanged` method. Intermediate updates are not send to the editor, only after you have saved your changes.
 4. Furthermore the plugin has a timer running in the background that periodically measures the height of the plugin. The problem is that when you use iframes, you have to give them a fixed height. You cannot make them resize automatically. Therefore the plugin has to notify the Management UI whenever the size has been changed.
@@ -54,7 +54,7 @@ You create a very simple HTML page and then you reference the editor SDK. In you
         plugin.onInit(function (context) {
             contextElement.innerHTML = JSON.stringify(context, null, 2);
         });
-        
+
         // The content is only available when it is used as a sidebar plugin for single content items.
         plugin.onContentChanged(function (content) {
             contentElement.innerHTML = JSON.stringify(content, null, 2);
@@ -67,7 +67,7 @@ You create a very simple HTML page and then you reference the editor SDK. In you
 
 ## API
 
-The `SquidexPlugin` class is the entry point to your custom sidebar. 
+The `SquidexPlugin` class is the entry point to your custom sidebar.
 
 Create a new instance when your plugin is initialized.
 

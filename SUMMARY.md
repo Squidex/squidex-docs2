@@ -25,6 +25,7 @@
 
 * [Concepts](02-documentation/concepts/README.md)
   * [Apps](02-documentation/concepts/apps.md)
+  * [Backups](02-documentation/concepts/backups.md)
   * [Schemas](02-documentation/concepts/schemas.md)
   * [Localization](02-documentation/concepts/localization.md)
   * [Permissions](02-documentation/concepts/permissions.md)
@@ -37,7 +38,7 @@
     * [Postman](02-documentation/developer-guides/api-overview/postman.md)
     * [Queries](02-documentation/developer-guides/api-overview/api.md)
     * [Assets](02-documentation/developer-guides/api-overview/assets-api.md)
-  * [Automation Tools](02-documentation/developer-guides/automation-tools.md)
+  * [Automation Tools \(CLI\)](02-documentation/developer-guides/automation-tools.md)
   * [Scripting](02-documentation/developer-guides/scripting.md)
   * [Custom Workflows](02-documentation/developer-guides/workflows.md)
   * [Custom Editors](02-documentation/developer-guides/editors.md)
