@@ -65,7 +65,7 @@ The syntax is very easy:
 ${<TYPE>_<PROPERTYAME>} or $<TYPE>_<PROPERTYNAME>
 ```
 
-The &lt;TYPE&gt; is a prefix that has been used for backwards compatibility and you can use whatever you want, but our recommendation is to stick with prefixes that fit to the type of event, for example _content_ or _asset_. The &lt;PROPERTY&gt; the full path to the property in the event, for example:
+The &lt;TYPE&gt; is a prefix that has been used for backwards compatibility and you can use whatever you want, but our recommendation is to stick with prefixes that fit to the type of event, for example _content_ or _asset_. The &lt;PROPERTY&gt; is the full path to the property in the event, for example:
 
 * `$CONTENT_TYPE`: _Created_
 * `$CONTENT_SCHEMAID.NAME`: _my-schema_
