@@ -37,6 +37,14 @@ If you are hosting Squidex yourself you are very likely the administrator and yo
 
 Backups are critical paths for Squidex and do not provide the same security mechanisms as normal API calls, therefore we have to prove first that your backup does not cause any harm to our system. Create a backup of your local or cloud app and send us the URL in personal message in the [support forum](https://support.squidex.io).
 
+If you want to restore a backup please do the following things:
+
+1. Provide a download link directly to the backup. If you need to delete your app \(see point 4\) you have to upload your backup first. Please ensure that an anonymous user can download your backup. Do not use Google Drive, because it causes issue when downloading the backup.
+2. Provide the number of events and assets, so that we can have an understanding how long it might take to restore the backup.
+3. If you want to change the name of the app, provide a new name please.
+4. If you want to keep the name you have to delete your app first. Please do that. The download link for your backup becomes invalid, so you have to upload your backup first \(see point 1\).
+5. Do not share your backup link in a public post, use personal messages for that.
+
 {% hint style="info" %}
 Just click the profile picture the user you want to write to create a personal message.
 {% endhint %}
