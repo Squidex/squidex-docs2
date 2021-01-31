@@ -66,6 +66,7 @@ We also have a schema `cities` with these fields:
 | `districts` | References | No | References to district content items. |
 | `tags` | Tags | No | Search tags. |
 | `isCapital` | Boolean | No | Indicates whether the city is a capital |
+| `location` | Geolocation | No | The location of the city. |
 
 Then your content has the following structure in the API:
 
@@ -97,7 +98,13 @@ Then your content has the following structure in the API:
         },
         "isCapital": {
             "iv": true
-        }
+        },
+        "location": {
+            "iv": {
+               "longitude": 11.576124
+               "latitude": 48.137154
+            }
+        }        
     }
 }
 ```
@@ -546,6 +553,32 @@ not contains(data/name/en, 'ich')
 {% hint style="info" %}
 In **OData** single quotes \(`'`\) in text values must be replaced with double single quotes \(`''`\).
 {% endhint %}
+
+Geolocation must within radius.
+
+{% tabs %}
+{% tab title="OData" %}
+```javascript
+// Point is defined as POINT(longitude latitude)
+geo.distance(data/geolocation/iv, geography'POINT(11.576124 48.137154)') lt 1000
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```javascript
+{
+    "filter": {
+        "path": {
+            "data.geolocation.iv",
+            "op": "lt"
+            // The radius is defined as Radius(Longitude, Latitude, Meters)
+            "value": "Radius(11.576124, 48.137154, 1000)"
+        }
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 Different conditions
 
