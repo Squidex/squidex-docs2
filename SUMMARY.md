@@ -30,6 +30,7 @@
   * [Localization](02-documentation/concepts/localization.md)
   * [Permissions](02-documentation/concepts/permissions.md)
   * [Rules](02-documentation/concepts/rules.md)
+  * [Workflows](02-documentation/concepts/workflows.md)
 * [Software Development Kits](02-documentation/software-development-kits/README.md)
   * [.NET Standard](02-documentation/software-development-kits/.net-standard.md)
 * [Developer Guides](02-documentation/developer-guides/README.md)
