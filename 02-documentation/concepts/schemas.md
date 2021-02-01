@@ -4,6 +4,12 @@ description: Schemas define the structure of your content.
 
 # Schemas
 
+## Introduction
+
+This documentation is based on the common Use Case. Please follow the link and open it side by side to this page to understand the examples.
+
+{% page-ref page="../introduction-and-use-case.md" %}
+
 Schemas define the structure of your content:
 
 ![Blog schema](../../.gitbook/assets/image%20%2817%29%20%281%29.png)

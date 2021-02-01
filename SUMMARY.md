@@ -23,6 +23,7 @@
 
 ## Documentation <a id="02-documentation"></a>
 
+* [Introduction and Use Case](02-documentation/introduction-and-use-case.md)
 * [Concepts](02-documentation/concepts/README.md)
   * [Apps](02-documentation/concepts/apps.md)
   * [Backups](02-documentation/concepts/backups.md)

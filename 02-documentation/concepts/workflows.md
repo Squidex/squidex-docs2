@@ -7,6 +7,12 @@ description: >-
 
 # Workflows
 
+## Introduction
+
+This documentation is based on the common Use Case. Please follow the link and open it side by side to this page to understand the examples.
+
+{% page-ref page="../introduction-and-use-case.md" %}
+
 ## What is a Workflow?
 
 A workflow defines the different statuses of a content item from the initial status to the Published status. Workflows are typically used when contributors work together to create and publish content items and when the contributors have different roles, such as Writer, Reviewer and Publisher. They are very flexible and you can have an unlimited number of workflows per App.
@@ -72,7 +78,7 @@ Lets have a look to the following example:
 
 Please note that the screenshot has been modified and some UI elements have been removed to make it more compact.
 
-In this example we have three user groups:
+In our use case we have described three user groups:
 
 1. **Editors** write content. When they are done, they move content item to the **Ready** status. They cannot review or publish content items.
 2. **Reviewers** review content items, when they are ready. They either move the content item to **Reviewed**, when the review process is successful or back to "Draft" otherwise.
@@ -103,34 +109,17 @@ The data has the same structure as it is also used for queries and for the API.
 ```javascript
 {
     "data": {
-        "name": {
-            "de": "München",
-            "en": "Munich"
-        },
-        "population": {
-            "iv": 1400000
-        },
-        "foundation-year": {
-            "iv": 1200
-        },
-        "districts": {
-            "iv": [
-                "5921b6f7-9584-49ef-b112-4b830cd0b87a"
-            ]
-        },
-        "tags": {
-            "iv": ["Bavaria", "Beer"]
-        },
-        "isCapital": {
-            "iv": true
+        // More fields
+        "type": {
+            "iv": "News"
         }
     }
 }
 ```
 
-The structure has been explained in detail in the documentation about queries.
+The structure has been explained in detail the use case:
 
-{% page-ref page="../developer-guides/api-overview/api.md" %}
+{% page-ref page="../introduction-and-use-case.md" %}
 
 ### Assign a workflow to schemas
 
