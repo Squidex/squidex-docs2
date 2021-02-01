@@ -6,7 +6,7 @@ description: Schemas define the structure of your content.
 
 ## Introduction
 
-This documentation is based on the common Use Case. Please follow the link and open it side by side to this page to understand the examples.
+This documentation is based on the FoodCrunch use case. Please follow the link and open it side by side to this page to understand the examples.
 
 {% page-ref page="../introduction-and-use-case.md" %}
 
@@ -16,11 +16,15 @@ Schemas define the structure of your content:
 
 In the screenshot above we define a blog schema with several fields.
 
-Each field is identified by the following properties that cannot be changed:
+Each field is identified by the following properties:
 
-1. The **name**, which cannot be changed later and is also used in the API.
-2. The **type**, e.g. text or number.
-3. The **partitioning**, which defines if the field is localized or not.
+| State | Immutable | Description |
+| :--- | :--- | :--- |
+| **Name** | No | The name of the field in the API. It cannot be changed anymore, but you can add a optional label that is used in UI. |
+| **Type** | No | The data type of this field. |
+| **Editor** | Yes | Most fields have an editor, which depends on the type of the field. The editor can be changed, but it will not change the value. If you change a field editor from HTML to Markdown you will probably face issues. |
+| **Partitioning** | No | Defines whether the field content is localizable and managed in multiple languages or not. |
+| **Validation** | Yes | A set of validation properties, which depend on the type of the field. For example they define the maximum length of a string or the maximum number of assets you can reference. |
 
 Furthermore a schema has a published change. Only published schemas can have content.
 
@@ -28,9 +32,9 @@ Furthermore a schema has a published change. Only published schemas can have con
 
 Each field has multiple states:
 
-1. **Locked**: The field cannot be updated or deleted.
-2. **Hidden**: The field will not be returned by the api and only visible in the Management UI.
-3. **Disabled**: The field cannot be manipulated in the Management UI. Do not use it together with the required operator, because you will not be able to create or update content items anymore.
+1. **Locked**: The field cannot be updated or deleted anymore.
+2. **Hidden**: The field will not be returned by the api and is only visible in the Management UI.
+3. **Disabled**: The field cannot be manipulated in the Management UI. Do not use it together with the required validator, because you will not be able to update invalid content items anymore.
 
 ## Field Types
 
@@ -46,7 +50,7 @@ A string is the most used field type and can be used for any kind of texts, like
 
 1. **HTML**: With a WYSIWYG editor.
 2. **Markdown**: With a markdown editor.
-3. **Singleline text**: With an input control.
+3. **Simple text**: With an input control for texts with only one line.
 4. **Multiline text**: With a textarea control.
 5. **Selection of predefined values**: With a dropdown control or radio boxes.
 
@@ -132,7 +136,7 @@ Asset fields are used to maintain a list of asset IDs. You can also restrict the
 
 ![References](../../.gitbook/assets/references.png)
 
-References fields are used to model relationship to other content items. For example you could have a schema for products and a schema for product categories. A product has a field with references to the categories it belongs to. Both, products and categories can be created, updated and managed independently. Please think about the direction of the reference very carefully. For example a typical product is only in very few categories, but a product category could have thousand of products. Therefore it is not recommended to reference the products from the categories. When you delete an content a cleanup process will remove the referenced id from all contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an reference to an deleted content.
+References fields are used to model relationship to other content items. For example you could have a schema for products and a schema for product categories. A product has a field with references to the categories it belongs to. Both, products and categories can be created, updated and managed independently. Please think about the direction of the reference very carefully. For example a typical product is only in very few categories, but a product category could have thousand of products. Therefore it is not recommended to reference the products from the categories. When you delete n content a cleanup process will remove the referenced id from all contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an reference to an deleted content.
 
 #### API representation
 

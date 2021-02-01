@@ -9,7 +9,7 @@ description: >-
 
 ## Introduction
 
-This documentation is based on the common Use Case. Please follow the link and open it side by side to this page to understand the examples.
+This documentation is based on the FoodCrunch use case. Please follow the link and open it side by side to this page to understand the examples.
 
 {% page-ref page="../introduction-and-use-case.md" %}
 
