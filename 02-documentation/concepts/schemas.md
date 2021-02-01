@@ -53,9 +53,8 @@ A string is the most used field type and can be used for any kind of texts, like
 #### API representation
 
 ```javascript
-{
-    "name": "Squidex T-Shirt",
-    "description": "For our fans. <p>Available in <strong>multiple colors ..."
+"title": {
+    "iv": "Super Corp buys Food Startup"
 }
 ```
 
@@ -68,9 +67,12 @@ A number can either be a point number or integer. Typical examples when to use n
 #### API representation
 
 ```javascript
-{
-    "quantity": 100,
-    "price": 9.99
+"funding": {
+    "iv": 1500000
+}
+//
+"fundingInMio": {
+    "iv": 1.5
 }
 ```
 
@@ -83,9 +85,16 @@ Booleans have only 2 states: True or false, yes or no, 1 or 0.
 #### API representation
 
 ```javascript
-{
-    "isSoldOut": true,
-    "isOffer": null
+"givenUp": {
+    "iv": false
+}
+// OR
+"givenUp": {
+    "iv": true
+}
+//
+"givenUp": {
+    "iv": null
 }
 ```
 
@@ -98,8 +107,8 @@ Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ssZ`.
 #### API representation
 
 ```javascript
-{
-    "sellUntil": "2020-02-02T12:00:00Z"
+"foundingDate": {
+    "iv": 2021-01-10T00:00:00z"
 }
 ```
 
@@ -112,10 +121,9 @@ Asset fields are used to maintain a list of asset IDs. You can also restrict the
 #### API representation
 
 ```javascript
-{
-    "images": [
-        "7722daf6-1ba7-4b2a-a5bb-fc57e22f5645",
-        "b666b172-9918-4764-ac26-300ba4857d5f"
+"image": {
+    "iv": [
+        "287a2948-8992-4e65-990f-3ee486c9a4b5"
     ]
 }
 ```
@@ -129,10 +137,9 @@ References fields are used to model relationship to other content items. For exa
 #### API representation
 
 ```javascript
-{
-    "categories": [
-        "7722daf6-1ba7-4b2a-a5bb-fc57e22f5645",
-        "b666b172-9918-4764-ac26-300ba4857d5f"
+"startup": {
+    "iv": [
+        "673d3a3a-988f-4ce6-a8ec-022e73e12f9f"
     ]
 }
 ```
@@ -146,17 +153,15 @@ Some content items only exist as child content for another content item. For exa
 #### API representation
 
 ```javascript
-{
-    "sizes": [{
-        "size": "XL",
-        "quantity": 100,
-        "price": 30
+"founders": {
+    "iv": [{
+        "name": "John Doe",
+        "position": "Marketing"
     }, {
-        "size": "L",
-        "quantity": 100,
-        "price": 28.5
+        "name": "Jane Doe",
+        "position": "Sales"
     }]
-}
+},
 ```
 
 ### Geolocation
@@ -166,10 +171,10 @@ Some content items only exist as child content for another content item. For exa
 The geolocation field represents a tuple of latitude and longitude and is designed to be used in combination with maps. It does not store additional data about the location, such as names, addresses or other information. You have to add additional fields for this purpose.
 
 ```javascript
-{
-    "location": {
-        "latitude": 14.9212444,
-        "longitude": 57.2121432
+"location": {
+    "iv": {
+        "longitude": -122.431297,
+        "latitude": 37.773972
     }
 }
 ```
@@ -183,10 +188,11 @@ Tags are list of strings that are use in the combination tag editor in the Manag
 #### API representation
 
 ```javascript
-{
-    "tags": [
-        "t-shirts",
-        "fan-products"
+"tags": {
+    "iv": [
+        "oranges",
+        "food",
+        "valley"
     ]
 }
 ```
@@ -200,14 +206,9 @@ A json field is for developers. Whenever you have some structured or unstructure
 #### API representation
 
 ```javascript
-{
-    "sold": {
-        "Europe": {
-            "Germany": {
-                "quantity": 100,
-                "averagePrice": 15.44
-            }
-        }
+"metadata": {
+    "iv": {
+        "createBy": "auto-importer"
     }
 }
 ```

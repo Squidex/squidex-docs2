@@ -49,6 +49,7 @@ This schema is called `startups` and has the following fields.
 | `description` | String | Yes | The description of the startup. |
 | `funding` | Number | No | The total funding in USD \($\). |
 | `foundingDate` | DateTime | No | The date the startup has been founded. |
+| `founders` | Array | No | The founders as list of name and position. |
 | `tags` | String | No | A list of tags for search. |
 | `location` | Geolocation | No | The geolocation of the headquarter. |
 | `metadata` | Json | No | Unstructured metadata. |
@@ -81,10 +82,14 @@ Of course we use JSON to represent our content in the database and API. Each con
             "iv": "Article"
         },
         "startup": {
-            "iv": "673d3a3a-988f-4ce6-a8ec-022e73e12f9f"
+            "iv": [
+                "673d3a3a-988f-4ce6-a8ec-022e73e12f9f"
+            ]
         },
         "image": {
-            "iv": "ac4951af-097e-4a7d-8ed1-0d9fa20eb59f"
+            "iv": [
+                "287a2948-8992-4e65-990f-3ee486c9a4b5"
+            ]
         }
     }
 }
@@ -108,6 +113,15 @@ Of course we use JSON to represent our content in the database and API. Each con
         },
         "foundingDate": {
             "iv": 2021-01-10T00:00:00z"
+        },
+        "founders": {
+            "iv": [{
+                "name": "John Doe",
+                "position": "Marketing"
+            }, {
+                "name": "Jane Doe",
+                "position": "Sales"
+            }]
         },
         "tags": {
             "iv": [
