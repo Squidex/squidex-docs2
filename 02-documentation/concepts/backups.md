@@ -16,7 +16,7 @@ A backup is an ZIP archive file that stores all your data for one app. It contai
 
 ### How to create backups
 
-If you are the owner of your app, go to Settings \(1\) and then to Backups \(2\). You can create a new backup there by pressing the "Start Backup" \(3\) button. The screen will not update immediately and it can take a few seconds until you see the status of your backup.
+If you are the owner of your app, go to "Settings" \(1\) and then to "Backups" \(2\). You can create a new backup there by pressing the "Start Backup" \(3\) button. The screen will not update immediately and it can take a few seconds until you see the status of your backup.
 
 ![Your backup](../../.gitbook/assets/image%20%2811%29.png)
 
@@ -24,7 +24,7 @@ Squidex only allows 10 backups per App. If you have reached this limit you have 
 
 ### How to restore a backup
 
-If you are hosting Squidex yourself you are very likely the administrator and you will see a link when you click your profile. This option is not available for you in the Cloud.
+If you are hosting Squidex yourself you are very likely the administrator and you will see a link to the Administration section when you click your profile. This option is not available for you in the Cloud.
 
 1. Go to "Administration" \(1\) and "Restore" \(2\)
 2. Copy the URL from your backup and add it the the first input field \(3\)
@@ -46,7 +46,7 @@ If you want to restore a backup please do the following things:
 5. Do not share your backup link in a public post, use personal messages for that.
 
 {% hint style="info" %}
-Just click the profile picture the user you want to write to create a personal message.
+Just click the profile picture of the user you want to write a personal message.
 {% endhint %}
 
 ### How does the restore process work?
