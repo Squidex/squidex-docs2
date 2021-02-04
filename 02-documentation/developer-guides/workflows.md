@@ -4,7 +4,11 @@ description: Write advanced workflows with scripting
 
 # Custom Workflows
 
-Custom workflows have been already requested several times and we will work on it in 2019, but until then this guide will teach you how to implement custom workflows. It will provide a setup that can be much more flexbible than what we are planing.
+Custom workflows have been already requested several times and have implemented it 2019, but if you are using an older version this guide will teach you how to implement custom workflows with permissions and scripting.
+
+If you are up to date with your Squidex version you can go to the documentation about workflows.
+
+{% page-ref page="../concepts/workflows.md" %}
 
 ## Our requirements
 
@@ -22,7 +26,7 @@ Therefore we have 3 states for content:
 4. `Rejected`
 5. `Published`
 
-The following diagram vizualizes our workflow.
+The following diagram visualizes our workflow.
 
 ![Workflow](../../.gitbook/assets/workflow.png)
 
@@ -35,10 +39,6 @@ In the first step we create a schema. We keep it simple and define 3 fields:
 3. **Text**: The text as markdown.
 
 We will make set the first two fields as list fields, which means we will see them in our content lists.
-
-The schema in the UI:
-
-!\[schema\]\(../images/articles/workflow/schema.png
 
 In the content list the schema will look like this:
 
@@ -64,20 +64,20 @@ We start by creating our Roles in Squidex:
 
 ![Roles](../../.gitbook/assets/roles.png)
 
-As you can see in the screenshot above, the `Creator` can only create and update content, but not publish it and the `Reviewer` can only update content. we use the default role `Editor` for the `Publisher`.
+As you can see in the screenshot above, the **Creator** can only create and update content, but not publish it and the **Reviewer** can only update content. we use the default role **Editor** for the **Publisher**.
 
-So we solved the problem that only the `Publisher` should be able to publish, unpublish content, but there is still something left to do.
+So we solved the problem that only the **Publisher** should be able to publish, unpublish content, but there is still something left to do.
 
 We have to ensure that:
 
-1. The `Creator` must set the initial status to `Draft`.
-2. The `Creator` can only change the status to `Ready`.
-3. The `Creator` can only update an article when the status is `Draft` or `Rejected`.
-4. The `Reviewer` can only change the status to `Approved` or `Rejected`.
-5. The `Publisher` can only set the status to `Published`.
-6. The `Publisher` can only publish the content when it the status is `Published` \(to be consistent\).
+1. The **Creator** must set the initial status to `Draft`.
+2. The **Creator** can only change the status to `Ready`.
+3. The **Creator** can only update an article when the status is `Draft` or `Rejected`.
+4. The **Reviewer** can only change the status to `Approved` or `Rejected`.
+5. The **Publisher** can only set the status to `Published`.
+6. The **Publisher** can only publish the content when it the status is `Published` \(to be consistent\).
 
-I will not show everything in this tutorial, it is just too much and the solution is the same for all roles, but we will show you how we implemented it for the `Creator`:
+I will not show everything in this tutorial, it is just too much and the solution is the same for all roles, but we will show you how we implemented it for the **Creator**:
 
 The solution is scripting. If you click the three dots in the schema editor a menu will pop up with a menu item to the scripting editor. Here you can define scripts that are invoked when a content item is queried, created, updated, deleted or when the status is changed.
 
@@ -95,7 +95,7 @@ if (ctx.data.status.iv !== 'Draft') {
 }
 ```
 
-Thats it, we do not have to do more, because the permission system already enforces that only `Creators` can create content.
+That's it, we do not have to do more, because the permission system already enforces that only **Creators** can create content.
 
 The UI will show the error message from the script:
 
@@ -121,9 +121,9 @@ if (ctx.user.claims.role.indexOf('Creator')) {
 
 What we do:
 
-1. We check if the current user is a `Creator`.
+1. We check if the current user is a **Creator**.
 2. If the content has the wrong status we cancel the process with the `disallow` function. Then the API responds with a `HTTP 403: Forbidden` and the UI will show an error message.
-3. if the content is changed to an invalid status we cancel the update with the 'reject' function. Then the API respons with a `HTTP 400: Bad Request` and the UI will show the error message.
+3. if the content is changed to an invalid status we cancel the update with the 'reject' function. Then the API response with a `HTTP 400: Bad Request` and the UI will show the error message.
 
 The rest of the requirements can be implemented with a some more `if`-statements.
 
