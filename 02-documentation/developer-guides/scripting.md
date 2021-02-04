@@ -62,7 +62,7 @@ All variables are accessible over the `ctx` \(Context\) variable. The following 
 | :--- | :--- | :--- |
 | `ctx.data` | Object | The data for the content item as it is also described in the [Use Case introduction](../introduction-and-use-case.md). |
 | `ctx.dataOld` | Object | The old data of the content item as it is also described in the [Use Case introduction](../introduction-and-use-case.md). Only for "Update" scripts. You can also use `ctx.oldData`as an alias. |
-| `ctx.operation` | String | The name of the operation, as it is also used in the UI, e.g. "Query", "Create", "Update", "Delete", "Change".  |
+| `ctx.operation` | String | The name of the operation, as it is also used in the UI \("Query", "Create", "Update", "Delete", "Change"\). In addition to that "Published" is used when the status is changed to "Published" and "Unpublished" is used when the previous status is "Published".  |
 | `ctx.status` | String | The status of the content. |
 | `ctx.statusOld` | String | The old status of the content item. Only for "Change" scripts. You can also use  `ctx.oldStatus`as an alias. |
 | `ctx.contentId` | String | The ID of the content item. |
@@ -138,7 +138,7 @@ if (ctx.isClient && ctx.data.password.iv) {
 }
 ```
 
-### Ensure that two fields are the same when content created.
+### Ensure that two fields have the same value.
 
 ```javascript
 if (data.password.iv !== data.passwordConfirm.iv) {
