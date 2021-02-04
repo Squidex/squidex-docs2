@@ -18,7 +18,7 @@ Some business rules around security and validation are hard to solve with a gene
 
 Scripting can be used to handle gaps in the Squidex feature set. You can create scripts that run whenever a content is created, updated, deleted, queried or when the status changes \(e.g. from Draft to Published\).
 
-Scripts can be defined in the schema editor. The link can be found in the extended menu:
+Scripts can be defined in the schema editor:
 
 1. Go to your App.
 2. Go to the schema settings.
@@ -28,13 +28,23 @@ Scripts can be defined in the schema editor. The link can be found in the extend
 
 ![](../../.gitbook/assets/image%20%2847%29.png)
 
-In the editor you can define all scripts for the following actions:
+In the editor you can define scripts for the following actions:
 
-* **Query** scripts are executed whenever a content item is queried in the API, but not when queried by the Management UI.
-* **Create** scripts are executed before a content item is created.
+* **Query** scripts are executed whenever a content item is queried with the API, but not when queried by the Management UI.
+* **Create** scripts are executed before a content item is created. 
 * **Change** scripts are executed before the status of a content item is changed. When you use scheduling to change the status of a content item in the future, the script is called just before the status is changed and not when you schedule it. This can also stop your scheduling, when the script fails or rejects the change.
 * **Delete** scripts are executed before a content item is deleted.
 * **Update** scripts are executed before a content item is updated.
+
+Content creation and updates happen in the following order:
+
+1. The content item is loaded. If it does not exists the API responds with 404 \(NotFound\).
+2. The data from the request is validated. The API responds with 400 \(BadRequest\) for invalid data.
+3. **The script is executed.**
+4. The data from the request is enriched with configured default values.
+5. The constraints like unique fields are checked.
+
+This means that you have the guarantee in your scripts, that the data is always valid and that you cannot violate constraints like unique fields when you auto-generate or change content data.
 
 {% hint style="info" %}
 Scripts are executed for the REST endpoint as well as for the GraphQL endpoint.
@@ -42,7 +52,7 @@ Scripts are executed for the REST endpoint as well as for the GraphQL endpoint.
 
 ## Execution and variables
 
-The scripts are executed in an Sandbox. You do not have access to the file system and only allowed operations. Only the ES5 Javascript syntax is implemented so far, which means you cannot use Lambda expressions, Promises or classes.
+The scripts are executed in an Sandbox. You do not have access to the file system and only to allowed functions. Only the ES5 Javascript syntax is implemented so far, which means you cannot use Lambda expressions, Promises or classes.
 
 ### Variables
 
@@ -51,23 +61,23 @@ All variables are accessible over the `ctx` \(Context\) variable. The following 
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | `ctx.data` | Object | The data for the content item as it is also described in the [Use Case introduction](../introduction-and-use-case.md). |
-| `ctx.dataOld` | Object | The old data of the content item as it is also described in the [Use Case introduction](../introduction-and-use-case.md). Only for "Update" scripts. You can also use `ctx.oldData`. |
+| `ctx.dataOld` | Object | The old data of the content item as it is also described in the [Use Case introduction](../introduction-and-use-case.md). Only for "Update" scripts. You can also use `ctx.oldData`as an alias. |
 | `ctx.operation` | String | The name of the operation, as it is also used in the UI, e.g. "Query", "Create", "Update", "Delete", "Change".  |
 | `ctx.status` | String | The status of the content. |
-| `ctx.statusOld` | String | The old status of the content item. Only for "Change" scripts. You can also use  `ctx.oldStatus`. |
+| `ctx.statusOld` | String | The old status of the content item. Only for "Change" scripts. You can also use  `ctx.oldStatus`as an alias. |
 | `ctx.contentId` | String | The ID of the content item. |
 | `ctx.appId` | String | The ID of the current app. |
 | `ctx.appName` | String | The name of the current app. |
-| `ctx.user` | Object | Information about the current user. See more about this later. |
+| `ctx.user` | Object | Information about the current user. See next table. |
 
 The user object has the following structure.
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| `ctx.user.id` | String | The ID of the user or the name of the client, if the update or Query is invoked from a client. |
+| `ctx.user.id` | String | The ID of the user or the name of the client, if the update or query is invoked from a client. |
 | `ctx.user.email` | String | The email address of the user, if the user is not a client. |
 | `ctx.user.isClient` | Boolean | True, if the current user is a client, false otherwise. |
-| `ctx.user.claims.xxx` | String | Each user a list of claims. Claim is just property of the user. Such a claim could be the display name of the user or the link to the profile picture. Most of them are not interesting for scripting, but you can also go to your profile and add custom properties to your account and use them in the scripts or rules. |
+| `ctx.user.claims.xxx` | String | Each user has a list of claims. Claim are just key-value-pairs. Such a claim could be the display name of the user or the link to the profile picture. Most of them are not interesting for scripting, but you can also go to your profile and add custom properties as claims to your account and use them in the scripts or rules. |
 
 ### Methods
 
