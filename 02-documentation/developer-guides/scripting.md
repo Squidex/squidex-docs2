@@ -203,7 +203,7 @@ getJSON(url, function(result) {
 // I am done
 ```
 
- When we make a request to an external service we have to tell the scripting engine that we are going to do this. In a normal script the execution is from top to bottom, just line by line. But when you make a request to an external service, the callback is executed after we have reached the last line. If we do not tell the scripting engine that we make the request, it would just stop the script after we have reached line 16. by setting `async = true` the scripting engine will wait until we call one the control methods. If you are not doing this the script will just time out after 5 seconds. Even if you are not changing the content you should just call `replace()`.
+ When we make a request to an external service we have to tell the scripting engine that we are going to do this. In a normal script the execution is from top to bottom, just line by line. But when you make a request to an external service, the callback is executed after we have reached the last line. If we do not tell the scripting engine that we make the request, it would just stop the script after we have reached line 16. By setting `async = true` the scripting engine will wait until we call one the control methods. If you are not doing this the script will just time out after 5 seconds. Even if you are not changing the content you should just call `replace()`.
 
 ## Restrictions
 
