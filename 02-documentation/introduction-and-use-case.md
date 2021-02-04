@@ -50,7 +50,7 @@ This schema is called `startups` and has the following fields.
 | `funding` | Number | No | The total funding in USD \($\). |
 | `foundingDate` | DateTime | No | The date the startup has been founded. |
 | `founders` | Array | No | The founders as list of name and position. |
-| `tags` | String | No | A list of tags for search. |
+| `tags` | Tags | No | A list of tags for search. |
 | `location` | Geolocation | No | The geolocation of the headquarter. |
 | `metadata` | Json | No | Unstructured metadata. |
 | `givenUp` | Boolean | No | Indicates whether the startup has given up. |

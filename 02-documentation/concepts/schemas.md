@@ -12,7 +12,7 @@ This documentation is based on the FoodCrunch use case. Please follow the link a
 
 Schemas define the structure of your content:
 
-![Blog schema](../../.gitbook/assets/image%20%2817%29%20%281%29.png)
+![Startups schema](../../.gitbook/assets/image%20%2848%29.png)
 
 In the screenshot above we define a blog schema with several fields.
 
