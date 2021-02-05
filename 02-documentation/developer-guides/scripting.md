@@ -105,7 +105,11 @@ Squidex provides a few helper methods that are not part of the ES5 Javascript st
 | `toPascalCase(text)` | Converts a text to PascalCase. |
 | `slugify(text)` | Calculates the slug of a text by removing all special characters and whitespaces to create a friendly term that can be used for SEO-friendly URLs. |
 | `getJSON(url,callback)` | Makes a request to the defined URL. If the request succeeds with a HTTP response status code \(2XX\) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object.. The script fails otherwise. |
-| `getJSON(url,callback,headers)` | Makes a request to the defined URL and adds the specified headers to the request. If the request succeeds with a HTTP response status code \(2XX\) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object.. The script fails otherwise. |
+| `getJSON(url,callback,headers)` | Makes a request to the defined URL and adds the specified headers to the request. If the request succeeds with a HTTP response status code \(2XX\) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object.. The script fails otherwise.  |
+| `getReferences(ids, callback)` | Queries the content items with the specified IDs and invokes the callback with the resulting content items when the request has been completed. If the current user does not have permissions to read the content items, the callback is invoked with an empty array. |
+| `getReference(id, callback)` | Queries the content item with the specified ID and invokes the callback with an array that includes the resulting content item when the request has been completed. If the current user does not have permissions to read the content item, the callback is invoked with an empty array. |
+| `getAssets(ids, callback)` | Queries the assets with the specified IDs and invokes the callback with the resulting assets when the request has been completed. If the current user does not have permissions to read assets, the script will fail. |
+| `getAsset(id, callback)` | Queries the asset with the specified ID and invokes the callback with an array that includes the resolved  asset when the request has been completed. If the current user does not have permissions to read assets, the script will fail. |
 
 ## Use Cases
 
@@ -201,9 +205,6 @@ var headers = {
     ApiKey: 'secret'
 };
 
-// Tell the script engine that we make an asynchronous call.
-async = true;
-
 getJSON(url, function(result) {
     data.title.iv = result.title;
     // Tell Squidex that the content should be replaced.
@@ -213,7 +214,7 @@ getJSON(url, function(result) {
 // I am done
 ```
 
- When we make a request to an external service we have to tell the scripting engine that we are going to do this. In a normal script the execution is from top to bottom, just line by line. But when you make a request to an external service, the callback is executed after we have reached the last line. If we do not tell the scripting engine that we make the request, it would just stop the script after we have reached line 16. By setting `async = true` the scripting engine will wait until we call one the control methods. If you are not doing this the script will just time out after 5 seconds. Even if you are not changing the content you should just call `replace()`.
+When we make an asynchronous call to another service or content the script engine cannot stop the script automatically. Therefore it is very important to finish the script with a call to `replace()`, even if we do not make a change to the content data.
 
 ## Restrictions
 
@@ -221,7 +222,6 @@ There exists some restrictions:
 
 1. You cannot include external libraries.
 2. You cannot make calls to external services except `getJSON`.
-3. You cannot access fields of references assets or content items. As of now the scripting engines is not able to make asynchronous requests to other data sources. Therefore this has not been implemented to ensure that the performance stays stable.
-4. Scripts will timeout after 200ms of CPU execution.
-5. Scripts will timeout after 5sec of total execution, e.g. waiting for external services with `getJSON`.
+3. Scripts will timeout after 200ms of CPU execution.
+4. Scripts will timeout after 5sec of total execution, e.g. waiting for external services with `getJSON`.
 
