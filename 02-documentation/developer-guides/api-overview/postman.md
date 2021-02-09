@@ -16,9 +16,17 @@ Postman is a free collaboration platform for API development and a good way to g
 
 ### 1. Create an App
 
-The first step is to create an app, which is just another name for project or space. Choose a name of your choice. The name must be unique so it might already been taken if you use the cloud version. The name can also contain only lowercase letters, numbers and dashes because it will be part of the URLs.
+The first step is to create an app, which is just another name for project or space.
 
-![Create a new App](../../../.gitbook/assets/app.png)
+1. Click the "New App" button.
+2. Enter a name for your App. The name must be unique so it might already been taken if you use the cloud version. The name can also contain only lowercase letters, numbers and dashes because it will be part of the URLs.
+3. Click the "Create" button.
+
+![Create a new App](../../../.gitbook/assets/image%20%2867%29.png)
+
+Your app will show up in your list. Just click your App \(1\) to move to the next step:
+
+![](../../../.gitbook/assets/image%20%2859%29.png)
 
 Read more about Apps:
 
@@ -26,21 +34,27 @@ Read more about Apps:
 
 ### 2. Create a Schema
 
-Next create a schema, which is like a database table with fields of different types.
+Next create a schema, which is like a database table with fields of different types:
 
-![Create a new schema](../../../.gitbook/assets/schema.png)
+1. Go to the schemas section of your App.
+2. Click the "+" button.
+3. Choose a name of your schema. Like the App name it is used in URLs, so it must be unique within your App and it cannot be changed later.
+4. Click the "Create" button to create a new schema.
 
- In this example we add a single String field. Click the "Add-Field" button to get the field dialog:
+![Create a new Schema](../../../.gitbook/assets/image%20%2855%29.png)
 
-![Add Field](../../../.gitbook/assets/field-add.png)
+ Now we are going to add a new field:
 
-Ensure that you have the `String` type selected and choose a name of your choice:
+1. Click the "Add Field" button in the bottom right of the screen.
+2. Ensure that the field type is set to "String".
+3. Enter a field name.
+4. Click "Create and close" to create a new field.
 
-![Configure your field](../../../.gitbook/assets/field.png)
+![Add a new field to our schema](../../../.gitbook/assets/image%20%2869%29.png)
 
 Also ensure that the schema is published. Otherwise you cannot create content for the schema.
 
-![Ensure that your schema is published](../../../.gitbook/assets/publish.png)
+![Publish your content](../../../.gitbook/assets/image%20%2851%29.png)
 
 If you want to learn more about schemas use the following page:
 
@@ -50,13 +64,20 @@ If you want to learn more about schemas use the following page:
 
 Add some content to your schema. 
 
-Go to the contents section, select your schema and click the "+ New" Button.
+1. Go to the content section of your App.
+2. Select your created schema.
+3. Click the "New" button to create a new content item.
+
+![Create content](../../../.gitbook/assets/image%20%2862%29.png)
 
 ![Go to contents section](../../../.gitbook/assets/contents%20%281%29.png)
 
-Enter your text and press "Save and Publish". Only published content is visible in the API.
+Now you will see the content screen. If you have added more fields it will look differently of course.
 
-![Save and publish a new content item](../../../.gitbook/assets/content%20%281%29.png)
+1. Enter some texts or values for your fields.
+2. Click the "Save and Publish" button. By default only published content items are visible in the API. Therefore it is important not to click the "Save" button.
+
+![](../../../.gitbook/assets/image%20%2852%29.png)
 
 ### 4. Connect to your app using a client
 
@@ -66,17 +87,23 @@ We have implemented the [OpenID client credentials flow](https://docs.axway.com/
 
 {% page-ref page="authentication.md" %}
 
-By default a default client is generated for each. If this is not the case you are probably running an older version of Squidex. Then you have to create a new client with a name of your choice.
+By default a default client is generated for your App If this is not the case you are probably running an older version of Squidex. Then you have to create a new client with a name of your choice.
 
-![Connect to the default client](../../../.gitbook/assets/clients%20%281%29.png)
+To acquire a token you have to do the following steps:
 
-Click the "Connect"-button to create a temporary access token. In the dialog we provide different connection methods. Click "Connect" manually now.
+1. Go the setting section of your App.
+2. Go the the clients setting.
+3. Click the "Connect" button.
 
-![Connect Wizard Step 1](../../../.gitbook/assets/connect1.png)
+![](../../../.gitbook/assets/image%20%2865%29.png)
 
-In the next step you see the token that is generated for you and how to use it. Just copy the token by clicking the copy-button that is marked with a red border here.
+In this dialog we provide explanations how to connect to your app. For now we connect manually with Postman. Click the first option \(1\).
 
-![Copy the token](../../../.gitbook/assets/connect2.png)
+![Connect Wizard Step 1](../../../.gitbook/assets/image%20%2853%29.png)
+
+In the next step you see the token that is generated for you and how to use it. Just copy the token by clicking the copy-button \(2\) that is marked with a red dot here.
+
+![Connect Wizard Step 2](../../../.gitbook/assets/image%20%2864%29.png)
 
 This token is valid for 30 days, but can be renewed as often as you want.
 
@@ -92,25 +119,42 @@ $ curl
         scope=squidex-api'
 ```
 
-### 5. Download Swagger Specification
+### 5. Download OpenAPI Specification
 
-Go to  the API section and click the "Swagger" item to go to the API documentation for your app. It is very likely that we rename this menu item to "Open API" in the future, so don't get confused when you cannot find it there.
+Squidex creates an OpenAPI documentation for your App. We are going to download it to import it to Postman:
 
-![Swagger documentation](../../../.gitbook/assets/api.png)
+1. Go to the API section of your App.
+2. Click the "Content API" link to open the API docs in a new tab.
 
-The documentation shows all the endpoints that are available for your content. You can download the specification now to import it into Postman.
+![API section](../../../.gitbook/assets/image%20%2863%29.png)
 
-![Download Swagger](../../../.gitbook/assets/download-swagger.png)
+The documentation shows all the endpoints that are available for your content. Download the OpenAPI specification file and save it in your file system to import it with Postman.
+
+![Download the OpenAPI specification](../../../.gitbook/assets/image%20%2868%29.png)
 
 ### 6. Make the request with Postman
 
-1. Open Postman
-2. Import the Swagger specification \(just ignore the errors\).
-3. Open the collection for your app and use the Query-request.
-4. Just delete the query strings for now.
-5. Add an authorization header and copy the access token from **Step4**.
+We have to import the OpenAPI file to Postman. Click the Import button \(1\) in the file settings and select your file that you have saved before.
 
-![Make Request](../../../.gitbook/assets/make-request.png)
+![Import the OpenAPI spec in Postman](../../../.gitbook/assets/image%20%2854%29.png)
 
-That's it. You have created your first app, schema and content with Squidex and you have learned how to retrieve the content items.
+You should be able to see your API now:
+
+1. Go to Collections section.
+2. Select the ContentAPI for your App.
+3. Select the endpoints for your schema.
+4. Select the query endpoint to query all contents items.
+5. Unclick all query parameters.
+
+![Your schema in Postman](../../../.gitbook/assets/image%20%2866%29.png)
+
+The last step is to enter you access token:
+
+1. Go to the Authorization settings of your API.
+2. Paste in your access token.
+3. Send your request with the "Send" button.
+
+![](../../../.gitbook/assets/image%20%2849%29.png)
+
+You have created your first app, schema and content with Squidex and you have learned how to retrieve the content items.
 
