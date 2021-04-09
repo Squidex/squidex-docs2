@@ -101,6 +101,10 @@ Create a new instance when your editor is initialized.
 | `editor.onFullscreen(callback)` | Register a function that is invoked whenever the fullscreen mode is changed. The function has one argument with the the fullscreen mode. |
 | `editor.navigate(url)` | Navigates the Management UI to a new URL. Because the plugin is integrated as an iframe, you cannot use normal links as it would only change the URL within the iframe and not the URL of the Management UI. |
 | `editor.toggleFullscreen()` | Toggle the fullscreen mode and sends the current state to the management UI. The field editor is destroyed and recreated because it has to be moved inside the DOM. Therefore `onInit` is invoked again. |
+| `editor.notifoInfo(text)` | Shows an info notification with the given text. |
+| `editor.notifoError(text)` | Shows an info notification with the given text. |
+| `editor.pickAssets(callback)` | Shows the dialog to pick assets and invokes the callback with an array of the selected assets when the dialog is closed. If no asset is selected an empty array will be passed to the callback. |
+| `editor.confirm(title, text, callback)` | Shows a confirm dialog with the given title and text and invokes the callback when the confirm or cancel button has been pressed or when the dialog is closed otherwise. The result will be passed to the dialog as boolean. |
 
 ### Context
 
