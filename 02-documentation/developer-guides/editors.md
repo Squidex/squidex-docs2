@@ -89,12 +89,14 @@ Create a new instance when your editor is initialized.
 | `editor.getContext()` | Gets the current context information. More about that later. |
 | `editor.getFormValue()` | Gets the current value of the content form. Can be used to access the values of other fields. |
 | `editor.getLanguage()` | Get the language of the field editor.  If the field is not localized the master language is passed through. |
+| `editor.getIndex()` | Get the index of the array item when the field is used within an array schema field. |
 | `editor.isDisabled()` | Get the current disabled state of the field form. Disabled \(`true`\) or Enabled \(`false`\). |
 | `editor.isFullscreen()` | Get the current fullscreen state of the field form. Fullscreen on \(`true`\) or off \(`false`\). |
 | `editor.touched()` | Notifies the control container that the editor has been touched, must be called when your custom editor looses the focus. |
 | `editor.clean()` | Cleanup the editor. Usually it is not needed to call this method. |
 | `editor.onInit(callback)` | Register a function that is invoked when the messaging communication with the management UI is established. After the callback is invoked you get retrieve values with the get methods. The context object will be passed to the callback. |
 | `editor.onDisabled(callback)` | Register a function that is invoked whenever the editor should either be enabled or disabled. A boolean value will be passed with either `true` \(disabled\) or `false` \(enabled\). |
+| `editor.onMoved(callback)` | Registers a function that is invoked whenever the editor has been moved within an array item. A number will passed to the function that represents the index, starting with 0. |
 | `editor.onValueChanged(callback)` | Register a function that is invoked whenever the value of the field has changed. The value will be passed to the callback as argument. |
 | `editor.onFormValueChanged(callback)` | Register a function that is invoked whenever the value of the content form has changed. The value will be passed to the callback as argument. |
 | `editor.onLanguageChanged(callback)` | Register a function that is invoked whenever the language of the field is changed, because in same cases the editor is shared between languages. If the field is not localized the master language is passed through. |
