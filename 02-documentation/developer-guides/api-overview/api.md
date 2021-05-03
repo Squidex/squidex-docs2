@@ -746,6 +746,31 @@ https://.../api/content/geodata/cities?$orderby=data/population/iv desc$top=20
 {% endtab %}
 {% endtabs %}
 
+Of course you can also sort by multiple fields.
+
+{% tabs %}
+{% tab title="OData" %}
+```text
+https://.../api/content/geodata/cities?$orderby=data/population/iv desc,data/name/iv asc$top=20
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```javascript
+{
+    "sort": [{
+        "path": "data.population.iv",
+        "order": "descending"
+    }, {
+        "path": "data.name.iv",
+        "order": "ascending"
+    }],
+    "take": 20
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Published items
 
 By default the content api returns only published content. You can use the `X-Unpublished` header to also return draft content.
