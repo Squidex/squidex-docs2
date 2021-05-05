@@ -103,6 +103,8 @@ Squidex provides a few helper methods that are not part of the ES5 Javascript st
 | `characterCount(text)` | Counts the number of characters in a text. Useful in combination with `html2Text` or `markdown2Text`. |
 | `toCamelCase(text)` | Converts a text to camelCase. |
 | `toPascalCase(text)` | Converts a text to PascalCase. |
+| `sha256(text)` | Calculate the SHA256 hash from a given string. Use this method for hashing passwords. |
+| `md5(text)` | Calculate the MD5 hash from a given string. Use this method for hashing passwords, when backwards compatibility is important. |
 | `slugify(text)` | Calculates the slug of a text by removing all special characters and whitespaces to create a friendly term that can be used for SEO-friendly URLs. |
 | `getJSON(url,callback)` | Makes a request to the defined URL. If the request succeeds with a HTTP response status code \(2XX\) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object.. The script fails otherwise. |
 | `getJSON(url,callback,headers)` | Makes a request to the defined URL and adds the specified headers to the request. If the request succeeds with a HTTP response status code \(2XX\) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object.. The script fails otherwise.  |
