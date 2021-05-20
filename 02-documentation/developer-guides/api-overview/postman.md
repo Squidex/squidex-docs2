@@ -87,7 +87,7 @@ We have implemented the [OpenID client credentials flow](https://docs.axway.com/
 
 {% page-ref page="authentication.md" %}
 
-By default a default client is generated for your App If this is not the case you are probably running an older version of Squidex. Then you have to create a new client with a name of your choice.
+By default, a default client is generated for your App If this is not the case you are probably running an older version of Squidex. Then you have to create a new client with a name of your choice.
 
 To acquire a token you have to do the following steps:
 

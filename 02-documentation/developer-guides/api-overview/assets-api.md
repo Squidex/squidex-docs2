@@ -6,7 +6,8 @@ description: How to use the Assets API to resize images.
 
 ## How to retrieve assets and content?
 
-All assets are publicly available and not secured. But the IDs are randomly generated as 128 bit number \([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)\) and almost impossible to find out by just trial and error. So you are assets are safe.
+All assets are publicly available and not secured. But the IDs are randomly generated as 128 bit number \([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)\) and almost impossible to find out by just trial and error.
+Consider your assets safe.
 
 You can download and link assets from the following URL:
 
