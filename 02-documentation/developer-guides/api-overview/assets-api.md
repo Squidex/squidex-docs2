@@ -6,8 +6,7 @@ description: How to use the Assets API to resize images.
 
 ## How to retrieve assets and content?
 
-All assets are publicly available and not secured. But the IDs are randomly generated as 128 bit number \([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)\) and almost impossible to find out by just trial and error.
-Consider your assets safe.
+All assets are publicly available and not secured. But the IDs are randomly generated as 128 bit number \([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)\) and almost impossible to find out by just trial and error. Consider your assets safe.
 
 You can download and link assets from the following URL:
 
@@ -51,7 +50,7 @@ Use the following query string parameters:
 
 | Parameter | Description |
 | :--- | :--- |
-| `width` \(number\) | The target width of the asset, if it is an image.  |
+| `width` \(number\) | The target width of the asset, if it is an image. |
 | `height` \(number\) | The target height of the asset, if it is an image. |
 | `mode` \(string\) | The resize mode when the width and height is defined. Default: `Max` |
 
@@ -74,13 +73,13 @@ You can also add the `quality` parameter to the asset URL to define the quality 
 
 ## How caching works
 
-Squidex provides the `ETag` __header for each asset. The browser caches the asset, along with its ETag. If the user wants retrieve the same URL resource again, it will first determine whether the locally cached version of the URL has expired \(through the `Cache-Control` and the `Expire` __headers\).  
-If the URL has not expired, it will retrieve the locally cached resource. If it is determined that the URL has expired \(is stale\), the client will contact the server and send its previously-saved copy of the ETag along with the request in an `If-None-Match` field.   
+Squidex provides the `ETag` **header for each asset. The browser caches the asset, along with its ETag. If the user wants retrieve the same URL resource again, it will first determine whether the locally cached version of the URL has expired \(through the `Cache-Control` and the `Expire`** headers\).  
+If the URL has not expired, it will retrieve the locally cached resource. If it is determined that the URL has expired \(is stale\), the client will contact the server and send its previously-saved copy of the ETag along with the request in an `If-None-Match` field.  
 Squidex now compares the passed ETag with the ETag of the current version of the asset. If the ETag values match, meaning that the asset has not changed, the server sends back an empty response with a [**HTTP 304 Not Modified**](https://en.wikipedia.org/wiki/HTTP_304) status and the Browser will show the cached version.
 
 More about the ETag header at [Wikipedia](https://en.wikipedia.org/wiki/HTTP_ETag).
 
-You can add the `cache` query parameter as a number of seconds to cache the image in the Browser.   
+You can add the `cache` query parameter as a number of seconds to cache the image in the Browser.  
 Then the following header is added to the response:
 
 ```text

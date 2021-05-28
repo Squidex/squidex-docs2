@@ -84,7 +84,7 @@ Add a reference to your plugin to the `Squidex` project.
 
 Furthermore you need to add the path to your plugin to the configuration, for example to the `appSettings`file. Because we reference the plugin, it will be automatically copied to the output folder when the build or packaging is executed.
 
-![Reference your plugin in the configuration file](../../../.gitbook/assets/image%20%2828%29%20%281%29.png)
+![Reference your plugin in the configuration file](../../../.gitbook/assets/image%20%2828%29%20%281%29%20%281%29.png)
 
 There is also a project on Github that demonstrates how to create a plugin for SendGrid with an older version of Squidex: [https://github.com/squidexcontrib/sendgrid](https://github.com/squidexcontrib/sendgrid)
 

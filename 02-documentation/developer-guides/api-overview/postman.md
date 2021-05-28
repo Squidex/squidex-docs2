@@ -4,13 +4,13 @@ description: A short tutorial how to use Squidex with Postman.
 
 # Postman
 
-This is a short tutorial how to make the first requests with Postman. 
+This is a short tutorial how to make the first requests with Postman.
 
 ## What is Postman
 
 Postman is a free collaboration platform for API development and a good way to get started.
 
-{% embed url="https://www.getpostman.com/downloads/" %}
+{% embed url="https://www.getpostman.com/downloads/" caption="" %}
 
 ## Lets get started
 
@@ -43,7 +43,7 @@ Next create a schema, which is like a database table with fields of different ty
 
 ![Create a new Schema](../../../.gitbook/assets/image%20%2855%29.png)
 
- Now we are going to add a new field:
+Now we are going to add a new field:
 
 1. Click the "Add Field" button in the bottom right of the screen.
 2. Ensure that the field type is set to "String".
@@ -62,7 +62,7 @@ If you want to learn more about schemas use the following page:
 
 ### 3. Add Content
 
-Add some content to your schema. 
+Add some content to your schema.
 
 1. Go to the content section of your App.
 2. Select your created schema.
@@ -81,7 +81,7 @@ Now you will see the content screen. If you have added more fields it will look 
 
 ### 4. Connect to your app using a client
 
-A client represents an application like a mobile app or server application. 
+A client represents an application like a mobile app or server application.
 
 We have implemented the [OpenID client credentials flow](https://docs.axway.com/u/documentation/api_gateway/7.5.3/webhelp_portal_oauth/Content/OAuthGuideTopics/oauth_flows_client_credentials.). It is an secure and open standard to protect your APIs and to provide authentication for clients \(aka applications\) and users. It is also used big big players like Microsoft, Github and Google. When you login to applications using third party logins you have already used it.
 

@@ -20,13 +20,13 @@ git clone https://github.com/Squidex/squidex-identity.git
 
 You can create the app with predefined schemas either in the cloud or in your custom installation:
 
-![Create Identity App](../../.gitbook/assets/new-identity-app%20%281%29%20%281%29.png)
+![Create Identity App](../../.gitbook/assets/new-identity-app%20%281%29%20%281%29%20%281%29.png)
 
 ### 1.3. Update the identity configuration
 
 Update the configureation with the url to your squidex instance and the client id and secret of the default client.
 
-![Copy Default Client](../../.gitbook/assets/default-client%20%281%29%20%281%29.png)
+![Copy Default Client](../../.gitbook/assets/default-client%20%281%29%20%281%29%20%281%29.png)
 
 Update the configuration file at: `Squidex.Identity/appsettings.json`
 
@@ -52,7 +52,7 @@ If you create a identity app in Squidex you will see a schema with the settings,
 
 Most settings are optional but you must setup credentials to an smpt server.
 
-![Site Setting](../../.gitbook/assets/content-setting.png)
+![Site Setting](../../.gitbook/assets/content-setting%20%281%29.png)
 
 Email Delivery Service:
 
@@ -71,7 +71,7 @@ the redirect urls for other authentication providers are:
 * `http://localhost:3500/signin-facebook`
 * `http://localhost:3500/signin-github`
 
-![Authentication Schemes](../../.gitbook/assets/authentication-schemes.png)
+![Authentication Schemes](../../.gitbook/assets/authentication-schemes%20%281%29.png)
 
 ## 4. External clients
 
@@ -83,7 +83,7 @@ You can also setup Squidex as an external client, so that the same users can als
 
 In the first step you have to create a new client:
 
-![Self-Hosted](../../.gitbook/assets/self-hosted-1%20%281%29.png)
+![Self-Hosted](../../.gitbook/assets/self-hosted-1%20%281%29%20%281%29.png)
 
 ![Self-Hosted](../../.gitbook/assets/self-hosted-2%20%281%29.png)
 
