@@ -1,10 +1,14 @@
-# Install Identity
+# Install Identity \(Deprecated\)
 
 ## About Squidex Identity
 
 Squidex Identity server based on Squidex Headless CMS. It implements the OpenId Connect and OAuth 2.0 protocols to act as a central single sign on server.
 
 > [https://github.com/Squidex/squidex-identity](https://github.com/Squidex/squidex-identity)
+
+{% hint style="info" %}
+WARNING: Squidex Identity is not maintained anymore.
+{% endhint %}
 
 ## 1. Setup of Squidex identity
 
@@ -50,7 +54,7 @@ Of course you can also use environment variables, e.g.
 
 If you create a identity app in Squidex you will see a schema with the settings, where you can upload a logo, footer text, privacy settings and so on.
 
-Most settings are optional but you must setup credentials to an smpt server.
+Most settings are optional but you must setup credentials to an SMTP server.
 
 ![Site Setting](../../.gitbook/assets/content-setting%20%281%29.png)
 
@@ -63,9 +67,9 @@ Email Delivery Service:
 
 If you want to use external authentication providers you can setup them in the authentication schemes section, here is an example for Google.
 
-You have to create an OAuth 2.0-Client-IDs in the google developer console. You have to define the redirect\_uri in this process and you must use `http://localhost:3500/signin-google`
+You have to create an OAuth 2.0-Client-IDs in the google developer console. You have to define the `redirect_uri` in this process and you must use `http://localhost:3500/signin-google`
 
-the redirect urls for other authentication providers are:
+the redirect URLs for other authentication providers are:
 
 * `http://localhost:3500/signin-twitter`
 * `http://localhost:3500/signin-facebook`
