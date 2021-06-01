@@ -15,7 +15,7 @@ Digital Ocean [Droplets](https://www.digitalocean.com/products/droplets) are not
 
 We provide a docker-compose configuration:
 
-> [https://github.com/Squidex/squidex-docker/blob/master/standalone](https://github.com/Squidex/squidex-docker/blob/master/standalone)
+> [https://github.com/Squidex/squidex-hosting/blob/master/docker-compose/docker-compose-nginx.yml](https://github.com/Squidex/squidex-hosting/blob/master/docker-compose/docker-compose-nginx.yml)
 
 It will run 4 containers:
 
@@ -23,6 +23,10 @@ It will run 4 containers:
 * [NGINX ](https://www.nginx.com/)as Reverse Proxy to support HTTPS
 * NGINX sidecar to provision free and secure certificates with [LetsEncrypt](https://letsencrypt.org/de/).
 * [MongoDB](https://www.mongodb.com/de)
+
+On GitHub you can also find alternative docker-compose configurations to run squidex without a proxy or on Azure:
+
+> [https://github.com/Squidex/squidex-hosting/tree/master/docker-compose](https://github.com/Squidex/squidex-hosting/tree/master/docker-compose)
 
 ### 1. Download the files
 
