@@ -24,7 +24,7 @@ git clone https://github.com/Squidex/squidex-identity.git
 
 You can create the app with predefined schemas either in the cloud or in your custom installation:
 
-![Create Identity App](../../.gitbook/assets/new-identity-app%20%281%29%20%281%29%20%281%29.png)
+![Create Identity App](../../.gitbook/assets/new-identity-app%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 ### 1.3. Update the identity configuration
 
@@ -56,7 +56,7 @@ If you create a identity app in Squidex you will see a schema with the settings,
 
 Most settings are optional but you must setup credentials to an SMTP server.
 
-![Site Setting](../../.gitbook/assets/content-setting%20%281%29.png)
+![Site Setting](../../.gitbook/assets/content-setting%20%281%29%20%281%29.png)
 
 Email Delivery Service:
 

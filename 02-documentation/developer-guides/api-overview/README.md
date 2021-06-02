@@ -110,12 +110,13 @@ The pricing for the cloud version mainly depends on the number of API calls. But
 | Query languages / Modify languages  | 0 / 1 |
 | Query patterns / Modify patterns | 0 / 1 |
 | Query roles / Modify roles | 0 / 1 |
+| Query histories | 0 |
 | Query rules / Modify rules   | 1 / 1 |
 | Query rule events / Modify  rule events | 0 / 0 |
 | Query workflows / Modify workflows | 0 / 1 |
 | Query assets / Modify assets | 1 / 1 |
 | Query asset folders / Modify asset folders | 1 / 1 |
-| Query asset content | 1 |
+| Query asset content | 0.5 |
 | Query contents | 1 |
 | Query contents with GraphQL | 2 |
 | Modify contents | 1 |
