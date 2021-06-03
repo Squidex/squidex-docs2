@@ -1,3 +1,7 @@
+---
+description: Install Squidex on Windows with IIS and a custom MongoDB server.
+---
+
 # Install on  IIS
 
 You can also read the guide from Microsoft, how to [Host ASP.NET Core on Windows with IIS](https://docs.microsoft.com/en-US/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2#install-the-net-core-hosting-bundle).

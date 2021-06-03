@@ -1,3 +1,9 @@
+---
+description: >-
+  Learn how to setup Squidex as Azure WebApp with an integrated MongoDB
+  container.
+---
+
 # Install on Azure
 
 Please note that azure also supports Docker compose files so you can also follow the Docker tutorial, especially if it is important for you to be independent from your cloud provider.
