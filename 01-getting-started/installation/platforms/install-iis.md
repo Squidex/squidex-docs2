@@ -6,6 +6,8 @@ description: Install Squidex on Windows with IIS and a custom MongoDB server.
 
 You can also read the guide from Microsoft, how to [Host ASP.NET Core on Windows with IIS](https://docs.microsoft.com/en-US/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2#install-the-net-core-hosting-bundle).
 
+This document is just a shorter version of the official guide.
+
 ## Supported operating systems
 
 The following operating systems are supported:
@@ -13,11 +15,11 @@ The following operating systems are supported:
 * Windows 7 or later
 * Windows Server 2008 R2 or later
 
-## 1. Install all requirements
+## Step 1. Install all requirements
 
 ### 1.1. Install IIS
 
-If you read this page you are probably familiar with IIS and have already installed it, if not you can read the docs:
+If you read this page and are planning to setup Squidex under Windows. you are probably familiar with IIS and have already installed it on your machine. If not you can read the docs:
 
 > [IIS configuration \(Microsoft\)](https://docs.microsoft.com/en-US/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2#iis-configuration)
 
@@ -35,9 +37,9 @@ Following the official setup instructions:
 
 > [Install MongoDB Community Edition on Windows](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
-## 2. Install Squidex
+## Step 2. Install Squidex
 
-#### 2.1. Download the binaries
+### 2.1. Download the binaries
 
 Go to the release page and download the `binaries.zip` file from the latest release:
 
@@ -47,10 +49,16 @@ Create a folder for your squidex installation and extract the archive to this fo
 
 ### 2.2. Create the IIS site
 
-1. In **IIS Manager** open the server's node in the **Connections** panel. Right-click the Sites folder. Select **Add Website** from the contextual menu.
-2. Provide a **SiteName** and set the **Physical path** to the squidex folder. In this case we host Squidex at [http://localhost:80](http://localhost:80)
+1. In IIS Manager, open the server's node in the **Connections** panel. Right-click the **Sites** folder. Select **Add Website** from the contextual menu.
+2. Provide a **SiteName** and set the **Physical path** to the squidex folder that you created in the previous step. In this case we host Squidex at [https://localhost:80](https://localhost:80)
+3. Ensure that you also create a https binding with a proper certificate or development certificate. Due to recent security changes in Chrome, you are not able to login to Squidex anymore if you are using http instead of https. You can also use Cloudflare as https termination if you do not want to pay for a certificate.
+4. Confirm the process model identity has the proper permissions.
+
+   If the default identity of the app pool \(**Process Model** &gt; **Identity**\) is changed from `ApplicationPoolIdentity` to another identity, verify that the new identity has the required permissions to access the app's folder, database, and other required resources. For example, the app pool requires read and write access to folders where the app reads and writes files.
 
 ![IIS Site configuration](../../../.gitbook/assets/site.png)
+
+### 2.3 Configure the Application Pool
 
 1. Under the server's node, select **Application Pools**.
 2. Right-click the site's app pool and select **Basic Settings** from the contextual menu.
@@ -58,11 +66,11 @@ Create a folder for your squidex installation and extract the archive to this fo
 
 ![IIS Application pool](../../../.gitbook/assets/pool.png)
 
-### 2.3. Configure Squidex
+### 2.4. Configure Squidex
 
-1. Go to your Squidex installation.
-2. Create a file called `appsettings.Production.json` where we override the default settings. When you make an upload and download a newer release your customized settings will not be overriden.
-3. Enter the following content and choose a custom username and password and the path to your assets.
+1. Go to your Squidex installation folder.
+2. Create a file called `appsettings.Production.json` where we override the default settings. When you make an upload and download a newer release your customized settings will not be overridden. You can also configure all settings with environment variables which is the recommended way for all other platforms, but in this case a file is easier.
+3. Enter the following settings. The `baseUrl` is the most important setting as it must match to the domain that you are using. All other settings are optional. If you use a version lower than 5.6 you also have to define the initial username and password in the settings.
 
 ```javascript
 {
@@ -83,7 +91,7 @@ Create a folder for your squidex installation and extract the archive to this fo
     "microsoftClient": "",
     "microsoftSecret": "",
     /*
-     * Initial username and password.
+     * Initial username and password. Only needed before Squidex 5.6
      */
     "adminEmail": "admin@squidex.io",
     "adminPassword": "save1q2w3e$R"
@@ -105,9 +113,11 @@ Create a folder for your squidex installation and extract the archive to this fo
 }
 ```
 
-> PLEASE NOTE: The password must contain a lowercase and uppercase letter, a number and a special character.
+{% hint style="info" %}
+The password must contain a lowercase and uppercase letter, a number and a special character. If you use Squidex 5.6 or later you will see a simple setup screen when you open your site for the first time and no user is created. You can create the initial user on this screen.
+{% endhint %}
 
-1. Start the IIS site and go to [http://localhost](http://localhost). Login and start editing.
+Start the IIS site and go to [http://localhost](http://localhost). Login and start editing.
 
 ## Troubleshooting
 
