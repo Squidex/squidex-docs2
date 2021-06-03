@@ -1,3 +1,7 @@
+---
+description: Install Squidex on Linux machines with docker and docker-compose.
+---
+
 # Install on Docker
 
 ## Supported platforms
