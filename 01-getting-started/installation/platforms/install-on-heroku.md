@@ -36,7 +36,7 @@ On the ObjectRocket Dashboard, click `DATABASES` and then `Add Database`.
 
 ![Open Databases](../../../.gitbook/assets/heroku-4-2.png)
 
-Enter the database name (must be `squidex`), the username and the password. Keep note of those, as you will be needing them for the next step.
+Enter the database name \(must be `squidex`\), the username and the password. Keep note of those, as you will be needing them for the next step.
 
 ![Create Database](../../../.gitbook/assets/heroku-4-3.png)
 
