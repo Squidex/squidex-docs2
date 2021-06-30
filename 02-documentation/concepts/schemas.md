@@ -168,6 +168,46 @@ Some content items only exist as child content for another content item. For exa
 },
 ```
 
+### Component
+
+![Component](../../.gitbook/assets/image%20%287%29.png)
+
+A component is content item \(defined by another schema\) that is embedded into the current content. The value can also be `null` if no component is added.
+
+#### API Representation
+
+```javascript
+"component1": {
+    "schemaId": "3e6b3c9f-6de7-44a2-bdd0-4cc6ec255480",
+    "title": "My Title",
+    "text": "My Text"
+},
+"component2": null
+```
+
+### Components
+
+![Components](../../.gitbook/assets/image%20%281%29.png)
+
+A components field is used to embed multiple content items \(defined by other schemas\) into the current item. The order is defined when creating or updating the content item and can be changed in the UI. The value can also be `null` or an empty array if no component is added.
+
+#### API Representation
+
+```javascript
+"components1": [{
+        "schemaId": "3e6b3c9f-6de7-44a2-bdd0-4cc6ec255480",
+        "title": "My Title",
+        "text": "My Text"
+    }, {
+        "schemaId": "410a07f2-a89e-4d77-9a43-46fff835ff8c",
+        "image": "http://url/to/image",
+        "alt": "My Image"
+    }
+]
+"components2": []
+"components2": null
+```
+
 ### Geolocation
 
 ![Geolocation](../../.gitbook/assets/geolocation.png)
@@ -216,4 +256,6 @@ A json field is for developers. Whenever you have some structured or unstructure
     }
 }
 ```
+
+
 

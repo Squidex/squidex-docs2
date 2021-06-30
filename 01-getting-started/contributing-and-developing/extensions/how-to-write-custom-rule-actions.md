@@ -110,7 +110,7 @@ A hint that describes whether the property supports formatting via scripting or 
 [Formattable]
 ```
 
-![The generated editor](../../../.gitbook/assets/image%20%289%29%20%282%29%20%282%29%20%282%29%20%281%29.png)
+![The generated editor](../../../.gitbook/assets/image%20%289%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.png)
 
 #### Data Type
 
