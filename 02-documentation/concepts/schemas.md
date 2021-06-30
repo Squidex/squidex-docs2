@@ -244,7 +244,7 @@ A components field is used to embed multiple content items \(defined by other sc
     "iv": []
 },
 // OR
-"components2": {
+"components3": {
     "iv": null
 }
 ```
