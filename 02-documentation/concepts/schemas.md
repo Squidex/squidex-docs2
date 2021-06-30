@@ -40,7 +40,11 @@ Each field has multiple states:
 
 Field types define how a field is structured in the API and in the processing pipeline. You can define the editor for each field, so a string field can either be a html text, markdown or a list of allowed values with a dropdown editor. We use a product catalog as an example to describe the different field types.
 
-If a field is not required it can also be null or omitted.
+{% hint style="info" %}
+If a field is not required it can also be **null** or **omitted**. This is also the case when a field has been added or marked as required after a content items have already been added to this schema.
+{% endhint %}
+
+### 
 
 ### String
 
@@ -59,6 +63,10 @@ A string is the most used field type and can be used for any kind of texts, like
 ```javascript
 "title": {
     "iv": "Super Corp buys Food Startup"
+},
+// OR
+"title": {
+    "iv": null
 }
 ```
 
@@ -74,9 +82,13 @@ A number can either be a point number or integer. Typical examples when to use n
 "funding": {
     "iv": 1500000
 }
-//
+// OR
 "fundingInMio": {
     "iv": 1.5
+},
+// OR
+"funding": {
+    "iv": null
 }
 ```
 
@@ -96,7 +108,7 @@ Booleans have only 2 states: True or false, yes or no, 1 or 0.
 "givenUp": {
     "iv": true
 }
-//
+// OR
 "givenUp": {
     "iv": null
 }
@@ -113,6 +125,10 @@ Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ssZ`.
 ```javascript
 "foundingDate": {
     "iv": 2021-01-10T00:00:00z"
+},
+// OR
+"foundingDate": {
+    "iv": null
 }
 ```
 
@@ -129,6 +145,10 @@ Asset fields are used to maintain a list of asset IDs. You can also restrict the
     "iv": [
         "287a2948-8992-4e65-990f-3ee486c9a4b5"
     ]
+},
+// OR
+"image": {
+    "iv": null
 }
 ```
 
@@ -136,7 +156,7 @@ Asset fields are used to maintain a list of asset IDs. You can also restrict the
 
 ![References](../../.gitbook/assets/references.png)
 
-References fields are used to model relationship to other content items. For example you could have a schema for products and a schema for product categories. A product has a field with references to the categories it belongs to. Both, products and categories can be created, updated and managed independently. Please think about the direction of the reference very carefully. For example a typical product is only in very few categories, but a product category could have thousand of products. Therefore it is not recommended to reference the products from the categories. When you delete n content a cleanup process will remove the referenced id from all contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an reference to an deleted content.
+References fields are used to model relationship to other content items. For example you could have a schema for products and a schema for product categories. A product has a field with references to the categories it belongs to. Both, products and categories can be created, updated and managed independently. Please think about the direction of the reference very carefully. For example a typical product is only in very few categories, but a product category could have thousand of products. Therefore it is not recommended to reference the products from the categories. When you delete content a cleanup process will remove the referenced id from all contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an reference to an deleted content.
 
 #### API representation
 
@@ -145,6 +165,10 @@ References fields are used to model relationship to other content items. For exa
     "iv": [
         "673d3a3a-988f-4ce6-a8ec-022e73e12f9f"
     ]
+},
+// OR
+"startup": {
+    "iv": null
 }
 ```
 
@@ -166,46 +190,63 @@ Some content items only exist as child content for another content item. For exa
         "position": "Sales"
     }]
 },
+// OR
+"founders": {
+    "iv": null
+}
 ```
 
 ### Component
 
 ![Component](../../.gitbook/assets/image%20%287%29.png)
 
-A component is content item \(defined by another schema\) that is embedded into the current content. The value can also be `null` if no component is added.
+A component is content item \(defined by another schema\) that is embedded into the current content. 
 
 #### API Representation
 
 ```javascript
 "component1": {
-    "schemaId": "3e6b3c9f-6de7-44a2-bdd0-4cc6ec255480",
-    "title": "My Title",
-    "text": "My Text"
+    "iv": {
+        "schemaId": "3e6b3c9f-6de7-44a2-bdd0-4cc6ec255480",
+        "title": "My Title",
+        "text": "My Text"
+    }
 },
-"component2": null
+// OR
+"component2": {
+    "iv": null
+}
 ```
 
 ### Components
 
 ![Components](../../.gitbook/assets/image%20%281%29.png)
 
-A components field is used to embed multiple content items \(defined by other schemas\) into the current item. The order is defined when creating or updating the content item and can be changed in the UI. The value can also be `null` or an empty array if no component is added.
+A components field is used to embed multiple content items \(defined by other schemas\) into the current item. The order is defined when creating or updating the content item and can be changed in the UI.
 
 #### API Representation
 
 ```javascript
-"components1": [{
-        "schemaId": "3e6b3c9f-6de7-44a2-bdd0-4cc6ec255480",
-        "title": "My Title",
-        "text": "My Text"
-    }, {
-        "schemaId": "410a07f2-a89e-4d77-9a43-46fff835ff8c",
-        "image": "http://url/to/image",
-        "alt": "My Image"
-    }
-]
-"components2": []
-"components2": null
+"components1": {
+    "iv": [{
+            "schemaId": "3e6b3c9f-6de7-44a2-bdd0-4cc6ec255480",
+            "title": "My Title",
+            "text": "My Text"
+        }, {
+            "schemaId": "410a07f2-a89e-4d77-9a43-46fff835ff8c",
+            "image": "http://url/to/image",
+            "alt": "My Image"
+        }
+    ]
+},
+// OR
+"components2": {
+    "iv": []
+},
+// OR
+"components2": {
+    "iv": null
+}
 ```
 
 ### Geolocation
@@ -220,6 +261,10 @@ The geolocation field represents a tuple of latitude and longitude and is design
         "longitude": -122.431297,
         "latitude": 37.773972
     }
+},
+// OR
+"location": {
+    "iv": null
 }
 ```
 
@@ -238,6 +283,10 @@ Tags are list of strings that are use in the combination tag editor in the Manag
         "food",
         "valley"
     ]
+},
+// OR
+"tags": {
+    "iv": null
 }
 ```
 
@@ -254,6 +303,10 @@ A json field is for developers. Whenever you have some structured or unstructure
     "iv": {
         "createBy": "auto-importer"
     }
+},
+// OR
+"location": {
+    "iv": null
 }
 ```
 
