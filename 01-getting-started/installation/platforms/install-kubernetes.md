@@ -12,7 +12,7 @@ description: Install Squidex on a Kubernetes cluster
 
 We provide a Helm chart:
 
-> [https://github.com/Squidex/squidex-docker/blob/master/standalone](https://github.com/Squidex/squidex-docker/blob/master/standalone)
+> [https://github.com/Squidex/squidex/tree/master/helm](https://github.com/Squidex/squidex/tree/master/helm)
 
 It will run 2 deployments:
 
@@ -26,7 +26,7 @@ Make sure to have an [Ingress Controller](https://kubernetes.io/docs/concepts/se
 ### 1. Add the repository
 
 ```
-helm repo add squidex https://REPLACE_URL
+helm repo add squidex https://squidex.github.io/squidex/helm/
 ```
 
 ### 2. Install the chart
