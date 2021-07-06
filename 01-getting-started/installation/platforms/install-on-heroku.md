@@ -32,7 +32,7 @@ On the Dashboard, click **ObjectRocket for MongoDB** \(1\)**.**
 
 ![Open ObjectRocket Dashboard](../../../.gitbook/assets/heroku-4-1.png)
 
-On the ObjectRocket Dashboard, click **DATABASES** and then **Add Database**.
+On the ObjectRocket Dashboard, click **DATABASES** \(1\) and then **Add Database** \(2\).
 
 ![Open Databases](../../../.gitbook/assets/heroku-4-2.png)
 
@@ -46,7 +46,7 @@ Back at the Heroku Dashboard, click **Settings** \(1\), then click **Reveal Conf
 
 ![Settings](../../../.gitbook/assets/heroku-5-1.png)
 
-Fill the fields `MONGO_USERNAME`  \(1\) and `MONGO_PASSWORD` \(2\) with the same credentials you provided in the previous step.
+Fill the fields `MONGO_PASSWORD`  \(1\) and `MONGO_USERNAME` \(2\) with the same credentials you provided in the previous step.
 
 ![Config Vars](../../../.gitbook/assets/heroku-5-2.png)
 
@@ -54,7 +54,7 @@ You should then be ready to go!
 
 ## Troubleshooting
 
-Please check the logs by clicking **More** \(1\), and then **View logs \(2\).**
+Please check the logs by clicking **More**, and then **View logs.**
 
 ![Logs](../../../.gitbook/assets/heroku-troubleshooting.png)
 

@@ -24,15 +24,15 @@ When you are done, click **Apply** \(3\).
 
 ![Deployment Finished](../../../.gitbook/assets/render-3-2.png)
 
-When it's finished, click `managed resources`.
+When it's finished, click **managed resources** \(1\).
 
 ## 4. Get the external URL
 
-Click `squidex_squidex`.
+Click **squidex_squidex** \(1\).
 
 ![Open squidex\_squidex](../../../.gitbook/assets/render-4-1.png)
 
-Your URL will be just below the service name.
+Your **URL** \(1\) will be just below the service name.
 
 ![Get URL](../../../.gitbook/assets/render-4-2.png)
 
@@ -40,7 +40,7 @@ You should then be ready to go!
 
 ## Troubleshooting
 
-Please check the logs by clicking `Logs` in the service page.
+Please check the logs by clicking **Logs** \(1\) in the service page.
 
 ![Logs](../../../.gitbook/assets/render-troubleshooting.png)
 
