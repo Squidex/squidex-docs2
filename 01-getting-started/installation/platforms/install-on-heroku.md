@@ -10,7 +10,7 @@ description: Install on Heroku
 
 ## 2. Fill in the details
 
-Make sure to fill in the **App name** \(1\) field with something unique, and then fill the **DOMAIN variable** \(2\) with the external domain you wish your Squidex instance to be available on.
+Make sure to fill in the **App name** \(1\) field with something unique, and then fill the **DOMAIN** \(2\) variable with the external domain you wish your Squidex instance to be available on.
 
 You can ignore MONGO\_USERNAME and MONGO\_PASSWORD for now.
 
