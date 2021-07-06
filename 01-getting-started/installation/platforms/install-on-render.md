@@ -10,13 +10,13 @@ description: Install on Render
 
 ## 2. Fill in the details
 
-Fill the `Service Group Name` and then fill the `DOMAIN` variable with the external domain you wish your Squidex instance to be available on.
+Fill the **Service Group Name** \(1\) and then fill the **DOMAIN** \(2\) variable with the external domain you wish your Squidex instance to be available on.
 
-You can leave the `Branch` field at the default `master`.
+You can leave the **Branch** field at the default **master**.
 
 ![Fill Details](../../../.gitbook/assets/render-2.png)
 
-When you are done, click `Apply`.
+When you are done, click **Apply** \(3\).
 
 ## 3. Wait for the deployment to complete
 
