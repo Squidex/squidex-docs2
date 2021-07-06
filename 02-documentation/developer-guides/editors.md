@@ -163,19 +163,25 @@ Also, we have more example you can use them on your apps.
 
 ### 1. Simple CKE Editor
 
+Required Field Type: `string`
+
 Reference: [https://squidex.github.io/squidex-samples/editors/cke-simple.html](https://squidex.github.io/squidex-samples/editors/cke-simple.html)
 
-![CKE Editor](../../.gitbook/assets/cke.png)
+![CKE Editor](../../.gitbook/assets/image%20%2870%29.png)
 
 Clone the sample and configure the CKE editor as you need it.
 
 ### 2. Country selector
 
+Required Field Type: `string`
+
 Reference: [https://squidex.github.io/squidex-samples/editors/country-selector.html](https://squidex.github.io/squidex-samples/editors/country-selector.html)
 
-![Country Selector](../../.gitbook/assets/country-selector.gif)
+![Country Selector](../../.gitbook/assets/image%20%2867%29.png)
 
 ### 3. Product taxonomy
+
+Required Field Type: json
 
 Reference: [https://squidex.github.io/squidex-samples/editors/tags-category.html](https://squidex.github.io/squidex-samples/editors/tags-category.html)
 
@@ -193,17 +199,21 @@ The data format is a list of URL like paths for each product category that will 
 ]
 ```
 
-![Product taxonomy](../../.gitbook/assets/product-taxonomy.gif)
+![Product Taxonomy](../../.gitbook/assets/image%20%2861%29.png)
 
 ### 4. JSON Tree
+
+Required Field Type: `json`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/jstree-editor.html](https://squidex.github.io/squidex-samples/editors/jstree-editor.html)
 
 Create a visual tree for a JSON object.
 
-![JSON Tree](../../.gitbook/assets/jstree-editor.png)
+![JSON Tree](../../.gitbook/assets/image%20%2817%29.png)
 
 ### 5. JSON Schema Editor
+
+Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
