@@ -87,5 +87,63 @@ You will be asked to enter the domain here. All other values are optional. The i
 
 Squidex is ready to be used now. If you visit your installation under [https://mydomain.com](https://mydomain.com) you will see a simple setup guide where you can create the initial admin user.
 
+## Configuring object storage
+
+### Step 1: Add object storage
+
+Just follow the link: [https://my.vultr.com/objectstorage/add/](https://my.vultr.com/objectstorage/add/), and give your object store a label. 
+
+![Vultr object storage setup](../../../.gitbook/assets/vultr-object-storage.png)
+
+### Step 2: Add a bucket
+
+Navigate to the buckets tab and add a bucket.
+
+![Vultr object storage bucket list](../../../.gitbook/assets/vultr-object-storage-bucket-list.png)
+
+### Step 3: Configure asset storage to use S3
+
+Navigate to the overview tab and make note of your S3 credentials.
+
+![Vultr object storage bucket list](../../../.gitbook/assets/vultr-object-storage-keys.png)
+
+Edit the `/home/.env` file using your editor of choice and add the following environment variables:
+
+```
+S3_SERVICEURL=https://ewr1.vultrobjects.com
+S3_BUCKET=squidex
+S3_FOLDER=assets
+S3_REGION=
+S3_ACCESSKEY=9I2XHCLL43LKD2WLKDEN
+S3_SECRETKEY=PUT_YOUR_SECRET_KEY_HERE
+
+# the following variable is used to compartmentalize 
+# each app's assets in a separate folder
+S3_FORCEPATHSTYLE=true
+```
+
+Next, edit the `/home/docker-compose.yml` file to pass these environment variables on to the container:
+
+```
+squidex_squidex:
+    image: "squidex/squidex:5"
+    environment:
+      ... previous variables are here
+      - ASSETSTORE__TYPE=AmazonS3
+      - ASSETSTORE__AMAZONS3__SERVICEURL=${S3_SERVICEURL}
+      - ASSETSTORE__AMAZONS3__BUCKET=${S3_BUCKET}
+      - ASSETSTORE__AMAZONS3__BUCKETFOLDER=${S3_FOLDER}
+      - ASSETSTORE__AMAZONS3__REGIONNAME=${S3_REGION}
+      - ASSETSTORE__AMAZONS3__ACCESSKEY=${S3_ACCESSKEY}
+      - ASSETSTORE__AMAZONS3__SECRETKEY=${S3_SECRETKEY}
+      - ASSETSTORE__AMAZONS3__FORCEPATHSTYLE=${S3_FORCEPATHSTYLE}       
+```
+
+In your command line shell, update your squidex container to use the new asset storage settings:
+
+```shell
+docker-compose up -d
+```
+
 Enjoy and have fun.
 
