@@ -30,7 +30,11 @@ When it's finished, click `managed resources`.
 
 Click `squidex_squidex`.
 
+<<<<<<< HEAD
 ![Open squidex_squidex](../../../.gitbook/assets/render-4-1.png)
+=======
+![Open squidex\_squidex](../../../.gitbook/assets/render-4-1.png)
+>>>>>>> master
 
 Your URL will be just below the service name.
 

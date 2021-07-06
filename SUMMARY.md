@@ -6,6 +6,7 @@
 
 * [Installation Instructions](01-getting-started/installation/README.md)
   * [Platforms](01-getting-started/installation/platforms/README.md)
+    * [Install on Kubernetes](01-getting-started/installation/platforms/install-on-kubernetes.md)
     * [Install on AWS](01-getting-started/installation/platforms/install-on-aws.md)
     * [Install on Azure](01-getting-started/installation/platforms/install-azure.md)
     * [Install on Docker](01-getting-started/installation/platforms/install-docker.md)
