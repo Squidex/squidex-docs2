@@ -87,5 +87,69 @@ You will be asked to enter the domain here. All other values are optional. The i
 
 Squidex is ready to be used now. If you visit your installation under [https://mydomain.com](https://mydomain.com) you will see a simple setup guide where you can create the initial admin user.
 
+## Configuring object storage
+
+Vultr Object Storage provides an option for cost-effective and scalable S3 compatible storage for Squidex assets. The following steps outline the process of configuring Squidex to use this Vultr product.
+
+### Step 1: Add object storage
+
+Follow this link [https://my.vultr.com/objectstorage/add/](https://my.vultr.com/objectstorage/add/) and proceed to add object storage to your account. 
+
+![Vultr object storage setup](../../../.gitbook/assets/vultr-object-storage.png)
+
+### Step 2: Add a bucket and a folder
+
+Navigate to the buckets tab and add a bucket.
+
+![Vultr object storage bucket list](../../../.gitbook/assets/vultr-object-storage-bucket-list.png)
+
+Click on the bucket you just created and add a folder.
+
+![Vultr object storage bucket list](../../../.gitbook/assets/vultr-object-storage-folder-list.png)
+
+### Step 3: Configure asset storage to use S3
+
+Navigate to the overview tab and make note of your S3 credentials.
+
+![Vultr object storage bucket list](../../../.gitbook/assets/vultr-object-storage-keys.png)
+
+Edit the `/home/.env` file using your editor of choice and add the following environment variables using the appropriate values for each (leave the S3_REGION variable empty for now):
+
+```
+S3_SERVICEURL=https://ewr1.vultrobjects.com
+S3_BUCKET=squidex
+S3_FOLDER=assets
+S3_REGION=
+S3_ACCESSKEY=9I2XHCLL43LKD2WLKDEN
+S3_SECRETKEY=PUT_YOUR_SECRET_KEY_HERE
+
+# the following variable is used to compartmentalize 
+# each app's assets in a separate folder
+S3_FORCEPATHSTYLE=true
+```
+
+Next, edit the `/home/docker-compose.yml` file to pass these environment variables on to the container:
+
+```
+squidex_squidex:
+    image: "squidex/squidex:5"
+    environment:
+      ... previous variables are here
+      - ASSETSTORE__TYPE=AmazonS3
+      - ASSETSTORE__AMAZONS3__SERVICEURL=${S3_SERVICEURL}
+      - ASSETSTORE__AMAZONS3__BUCKET=${S3_BUCKET}
+      - ASSETSTORE__AMAZONS3__BUCKETFOLDER=${S3_FOLDER}
+      - ASSETSTORE__AMAZONS3__REGIONNAME=${S3_REGION}
+      - ASSETSTORE__AMAZONS3__ACCESSKEY=${S3_ACCESSKEY}
+      - ASSETSTORE__AMAZONS3__SECRETKEY=${S3_SECRETKEY}
+      - ASSETSTORE__AMAZONS3__FORCEPATHSTYLE=${S3_FORCEPATHSTYLE}       
+```
+
+In your command line shell, update your squidex container to use the new asset storage settings:
+
+```shell
+docker-compose up -d
+```
+
 Enjoy and have fun.
 
