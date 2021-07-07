@@ -89,6 +89,8 @@ Squidex is ready to be used now. If you visit your installation under [https://m
 
 ## Configuring object storage
 
+Vultr Object Storage provides an option for cost-effective and scalable S3 compatible storage for Squidex assets. The following steps outline the process of configuring Squidex to use this Vultr product.
+
 ### Step 1: Add object storage
 
 Follow this link [https://my.vultr.com/objectstorage/add/](https://my.vultr.com/objectstorage/add/) and proceed to add object storage to your account. 
