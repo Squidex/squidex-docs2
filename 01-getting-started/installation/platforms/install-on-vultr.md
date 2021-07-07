@@ -91,15 +91,19 @@ Squidex is ready to be used now. If you visit your installation under [https://m
 
 ### Step 1: Add object storage
 
-Just follow the link: [https://my.vultr.com/objectstorage/add/](https://my.vultr.com/objectstorage/add/), and give your object store a label. 
+Follow this link [https://my.vultr.com/objectstorage/add/](https://my.vultr.com/objectstorage/add/) and proceed to add object storage to your account. 
 
 ![Vultr object storage setup](../../../.gitbook/assets/vultr-object-storage.png)
 
-### Step 2: Add a bucket
+### Step 2: Add a bucket and a folder
 
 Navigate to the buckets tab and add a bucket.
 
 ![Vultr object storage bucket list](../../../.gitbook/assets/vultr-object-storage-bucket-list.png)
+
+Click on the bucket you just created and add a folder.
+
+![Vultr object storage bucket list](../../../.gitbook/assets/vultr-object-storage-folder-list.png)
 
 ### Step 3: Configure asset storage to use S3
 
@@ -107,7 +111,7 @@ Navigate to the overview tab and make note of your S3 credentials.
 
 ![Vultr object storage bucket list](../../../.gitbook/assets/vultr-object-storage-keys.png)
 
-Edit the `/home/.env` file using your editor of choice and add the following environment variables:
+Edit the `/home/.env` file using your editor of choice and add the following environment variables using the appropriate values for each (leave the S3_REGION variable empty for now):
 
 ```
 S3_SERVICEURL=https://ewr1.vultrobjects.com
