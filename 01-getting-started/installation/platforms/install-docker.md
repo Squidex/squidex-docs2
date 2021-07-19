@@ -19,14 +19,49 @@ Digital Ocean [Droplets](https://www.digitalocean.com/products/droplets) are not
 
 We provide a docker-compose configuration:
 
-> [https://github.com/Squidex/squidex-docker/blob/master/standalone](https://github.com/Squidex/squidex-docker/blob/master/standalone)
+> [https://github.com/Squidex/squidex-hosting/tree/master/docker-compose](https://github.com/Squidex/squidex-hosting/tree/master/docker-compose)
 
-It will run 4 containers:
+There are 3 alternatives:
+
+#### Squidex + Caddy
+
+`docker-compose.yml` with the following containers:
 
 * Squidex
-* [NGINX ](https://www.nginx.com/)as Reverse Proxy to support HTTPS
+* [Caddy ](https://caddyserver.com/)as reverse proxy to support HTTPS. Also issues the certificate.
+* [MongoDB](https://www.mongodb.com/de)
+
+The caddy proxy uses a custom image to configure the Caddyfile.
+
+{% hint style="info" %}
+Recommended setup because of the performance of Caddy and the number of containers.
+{% endhint %}
+
+#### Squidex + NGINX
+
+`docker-compose-nginx.yml` with the following containers:
+
+* Squidex
+* [NGINX ](https://www.nginx.com/)as reverse proxy to support HTTPS
 * NGINX sidecar to provision free and secure certificates with [LetsEncrypt](https://letsencrypt.org/de/).
 * [MongoDB](https://www.mongodb.com/de)
+
+The NGINX proxy uses a [custom image](https://github.com/Squidex/squidex-hosting/blob/master/docker-compose/proxy-nginx/Dockerfile) to increase the size of the http headers.
+
+{% hint style="info" %}
+Recommended setup when you are familiar with Nginx and have special requirements.
+{% endhint %}
+
+#### Squidex without Proxy
+
+`docker-compose-noproxy.yml` with the following containers:
+
+* Squidex
+* [MongoDB](https://www.mongodb.com/de)
+
+{% hint style="info" %}
+Recommended setup if you already have a reverse proxy \(e.g. Cloudflare\).
+{% endhint %}
 
 ### 1. Download the files
 

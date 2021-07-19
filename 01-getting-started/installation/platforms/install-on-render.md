@@ -28,7 +28,7 @@ When it's finished, click **managed resources** \(1\).
 
 ## 4. Get the external URL
 
-Click **squidex_squidex** \(1\).
+Click **squidex\_squidex** \(1\).
 
 ![Open squidex\_squidex](../../../.gitbook/assets/render-4-1.png)
 

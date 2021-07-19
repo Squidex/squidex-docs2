@@ -46,7 +46,7 @@ Back at the Heroku Dashboard, click **Settings** \(1\), then click **Reveal Conf
 
 ![Settings](../../../.gitbook/assets/heroku-5-1.png)
 
-Fill the fields `MONGO_PASSWORD`  \(1\) and `MONGO_USERNAME` \(2\) with the same credentials you provided in the previous step.
+Fill the fields `MONGO_PASSWORD` \(1\) and `MONGO_USERNAME` \(2\) with the same credentials you provided in the previous step.
 
 ![Config Vars](../../../.gitbook/assets/heroku-5-2.png)
 
