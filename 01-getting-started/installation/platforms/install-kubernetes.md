@@ -52,17 +52,18 @@ kubectl logs deploy/squidex
 ```
 ### Common issues
 
-1. Warning for ServerGC
+#### Warning for ServerGC
 
 > info: Orleans.Runtime.Silo[100404]  
 > Silo starting with GC settings: ServerGC=False GCLatencyMode=Interactive  
 > warn: Orleans.Runtime.Silo[100405]  
 > Note: Silo not running with ServerGC turned on - recommend checking app config : --  
 > warn: Orleans.Runtime.Silo[100405]  
-> Note: ServerGC only kicks in on multi-core systems (settings enabling ServerGC have no effect on single-core machines).  
+> Note: ServerGC only kicks in on multi-core systems (settings enabling ServerGC have no effect on single-core machines).
 
+This is not a critical warning. ServerGC is a special garbage collector as it has no positive or negative impact when running with a single core. You can just ingore it.
 
-**Solution**: Setting resource on cpu greater than 2 to avoid this warning.
+**Solution**: Request more than 1 CPU
 
 ```yml
 resources:
