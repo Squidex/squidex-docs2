@@ -62,7 +62,7 @@ kubectl logs deploy/squidex
 > Note: ServerGC only kicks in on multi-core systems (settings enabling ServerGC have no effect on single-core machines).  
 
 
-**Solution**: Setting resource on cpu is greater than 2 to avoid this warning
+**Solution**: Setting resource on cpu greater than 2 to avoid this warning.
 
 ```yml
 resources:
