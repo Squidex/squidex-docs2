@@ -50,6 +50,25 @@ Please check the logs first using docker.
 ```bash
 kubectl logs deploy/squidex
 ```
+### Common issues
+
+1. Warning for ServerGC
+
+> info: Orleans.Runtime.Silo[100404]  
+> Silo starting with GC settings: ServerGC=False GCLatencyMode=Interactive  
+> warn: Orleans.Runtime.Silo[100405]  
+> Note: Silo not running with ServerGC turned on - recommend checking app config : --  
+> warn: Orleans.Runtime.Silo[100405]  
+> Note: ServerGC only kicks in on multi-core systems (settings enabling ServerGC have no effect on single-core machines).  
+
+
+**Solution**: Making sure resource on cpu is greater than 2
+
+```yml
+resources:
+  requests:
+    cpu: 2
+```
 
 ### More issues?
 
