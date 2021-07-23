@@ -25,8 +25,8 @@ Personally I was not able to setup the newer Docker Versions on Windows 10 Home.
 
 ### For the backend
 
-* [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) 
-* [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) \(for older versions of Squidex\)
+* [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
+* [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) or [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) \(for older versions of Squidex\)
 * [MongoDB](https://www.mongodb.com/)
 * Optionally: [RabbitMQ](https://www.rabbitmq.com/download.html)
 * Optionally: [EventStore](https://eventstore.org/)
@@ -39,7 +39,7 @@ Just execute the following commands to get a MongoDB installation for developmen
 
 ```bash
 git clone https://github.com/squidex/squidex-docker
-cd squidex-docker/dependencies
+cd squidex-docker/development
 docker-compose up -d
 ```
 
@@ -47,7 +47,7 @@ docker-compose up -d
 
 * [NodeJS](https://nodejs.org/en/) \(&gt;= 10.0\)
 
-Usually newer versions are better but we made the experience that newer versions of NodeJS are more memory hungry in some situations.
+Usually newer versions are better but we made the experience that newer versions of NodeJS are more memory hungry in some situations. You can also use node through nvm - this will allow to work with multiple versions at the same time.
 
 ### IDE and editors
 
@@ -100,10 +100,10 @@ dotnet restore # Install all dependencies
 dotnet run
 ```
 
-Open [https://localhost:5001](http://localhost:5000) to run Squidex.
+Open [https://localhost:5001](https://localhost:5001) to run Squidex.
 
 You can also run and debug the backend with Visual Studio 2019. But here are some things you should do before you start your debug session:
 
-1. Recommended: Ensure that you `Squidex`which means that you use the integrated Kestrel web server, which starts faster than IIS Express.
+1. Recommended: Ensure that you `Squidex` which means that you use the integrated Kestrel web server, which starts faster than IIS Express.
 2. Recommended: Toggle off the `Launch browser` setting. You just want to keep Squidex open during development and not close and open the window all the time to make debugging the frontend with your browser easier.
 
