@@ -19,7 +19,7 @@ The &lt;TYPE&gt; is a prefix that has been used for backwards compatibility and 
 * `$CONTENT_DATA.CITY.en`: _Munich_
 
 {% hint style="info" %}
-Always use the first with the brackets \( `{` and `}` \) if possible.
+Always use the first variant with the brackets \( { and } \) if possible.
 {% endhint %}
 
 Furthermore there are still some special placeholders for backwards compatibility or to give you access to information that are not directly part of the event.
