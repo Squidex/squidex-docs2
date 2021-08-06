@@ -31,7 +31,7 @@ If you are hosting Squidex yourself you are very likely the administrator and yo
 3. Presse the "Restore Backup" button to restore your backup \(4\). If you have restored a backup before you will still see the logs as shown in the following screenshot.
 4. If an app with the same name already exists you to either delete this app first or define a new name for your restored app \(5\).
 
-![Restore an backup](../../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
+![Restore an backup](../../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 ### How to restore the backup in the Cloud?
 

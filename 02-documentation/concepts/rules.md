@@ -157,7 +157,7 @@ Almost all text settings for actions support placeholders that allow you to inte
 
 More information can be found at:
 
-{% page-ref page="../developer-guides/rule-formatting.md" %}
+{% page-ref page="../developer-guides/rule-formatting/" %}
 
 ### 4. Execution
 

@@ -48,12 +48,16 @@
     * [Queries](02-documentation/developer-guides/api-overview/api.md)
     * [Assets](02-documentation/developer-guides/api-overview/assets-api.md)
   * [Automation Tools \(CLI\)](02-documentation/developer-guides/automation-tools.md)
-  * [Scripting](02-documentation/developer-guides/scripting.md)
+  * [Scripting](02-documentation/developer-guides/scripting/README.md)
+    * [Scripting Helper Methods](02-documentation/developer-guides/scripting/scripting-helper-methods.md)
   * [Custom Workflows](02-documentation/developer-guides/workflows.md)
   * [Custom Editors](02-documentation/developer-guides/editors.md)
   * [Custom Sidebars](02-documentation/developer-guides/custom-sidebars.md)
   * [Preview Content](02-documentation/developer-guides/preview.md)
-  * [Rule Formatting](02-documentation/developer-guides/rule-formatting.md)
+  * [Rule Formatting](02-documentation/developer-guides/rule-formatting/README.md)
+    * [Simple](02-documentation/developer-guides/rule-formatting/simple.md)
+    * [Script](02-documentation/developer-guides/rule-formatting/script.md)
+    * [Liquid](02-documentation/developer-guides/rule-formatting/liquid.md)
 
 ## Next <a id="04-next"></a>
 
