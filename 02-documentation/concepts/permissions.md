@@ -49,7 +49,7 @@ It also it allows alternatives:
 
 `squidex.apps.{app}.contents.pages|posts|articles.*` gives you full access to the three schemas pages, posts and articles.
 
-And furthermore exceptions \(not implemented yet\):
+And furthermore exceptions:
 
 `squidex.apps.{app}.contents.^settings.*` gives you full access to all schemas except to the settings schema.
 
