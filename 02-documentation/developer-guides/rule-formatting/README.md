@@ -78,9 +78,3 @@ In newer versions of Squidex custom input fields and text areas have been introd
 The liquid syntax is the most powerful but still easy option and therefore recommended for most use cases.
 {% endhint %}
 
-### 
-
-### Javascript Expressions
-
-F
-
