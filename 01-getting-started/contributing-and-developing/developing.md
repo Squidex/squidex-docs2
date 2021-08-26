@@ -47,7 +47,7 @@ docker-compose up -d
 
 * [NodeJS](https://nodejs.org/en/) \(&gt;= 10.0\)
 
-Usually newer versions are better but we made the experience that newer versions of NodeJS are more memory hungry in some situations. You can also use node through nvm - this will allow to work with multiple versions at the same time.
+Usually newer versions are better but we have  the experience that newer versions of NodeJS are more memory hungry in some situations. You can also use node through nvm - this will allow to work with multiple versions at the same time.
 
 ### IDE and editors
 
@@ -100,10 +100,12 @@ dotnet restore # Install all dependencies
 dotnet run
 ```
 
+Ensure that the `ASPNETCORE_ENVIRONMENT` environment variable is set to `Development`, either through a `launchSettings.json` or through your IDE's settings. 
+
 Open [https://localhost:5001](https://localhost:5001) to run Squidex.
 
 You can also run and debug the backend with Visual Studio 2019. But here are some things you should do before you start your debug session:
 
-1. Recommended: Ensure that you `Squidex` which means that you use the integrated Kestrel web server, which starts faster than IIS Express.
-2. Recommended: Toggle off the `Launch browser` setting. You just want to keep Squidex open during development and not close and open the window all the time to make debugging the frontend with your browser easier.
+1. Recommended: Ensure that you run the `Squidex` project, which means that you use the integrated Kestrel web server, which starts faster than IIS Express.
+2. Recommended: Uncheck the `Launch browser` setting. You just want to keep Squidex open during development and not close and open the window all the time to make debugging the frontend with your browser easier.
 
