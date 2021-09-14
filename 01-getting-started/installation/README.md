@@ -4,14 +4,14 @@
 
 If you want to install Squidex on a bare metal server or virtual machine.
 
-* [Install with IIS under Windows](platforms/install-iis.md)
-* [Install with Docker \(Linux, OS X, Windows\)](platforms/install-docker.md)
+* [Install with IIS under Windows](platforms/install-on-iis.md)
+* [Install with Docker \(Linux, OS X, Windows\)](platforms/install-on-docker.md)
 
 ## Choose your cloud provider
 
 If you want to install Squidex in the Cloud.
 
-* [Install on Azure App Service](platforms/install-azure.md)
+* [Install on Azure App Service](platforms/install-on-azure.md)
 * [Install on AWS](platforms/install-on-aws.md)
 * [Install on Google Cloud Platform \(GCP\)]()
 * [Install on Heroku](platforms/install-on-heroku.md)

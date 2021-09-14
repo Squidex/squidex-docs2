@@ -47,7 +47,7 @@ docker-compose up -d
 
 * [NodeJS](https://nodejs.org/en/) \(&gt;= 10.0\)
 
-Usually newer versions are better but we have  the experience that newer versions of NodeJS are more memory hungry in some situations. You can also use node through nvm - this will allow to work with multiple versions at the same time.
+Usually newer versions are better but we have the experience that newer versions of NodeJS are more memory hungry in some situations. You can also use node through nvm - this will allow to work with multiple versions at the same time.
 
 ### IDE and editors
 
@@ -100,7 +100,7 @@ dotnet restore # Install all dependencies
 dotnet run
 ```
 
-Ensure that the `ASPNETCORE_ENVIRONMENT` environment variable is set to `Development`, either through a `launchSettings.json` or through your IDE's settings. 
+Ensure that the `ASPNETCORE_ENVIRONMENT` environment variable is set to `Development`, either through a `launchSettings.json` or through your IDE's settings.
 
 Open [https://localhost:5001](https://localhost:5001) to run Squidex.
 

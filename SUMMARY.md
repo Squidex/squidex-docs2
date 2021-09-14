@@ -25,6 +25,7 @@
   * [Contributing](01-getting-started/contributing-and-developing/contributing.md)
   * [Architecture](01-getting-started/contributing-and-developing/overview.md)
   * [Translating](01-getting-started/contributing-and-developing/translating.md)
+  * [Squidex Docs Program](01-getting-started/contributing-and-developing/squidex-docs-program.md)
 * [Roadmap](01-getting-started/roadmap.md)
 
 ## Documentation <a id="02-documentation"></a>

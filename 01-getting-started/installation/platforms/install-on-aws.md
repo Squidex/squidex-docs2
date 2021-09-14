@@ -55,7 +55,7 @@ Once the instance is ready, take it's **Public IP** \(1\) and connect to it usin
 ![Public IP](../../../.gitbook/assets/aws-4-1.png)
 
 ```bash
-ssh -i path/to/keypair.pem ubuntu@[PUBLIC IP] 
+ssh -i path/to/keypair.pem ubuntu@[PUBLIC IP]
 ```
 
 Once you are logged in, run the setup command and follow the on-screen instructions.
@@ -66,7 +66,7 @@ Once you are logged in, run the setup command and follow the on-screen instructi
 
 You will be asked to enter the domain here. All other values are optional. The installation script will start docker-compose then and download all images and start them in the right order.
 
-After you make sure the domain you configured is pointing to the public IP of your instance and that the DNS changes propagated, go to https://your_domain.com and you should be ready to go.
+After you make sure the domain you configured is pointing to the public IP of your instance and that the DNS changes propagated, go to [https://your\_domain.com](https://your_domain.com) and you should be ready to go.
 
 For further help, go to [Configuration](https://docs.squidex.io/01-getting-started/installation/configuration).
 
