@@ -34,7 +34,7 @@ helm repo add squidex https://squidex.github.io/squidex/helm/
 Your kubeconfig must already be in place, and you should be able to run `kubectl` commands against your cluster.
 
 ```text
-helm install squidex/squidex --set env.URLS__BASEURL=squidex.your.domain --set ingress.hostName=squidex.your.domain
+helm install squidex/squidex --set env.URLS__BASEURL=https://squidex.your.domain --set ingress.hostName=squidex.your.domain
 ```
 
 ### 3. Wait for the rollout
