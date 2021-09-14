@@ -61,7 +61,7 @@ kubectl logs deploy/squidex
 > warn: Orleans.Runtime.Silo[100405]  
 > Note: ServerGC only kicks in on multi-core systems (settings enabling ServerGC have no effect on single-core machines).
 
-This is not a critical warning. ServerGC is a special garbage collector as it has no positive or negative impact when running with a single core. You can just ingore it.
+This is not a critical warning. ServerGC is a special garbage collector as it has no positive or negative impact when running with a single core. You can just ignore it.
 
 **Solution**: Request more than 1 CPU
 
