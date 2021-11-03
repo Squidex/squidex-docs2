@@ -26,10 +26,10 @@ Personally I was not able to setup the newer Docker Versions on Windows 10 Home.
 ### For the backend
 
 * [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
-* [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) or [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) \(for older versions of Squidex\)
-* [MongoDB](https://www.mongodb.com/)
+* [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) or [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) (for older versions of Squidex)
+* [MongoDB](https://www.mongodb.com)
 * Optionally: [RabbitMQ](https://www.rabbitmq.com/download.html)
-* Optionally: [EventStore](https://eventstore.org/)
+* Optionally: [EventStore](https://eventstore.org)
 
 #### Setup
 
@@ -45,7 +45,7 @@ docker-compose up -d
 
 ### For the frontend
 
-* [NodeJS](https://nodejs.org/en/) \(&gt;= 10.0\)
+* [NodeJS](https://nodejs.org/en/) (>= 10.0)
 
 Usually newer versions are better but we have the experience that newer versions of NodeJS are more memory hungry in some situations. You can also use node through nvm - this will allow to work with multiple versions at the same time.
 
@@ -54,7 +54,7 @@ Usually newer versions are better but we have the experience that newer versions
 You can use any editor you want, but our recommendation is to use:
 
 * [Visual Studio 2019 Community Edition ](https://visualstudio.microsoft.com/vs/?rr=https%3A%2F%2Fwww.google.com%2F)for the backend.
-* [Visual Studio Code](https://code.visualstudio.com/) for the frontend with the following plugins installed:
+* [Visual Studio Code](https://code.visualstudio.com) for the frontend with the following plugins installed:
   * [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
   * [Sass-Lint](https://marketplace.visualstudio.com/items?itemName=glen-84.sass-lint)
   * [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
@@ -69,11 +69,11 @@ Before you start you should also ensure that the certificates for the test envir
 
 ### Frontend
 
-The frontend is written with [Angular](https://angular.io) and [webpack](https://webpack.js.org/). Therefore you have to run the [webpack web dev server](https://webpack.js.org/configuration/dev-server/). It is a server application that builds the website and watches the file system. Whenever you make a change to a file, the server will run the build process and reload the website automatically. It tries to compile only the files that have changed and can even reload the style sheets without reloading the site in some cases.
+The frontend is written with [Angular](https://angular.io) and [webpack](https://webpack.js.org). Therefore you have to run the [webpack web dev server](https://webpack.js.org/configuration/dev-server/). It is a server application that builds the website and watches the file system. Whenever you make a change to a file, the server will run the build process and reload the website automatically. It tries to compile only the files that have changed and can even reload the style sheets without reloading the site in some cases.
 
 #### How to run the Webpack Dev Server?
 
-```text
+```
 cd frontend # Go to the frontend
 npm i # Install all dependencies, only needed the first time
 npm start
@@ -85,9 +85,9 @@ Installing the dependencies is only needed once or when the **project.json** fil
 
 Optionally:
 
-1. `npm rebuild node-sass --force` \(Only if you have issues with node-sass\)
-2. `npm test` \(Runs the unit tests and listens for changes\)
-3. `npm run test:coverage` \(Runs the unit tests and calculates the test coverage\).
+1. `npm rebuild node-sass --force` (Only if you have issues with node-sass)
+2. `npm test` (Runs the unit tests and listens for changes)
+3. `npm run test:coverage` (Runs the unit tests and calculates the test coverage).
 
 Btw: As the name _webpack dev server_ indicates, it is only used for development. For production we bundle and minimize all typescript, html and sass files and add the bundles to the deployment package. So don't be worried when the frontend downloads hundred of files during development.
 
@@ -108,4 +108,3 @@ You can also run and debug the backend with Visual Studio 2019. But here are som
 
 1. Recommended: Ensure that you run the `Squidex` project, which means that you use the integrated Kestrel web server, which starts faster than IIS Express.
 2. Recommended: Uncheck the `Launch browser` setting. You just want to keep Squidex open during development and not close and open the window all the time to make debugging the frontend with your browser easier.
-

@@ -12,9 +12,9 @@ It is recommended to think twice whether you want to install Squidex on your own
 
 If you are sure that you want to install Squidex on your own machine, there are a few things that are essential:
 
-1. Understand how to use logging in your environment. Especially if you are running Squidex with multiple instances it is crucial to aggregate all the logs into one stream, that can be searched and analyzed. Many cloud providers have very good solution for this. There are also free products like the ELK \(Elastic +, Kibana\) stack \([https://www.elastic.co/log-monitoring](https://www.elastic.co/log-monitoring)\).
-2. Understand how to monitor your installation. Very often the logging infrastructure already provides a solution for this problem, but you can also use alternatives like statping \([https://github.com/statping/statping](https://github.com/statping/statping)\). We use this awesome tool as a [public status page](https://status.squidex.io/), but also have internal monitoring solutions.
-3. In case you have a very complicated setup it is really recommended to have an APM \(Application Performance Monitoring\) in place to analyze performance issues. Squidex provides an integration to Datadog APM \([https://www.datadoghq.com/product/apm/](https://www.datadoghq.com/product/apm/)\) and Azure Application Insights.
+1. Understand how to use logging in your environment. Especially if you are running Squidex with multiple instances it is crucial to aggregate all the logs into one stream, that can be searched and analyzed. Many cloud providers have very good solution for this. There are also free products like the ELK (Elastic +, Kibana) stack ([https://www.elastic.co/log-monitoring](https://www.elastic.co/log-monitoring)).
+2. Understand how to monitor your installation. Very often the logging infrastructure already provides a solution for this problem, but you can also use alternatives like statping ([https://github.com/statping/statping](https://github.com/statping/statping)). We use this awesome tool as a [public status page](https://status.squidex.io), but also have internal monitoring solutions.
+3. In case you have a very complicated setup it is really recommended to have an APM (Application Performance Monitoring) in place to analyze performance issues. Squidex provides an integration to Datadog APM ([https://www.datadoghq.com/product/apm/](https://www.datadoghq.com/product/apm/)) and Azure Application Insights.
 
 The previous points are in prioritized order.
 
@@ -42,26 +42,28 @@ This means that it is very important to get an insight about your installation v
 
 #### How to get logs
 
-Squidex is logging everything to the standard output stream \(`stdout` \). This is a recommended pattern for cloud-ready applications and described in the 12-factors--app manifest: [https://12factor.net/logs](https://12factor.net/logs).
+Squidex is logging everything to the standard output stream (`stdout` ). This is a recommended pattern for cloud-ready applications and described in the 12-factors--app manifest: [https://12factor.net/logs](https://12factor.net/logs).
 
 Most cloud providers redirect the standard output stream to a storage and make the logs available in their cloud portal. Please read the documentation from your cloud provider.
 
 Here are also few hints how to retrieve logs:
 
-* If you install Squidex under IIS in Windows you should read the following article from Microsoft: [https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/aspnet-core-module?view=aspnetcore-3.1\#log-creation-and-redirection](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/aspnet-core-module?view=aspnetcore-3.1#log-creation-and-redirection)
+* If you install Squidex under IIS in Windows you should read the following article from Microsoft: [https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/aspnet-core-module?view=aspnetcore-3.1#log-creation-and-redirection](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/aspnet-core-module?view=aspnetcore-3.1#log-creation-and-redirection)
 * If you use docker you should read the following article: [https://docs.docker.com/config/containers/logging/](https://docs.docker.com/config/containers/logging/). It also describes how to setup a log driver that can be used to redirect all logs to a centralized logging service.
 
 #### Search in logs
 
 Before you upload the logs, search for the `exception` keyword. Perhaps you already find the solution to your problem in the logs.
 
-Sometimes the identity systems masks Personally Identifiable Information \(PII\) in the logs. If you see such a case in your log file and you think that relevant information are missing you can turn off this behavior with the following setting: [https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json\#L580](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json#L580)
+Sometimes the identity systems masks Personally Identifiable Information (PII) in the logs. If you see such a case in your log file and you think that relevant information are missing you can turn off this behavior with the following setting: [https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json#L580](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json#L580)
 
-The environment variable for this setting is `IDENTITY__SHOWPII=true`. 
+The environment variable for this setting is `IDENTITY__SHOWPII=true`.&#x20;
 
 Read more about how to configure Squidex here:
 
-{% page-ref page="configuration.md" %}
+{% content-ref url="../configuration.md" %}
+[configuration.md](../configuration.md)
+{% endcontent-ref %}
 
 #### How to provide logs
 
@@ -87,7 +89,7 @@ Usually browser logs contain only a handful of useful log lines. Therefore you c
 
 Sometimes it is useful to have a backup of your database ready. Squidex provides its own backup tool but these backups are not useful for troubleshooting because the final result could differ from the state of your database.
 
-Therefore use `mongodump` to create a backup: [https://docs.mongodb.com/database-tools/mongodump/\#mongodump-options](https://docs.mongodb.com/database-tools/mongodump/#mongodump-options)
+Therefore use `mongodump` to create a backup: [https://docs.mongodb.com/database-tools/mongodump/#mongodump-options](https://docs.mongodb.com/database-tools/mongodump/#mongodump-options)
 
 1. Ensure that you have access to your mongo database. It might be necessary to open ports temporarily.
 2. Create a backup of your mongo databases. Do not use the `archive`flag.
@@ -116,7 +118,7 @@ If it is very obvious that an topic creator has not read this guidelines, we wil
 
 Squidex uses event sourcing, an architectural principle, where everything that happens is recorded as an event. An example for such an event is `ContentCreated` or `ContentDeleted`. Other state or collections are derived from events. Therefore they can be recreated if necessary.
 
-You can have a look to the `appSettings.json` file for all restore options: [https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json\#L683](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json#L683)
+You can have a look to the `appSettings.json` file for all restore options: [https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json#L683](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json#L683)
 
 To start such an rebuild you have to execute the following steps:
 
@@ -127,7 +129,9 @@ To start such an rebuild you have to execute the following steps:
 
 Read more about how to to use the configuration system:
 
-{% page-ref page="configuration.md" %}
+{% content-ref url="../configuration.md" %}
+[configuration.md](../configuration.md)
+{% endcontent-ref %}
 
 ### My migration is broken
 
@@ -135,9 +139,7 @@ In same cases Squidex needs to run a migration script to convert the database st
 
 Sometimes a migration fails, for example if the application is restarted before the migration is complete or in case of a bug. Very often it is recommended in the support forum to run the migrations again. The state of the migration is stored in MongoDB. Use a tool of your choice and connect to your MongoDB database. Then search for the `Migration` collection. There is only one document. Decrement to version and ensure that `IsLocked` is set to `false`. Then restart Squidex.
 
-![The migration status](../../.gitbook/assets/image%20%2839%29.png)
-
-
+![The migration status](<../../../.gitbook/assets/image (21).png>)
 
 
 

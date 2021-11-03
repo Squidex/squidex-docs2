@@ -8,7 +8,7 @@ description: Install Squidex on Linux machines with docker and docker-compose.
 
 * Linux with [Docker CE](https://docs.docker.com/install/linux/docker-ce/centos/)
 * Windows 10 Pro, Enterprise or Education with [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
-* Windows with [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/)
+* Windows with [Docker Toolbox](https://docs.docker.com/toolbox/toolbox\_install\_windows/)
 * Mac with [Docker for Mac](https://docs.docker.com/docker-for-mac/)
 
 {% hint style="info" %}
@@ -28,7 +28,7 @@ There are 3 alternatives:
 `docker-compose.yml` with the following containers:
 
 * Squidex
-* [Caddy ](https://caddyserver.com/)as reverse proxy to support HTTPS. Also issues the certificate.
+* [Caddy ](https://caddyserver.com)as reverse proxy to support HTTPS. Also issues the certificate.
 * [MongoDB](https://www.mongodb.com/de)
 
 The caddy proxy uses a custom image to configure the Caddyfile.
@@ -42,7 +42,7 @@ Recommended setup because of the performance of Caddy and the number of containe
 `docker-compose-nginx.yml` with the following containers:
 
 * Squidex
-* [NGINX ](https://www.nginx.com/)as reverse proxy to support HTTPS
+* [NGINX ](https://www.nginx.com)as reverse proxy to support HTTPS
 * NGINX sidecar to provision free and secure certificates with [LetsEncrypt](https://letsencrypt.org/de/).
 * [MongoDB](https://www.mongodb.com/de)
 
@@ -60,7 +60,7 @@ Recommended setup when you are familiar with Nginx and have special requirements
 * [MongoDB](https://www.mongodb.com/de)
 
 {% hint style="info" %}
-Recommended setup if you already have a reverse proxy \(e.g. Cloudflare\).
+Recommended setup if you already have a reverse proxy (e.g. Cloudflare).
 {% endhint %}
 
 ### 1. Download the files
@@ -74,13 +74,13 @@ Download the following files to your server:
 
 Open the `.env` file and set the following variables:
 
-| Variable | Description |
-| :--- | :--- |
-| `SQUIDEX_DOMAIN` | Your domain name, e.g. we use `cloud.squidex.io` |
-| `SQUIDEX_ADMINEMAIL` | The email address of the admin user. |
+| Variable                | Description                                                                                                                                                                                                                                     |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SQUIDEX_DOMAIN`        | Your domain name, e.g. we use `cloud.squidex.io`                                                                                                                                                                                                |
+| `SQUIDEX_ADMINEMAIL`    | The email address of the admin user.                                                                                                                                                                                                            |
 | `SQUIDEX_ADMINPASSWORD` | The password of the admin user. Must contain a lowercase and uppercase letter, a number and a special character. Leaked passwords are also forbidden, check [https://haveibeenpwned.com/Passwords](https://haveibeenpwned.com/Passwords) first. |
-| `SQUIDEX_FORCE_HTTPS` | Keep it unchanged. You can set it to false to disable permanent redirects from http to https. |
-| `SQUIDEX_PROTOCOL` | Keep it unchanged. You can set it to http to disable secure connections. |
+| `SQUIDEX_FORCE_HTTPS`   | Keep it unchanged. You can set it to false to disable permanent redirects from http to https.                                                                                                                                                   |
+| `SQUIDEX_PROTOCOL`      | Keep it unchanged. You can set it to http to disable secure connections.                                                                                                                                                                        |
 
 You can keep the other settings empty for now.
 
@@ -120,11 +120,11 @@ sudo firewall-cmd --add-service=https --permanent --zone=trusted
 sudo firewall-cmd --reload
 ```
 
-### I see a IDX20803: Unable to obtain configuration from: &lt;IP&gt; in the logs
+### I see a IDX20803: Unable to obtain configuration from: \<IP> in the logs
 
-This problem is because you use an host name or IP address that is not reachable from the docker itself. You can think about the Squidex being two processes in one application. There is the OpenID Connect Server \(Identity Server\) that generates the access tokens and the API. When the API receives an access token it makes a request to the Identity Server to validate the token \(See following diagram\).
+This problem is because you use an host name or IP address that is not reachable from the docker itself. You can think about the Squidex being two processes in one application. There is the OpenID Connect Server (Identity Server) that generates the access tokens and the API. When the API receives an access token it makes a request to the Identity Server to validate the token (See following diagram).
 
-![Authentication Flow](../../../.gitbook/assets/untitled-presentation.png)
+![Authentication Flow](<../../../.gitbook/assets/Untitled presentation.png>)
 
 When you use a local host name or IP address such as `localhost` or `127.0.0.1`your are referring to the host name. But containers inside docker cannot resolve the network routes and therefore the authentication flow fails. The solution is to either use another local hostname, that you have to configure in the host file of your Operation system or to use a real hostname, such as a public domain name.
 
@@ -132,5 +132,6 @@ When you use a local host name or IP address such as `localhost` or `127.0.0.1`y
 
 It is very likely a configuration problem and not related to hosting under Docker. Checkout
 
-{% page-ref page="../configuration.md" %}
-
+{% content-ref url="../configuration.md" %}
+[configuration.md](../configuration.md)
+{% endcontent-ref %}

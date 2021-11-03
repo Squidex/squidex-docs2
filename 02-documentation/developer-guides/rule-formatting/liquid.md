@@ -6,7 +6,7 @@ description: How to format rules with Liquid templates.
 
 You can use Liquid templates using the following syntax:
 
-```text
+```
 Liquid(<YOUR_SCRIPT>)
 ```
 
@@ -24,7 +24,7 @@ Squidex provides special extensions.
 
 Resolves a content by ID and saves the content in a variable.
 
-```text
+```
 // Input
 {% for id in event.data.references.iv %}
    {% reference 'ref', id %}
@@ -40,7 +40,7 @@ Text: Content2_Field1 Content2_Field2 Content1_ID
 
 Resolves a asset by ID and saves the asset in a variable.
 
-```text
+```
 // Input
 {% for id in event.data.assets.iv %}
    {% asset 'ref', id %}
@@ -58,7 +58,7 @@ Text: Asset2_FileName Asset2_ID
 
 Formats a date using a specified pattern.
 
-```text
+```
 {{event.timestamp | format_date: 'yyyy-MM-dd-hh-mm-ss'}}
 ```
 
@@ -66,7 +66,7 @@ Formats a date using a specified pattern.
 
 Returns the number of milliseconds between 1970/1/1 and a given date.
 
-```text
+```
 {{event.timestamp | timestamp}}
 ```
 
@@ -74,7 +74,7 @@ Returns the number of milliseconds between 1970/1/1 and a given date.
 
 Returns the number of seconds between 1970/1/1 and a given date.
 
-```text
+```
 {{event.timestamp_sec | timestamp}}
 ```
 
@@ -82,7 +82,7 @@ Returns the number of seconds between 1970/1/1 and a given date.
 
 Escapes a value to be a valid JSON string.
 
-```text
+```
 {{event.user.name | escape}}
 ```
 
@@ -90,7 +90,7 @@ Escapes a value to be a valid JSON string.
 
 Converts a HTML string to plain text.
 
-```text
+```
 {{event.data.body.iv | html2text}}
 ```
 
@@ -98,7 +98,7 @@ Converts a HTML string to plain text.
 
 Converts a markdown string to plain text.
 
-```text
+```
 {{event.data.body.iv | html2text}}
 ```
 
@@ -106,7 +106,7 @@ Converts a markdown string to plain text.
 
 Calculate the MD5 hash from a given string. Use this method for hashing passwords, when backwards compatibility is important
 
-```text
+```
 {{event.data.password.iv | md5}}
 ```
 
@@ -114,7 +114,7 @@ Calculate the MD5 hash from a given string. Use this method for hashing password
 
 Calculate the SHA256 hash from a given string. Use this method for hashing passwords.
 
-```text
+```
 {{event.data.password.iv | sha256}}
 ```
 
@@ -122,11 +122,10 @@ Calculate the SHA256 hash from a given string. Use this method for hashing passw
 
 Calculates the slug of a text by removing all special characters and whitespaces to create a friendly term that can be used for SEO-friendly URLs.
 
-```text
+```
 {{event.data.title.iv | slugify}}
 ```
 
 #### trim
 
-Same as [strip](https://shopify.github.io/liquid/filters/strip/). Removes all whitespace \(tabs, spaces, and newlines\) from both the left and right sides of a string. It does not affect spaces between words.
-
+Same as [strip](https://shopify.github.io/liquid/filters/strip/). Removes all whitespace (tabs, spaces, and newlines) from both the left and right sides of a string. It does not affect spaces between words.

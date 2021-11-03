@@ -1,5 +1,5 @@
 ---
-description: 'How to query content with filters, sorting and pagination.'
+description: How to query content with filters, sorting and pagination.
 ---
 
 # Queries
@@ -20,13 +20,13 @@ Both query languages support the same features:
 
 ### OData Queries
 
-OData  is an open [protocol](https://en.wikipedia.org/wiki/Protocol_%28computing%29) which allows the creation and consumption of queryable and inoperable APIs in a simple and standardized way. It was designed and developed by Microsoft and provides ready to use solutions. We have decided to use the Query syntax because we wanted to leverage an existing system and parser and found it easy to adapt to our needs. 
+OData  is an open [protocol](https://en.wikipedia.org/wiki/Protocol\_\(computing\)) which allows the creation and consumption of queryable and inoperable APIs in a simple and standardized way. It was designed and developed by Microsoft and provides ready to use solutions. We have decided to use the Query syntax because we wanted to leverage an existing system and parser and found it easy to adapt to our needs.&#x20;
 
 The queries are provided over the URL and have a special syntax. OData query options start with a dollar character, e.g. `$filter`.
 
 An example:
 
-```text
+```
 https://.../api/content/geodata/cities?$top=30&$skip=10&$search=Munich
 ```
 
@@ -44,7 +44,7 @@ JSON queries will be passed in as URL encoded JSON objects with the `q` query pa
 
 An example
 
-```text
+```
 https://.../api/content/geodata/cities?q=%7B%22fullText%22%3A%22website%22%2C%22take%22%3A10%2C%22sort%22%3A%5B%5D%2C%22filter%22%3A%7B%22and%22%3A%5B%5D%7D%7
 ```
 
@@ -54,19 +54,19 @@ As you can see it is horrible to read, therefore we will just show normal JSON e
 
 We demonstrate the API concepts based on the following example:
 
-Lets assume you have an app `geodata` with two configured languages: German \(de\) and English \(en\).
+Lets assume you have an app `geodata` with two configured languages: German (de) and English (en).
 
 We also have a schema `cities` with these fields:
 
-| Name | Type | Localizable | Description |
-| :--- | :--- | :--- | :--- |
-| `name` | String | Yes | The name of the city. |
-| `population` | Number | No | The number of people living in the city. |
-| `foundation-year` | Number | No | The foundation year. |
-| `districts` | References | No | References to district content items. |
-| `tags` | Tags | No | Search tags. |
-| `isCapital` | Boolean | No | Indicates whether the city is a capital |
-| `location` | Geolocation | No | The location of the city. |
+| Name              | Type        | Localizable | Description                              |
+| ----------------- | ----------- | ----------- | ---------------------------------------- |
+| `name`            | String      | Yes         | The name of the city.                    |
+| `population`      | Number      | No          | The number of people living in the city. |
+| `foundation-year` | Number      | No          | The foundation year.                     |
+| `districts`       | References  | No          | References to district content items.    |
+| `tags`            | Tags        | No          | Search tags.                             |
+| `isCapital`       | Boolean     | No          | Indicates whether the city is a capital  |
+| `location`        | Geolocation | No          | The location of the city.                |
 
 Then your content has the following structure in the API:
 
@@ -113,7 +113,9 @@ Please note that there is one object for each field, because each field has a pa
 
 Read more about localization:
 
-{% page-ref page="../../concepts/localization.md" %}
+{% content-ref url="../../concepts/localization.md" %}
+[localization.md](../../concepts/localization.md)
+{% endcontent-ref %}
 
 ### How to identity fields
 
@@ -131,11 +133,11 @@ To identify a field of our content item we use the full path to this field, sepa
 
 When you use JSON queries, you can also use the dot-notation to have a syntax that is closer to Javascript and other programming languages. It is recommended to use this notation. For example:
 
-*  `data.population.iv`
+* &#x20;`data.population.iv`
 
 #### OData Restrictions
 
-In OData dash characters \(-\) are not allowed. Therefore you have to replace them with underscore in your queries. To identify the `foundation-year` field we would use
+In OData dash characters (-) are not allowed. Therefore you have to replace them with underscore in your queries. To identify the `foundation-year` field we would use
 
 * `data/foundation_year/iv`in OData
 * `data.foundation-year.iv`in JSON queries.
@@ -163,12 +165,12 @@ https://.../api/content/geodata/cities?$top=30
 {% endtabs %}
 
 {% hint style="info" %}
-Because of a stupid error the parameter is called **top** in OData and **take** in JSON.
+Because of a stupid error the parameter is called **top **in OData and **take **in JSON.
 {% endhint %}
 
 ### Skipping items in the result set
 
-The `skip` query option requests the number of items in the queried collection that are to be skipped and not included in the result. Use it together with `top` / `take` to read the all your data page by page.
+The `skip` query option requests the number of items in the queried collection that are to be skipped and not included in the result. Use it together with `top` / `take `to read the all your data page by page.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -190,7 +192,7 @@ or combined with `top` / `take`
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 https://.../api/content/geodata/cities?$skip=20&$top=30
 ```
 {% endtab %}
@@ -211,7 +213,7 @@ The search query option allows clients to request entities matching a free-text 
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 https://.../api/content/geodata/cities?$search=Munich
 ```
 {% endtab %}
@@ -233,11 +235,11 @@ You can either use **search or filter** but not both.
 
 The filter system query option allows clients to filter a collection of resources that are addressed by a request URL.
 
-Find the city with the name _Munich_ in English.
+Find the city with the name _Munich _in English.
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 https://.../api/content/geodata/cities?$filter=data/name/en eq Munich
 ```
 {% endtab %}
@@ -259,7 +261,7 @@ Find all cities with a population or more than 100000 people
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 https://.../api/content/geodata/cities?$filter=data/population/iv gt 100000
 ```
 {% endtab %}
@@ -277,11 +279,11 @@ https://.../api/content/geodata/cities?$filter=data/population/iv gt 100000
 {% endtab %}
 {% endtabs %}
 
-For example when you want to filter by the foundation year \(foundation\).
+For example when you want to filter by the foundation year (foundation).
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 https://.../api/content/geodata/cities?$filter=data/foundation_year/iv lt 1000
 ```
 {% endtab %}
@@ -307,7 +309,7 @@ For example when we search by tags.
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 https://.../api/content/app/term?$filter=data/tags/iv eq 'Beer'
 ```
 {% endtab %}
@@ -326,16 +328,30 @@ https://.../api/content/app/term?$filter=data/tags/iv eq 'Beer'
 {% endtabs %}
 
 {% hint style="info" %}
-You can either use **search** or **filter** but not both.
+You can either use **search **or **filter** but not both.
 {% endhint %}
 
 #### More examples
+
+An array (components, array fields, references, assets, strings) cannot be empty:
+
+{% tabs %}
+{% tab title="First Tab" %}
+```
+// Some code
+```
+{% endtab %}
+
+{% tab title="Second Tab" %}
+
+{% endtab %}
+{% endtabs %}
 
 Date must match value:
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 $filter=created eq 1988-01-19T12:00:00Z
 ```
 {% endtab %}
@@ -357,7 +373,7 @@ Date must match one of many values:
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 $filter=created in ('1988-01-19T12:00:00Z', '2011-01-22T08:00:00Z')
 ```
 {% endtab %}
@@ -382,7 +398,7 @@ Id must match value:
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 $filter=id eq B5FE25E3-...
 ---
 $filter=id in (B5FE25E3-..., 311DD333-...)
@@ -419,7 +435,7 @@ Name must match string value:
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 $filter=data/name/en eq 'Munich'
 ```
 {% endtab %}
@@ -441,7 +457,7 @@ Boolean must match value:
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 $filter=data/isCapital/iv eq true
 ```
 {% endtab %}
@@ -463,7 +479,7 @@ Number must match a value:
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 $filter=data/population/iv eq 1000000
 ```
 {% endtab %}
@@ -485,7 +501,7 @@ String property should start with, ends with or contain a string:
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 $filter=startswith(data/name/en, 'Mun')
 $filter=startswith(data/name/en, 'Mun') eq true // Aquivalent
 ---
@@ -524,11 +540,11 @@ $filter=contains(data/name/en, 'ich')
 {% endtab %}
 {% endtabs %}
 
-In OData these operators can also be compared with `false`. In JSON queries you need a negation.
+In OData these operators can also be compared with `false`. In JSON queries you have to use a `not` operation to negate your filter expression.
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 $filter=contains(data/name/en, 'ich') eq false
 ---
 not contains(data/name/en, 'ich')
@@ -551,7 +567,7 @@ not contains(data/name/en, 'ich')
 {% endtabs %}
 
 {% hint style="info" %}
-In **OData** single quotes \(`'`\) in text values must be replaced with double single quotes \(`''`\).
+In **OData** single quotes (`'`) in text values must be replaced with double single quotes.
 {% endhint %}
 
 Geolocation must within radius.
@@ -584,7 +600,7 @@ Different conditions
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 $filter=data/population/iv ne 1 // Not equals
 ---
 $filter=data/population/iv eq 1 // Equals
@@ -653,8 +669,8 @@ $filter=data/population/iv ge 1 // Greater or equals than
 Combine different conditions:
 
 {% tabs %}
-{% tab title="Plain Text" %}
-```text
+{% tab title="OData" %}
+```
 // AND: Both condition must be true
 $filter=data/population/iv eq 1000000 and data/isCapital/iv eq true 
 
@@ -700,7 +716,7 @@ Negations
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 not endswith(data/name/en, 'ich')
 ```
 {% endtab %}
@@ -728,7 +744,7 @@ e.g. find the top 20 biggest cities by population:
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 https://.../api/content/geodata/cities?$orderby=data/population/iv desc$top=20
 ```
 {% endtab %}
@@ -750,7 +766,7 @@ Of course you can also sort by multiple fields.
 
 {% tabs %}
 {% tab title="OData" %}
-```text
+```
 https://.../api/content/geodata/cities?$orderby=data/population/iv desc,data/name/iv asc$top=20
 ```
 {% endtab %}
@@ -777,14 +793,13 @@ By default the content api returns only published content. You can use the `X-Un
 
 ### Versioning
 
-The API tracks the version of each content element and provides this information in the `ETag` content header if you make an update \(POST, PUT, PATCH\) or if you request a single resource. If you request multiple resources, the version is provided as a field to each entry.
+The API tracks the version of each content element and provides this information in the `ETag` content header if you make an update (POST, PUT, PATCH) or if you request a single resource. If you request multiple resources, the version is provided as a field to each entry.
 
 You can use this header for two use cases:
 
 1. When you make an update you get the new version. This information can be used to find out if your change has already been written to the read store when you receive the same resource after your update.
-2. When you make an update you can use the `If-Match` header to pass the expected version to the API. If the version does not match to the version in the database another user or client has changed the same resource. Then the `412 (Precondition Failed)` status code is returned. You should provide this information to the user and ask if the user wants to reload the data or if the resource should be overwritten \(just do not use the `If-Match` header for the second request\).
+2. When you make an update you can use the `If-Match` header to pass the expected version to the API. If the version does not match to the version in the database another user or client has changed the same resource. Then the `412 (Precondition Failed)` status code is returned. You should provide this information to the user and ask if the user wants to reload the data or if the resource should be overwritten (just do not use the `If-Match` header for the second request).
 
 Read more about the If-Match header at
 
 {% embed url="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Match" %}
-

@@ -8,11 +8,11 @@ description: How to provide a translation for the Squidex API and Management UI.
 
 There are several translation files in the repository, but the files used by the API or the management UI are automated using the translation tool. You only have to update the files under `backend/i18n/source`.
 
-![The file structure for source translation files](../../.gitbook/assets/image%20%2835%29.png)
+![The file structure for source translation files](<../../.gitbook/assets/image (16).png>)
 
 There are separate files for frontend and backend, one for each language.
 
-The master language is **English** \(`backend_en.json`and `fronend_en.json`\).
+The master language is **English **(`backend_en.json`and `fronend_en.json`).
 
 ## How to add a new language?
 
@@ -47,9 +47,9 @@ dotnet run translate gen-backend ..\..
 
 The first step is to compare the translation files. It will do the following things:
 
-1. The translator tool will loop over all code files \(`*.html, *.cshtml, *.cs, *.ts`\) to analyze which strings are not translated yet. You can try to fix these errors but it needs a lot of in-depth knowledge about the source code and architecture.
-2. The translator tool will extract all used keys from the code files and compares the keys with the keys from the master language files and prints all keys that do not exist in the master language \(**missing keys**\) or exist in the master language file but not in the code files \(**unused keys**\). You can try to fix these errors, but it needs a lot of knowledge about the user experience.
-3. The translator tool compare all the translation files for all other languages with the master language and output all keys that do not exist in language file \(**missing keys**\) or exist in the language file but not in the master language file \(**unused keys**\). Please try to fix all errors.
+1. The translator tool will loop over all code files (`*.html, *.cshtml, *.cs, *.ts`) to analyze which strings are not translated yet. You can try to fix these errors but it needs a lot of in-depth knowledge about the source code and architecture.
+2. The translator tool will extract all used keys from the code files and compares the keys with the keys from the master language files and prints all keys that do not exist in the master language (**missing keys**) or exist in the master language file but not in the code files (**unused keys**). You can try to fix these errors, but it needs a lot of knowledge about the user experience.
+3. The translator tool compare all the translation files for all other languages with the master language and output all keys that do not exist in language file (**missing keys**) or exist in the language file but not in the master language file (**unused keys**). Please try to fix all errors.
 
 #### How to fix errors?
 
@@ -58,7 +58,7 @@ The first step is to compare the translation files. It will do the following thi
 
 Sometimes the keys are renamed, but you it is easy to spot these cases when you see errors like this
 
-```text
+```
 Missing keys:
 * new_KEY1
 * new_KEY2
@@ -76,9 +76,8 @@ The translator tool will also create the final files. It will take all translati
 
 The frontend files are also generated as json files under `backend/i18n`:
 
-![Final frontend files](../../.gitbook/assets/image%20%2837%29.png)
+![Final frontend files](<../../.gitbook/assets/image (17).png>)
 
 The backend translations are generated as resx files under `backend/src/Squidex.Shared/`:
 
-![Final backend files](../../.gitbook/assets/image%20%2836%29.png)
-
+![Final backend files](<../../.gitbook/assets/image (18).png>)

@@ -77,36 +77,36 @@ You just have to reference the editor SDK and handle the events. You also have t
 
 ## API
 
-The `SquidexFormField` class is the entry point to your editor. 
+The `SquidexFormField` class is the entry point to your editor.&#x20;
 
 Create a new instance when your editor is initialized.
 
 ### Methods
 
-| Name | Description |
-| :--- | :--- |
-| `editor.getValue()` | Gets the current value of the field. |
-| `editor.getContext()` | Gets the current context information. More about that later. |
-| `editor.getFormValue()` | Gets the current value of the content form. Can be used to access the values of other fields. |
-| `editor.getLanguage()` | Get the language of the field editor.  If the field is not localized the master language is passed through. |
-| `editor.getIndex()` | Get the index of the array item when the field is used within an array schema field. |
-| `editor.isDisabled()` | Get the current disabled state of the field form. Disabled \(`true`\) or Enabled \(`false`\). |
-| `editor.isFullscreen()` | Get the current fullscreen state of the field form. Fullscreen on \(`true`\) or off \(`false`\). |
-| `editor.touched()` | Notifies the control container that the editor has been touched, must be called when your custom editor looses the focus. |
-| `editor.clean()` | Cleanup the editor. Usually it is not needed to call this method. |
-| `editor.onInit(callback)` | Register a function that is invoked when the messaging communication with the management UI is established. After the callback is invoked you get retrieve values with the get methods. The context object will be passed to the callback. |
-| `editor.onDisabled(callback)` | Register a function that is invoked whenever the editor should either be enabled or disabled. A boolean value will be passed with either `true` \(disabled\) or `false` \(enabled\). |
-| `editor.onMoved(callback)` | Registers a function that is invoked whenever the editor has been moved within an array item. A number will passed to the function that represents the index, starting with 0. |
-| `editor.onValueChanged(callback)` | Register a function that is invoked whenever the value of the field has changed. The value will be passed to the callback as argument. |
-| `editor.onFormValueChanged(callback)` | Register a function that is invoked whenever the value of the content form has changed. The value will be passed to the callback as argument. |
-| `editor.onLanguageChanged(callback)` | Register a function that is invoked whenever the language of the field is changed, because in same cases the editor is shared between languages. If the field is not localized the master language is passed through. |
-| `editor.onFullscreen(callback)` | Register a function that is invoked whenever the fullscreen mode is changed. The function has one argument with the the fullscreen mode. |
-| `editor.navigate(url)` | Navigates the Management UI to a new URL. Because the plugin is integrated as an iframe, you cannot use normal links as it would only change the URL within the iframe and not the URL of the Management UI. |
-| `editor.toggleFullscreen()` | Toggle the fullscreen mode and sends the current state to the management UI. The field editor is destroyed and recreated because it has to be moved inside the DOM. Therefore `onInit` is invoked again. |
-| `editor.notifoInfo(text)` | Shows an info notification with the given text. |
-| `editor.notifoError(text)` | Shows an info notification with the given text. |
-| `editor.pickAssets(callback)` | Shows the dialog to pick assets and invokes the callback with an array of the selected assets when the dialog is closed. If no asset is selected an empty array will be passed to the callback. |
-| `editor.confirm(title, text, callback)` | Shows a confirm dialog with the given title and text and invokes the callback when the confirm or cancel button has been pressed or when the dialog is closed otherwise. The result will be passed to the dialog as boolean. |
+| Name                                    | Description                                                                                                                                                                                                                                |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `editor.getValue()`                     | Gets the current value of the field.                                                                                                                                                                                                       |
+| `editor.getContext()`                   | Gets the current context information. More about that later.                                                                                                                                                                               |
+| `editor.getFormValue()`                 | Gets the current value of the content form. Can be used to access the values of other fields.                                                                                                                                              |
+| `editor.getLanguage()`                  | Get the language of the field editor.  If the field is not localized the master language is passed through.                                                                                                                                |
+| `editor.getIndex()`                     | Get the index of the array item when the field is used within an array schema field.                                                                                                                                                       |
+| `editor.isDisabled()`                   | Get the current disabled state of the field form. Disabled (`true`) or Enabled (`false`).                                                                                                                                                  |
+| `editor.isFullscreen()`                 | Get the current fullscreen state of the field form. Fullscreen on (`true`) or off (`false`).                                                                                                                                               |
+| `editor.touched()`                      | Notifies the control container that the editor has been touched, must be called when your custom editor looses the focus.                                                                                                                  |
+| `editor.clean()`                        | Cleanup the editor. Usually it is not needed to call this method.                                                                                                                                                                          |
+| `editor.onInit(callback)`               | Register a function that is invoked when the messaging communication with the management UI is established. After the callback is invoked you get retrieve values with the get methods. The context object will be passed to the callback. |
+| `editor.onDisabled(callback)`           | Register a function that is invoked whenever the editor should either be enabled or disabled. A boolean value will be passed with either `true` (disabled) or `false` (enabled).                                                           |
+| `editor.onMoved(callback)`              | Registers a function that is invoked whenever the editor has been moved within an array item. A number will passed to the function that represents the index, starting with 0.                                                             |
+| `editor.onValueChanged(callback)`       | Register a function that is invoked whenever the value of the field has changed. The value will be passed to the callback as argument.                                                                                                     |
+| `editor.onFormValueChanged(callback)`   | Register a function that is invoked whenever the value of the content form has changed. The value will be passed to the callback as argument.                                                                                              |
+| `editor.onLanguageChanged(callback)`    | Register a function that is invoked whenever the language of the field is changed, because in same cases the editor is shared between languages. If the field is not localized the master language is passed through.                      |
+| `editor.onFullscreen(callback)`         | Register a function that is invoked whenever the fullscreen mode is changed. The function has one argument with the the fullscreen mode.                                                                                                   |
+| `editor.navigate(url)`                  | Navigates the Management UI to a new URL. Because the plugin is integrated as an iframe, you cannot use normal links as it would only change the URL within the iframe and not the URL of the Management UI.                               |
+| `editor.toggleFullscreen()`             | Toggle the fullscreen mode and sends the current state to the management UI. The field editor is destroyed and recreated because it has to be moved inside the DOM. Therefore `onInit` is invoked again.                                   |
+| `editor.notifoInfo(text)`               | Shows an info notification with the given text.                                                                                                                                                                                            |
+| `editor.notifoError(text)`              | Shows an info notification with the given text.                                                                                                                                                                                            |
+| `editor.pickAssets(callback)`           | Shows the dialog to pick assets and invokes the callback with an array of the selected assets when the dialog is closed. If no asset is selected an empty array will be passed to the callback.                                            |
+| `editor.confirm(title, text, callback)` | Shows a confirm dialog with the given title and text and invokes the callback when the confirm or cancel button has been pressed or when the dialog is closed otherwise. The result will be passed to the dialog as boolean.               |
 
 ### Context
 
@@ -167,7 +167,7 @@ Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/cke-simple.html](https://squidex.github.io/squidex-samples/editors/cke-simple.html)
 
-![CKE Editor](../../.gitbook/assets/image%20%2869%29%20%285%29%20%284%29%20%282%29.png)
+![CKE Editor](<../../.gitbook/assets/image (69) (5) (4) (3).png>)
 
 Clone the sample and configure the CKE editor as you need it.
 
@@ -177,7 +177,7 @@ Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/country-selector.html](https://squidex.github.io/squidex-samples/editors/country-selector.html)
 
-![Country Selector](../../.gitbook/assets/image%20%2867%29.png)
+![Country Selector](<../../.gitbook/assets/image (65).png>)
 
 ### 3. Product taxonomy
 
@@ -199,7 +199,7 @@ The data format is a list of URL like paths for each product category that will 
 ]
 ```
 
-![Product Taxonomy](../../.gitbook/assets/image%20%2861%29.png)
+![Product Taxonomy](<../../.gitbook/assets/image (66).png>)
 
 ### 4. JSON Tree
 
@@ -209,7 +209,7 @@ Reference: [https://squidex.github.io/squidex-samples/editors/jstree-editor.html
 
 Create a visual tree for a JSON object.
 
-![JSON Tree](../../.gitbook/assets/image%20%2817%29.png)
+![JSON Tree](<../../.gitbook/assets/image (67).png>)
 
 ### 5. JSON Schema Editor
 
@@ -217,9 +217,8 @@ Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
-This editor downloads json schema from the URL that is defined via the URL fragment \(everything after \#\):
+This editor downloads json schema from the URL that is defined via the URL fragment (everything after #):
 
-[https://squidex.github.io/squidex-samples/editors/react-jsonschema.html\#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
+[https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
-![JSON Schema from external URL](../../.gitbook/assets/image%20%2834%29.png)
-
+![JSON Schema from external URL](<../../.gitbook/assets/image (34) (1).png>)

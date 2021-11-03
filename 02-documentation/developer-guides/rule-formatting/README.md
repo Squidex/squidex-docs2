@@ -4,10 +4,12 @@ description: How to use scripting or placeholders to control the output of rules
 
 # Rule Formatting
 
-This page explains the rule formatting system in detail.   
+This page explains the rule formatting system in detail. \
 To get an understanding of the rule system read the following page:
 
-{% page-ref page="../../concepts/rules.md" %}
+{% content-ref url="../../concepts/rules.md" %}
+[rules.md](../../concepts/rules.md)
+{% endcontent-ref %}
 
 ## Introduction
 
@@ -50,15 +52,21 @@ This example is a full content event that has been triggered when a new content 
 
 ## Formatting Options
 
-The rule formatter gives us access to all properties of this events. 
+The rule formatter gives us access to all properties of this events.&#x20;
 
 At the moment there are 3 options for formatting:
 
-{% page-ref page="simple.md" %}
+{% content-ref url="simple.md" %}
+[simple.md](simple.md)
+{% endcontent-ref %}
 
-{% page-ref page="script.md" %}
+{% content-ref url="script.md" %}
+[script.md](script.md)
+{% endcontent-ref %}
 
-{% page-ref page="liquid.md" %}
+{% content-ref url="liquid.md" %}
+[liquid.md](liquid.md)
+{% endcontent-ref %}
 
 The syntax is selected based on the value of the rule property.
 
@@ -66,10 +74,10 @@ The syntax is selected based on the value of the rule property.
 * If a value follows the format `Script(<Script>)`, then `Script`is interpreted as Javascript.
 * If none of the syntaxes above is detected, the value is interpreted as simple formatting.
 
-In newer versions of Squidex custom input fields and text areas have been introduced, which add the correct prefix and suffix automatically:  
+In newer versions of Squidex custom input fields and text areas have been introduced, which add the correct prefix and suffix automatically:\
 
 
-![Custom Editors for rules](../../../.gitbook/assets/image%20%2820%29.png)
+![Custom Editors for rules](<../../../.gitbook/assets/image (68).png>)
 
 1. Simple placeholders
 2. Javascript expressions that usually return a string.
@@ -77,4 +85,3 @@ In newer versions of Squidex custom input fields and text areas have been introd
 {% hint style="info" %}
 The liquid syntax is the most powerful but still easy option and therefore recommended for most use cases.
 {% endhint %}
-

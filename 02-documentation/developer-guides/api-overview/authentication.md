@@ -8,7 +8,7 @@ description: How to retrieve access tokens to get access to the API
 
 Squidex uses OpenID Connect and OAuth2.0 as authentication protocols. Both are state of the art specifications and adopted by a lot of internet services. You have already used it when you logged in with your Google account to a third-party website.
 
-The implementation uses [IdentityServer4](https://identityserver.io/), a certified access control solution.
+The implementation uses [IdentityServer4](https://identityserver.io), a certified access control solution.
 
 ## Basic authentication flow
 
@@ -20,54 +20,42 @@ Before you get an access token you have to create a client first. A client is ju
 
 If you create a new app, it has already a default client.
 
-![Create a new client](../../../.gitbook/assets/image%20%2810%29.png)
+![Create a new client](<../../../.gitbook/assets/image (10).png>)
 
-Each client has also a role assigned to define which updates or queries can be performance with the client. This is particularly useful when your client is a public application that can easily be reversed engineer like a mobile app or single page application. You can store your client credentials \(client id and client secret\) in the application but you have to ensure, that you give your client only the necessary permissions and not more.
+Each client has also a role assigned to define which updates or queries can be performance with the client. This is particularly useful when your client is a public application that can easily be reversed engineer like a mobile app or single page application. You can store your client credentials (client id and client secret) in the application but you have to ensure, that you give your client only the necessary permissions and not more.
 
 Read more about permissions:
 
-{% page-ref page="../../concepts/permissions.md" %}
+{% content-ref url="../../concepts/permissions.md" %}
+[permissions.md](../../concepts/permissions.md)
+{% endcontent-ref %}
 
 ### 2. Request a token
 
-The client id and secret cannot be used directly in the API calls. You have to make an additional request to identity-server first to get an access token. This token is then valid for 30 days. 
+The client id and secret cannot be used directly in the API calls. You have to make an additional request to identity-server first to get an access token. This token is then valid for 30 days.&#x20;
 
-{% api-method method="post" host="https://cloud.squidex.io/identity-server/connect/token" path="" %}
-{% api-method-summary %}
-Get access token
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://cloud.squidex.io/identity-server/connect/token" path="" method="post" summary="Get access token" %}
+{% swagger-description %}
 Get an access token from squidex identity.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="scope" type="string" required=true %}
+{% swagger-parameter in="body" name="scope" type="string" %}
 squidex-api
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="client\_secret" type="string" required=true %}
-**&lt;YOUR\_CLIENT\_SECRET&gt;**
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="client_secret" type="string" %}
+**<YOUR_CLIENT_SECRET>**
+{% endswagger-parameter %}
 
-{% api-method-parameter name="client\_id" type="string" required=true %}
-**&lt;YOUR\_CLIENT\_ID&gt;**
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="client_id" type="string" %}
+**<YOUR_CLIENT_ID>**
+{% endswagger-parameter %}
 
-{% api-method-parameter name="grant\_type" type="string" required=true %}
-client\_credentials
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% swagger-parameter in="body" name="grant_type" type="string" %}
+client_credentials
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-The token response.
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="The token response." %}
 ```
 {
     "access_token":"<YOUR_ACCESS_TOKEN>,
@@ -76,10 +64,8 @@ The token response.
     "scope":"squidex-api"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 Or just make a request with curl:
 
@@ -109,7 +95,7 @@ An often asked question is how to deal with the access token, because there are 
 2. The token might expire sooner, for example when a certificate is replaced on the server.
 3. You need an additional request to get the token.
 
-Our recommendation is to use the following pattern \(pseudo code\):
+Our recommendation is to use the following pattern (pseudo code):
 
 ```javascript
 function makeRequest(url, body) {
@@ -142,4 +128,3 @@ function makeRequest(url, body) {
 As you can see, we use a simple memory cache to keep our token. We request a new token when it has been expired in the cache or on the server and before the first request after our application started.
 
 You can also request multiple tokens in parallel, for example when you have a cluster of servers. There is no need to sync the access tokens between your servers or to keep them in a centralized cache.
-

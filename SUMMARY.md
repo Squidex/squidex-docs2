@@ -2,7 +2,7 @@
 
 * [Welcome to Squidex](README.md)
 
-## Getting Started <a id="01-getting-started"></a>
+## Getting Started <a href="01-getting-started" id="01-getting-started"></a>
 
 * [Installation Instructions](01-getting-started/installation/README.md)
   * [Platforms](01-getting-started/installation/platforms/README.md)
@@ -15,8 +15,9 @@
     * [Install on Render](01-getting-started/installation/platforms/install-on-render.md)
     * [Install on Vultr](01-getting-started/installation/platforms/install-on-vultr.md)
   * [Configuration](01-getting-started/installation/configuration.md)
-  * [Troubleshooting and Support](01-getting-started/installation/troubleshooting-and-support.md)
-  * [Install Identity \(Deprecated\)](01-getting-started/installation/install-identity.md)
+  * [Troubleshooting and Support](01-getting-started/installation/troubleshooting-and-support/README.md)
+    * [Diagnose runtime issues](01-getting-started/installation/troubleshooting-and-support/diagnose-runtime-issues.md)
+  * [Install Identity (Deprecated)](01-getting-started/installation/install-identity.md)
 * [Contributing and Developing](01-getting-started/contributing-and-developing/README.md)
   * [Building](01-getting-started/contributing-and-developing/building.md)
   * [Developing](01-getting-started/contributing-and-developing/developing.md)
@@ -28,7 +29,7 @@
   * [Squidex Docs Program](01-getting-started/contributing-and-developing/squidex-docs-program.md)
 * [Roadmap](01-getting-started/roadmap.md)
 
-## Documentation <a id="02-documentation"></a>
+## Documentation <a href="02-documentation" id="02-documentation"></a>
 
 * [Introduction and Use Case](02-documentation/introduction-and-use-case.md)
 * [Concepts](02-documentation/concepts/README.md)
@@ -48,7 +49,7 @@
     * [Postman](02-documentation/developer-guides/api-overview/postman.md)
     * [Queries](02-documentation/developer-guides/api-overview/api.md)
     * [Assets](02-documentation/developer-guides/api-overview/assets-api.md)
-  * [Automation Tools \(CLI\)](02-documentation/developer-guides/automation-tools.md)
+  * [Automation Tools (CLI)](02-documentation/developer-guides/automation-tools.md)
   * [Scripting](02-documentation/developer-guides/scripting/README.md)
     * [Scripting Helper Methods](02-documentation/developer-guides/scripting/scripting-helper-methods.md)
   * [Custom Workflows](02-documentation/developer-guides/workflows.md)
@@ -60,7 +61,6 @@
     * [Script](02-documentation/developer-guides/rule-formatting/script.md)
     * [Liquid](02-documentation/developer-guides/rule-formatting/liquid.md)
 
-## Next <a id="04-next"></a>
+## Next <a href="04-next" id="04-next"></a>
 
 * [Squidex 3.0: API Compatibility](04-next/3.0-compatibility.md)
-

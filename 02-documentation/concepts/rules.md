@@ -110,7 +110,7 @@ The asset event type can be one of the following values:
 * `Annotated`: The metadata or slug has been changed.
 * `Deleted`: The asset has been deleted.
 
-It is important to understand the structure because we use it in the matching step. Furthermore some actions just pass over the enriched events to other systems: For example, the webhook action adds the event to the request body in \(almost\) the same format.
+It is important to understand the structure because we use it in the matching step. Furthermore some actions just pass over the enriched events to other systems: For example, the webhook action adds the event to the request body in (almost) the same format.
 
 ### 2. Matching
 
@@ -131,19 +131,19 @@ Here are some examples to demonstrate it:
 
 Specific asset events:
 
-```text
+```
 event.type == 'Created' || event.type == 'Updated'
 ```
 
 Large assets only:
 
-```text
+```
 event.fileSize > 100000000
 ```
 
 Images only:
 
-```text
+```
 event.isImage
 ```
 
@@ -157,7 +157,9 @@ Almost all text settings for actions support placeholders that allow you to inte
 
 More information can be found at:
 
-{% page-ref page="../developer-guides/rule-formatting/" %}
+{% content-ref url="../developer-guides/rule-formatting/" %}
+[rule-formatting](../developer-guides/rule-formatting/)
+{% endcontent-ref %}
 
 ### 4. Execution
 
@@ -185,9 +187,8 @@ Used to identity the sender and has the static value: `Squidex Webhook`
 
 The signature can be used to verify that a request is from Squidex and not from a potential attacker. The signature is calculated in the following way:
 
-```text
+```
 ToBase64String(Sha256(RequestBody + Secret))
 ```
 
 Do **not expose** the secret to the public and keep it private.
-

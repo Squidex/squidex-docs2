@@ -31,13 +31,13 @@ If you combine all keys from the json root to the setting you get the full key o
 
 Aggregate the keys by two underscores to get the name of the environment variable:
 
-```text
+```
 ASSETSTORE__FOLDER__PATH="MyAssets"
 ```
 
 Aggregate the keys by colon and you get the name of the command line argument
 
-```text
+```
 assetstore:folder:path="MyAssets"
 ```
 
@@ -47,11 +47,11 @@ Casing does not matter.
 
 These are the most important settings:
 
-| Setting | Description |
-| :--- | :--- |
-| `urls:baseUrl` | The base url under which Squidex is running. It is used to generate hyperlinks and to make redirects with the correct host name. In some environments, squidex is running behind several proxies, e.g. cloudflare, google load balancer and so on. In these cases the original host name might get lost. Therefore we introduced this configuration value. |
-| `identity:adminEmail` | The email address of the admin user. |
-| `identity:adminPassword` | The password of the admin user \(Must contain lowercase, uppercase letter, number and special character.\) |
+| Setting                  | Description                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `urls:baseUrl`           | The base url under which Squidex is running. It is used to generate hyperlinks and to make redirects with the correct host name. In some environments, squidex is running behind several proxies, e.g. cloudflare, google load balancer and so on. In these cases the original host name might get lost. Therefore we introduced this configuration value. |
+| `identity:adminEmail`    | The email address of the admin user.                                                                                                                                                                                                                                                                                                                       |
+| `identity:adminPassword` | The password of the admin user (Must contain lowercase, uppercase letter, number and special character.)                                                                                                                                                                                                                                                   |
 
 Set
 
@@ -92,9 +92,8 @@ The password requirements are:
 
 1. Passwords must be at least 6 characters.
 2. Passwords must have at least one non alphanumeric character.
-3. Passwords must have at least one digit \('0'-'9'\). 
-4. Passwords must have at least one lowercase \('a'-'z'\). 
-5. Passwords must not have been appeared in a data breach before: [https://haveibeenpwned.com/](https://haveibeenpwned.com/)
+3. Passwords must have at least one digit ('0'-'9').&#x20;
+4. Passwords must have at least one lowercase ('a'-'z').&#x20;
+5. Passwords must not have been appeared in a data breach before: [https://haveibeenpwned.com/](https://haveibeenpwned.com)
 
 In case you have forgotten your admin password you can use the `identity:adminRecreate=true` to always update the admin account with the password from the configuration.
-

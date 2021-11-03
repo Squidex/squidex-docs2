@@ -78,7 +78,7 @@ Squidex defines four default roles that cannot be deleted. `{app}` is your app n
 * `squidex.apps.{app}.contents`: Can view and manage contents.
 * `squidex.apps.{app}.patterns`: Can view and manage patterns.
 * `squidex.apps.{app}.rules`: Can view and manage rules.
-* `squidex.apps.{app}.schemas`: Can manage schemas \(Viewing schemas is an implicit permission\).
+* `squidex.apps.{app}.schemas`: Can manage schemas (Viewing schemas is an implicit permission).
 
 ### Editor
 
@@ -93,7 +93,7 @@ Squidex defines four default roles that cannot be deleted. `{app}` is your app n
 
 You can define custom roles in the Management UI by choosing a name first and then assigning the permissions to this role. All permissions will be prefixed with `squidex.apps.{app}` automatically, otherwise you would be able to create roles that give you permissions to another app.
 
-![Custom roles](../../.gitbook/assets/roles%20%281%29.png)
+![Custom roles](../../.gitbook/assets/roles.png)
 
 ## Administration
 
@@ -104,5 +104,4 @@ As an administrator you can also assign permissions to users individually:
 There are some restrictions to the system:
 
 * When you assign permissions to a user manually, this user has to logout and login again, because these permissions are stored as claims in the cookie.
-* Even if a user has the admin permission \(`squidex`\) or permissions for alls apps \(`squidex.apps`\) he will not see them in the apps overview in the administration UI. A squidex can have have thousands of apps \(like our cloud\) and the user interface is not designed for that. Either assign him an explicit to an app, like `squidex.apps.{app}` or enter the url manually.
-
+* Even if a user has the admin permission (`squidex`) or permissions for alls apps (`squidex.apps`) he will not see them in the apps overview in the administration UI. A squidex can have have thousands of apps (like our cloud) and the user interface is not designed for that. Either assign him an explicit to an app, like `squidex.apps.{app}` or enter the url manually.

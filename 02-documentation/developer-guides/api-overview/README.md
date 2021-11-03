@@ -27,7 +27,7 @@ Each app has its own content API. The documentation is generated when you change
 
 You can find the link to your Content API in the API section of the Management UI:
 
-![](../../../.gitbook/assets/untitled.png)
+![](../../../.gitbook/assets/Untitled.png)
 
 For example, this this is the Content API for the app that serves the content for the Squidex website:
 
@@ -35,7 +35,7 @@ For example, this this is the Content API for the app that serves the content fo
 
 ### Content GraphQL API
 
-The [GraphQL ](https://graphql.org/)endpoint is also generated per client. The documentation is provided by GraphiQL, an integrated, interactive GraphQL query editor. This endpoint can only be used to query content items and assets. Mutations have not been implemented yet, due several restrictions with the underlying GraphQL framework. The GraphQL endpoint is also cached for each API with a time to live time of 10 minutes. Therefore it can take up to 10 minutes until you see your changes.
+The [GraphQL ](https://graphql.org)endpoint is also generated per client. The documentation is provided by GraphiQL, an integrated, interactive GraphQL query editor. This endpoint can only be used to query content items and assets. Mutations have not been implemented yet, due several restrictions with the underlying GraphQL framework. The GraphQL endpoint is also cached for each API with a time to live time of 10 minutes. Therefore it can take up to 10 minutes until you see your changes.
 
 ![Link to GraphQL API](../../../.gitbook/assets/graphql.png)
 
@@ -47,11 +47,11 @@ The rest of the API is the same for all your apps. This includes endpoints to qu
 
 ![Link to the General API](../../../.gitbook/assets/general.png)
 
-## Cloud CDN \(BETA\)
+## Cloud CDN (BETA)
 
 The cloud version provides CDN endpoints for the Professional and Business plan.
 
-The CDN is implemented using [https://www.fastly.com/](https://www.fastly.com/).
+The CDN is implemented using [https://www.fastly.com/](https://www.fastly.com).
 
 ### Endpoints
 
@@ -59,13 +59,13 @@ We provide dedicated endpoints for different parts of the API. The CDN is not th
 
 #### Contents CDN
 
-The content CDN endpoint provides only access to your content items, including the GraphQL endpoint.  
+The content CDN endpoint provides only access to your content items, including the GraphQL endpoint. &#x20;
 
 The endpoint is:
 
 {% embed url="https://contents.squidex.io/<app>/<schema>" %}
 
-instead of [https://cloud.squidex.io/api/contents/&lt;app&gt;/&lt;schema&gt;](https://cloud.squidex.io/api/contents/<app>/<schema>).
+instead of [https://cloud.squidex.io/api/contents/\<app>/\<schema>](https://cloud.squidex.io/api/contents/%3Capp%3E/%3Cschema%3E).
 
 #### Assets CDN
 
@@ -75,18 +75,18 @@ The endpoint is:
 
 {% embed url="http://assets.squidex.io/<app>/<asset-id>" %}
 
-instead of [http://cloud.squidex.io/api/assets/&lt;app&gt;/&lt;asset-id&gt;](http://cloud.squidex.io/api/assets/<app>/<asset-id>).
+instead of [http://cloud.squidex.io/api/assets/\<app>/\<asset-id>](http://cloud.squidex.io/api/assets/%3Capp%3E/%3Casset-id%3E).
 
-###  How Caching works
+### &#x20;How Caching works
 
-In general caching works only for GET requests. 
+In general caching works only for GET requests.&#x20;
 
 Therefore you will not leverage the caching system of the CDN provider when you query contents items using GraphQL and POST requests. But the GraphQL specification and our implementation supports [POST, as well as GET](https://graphql.org/learn/serving-over-http/#http-methods-headers-and-body).
 
 The CDN provider uses the URL and the authentication states as cache keys. When you make requests with a user access token we use the bearer token as an additional cache key. When the bearer token is created for an app client the name of the client is used. This means that when you create a new access token for this client and then make the request again you will the cached version because the name of the client has not changed.
 
-In addition to that we make use of [surrogate keys](https://docs.fastly.com/en/guides/purging-api-cache-with-surrogate-keys). Surrogate keys is a HTTP response header that contains ids that make up the HTTP response.   
-For example when your retrieve a single content item, the response is dependent on the content item itself, but also on the related schema and the app it belongs to. Therefore we also add the app id and schema id together with the content id as a response header.   
+In addition to that we make use of [surrogate keys](https://docs.fastly.com/en/guides/purging-api-cache-with-surrogate-keys). Surrogate keys is a HTTP response header that contains ids that make up the HTTP response. \
+For example when your retrieve a single content item, the response is dependent on the content item itself, but also on the related schema and the app it belongs to. Therefore we also add the app id and schema id together with the content id as a response header. \
 When the app or schema id is changed we send a purge notification to the CDN provider to delete all cached entries that contains this id. This means that changing app settings like roles, contributors and clients purges all cached content items. This is useful when you restrict the permissions of a client.
 
 {% hint style="info" %}
@@ -101,25 +101,25 @@ The same pricing structures as described in the next paragraph is applied but th
 
 The pricing for the cloud version mainly depends on the number of API calls. But not all API endpoints have associated costs:
 
-| Action | Costs |
-| :--- | :--- |
-| Query apps / Modify apps | 0 / 1 |
-| Query schemas / Modify schemas | 0 / 1 |
-| Query clients / Modify clients | 0 / 1 |
-| Query contributors / Modify contributors  | 0 / 1 |
-| Query languages / Modify languages  | 0 / 1 |
-| Query patterns / Modify patterns | 0 / 1 |
-| Query roles / Modify roles | 0 / 1 |
-| Query histories | 0 |
-| Query rules / Modify rules   | 1 / 1 |
-| Query rule events / Modify  rule events | 0 / 0 |
-| Query workflows / Modify workflows | 0 / 1 |
-| Query assets / Modify assets | 1 / 1 |
+| Action                                     | Costs |
+| ------------------------------------------ | ----- |
+| Query apps / Modify apps                   | 0 / 1 |
+| Query schemas / Modify schemas             | 0 / 1 |
+| Query clients / Modify clients             | 0 / 1 |
+| Query contributors / Modify contributors   | 0 / 1 |
+| Query languages / Modify languages         | 0 / 1 |
+| Query patterns / Modify patterns           | 0 / 1 |
+| Query roles / Modify roles                 | 0 / 1 |
+| Query histories                            | 0     |
+| Query rules / Modify rules                 | 1 / 1 |
+| Query rule events / Modify  rule events    | 0 / 0 |
+| Query workflows / Modify workflows         | 0 / 1 |
+| Query assets / Modify assets               | 1 / 1 |
 | Query asset folders / Modify asset folders | 1 / 1 |
-| Query asset content | 0.5 |
-| Query contents | 1 |
-| Query contents with GraphQL | 2 |
-| Modify contents | 1 |
+| Query asset content                        | 0.5   |
+| Query contents                             | 1     |
+| Query contents with GraphQL                | 2     |
+| Modify contents                            | 1     |
 
 Modifications include creations, updates and deletions.
 
@@ -131,19 +131,26 @@ If you want to jump into the details of the API these pages might be helpful:
 
 ### How to get started with Postman
 
-{% page-ref page="postman.md" %}
+{% content-ref url="postman.md" %}
+[postman.md](postman.md)
+{% endcontent-ref %}
 
 ### How to retrieve an access token
 
-{% page-ref page="authentication.md" %}
+{% content-ref url="authentication.md" %}
+[authentication.md](authentication.md)
+{% endcontent-ref %}
 
 ### How to use the query system to filter content
 
-{% page-ref page="api.md" %}
+{% content-ref url="api.md" %}
+[api.md](api.md)
+{% endcontent-ref %}
 
 ### How to download and resize assets
 
-{% page-ref page="assets-api.md" %}
+{% content-ref url="assets-api.md" %}
+[assets-api.md](assets-api.md)
+{% endcontent-ref %}
 
-## 
-
+##

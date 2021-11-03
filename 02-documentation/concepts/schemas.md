@@ -8,23 +8,25 @@ description: Schemas define the structure of your content.
 
 This documentation is based on the FoodCrunch use case. Please follow the link and open it side by side to this page to understand the examples.
 
-{% page-ref page="../introduction-and-use-case.md" %}
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
+{% endcontent-ref %}
 
 Schemas define the structure of your content:
 
-![Startups schema](../../.gitbook/assets/image%20%2848%29.png)
+![Startups schema](<../../.gitbook/assets/image (39).png>)
 
 In the screenshot above we define a blog schema with several fields.
 
 Each field is identified by the following properties:
 
-| State | Immutable | Description |
-| :--- | :--- | :--- |
-| **Name** | No | The name of the field in the API. It cannot be changed anymore, but you can add a optional label that is used in UI. |
-| **Type** | No | The data type of this field. |
-| **Editor** | Yes | Most fields have an editor, which depends on the type of the field. The editor can be changed, but it will not change the value. If you change a field editor from HTML to Markdown you will probably face issues. |
-| **Partitioning** | No | Defines whether the field content is localizable and managed in multiple languages or not. |
-| **Validation** | Yes | A set of validation properties, which depend on the type of the field. For example they define the maximum length of a string or the maximum number of assets you can reference. |
+| State            | Immutable | Description                                                                                                                                                                                                        |
+| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Name**         | No        | The name of the field in the API. It cannot be changed anymore, but you can add a optional label that is used in UI.                                                                                               |
+| **Type**         | No        | The data type of this field.                                                                                                                                                                                       |
+| **Editor**       | Yes       | Most fields have an editor, which depends on the type of the field. The editor can be changed, but it will not change the value. If you change a field editor from HTML to Markdown you will probably face issues. |
+| **Partitioning** | No        | Defines whether the field content is localizable and managed in multiple languages or not.                                                                                                                         |
+| **Validation**   | Yes       | A set of validation properties, which depend on the type of the field. For example they define the maximum length of a string or the maximum number of assets you can reference.                                   |
 
 Furthermore a schema has a published change. Only published schemas can have content.
 
@@ -41,10 +43,10 @@ Each field has multiple states:
 Field types define how a field is structured in the API and in the processing pipeline. You can define the editor for each field, so a string field can either be a html text, markdown or a list of allowed values with a dropdown editor. We use a product catalog as an example to describe the different field types.
 
 {% hint style="info" %}
-If a field is not required it can also be **null** or **omitted**. This is also the case when a field has been added or marked as required after a content items have already been added to this schema.
+If a field is not required it can also be **null **or **omitted**. This is also the case when a field has been added or marked as required after a content items have already been added to this schema.
 {% endhint %}
 
-### 
+###
 
 ### String
 
@@ -198,9 +200,9 @@ Some content items only exist as child content for another content item. For exa
 
 ### Component
 
-![Component](../../.gitbook/assets/image%20%287%29.png)
+![Component](<../../.gitbook/assets/image (63).png>)
 
-A component is content item \(defined by another schema\) that is embedded into the current content. 
+A component is content item (defined by another schema) that is embedded into the current content.&#x20;
 
 #### API Representation
 
@@ -220,9 +222,9 @@ A component is content item \(defined by another schema\) that is embedded into 
 
 ### Components
 
-![Components](../../.gitbook/assets/image%20%281%29.png)
+![Components](<../../.gitbook/assets/image (64).png>)
 
-A components field is used to embed multiple content items \(defined by other schemas\) into the current item. The order is defined when creating or updating the content item and can be changed in the UI.
+A components field is used to embed multiple content items (defined by other schemas) into the current item. The order is defined when creating or updating the content item and can be changed in the UI.
 
 #### API Representation
 
@@ -309,6 +311,4 @@ A json field is for developers. Whenever you have some structured or unstructure
     "iv": null
 }
 ```
-
-
 

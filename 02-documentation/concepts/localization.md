@@ -42,66 +42,12 @@ The languages an fallback rules can be configured in the Management UI:
 
 In this example we have 4 languages:
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Code</th>
-      <th style="text-align:left">Fallback</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><b>English</b>
-      </td>
-      <td style="text-align:left"><code>en</code>
-      </td>
-      <td style="text-align:left">-</td>
-      <td style="text-align:left">
-        <p></p>
-        <p>Our master language. Whenever a fields is not available in a language
-          it falls back to the master language.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Swedish</b> 
-      </td>
-      <td style="text-align:left"><code>sv</code>
-      </td>
-      <td style="text-align:left"><code>en</code>
-      </td>
-      <td style="text-align:left">Swedish has no fallback language configured, therefore the fallback language
-        is always English.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Finnish </b>
-      </td>
-      <td style="text-align:left"><code>fi</code>
-      </td>
-      <td style="text-align:left"><code>sv,en</code>
-      </td>
-      <td style="text-align:left">Finish has Swedish configured as a fallback language. This means that
-        whenever a value for a localizable fields is not available Squidex tries
-        to resolve the value from Swedish first and then from the master language
-        (English). Finish is also marked as optional, which mean that required
-        fields can be omitted. This is useful when you introduce a new language.
-        You can save contents with required fields even if the field value has
-        not been entered for the optional language.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Italian</b> 
-      </td>
-      <td style="text-align:left"><code>it</code>
-      </td>
-      <td style="text-align:left"><code>en</code>
-      </td>
-      <td style="text-align:left">Italian is a new language and has been added after the content editors
-        have created most of the content. Therefore most content items do not have
-        a value available.</td>
-    </tr>
-  </tbody>
-</table>
+| Name         | Code | Fallback | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------ | ---- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **English**  | `en` | -        | <p></p><p>Our master language. Whenever a fields is not available in a language it falls back to the master language.</p>                                                                                                                                                                                                                                                                                                                                                                   |
+| **Swedish**  | `sv` | `en`     | Swedish has no fallback language configured, therefore the fallback language is always English.                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Finnish ** | `fi` | `sv,en`  | Finish has Swedish configured as a fallback language. This means that whenever a value for a localizable fields is not available Squidex tries to resolve the value from Swedish first and then from the master language (English). Finish is also marked as optional, which mean that required fields can be omitted. This is useful when you introduce a new language. You can save contents with required fields even if the field value has not been entered for the optional language. |
+| **Italian**  | `it` | `en`     | Italian is a new language and has been added after the content editors have created most of the content. Therefore most content items do not have a value available.                                                                                                                                                                                                                                                                                                                        |
 
 ## How to use the API
 
@@ -111,7 +57,7 @@ The rest endpoint provides two headers that can be used to query the correct lan
 
 #### X-Languages Header
 
-You can filter the languages with the `X-Languages` header. Other languages will be omitted. We do not use the `Accept-Language` header because we want to avoid compatibility issues. If you define a language that is not supported, this language will be ignored. For example: If you set: `X-Languages: en,sv,de` for our example above you will only retrieve English \(`en`\) and Swedish \(`sv`\).
+You can filter the languages with the `X-Languages` header. Other languages will be omitted. We do not use the `Accept-Language` header because we want to avoid compatibility issues. If you define a language that is not supported, this language will be ignored. For example: If you set: `X-Languages: en,sv,de` for our example above you will only retrieve English (`en`) and Swedish (`sv`).
 
 ```javascript
 X-Languages: en,sv,it
@@ -217,4 +163,3 @@ It basically means that the a value is partitioned into multiple subvalues. When
 * ... define customer groups.
 
 So we implemented the localization feature with the idea in mind that we might extend it in coming versions.
-

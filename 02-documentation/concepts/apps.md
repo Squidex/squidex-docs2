@@ -1,5 +1,5 @@
 ---
-description: 'Apps are used to group content for projects, teams or applications.'
+description: Apps are used to group content for projects, teams or applications.
 ---
 
 # Apps
@@ -10,12 +10,11 @@ An app is the highest level or organization in the Squidex hierarchy. Your conte
 
 * An optional display name, description and logo to make your app discoverable in the overview.
 * **Schemas** to define the structure of your content.
-* **Content** itself.
-* **Assets** that belong to your app and are linked to your content.
-* **Rules** to model business workflows.
+* **Content **itself.
+* **Assets **that belong to your app and are linked to your content.
+* **Rules **to model business workflows.
 * **Custom workflow** definitions.
-* **Collaborators** who can work on your content with roles and permissions.
+* **Collaborators **who can work on your content with roles and permissions.
 * A subscription and an associated plan in the Squidex Cloud.
 
-![My projects in the Squidex Cloud](../../.gitbook/assets/image%20%287%29%20%281%29%20%281%29%20%281%29.png)
-
+![My projects in the Squidex Cloud](<../../.gitbook/assets/image (7) (1) (1).png>)

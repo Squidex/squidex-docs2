@@ -21,13 +21,13 @@ The following operating systems are supported:
 
 If you read this page and are planning to setup Squidex under Windows. you are probably familiar with IIS and have already installed it on your machine. If not you can read the docs:
 
-> [IIS configuration \(Microsoft\)](https://docs.microsoft.com/en-US/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2#iis-configuration)
+> [IIS configuration (Microsoft)](https://docs.microsoft.com/en-US/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2#iis-configuration)
 
 ### 1.2. Download and install .NET Core hosting bundle:
 
 Download the installer using the following link:
 
-> [Current .NET Core Hosting Bundle installer \(direct download\)](https://dotnet.microsoft.com/download/thank-you/dotnet-runtime-2.2.0-windows-hosting-bundle-installer)
+> [Current .NET Core Hosting Bundle installer (direct download)](https://dotnet.microsoft.com/download/thank-you/dotnet-runtime-2.2.0-windows-hosting-bundle-installer)
 
 Ensure that the `ASPNETCORE_ENVIRONMENT` environment variable is set to `Production`
 
@@ -52,9 +52,9 @@ Create a folder for your squidex installation and extract the archive to this fo
 1. In IIS Manager, open the server's node in the **Connections** panel. Right-click the **Sites** folder. Select **Add Website** from the contextual menu.
 2. Provide a **SiteName** and set the **Physical path** to the squidex folder that you created in the previous step. In this case we host Squidex at [https://localhost:80](https://localhost:80)
 3. Ensure that you also create a https binding with a proper certificate or development certificate. Due to recent security changes in Chrome, you are not able to login to Squidex anymore if you are using http instead of https. You can also use Cloudflare as https termination if you do not want to pay for a certificate.
-4. Confirm the process model identity has the proper permissions.
+4.  Confirm the process model identity has the proper permissions.
 
-   If the default identity of the app pool \(**Process Model** &gt; **Identity**\) is changed from `ApplicationPoolIdentity` to another identity, verify that the new identity has the required permissions to access the app's folder, database, and other required resources. For example, the app pool requires read and write access to folders where the app reads and writes files.
+    If the default identity of the app pool (**Process Model** > **Identity**) is changed from `ApplicationPoolIdentity` to another identity, verify that the new identity has the required permissions to access the app's folder, database, and other required resources. For example, the app pool requires read and write access to folders where the app reads and writes files.
 
 ![IIS Site configuration](../../../.gitbook/assets/site.png)
 
@@ -123,7 +123,7 @@ Start the IIS site and go to [http://localhost](http://localhost). Login and sta
 
 ### Where can I see the logs?
 
-Squidex logs to standard output. 
+Squidex logs to standard output.&#x20;
 
 To forward the logs to a file, open `web.config` and set `stdoutLogEnabled="true"`.
 
@@ -181,4 +181,3 @@ To fetch the referenced content items or assets the user interfaces makes an API
 ### More issues?
 
 It is very likely a configuration problem and not related to hosting under IIS. Go to the [Configuration](../configuration.md) page.
-

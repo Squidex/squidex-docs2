@@ -14,7 +14,7 @@ Technically speaking a UI editor lives in a sandboxed iframe, which interacts wi
 
 You can configure the sidebar plugin for each schema individually. Each schema has two URLs, where the first URL points to the sidebar plugin for the content list and the second URL points to the sidebar plugin for single content items. You can only configure one of them or both. Of course you can also point both settings to the same URL.
 
-![How to configure the sidebar plugin](../../.gitbook/assets/image%20%2838%29.png)
+![How to configure the sidebar plugin](<../../.gitbook/assets/image (20).png>)
 
 ### Write a sidebar plugin
 
@@ -73,13 +73,13 @@ Create a new instance when your plugin is initialized.
 
 ### Methods
 
-| Name | Description |
-| :--- | :--- |
-| `plugin.getContext()` | Gets the current context information. More about that later. |
-| `plugin.clean()` | Cleanup the plugin. Usually it is not needed to call this method. |
-| `plugin.onInit(callback)` | Register a function that is invoked when the messaging communication with the management UI is established. After the callback is invoked you get retrieve values with the get methods. The context object will be passed to the callback. |
-| `plugin.onContentChanged(callback)` | Register a function that is invoked whenever the the current content item is changed. This callback is never triggered when your sidebar plugin is used for single content items. |
-| `plugin.navigate(url)` | Navigates the Management UI to a new URL. Because the plugin is integrated as an iframe, you cannot use normal links as it would only change the URL within the iframe and not the URL of the Management UI. |
+| Name                                | Description                                                                                                                                                                                                                                |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `plugin.getContext()`               | Gets the current context information. More about that later.                                                                                                                                                                               |
+| `plugin.clean()`                    | Cleanup the plugin. Usually it is not needed to call this method.                                                                                                                                                                          |
+| `plugin.onInit(callback)`           | Register a function that is invoked when the messaging communication with the management UI is established. After the callback is invoked you get retrieve values with the get methods. The context object will be passed to the callback. |
+| `plugin.onContentChanged(callback)` | Register a function that is invoked whenever the the current content item is changed. This callback is never triggered when your sidebar plugin is used for single content items.                                                          |
+| `plugin.navigate(url)`              | Navigates the Management UI to a new URL. Because the plugin is integrated as an iframe, you cannot use normal links as it would only change the URL within the iframe and not the URL of the Management UI.                               |
 
 ### Context
 
@@ -139,4 +139,3 @@ Also, we have a more examples that you can use in your apps.
 Reference: [https://cloud.squidex.io/scripts/sidebar-search.html](https://cloud.squidex.io/scripts/sidebar-search.html)
 
 This example demonstrates how to build a custom search for your content using Algolia.
-

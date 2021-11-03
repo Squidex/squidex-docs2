@@ -8,7 +8,9 @@ Custom workflows have been already requested several times and have implemented 
 
 If you are up to date with your Squidex version you can go to the documentation about workflows.
 
-{% page-ref page="../concepts/workflows.md" %}
+{% content-ref url="../concepts/workflows.md" %}
+[workflows.md](../concepts/workflows.md)
+{% endcontent-ref %}
 
 ## Our requirements
 
@@ -62,9 +64,9 @@ You can also use the new comments feature to share information between reviewer 
 
 We start by creating our Roles in Squidex:
 
-![Roles](../../.gitbook/assets/roles.png)
+![Roles](<../../.gitbook/assets/roles (1).png>)
 
-As you can see in the screenshot above, the **Creator** can only create and update content, but not publish it and the **Reviewer** can only update content. we use the default role **Editor** for the **Publisher**.
+As you can see in the screenshot above, the **Creator **can only create and update content, but not publish it and the **Reviewer** can only update content. we use the default role **Editor** for the **Publisher**.
 
 So we solved the problem that only the **Publisher** should be able to publish, unpublish content, but there is still something left to do.
 
@@ -75,7 +77,7 @@ We have to ensure that:
 3. The **Creator** can only update an article when the status is `Draft` or `Rejected`.
 4. The **Reviewer** can only change the status to `Approved` or `Rejected`.
 5. The **Publisher** can only set the status to `Published`.
-6. The **Publisher** can only publish the content when it the status is `Published` \(to be consistent\).
+6. The **Publisher** can only publish the content when it the status is `Published` (to be consistent).
 
 I will not show everything in this tutorial, it is just too much and the solution is the same for all roles, but we will show you how we implemented it for the **Creator**:
 
@@ -87,7 +89,7 @@ The solution is scripting. If you click the three dots in the schema editor a me
 
 The script for creating content is very simple:
 
-```text
+```
 // Check the status field is set to draft.
 if (ctx.data.status.iv !== 'Draft') {
     // If not reject this operation with a custom validation message.
@@ -105,7 +107,7 @@ The UI will show the error message from the script:
 
 Lets have a look to the update script:
 
-```text
+```
 // Our code for the Creator
 if (ctx.user.claims.role.indexOf('Creator')) {
     // Check the old status of our content.
@@ -139,4 +141,3 @@ But on the other side there are also some points on the PRO side:
 
 1. You can implement very fine grained workflows and you are not restricted by a built-in solution.
 2. You can even make the Status field localizable and ensure that all texts are reviewed from different person before you publish a content.
-

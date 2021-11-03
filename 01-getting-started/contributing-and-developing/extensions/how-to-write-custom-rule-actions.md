@@ -12,7 +12,9 @@ In this guide we use the webhook action as an example to show you the basic prin
 
 To get started with your first rule action you might want to get an understanding about the rule system first. Please read the following documentation before you continue:
 
-{% page-ref page="../../../02-documentation/concepts/rules.md" %}
+{% content-ref url="../../../02-documentation/concepts/rules.md" %}
+[rules.md](../../../02-documentation/concepts/rules.md)
+{% endcontent-ref %}
 
 ## Step 2. Define your action class
 
@@ -55,22 +57,22 @@ public sealed class WebhookAction : RuleAction
 
 ### Metadata
 
-The metadata is provided with the `[RuleAction]` attribute and is mainly used in the Management UI. 
+The metadata is provided with the `[RuleAction]` attribute and is mainly used in the Management UI.&#x20;
 
 You have to provide the following information:
 
-| Metadata | Description |
-| :--- | :--- |
-| \(3\) Title | A title that describes which system is integrated. |
-| \(1\) Icon | The icon as SVG document. Should be white only. |
-| \(1\) IconColor | The background color for your icon. |
-| \(2\) Display | A display name that describes what your action does. |
-| \(4\) Description | A short description about your action |
-| \(5\) ReadMore | An optional link to additional information, e.g. the website of the integrated solution. |
+| Metadata        | Description                                                                              |
+| --------------- | ---------------------------------------------------------------------------------------- |
+| (3) Title       | A title that describes which system is integrated.                                       |
+| (1) Icon        | The icon as SVG document. Should be white only.                                          |
+| (1) IconColor   | The background color for your icon.                                                      |
+| (2) Display     | A display name that describes what your action does.                                     |
+| (4) Description | A short description about your action                                                    |
+| (5) ReadMore    | An optional link to additional information, e.g. the website of the integrated solution. |
 
-![The metadata in the rule overview](../../../.gitbook/assets/image%20%2814%29.png)
+![The metadata in the rule overview](<../../../.gitbook/assets/image (8).png>)
 
-![The metadata when selecting an asset](../../../.gitbook/assets/image%20%288%29.png)
+![The metadata when selecting an asset](<../../../.gitbook/assets/image (9).png>)
 
 ### Configuration values and editors
 
@@ -78,7 +80,7 @@ The properties of your action class hold the configuration values. You can only 
 
 Each property can also have a...
 
-#### Name \(a\)
+#### Name (a)
 
 An optional name that is shown as label.
 
@@ -86,7 +88,7 @@ An optional name that is shown as label.
 [Display(Name = "My Name")]
 ```
 
-#### Description \(b\)
+#### Description (b)
 
 An optional description that is rendered after the input field.
 
@@ -94,7 +96,7 @@ An optional description that is rendered after the input field.
 [Display(Description = "My Description.")]
 ```
 
-#### Required Hint \(c\)
+#### Required Hint (c)
 
 A hint that the property is required. This will add validation to the API and the Management UI.
 
@@ -102,7 +104,7 @@ A hint that the property is required. This will add validation to the API and th
 [Required]
 ```
 
-#### Formattable Hint \(d\)
+#### Formattable Hint (d)
 
 A hint that describes whether the property supports formatting via scripting or placeholders. More about this later.
 
@@ -110,21 +112,21 @@ A hint that describes whether the property supports formatting via scripting or 
 [Formattable]
 ```
 
-![The generated editor](../../../.gitbook/assets/image%20%289%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.png)
+![The generated editor](<../../../.gitbook/assets/image (9) (2) (2) (2) (2) (1).png>)
 
 #### Data Type
 
 An optional data type to define the HTML control that is used:
 
-| Control | When |
-| :--- | :--- |
-| Checkbox | Used when the type of the property is `bool`or `bool?`. |
-| Number Input | Used when the type of the property is `int` or `int?`. |
-| URL Input | Used with `[DataType(DataType.Url)]`. |
-| Password Input | Used with `[DataType(DataType.Password)]`. |
-| Email Input | Used with `[DataType(DataType.Email)]`. |
-| Textarea | Used with `[DataType(DataType.MultilineText)]`. |
-| Input | For all other cases. |
+| Control        | When                                                    |
+| -------------- | ------------------------------------------------------- |
+| Checkbox       | Used when the type of the property is `bool`or `bool?`. |
+| Number Input   | Used when the type of the property is `int` or `int?`.  |
+| URL Input      | Used with `[DataType(DataType.Url)]`.                   |
+| Password Input | Used with `[DataType(DataType.Password)]`.              |
+| Email Input    | Used with `[DataType(DataType.Email)]`.                 |
+| Textarea       | Used with `[DataType(DataType.MultilineText)]`.         |
+| Input          | For all other cases.                                    |
 
 ## Step 3: Develop your action handler.
 
@@ -188,9 +190,9 @@ protected override (string Description, WebhookJob Data)
 }
 ```
 
-As you can see, we create the job from the passed in action and also provide a short description about what we do.   
-  
-We use the `Format` method to call the `RuleEventFormatter` that has been passed in via the constructor to apply formatting rules to our configuration values. 
+As you can see, we create the job from the passed in action and also provide a short description about what we do. \
+\
+We use the `Format` method to call the `RuleEventFormatter` that has been passed in via the constructor to apply formatting rules to our configuration values.&#x20;
 
 Whenever we do this, we should add the `[Formattable]` attribute to the properties to point out this behavior to the end users.
 
@@ -217,7 +219,7 @@ protected override async Task<Result>
 
 In this case we make a HTTP call with the provided request URL and body. We have to return a result object to indicate whether our Job was successful or not.
 
-Exceptions are always handled anyway, but we can use the approach above to provide an optional request dump with all necessary information to make debugging easy. Such a request dump should contain the request body and response or headers. 
+Exceptions are always handled anyway, but we can use the approach above to provide an optional request dump with all necessary information to make debugging easy. Such a request dump should contain the request body and response or headers.&#x20;
 
 The passed in cancellation token should be used to handle timeouts correctly and the cancel long running requests when they have exceeded the allowed execution limit.
 
@@ -236,4 +238,3 @@ public sealed class WebhookPlugin : IPlugin
 ```
 
 That's it. If you have written a custom rule action for a system is that is publicly available, you can provide your implementation as a pull request.
-

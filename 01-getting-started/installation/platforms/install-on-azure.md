@@ -15,8 +15,8 @@ In this tutorial I will also not teach you the basics of Azure. it is a very com
 Before you start you have to setup a few things first:
 
 1. A resource group for all your squidex resources.
-2. A service plan to host squidex \(Linux\).
-3. A storage account for your assets and mongo db \(general purpose v1 or v2\).
+2. A service plan to host squidex (Linux).
+3. A storage account for your assets and mongo db (general purpose v1 or v2).
 4. [Azure-CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
 5. The [Microsoft.ContainerInstance](https://azure.microsoft.com/en-gb/services/container-instances/) provider registered in your Azure subscription.
 
@@ -64,9 +64,9 @@ To register the provider, run the following command:
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-> **IMPORTANT**: At this point your MongoDB will run without authentication. Connect to it with a Tool of your choice like [Robo 3T](https://robomongo.org/) and create an admin user. After that run the above command again, but change the _--command-line_ argument to
+> **IMPORTANT**: At this point your MongoDB will run without authentication. Connect to it with a Tool of your choice like [Robo 3T](https://robomongo.org) and create an admin user. After that run the above command again, but change the _--command-line_ argument to
 >
-> ```text
+> ```
 > "mongod --dbpath=/data/mongoaz --bind_ip_all --auth"
 > ```
 
@@ -187,4 +187,3 @@ All basic settings:
 ### More issues?
 
 It is very likely a configuration problem and not related to hosting under azure. Go to the [Configuration](../configuration.md) page.
-

@@ -4,9 +4,9 @@ description: >-
   processes.
 ---
 
-# Automation Tools \(CLI\)
+# Automation Tools (CLI)
 
-The CLI \(command line interface\) is terminal application for Windows, Linux and OS X.
+The CLI (command line interface) is terminal application for Windows, Linux and OS X.
 
 You can download the CLI at Github: [https://github.com/Squidex/squidex-samples/releases](https://github.com/Squidex/squidex-samples/releases)
 
@@ -21,7 +21,7 @@ Hopefully the CLI itself is good enough for you, so that you can use the integra
 
 The general structure of each command is
 
-```text
+```
 .\sq.exe [FEATURE] [COMMAND] [ARGS] [OPTIONAL_PARAMETERS]
 ```
 
@@ -39,26 +39,26 @@ The CLI can manage multiple configurations, so that you do not have to define th
 
 STEP 1: Add a configuration
 
-```text
+```
 .\sq.exe config add [APP_NAME] [CLIENT_ID] [CLIENT_SECRET]
 ```
 
 STEP 2: Show all configurations
 
-```text
+```
 .\sq.exe config list
 ```
 
 or as table
 
-```text
+```
 .\sq.exe config list -t
 .\sq.exe config list --table
 ```
 
 STEP 3: Switch to another config
 
-```text
+```
 .\sq.exe config use [CONFIG_NAME]
 ```
 
@@ -66,7 +66,7 @@ STEP 3: Switch to another config
 
 The following section describes the most common use cases and how to execute them with the CLI:
 
-### Synchronize all app settings \(BETA\)
+### Synchronize all app settings (BETA)
 
 {% hint style="info" %}
 You need a client with **Owner** role for this use case.
@@ -77,8 +77,8 @@ This command and use case combines a lot of the following features and can be us
 The command is able to synchronize these settings:
 
 * Schemas
-* Contents \(only import\)
-* Contributors \(only import\)
+* Contents (only import)
+* Contributors (only import)
 * Clients
 * Roles
 * Rules
@@ -90,11 +90,11 @@ To get started with the synchronization feature you can create a new folder with
 .\sq.exe sync new <folder>
 ```
 
-The CLI creates as set of sample configuration files \(starting with \_\_\). Files starting with double underscore are ignored during the synchronization. Therefore you have to rename or copy the samples files to get started.
+The CLI creates as set of sample configuration files (starting with \_\_). Files starting with double underscore are ignored during the synchronization. Therefore you have to rename or copy the samples files to get started.
 
 Furthermore the CLI also generated JSON schema files that are referenced by the configuration files and provide basic intellisense features in editors like [Visual Studio Code](https://code.visualstudio.com). You will also see error messages when you do not follow the JSON schema, but additional errors might occur when you synchronize your configuration.
 
-![Sample folder in Visual Studio Code](../../.gitbook/assets/image.png)
+![Sample folder in Visual Studio Code](<../../.gitbook/assets/image (14).png>)
 
 You can also synchronize the configuration with your app using this command
 
@@ -135,9 +135,9 @@ Options:
   Use this flag to prevent deletions.
 ```
 
-| Flag | Description |
-| :--- | :--- |
-| `targets` | This flag can be used to only import or export certain parts of your app. You can use multiple parameters. |
+| Flag       | Description                                                                                                                                                                      |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `targets`  | This flag can be used to only import or export certain parts of your app. You can use multiple parameters.                                                                       |
 | `nodelete` | When adding this flag, entities that do exist in your app, but not in your configuration file will not be deleted. We recommend to turn this flag on when you test this feature. |
 
 #### Restrictions
@@ -145,13 +145,13 @@ Options:
 The synchronization feature has a few restrictions:
 
 1. **Contributors cannot be exported**. We use the Email-Address of the users to add new contributors to your app. But because Squidex protects the personal identifiable information of our users we do not expose the Email Addresses via the API and therefore cannot export the contributors.
-2. **Contents cannot be exported.** In contrast to other entities like schemas or workflows an app can have tens of thousands of content items and it does not make sense to export them.
-3. **Contents cannot be deleted.** It is just too complicated.
+2. **Contents cannot be exported. **In contrast to other entities like schemas or workflows an app can have tens of thousands of content items and it does not make sense to export them.
+3. **Contents cannot be deleted. **It is just too complicated.
 
 ### Synchronize schemas
 
 {% hint style="info" %}
-You need a client with either **Developer** or **Owner** role for this use case.
+You need a client with either **Developer **or **Owner** role for this use case.
 {% endhint %}
 
 STEP 1: Go to first app and save the schema to a file
@@ -200,23 +200,23 @@ The CSV column is optional and can be skipped. If no column name is specified th
 
 To get a good understanding of the paths, it is helpful to have a look to the API documentation of your schemas, e.g.
 
-[https://cloud.squidex.io/api/content/squidex-website/docs\#operation/GetTestimonialsContent](https://cloud.squidex.io/api/content/squidex-website/docs#operation/GetTestimonialsContent)
+[https://cloud.squidex.io/api/content/squidex-website/docs#operation/GetTestimonialsContent](https://cloud.squidex.io/api/content/squidex-website/docs#operation/GetTestimonialsContent)
 
 Some sample paths
 
 * `id`
 * `version`
 * `data.personName.iv`
-* `data.personName` \(`iv` is added by default for non-localized fields\)
-* `personName=data.personName` \(Column name for non-localized field\).
+* `data.personName` (`iv` is added by default for non-localized fields)
+* `personName=data.personName` (Column name for non-localized field).
 
-More examples \(not from the example operation above\):
+More examples (not from the example operation above):
 
-* `data.text.en` \(Localized field\)
-* `data.hobbies.iv.0.name`\(For array of objects\)
-* `data.hobbies.iv`\(To serialize the whole array to a string\)
-* `data.json.iv.property` \(For a nested object\)
-* `data.json.iv` \(To serialize the whole object to a string\)
+* `data.text.en` (Localized field)
+* `data.hobbies.iv.0.name`(For array of objects)
+* `data.hobbies.iv`(To serialize the whole array to a string)
+* `data.json.iv.property` (For a nested object)
+* `data.json.iv` (To serialize the whole object to a string)
 
 If the extract value is a json array of object it will be serialized to a string.
 
@@ -242,20 +242,20 @@ The CSV column is optional and can be skipped. If no column name is specified th
 
 To get a good understanding of the paths, it is helpful to have a look to the API documentation of your schemas, e.g.
 
-[https://cloud.squidex.io/api/content/squidex-website/docs\#operation/GetTestimonialsContent](https://cloud.squidex.io/api/content/squidex-website/docs#operation/GetTestimonialsContent)
+[https://cloud.squidex.io/api/content/squidex-website/docs#operation/GetTestimonialsContent](https://cloud.squidex.io/api/content/squidex-website/docs#operation/GetTestimonialsContent)
 
 Some sample paths
 
-* `personName.iv=personName` 
-* `personName` \(`iv` is added by default for non-localized fields\)
+* `personName.iv=personName`&#x20;
+* `personName` (`iv` is added by default for non-localized fields)
 
-More examples \(not from the example operation above\):
+More examples (not from the example operation above):
 
-* `text.en=text` \(Localized field\)
-* `hobbies.iv.0.name=firstHobby`\(For array of objects\)
-* `hobbies.iv=hobbies`\(To serialize the whole array to a string\)
-* `json.iv.property=jsonProperty` \(For a nested object\)
-* `json.iv=json` \(To serialize the whole object to a string\)
+* `text.en=text` (Localized field)
+* `hobbies.iv.0.name=firstHobby`(For array of objects)
+* `hobbies.iv=hobbies`(To serialize the whole array to a string)
+* `json.iv.property=jsonProperty` (For a nested object)
+* `json.iv=json` (To serialize the whole object to a string)
 
 If the extract value is a json array of object it will be serialized to a string.
 
@@ -288,4 +288,3 @@ The CLI does not support all field types, it has the following restrictions:
 * No support for string fields with a pattern validator.
 
 Obviously it can also not support custom validations via scripts or custom extensions.
-

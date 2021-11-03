@@ -12,13 +12,17 @@ The user is the Lead Developer and CTO of a midsize news magazine called "FoodCr
 
 Therefore we create one project in Squidex for all our content, assets and settings and invite all developers and content editors to this project to work together. In Squidex we call this an "App".
 
-{% page-ref page="concepts/apps.md" %}
+{% content-ref url="concepts/apps.md" %}
+[apps.md](concepts/apps.md)
+{% endcontent-ref %}
 
 ## The content structure
 
 The structure of the content is defined by Schemas in Squidex. In this section we describe the different content types for our use case. Read more about schemas here:
 
-{% page-ref page="concepts/schemas.md" %}
+{% content-ref url="concepts/schemas.md" %}
+[schemas.md](concepts/schemas.md)
+{% endcontent-ref %}
 
 ### Editorial content
 
@@ -26,15 +30,15 @@ The CTO decided to have a single structure for all editorial content. After brin
 
 This schema is just called `contents` and has the following fields.
 
-| Name | Type | Localizable | Description |
-| :--- | :--- | :--- | :--- |
-|  `language` | String | No | The content language. |
-| `title` | String | No | The title of the editorial content. |
-| `slug` | String | No | A single slug for Google friendly URLs.  |
-| `content` | String | No | The actual content. |
-| `type` | String | No | The type of the content, e.g. "Article" or "News". |
-| `startup` | Reference | No | A reference to the startup in the database. |
-| `image` | Assets | No | One or more teaser images.   |
+| Name        | Type      | Localizable | Description                                        |
+| ----------- | --------- | ----------- | -------------------------------------------------- |
+|  `language` | String    | No          | The content language.                              |
+| `title`     | String    | No          | The title of the editorial content.                |
+| `slug`      | String    | No          | A single slug for Google friendly URLs.            |
+| `content`   | String    | No          | The actual content.                                |
+| `type`      | String    | No          | The type of the content, e.g. "Article" or "News". |
+| `startup`   | Reference | No          | A reference to the startup in the database.        |
+| `image`     | Assets    | No          | One or more teaser images.                         |
 
 ### Startup database
 
@@ -42,20 +46,20 @@ The startup database is maintained in multiple languages, so that entries can be
 
 This schema is called `startups` and has the following fields.
 
-| Name | Type | Localizable | Description |
-| :--- | :--- | :--- | :--- |
-| `slug` | String | No | A single slug for Google friendly URLs. |
-| `name` | String | No | The name of the startup.  |
-| `description` | String | Yes | The description of the startup. |
-| `funding` | Number | No | The total funding in USD \($\). |
-| `foundingDate` | DateTime | No | The date the startup has been founded. |
-| `founders` | Array | No | The founders as list of name and position. |
-| `tags` | Tags | No | A list of tags for search. |
-| `location` | Geolocation | No | The geolocation of the headquarter. |
-| `metadata` | Json | No | Unstructured metadata. |
-| `givenUp` | Boolean | No | Indicates whether the startup has given up. |
+| Name           | Type        | Localizable | Description                                 |
+| -------------- | ----------- | ----------- | ------------------------------------------- |
+| `slug`         | String      | No          | A single slug for Google friendly URLs.     |
+| `name`         | String      | No          | The name of the startup.                    |
+| `description`  | String      | Yes         | The description of the startup.             |
+| `funding`      | Number      | No          | The total funding in USD ($).               |
+| `foundingDate` | DateTime    | No          | The date the startup has been founded.      |
+| `founders`     | Array       | No          | The founders as list of name and position.  |
+| `tags`         | Tags        | No          | A list of tags for search.                  |
+| `location`     | Geolocation | No          | The geolocation of the headquarter.         |
+| `metadata`     | Json        | No          | Unstructured metadata.                      |
+| `givenUp`      | Boolean     | No          | Indicates whether the startup has given up. |
 
-###  JSON structure
+### &#x20;JSON structure
 
 If you are a content editor, you can skip this section.
 
@@ -148,9 +152,11 @@ Of course we use JSON to represent our content in the database and API. Each con
 }
 ```
 
-As you can see, we need an JSON object for our localized fields. To use a generalized structure all objects use fields `iv` \(for invariant\) is used for localized fields. Read more about the reasoning in the section about localization:
+As you can see, we need an JSON object for our localized fields. To use a generalized structure all objects use fields `iv` (for invariant) is used for localized fields. Read more about the reasoning in the section about localization:
 
-{% page-ref page="concepts/localization.md" %}
+{% content-ref url="concepts/localization.md" %}
+[localization.md](concepts/localization.md)
+{% endcontent-ref %}
 
 ## People and roles
 
@@ -160,4 +166,3 @@ The following people work together with Squidex to bring content to the website.
 * **Editors** are responsibility to write the articles in different languages and to make all the research around it. Because false information are a big deal in the News industry they are not allowed to publish the content itself.
 * **Reviewers** check the content before it gets published for spelling and grammar mistakes and also check correctness of all facts and information in the content.
 * **Publisher** work together with Marketing and social media to decide when a content should go live. They can also publish reviewed content and do not create any content themselves.
-

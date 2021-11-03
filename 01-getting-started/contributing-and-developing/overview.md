@@ -40,5 +40,4 @@ Squidex is based on the following frameworks and tools:
 
 Of course we use a dozens of external dependencies, because we do not want to reinvent the wheel, but it would just be too much to list them here.
 
-Slides about the current architecture \(June 2019\): [https://www.slideshare.net/secret/yUk1EmYlw8pLZF](https://www.slideshare.net/secret/yUk1EmYlw8pLZF)
-
+Slides about the current architecture (June 2019): [https://www.slideshare.net/secret/yUk1EmYlw8pLZF](https://www.slideshare.net/secret/yUk1EmYlw8pLZF)

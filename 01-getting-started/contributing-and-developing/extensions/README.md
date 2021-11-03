@@ -6,19 +6,21 @@ description: How to extend squidex and the different extension points for custom
 
 ## Introduction
 
-This document describes how to write extensions for Squidex. We assume that you know the Basic principles of C\# and ASP.NET Core. Otherwise it might be very hard to write custom extensions.
+This document describes how to write extensions for Squidex. We assume that you know the Basic principles of C# and ASP.NET Core. Otherwise it might be very hard to write custom extensions.
 
-We use interfaces for all components, which can then be replaced with custom implementations. The default dependency injection system is used to register services. \(see [https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)\).
+We use interfaces for all components, which can then be replaced with custom implementations. The default dependency injection system is used to register services. (see [https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)).
 
 Furthermore you can extend Squidex with custom HTTP endpoints. Due to the static nature of the Management UI which is build with Typescript and Angular and has a compilation and bundling process it you cannot extend the UI, except in a few cases where it has been made possible.
 
 Read the following article to understand how to write custom editors for the Management UI:
 
-{% page-ref page="../../../02-documentation/developer-guides/editors.md" %}
+{% content-ref url="../../../02-documentation/developer-guides/editors.md" %}
+[editors.md](../../../02-documentation/developer-guides/editors.md)
+{% endcontent-ref %}
 
 ## How to write a custom Plugin
 
-So far \(October 2019\) Squidex has a limited plugin architecture, that can be used for most cases. In this section I will give you an introduction how to write a such a plugin and how to register it in Squidex.
+So far (October 2019) Squidex has a limited plugin architecture, that can be used for most cases. In this section I will give you an introduction how to write a such a plugin and how to register it in Squidex.
 
 In this tutorial we use `Squidex.Extensions` project as an example, which also contains a sample plugin.
 
@@ -26,7 +28,7 @@ In this tutorial we use `Squidex.Extensions` project as an example, which also c
 
 Just checkout the source code from Github:
 
-```text
+```
 git@github.com:Squidex/squidex.git
 ```
 
@@ -36,7 +38,7 @@ You only need the source code for Development. There are other approaches how to
 
 First you have to create a new .NET class library to the backend solution:
 
-![Squidex.Extensions Plugin](../../../.gitbook/assets/image%20%2819%29%20%281%29.png)
+![Squidex.Extensions Plugin](<../../../.gitbook/assets/image (19).png>)
 
 Ensure that you target `netcoreapp3.0`.
 
@@ -74,17 +76,17 @@ namespace Squidex.Extensions.Samples.AssetStore
 }
 ```
 
- You can also add multiple implementations to your class library in case you have multiple extensions in one project and want to group them together.
+&#x20;You can also add multiple implementations to your class library in case you have multiple extensions in one project and want to group them together.
 
 ### 3. Reference your plugin
 
 Add a reference to your plugin to the `Squidex` project.
 
-![Add reference to your plugin](../../../.gitbook/assets/image%20%282%29%20%281%29.png)
+![Add reference to your plugin](<../../../.gitbook/assets/image (2) (1).png>)
 
 Furthermore you need to add the path to your plugin to the configuration, for example to the `appSettings`file. Because we reference the plugin, it will be automatically copied to the output folder when the build or packaging is executed.
 
-![Reference your plugin in the configuration file](../../../.gitbook/assets/image%20%2828%29%20%281%29%20%281%29.png)
+![Reference your plugin in the configuration file](<../../../.gitbook/assets/image (28) (1).png>)
 
 There is also a project on Github that demonstrates how to create a plugin for SendGrid with an older version of Squidex: [https://github.com/squidexcontrib/sendgrid](https://github.com/squidexcontrib/sendgrid)
 
@@ -96,7 +98,9 @@ There are a few extension points that can be used for custom functionality.
 
 Rule actions are used to integrate external systems to Squidex. Therefore we have written a guide to show you how to write your first rule action.
 
-{% page-ref page="how-to-write-custom-rule-actions.md" %}
+{% content-ref url="how-to-write-custom-rule-actions.md" %}
+[how-to-write-custom-rule-actions.md](how-to-write-custom-rule-actions.md)
+{% endcontent-ref %}
 
 ### Controllers
 
@@ -127,7 +131,7 @@ The `Squidex.Infrastructure.Assets.IAssetStore` interface is used to encapsulate
 * `AzureBlobAssetStore`: Stores the assets in azure blob storage.
   * Read more: [https://azure.microsoft.com/en-us/services/storage/blobs/](https://azure.microsoft.com/en-us/services/storage/blobs/)
 * `GoogleCloudAssetStore`: Stores the assets in Google cloud.
-  * Read more: [https://cloud.google.com/storage/](https://cloud.google.com/storage/)\`\`
+  * Read more: [https://cloud.google.com/storage/](https://cloud.google.com/storage/)``
 * `MongoGridFsAssetStore`: Stores the assets in MongoDB using GridFS.
   * Read more: [https://docs.mongodb.com/manual/core/gridfs/](https://docs.mongodb.com/manual/core/gridfs/)
 * `FolderAssetStore`: Stores the assets in the file system.
@@ -140,10 +144,10 @@ Recommended implementations:
 
 The `Squidex.Infrastructure.CQRS.Events.IEventStore` is our abstraction for different event store implementations. You can append to events, query them or subscribe to events. Dependending on your implementation you might want to use the pub-sub system for subscriptions. The notification mechanism is provided by the `Squidex.Infrastructure.CQRS.Events.IEventNotifier` interface. Currently there are the following implementations:
 
-* `Squidex.Infrastructure.CQRS.Events.MongoEventStore`: Implementation for MongoDb. 
+* `Squidex.Infrastructure.CQRS.Events.MongoEventStore`: Implementation for MongoDb.&#x20;
   * Read more: [https://docs.mongodb.com/ecosystem/drivers/csharp/](https://docs.mongodb.com/ecosystem/drivers/csharp/)
-* `Squidex.Infrastructure.CQRS.Events.GetEventStore`: Implementation for EventStore. 
-  * Read more: [https://geteventstore.com/](https://geteventstore.com/)
+* `Squidex.Infrastructure.CQRS.Events.GetEventStore`: Implementation for EventStore.&#x20;
+  * Read more: [https://geteventstore.com/](https://geteventstore.com)
 
 Recommended implementations:
 
@@ -166,7 +170,7 @@ You can provide other implementations for repositories, e.g. for Elastic Search 
 * `Squidex.Infrastructure.States.IStore`: Key value store for json objects. Contains everything else like comments, apps, schemas, rules, custom indices and settings.
 * `Squidex.Infrastructure.UsageTracking.IUsageTracking`: Stores historic usage information and performance metrics.
 
-### Command Middleware 
+### Command Middleware&#x20;
 
 Command middlewares are used to handle commands, for example when a new content item is created. They run in a pipeline and can be used to for a lot of different purposes. It is safe to implement the `ICustomCommandMiddleware` interface, that ensures that your commands are running in the correct order.
 
@@ -270,4 +274,3 @@ namespace Squidex.Infrastructure.CQRS.Events
     }
 }
 ```
-

@@ -35,7 +35,7 @@ Based on this setup 3 containers are installed:
 
 * Squidex
 * MongoDB for storing your data.
-* Caddy as reverse proxy and for https termination \([https://caddyserver.com/](https://caddyserver.com/)\).
+* Caddy as reverse proxy and for https termination ([https://caddyserver.com/](https://caddyserver.com)).
 
 To work properly you need a DNS A record entry pointing to your machine, because caddy will issue a certificate using lets-encrypt.
 
@@ -48,21 +48,21 @@ Just follow the link: [https://www.vultr.com/marketplace/apps/squidex](https://w
 ### Step 2: Deploy a new server
 
 1. Select your target location close to your center of operation.
-2. Select the size of your machine. At least 4GB or memory with 2 virtual cores are recommended. 
+2. Select the size of your machine. At least 4GB or memory with 2 virtual cores are recommended.&#x20;
 
-![Recommended server size](../../../.gitbook/assets/image%20%2850%29.png)
+![Recommended server size](<../../../.gitbook/assets/image (60).png>)
 
 ### Step 3: Wait for the server to spin up
 
 It can take a while until your server is ready to be used.
 
-![Waiting for the server](../../../.gitbook/assets/image%20%2865%29.png)
+![Waiting for the server](<../../../.gitbook/assets/image (61).png>)
 
 ### Step 4: Create a DNS record
 
 Click your new server and wait until you got a IP address.
 
-![IP address is ready](../../../.gitbook/assets/image%20%2843%29.png)
+![IP address is ready](<../../../.gitbook/assets/image (62).png>)
 
 Create a DNS A record to this IP address.
 
@@ -81,7 +81,7 @@ cd /home/
 
 You will be asked to enter the domain here. All other values are optional. The installation script will start docker-compose then and download all images and start them in the right order.
 
-![Running the setup script](../../../.gitbook/assets/image%20%2820%29%20%282%29%20%282%29%20%281%29.png)
+![Running the setup script](<../../../.gitbook/assets/image (20) (2) (2) (1).png>)
 
 Squidex is ready to be used now. If you visit your installation under [https://mydomain.com](https://mydomain.com) you will see a simple setup guide where you can create the initial admin user.
 
@@ -111,9 +111,9 @@ Navigate to the overview tab and make note of your S3 credentials.
 
 ![Vultr object storage bucket list](../../../.gitbook/assets/vultr-object-storage-keys.png)
 
-Edit the `/home/.env` file using your editor of choice and add the following environment variables using the appropriate values for each \(leave the S3\_REGION variable empty for now\):
+Edit the `/home/.env` file using your editor of choice and add the following environment variables using the appropriate values for each (leave the S3\_REGION variable empty for now):
 
-```text
+```
 S3_SERVICEURL=https://ewr1.vultrobjects.com
 S3_BUCKET=squidex
 S3_FOLDER=assets
@@ -128,7 +128,7 @@ S3_FORCEPATHSTYLE=true
 
 Next, edit the `/home/docker-compose.yml` file to pass these environment variables on to the container:
 
-```text
+```
 squidex_squidex:
     image: "squidex/squidex:5"
     environment:
@@ -145,9 +145,8 @@ squidex_squidex:
 
 In your command line shell, update your squidex container to use the new asset storage settings:
 
-```text
+```
 docker-compose up -d
 ```
 
 Enjoy and have fun.
-

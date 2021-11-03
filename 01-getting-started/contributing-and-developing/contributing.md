@@ -31,7 +31,7 @@ If you find an easily reproducible bug and/or are experienced in reporting bugs,
 
 **Reporting security issues**. Please do not report security issues publicly.
 
- You can email [hello@squidex.io](mailto:hello@squidex.io). We create a CVE for every security issue.
+&#x20;You can email [hello@squidex.io](mailto:hello@squidex.io). We create a CVE for every security issue.
 
 ### User feedback
 
@@ -46,5 +46,4 @@ Nearly every feature we develop starts with a user request. If you are part of a
 
 ### Writing Samples
 
-Our main programming language is C\# and Typescript. But Squidex speaks HTTP can be used with any programming language and we cannot cover all programming language that are out there in the wild. If you have developed a sample or extension, please share it with us. We would like to make it available for other users as well.
-
+Our main programming language is C# and Typescript. But Squidex speaks HTTP can be used with any programming language and we cannot cover all programming language that are out there in the wild. If you have developed a sample or extension, please share it with us. We would like to make it available for other users as well.
