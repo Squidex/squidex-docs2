@@ -43,7 +43,7 @@ Each field has multiple states:
 Field types define how a field is structured in the API and in the processing pipeline. You can define the editor for each field, so a string field can either be a html text, markdown or a list of allowed values with a dropdown editor. We use a product catalog as an example to describe the different field types.
 
 {% hint style="info" %}
-If a field is not required it can also be **null **or **omitted**. This is also the case when a field has been added or marked as required after a content items have already been added to this schema.
+If a field is not required it can also be **null** or **omitted**. This is also the case when a field has been added or marked as required after a content items have already been added to this schema.
 {% endhint %}
 
 ###

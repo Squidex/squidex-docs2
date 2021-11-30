@@ -2,7 +2,7 @@
 
 * [Welcome to Squidex](README.md)
 
-## Getting Started <a href="01-getting-started" id="01-getting-started"></a>
+## Getting Started <a href="#01-getting-started" id="01-getting-started"></a>
 
 * [Installation Instructions](01-getting-started/installation/README.md)
   * [Platforms](01-getting-started/installation/platforms/README.md)
@@ -22,14 +22,14 @@
   * [Building](01-getting-started/contributing-and-developing/building.md)
   * [Developing](01-getting-started/contributing-and-developing/developing.md)
   * [Extensions](01-getting-started/contributing-and-developing/extensions/README.md)
-    * [How to write custom rule actions](01-getting-started/contributing-and-developing/extensions/how-to-write-custom-rule-actions.md)
+    * [Custom rule action](01-getting-started/contributing-and-developing/extensions/how-to-write-custom-rule-actions.md)
   * [Contributing](01-getting-started/contributing-and-developing/contributing.md)
   * [Architecture](01-getting-started/contributing-and-developing/overview.md)
   * [Translating](01-getting-started/contributing-and-developing/translating.md)
   * [Squidex Docs Program](01-getting-started/contributing-and-developing/squidex-docs-program.md)
 * [Roadmap](01-getting-started/roadmap.md)
 
-## Documentation <a href="02-documentation" id="02-documentation"></a>
+## Documentation <a href="#02-documentation" id="02-documentation"></a>
 
 * [Introduction and Use Case](02-documentation/introduction-and-use-case.md)
 * [Concepts](02-documentation/concepts/README.md)
@@ -61,6 +61,6 @@
     * [Script](02-documentation/developer-guides/rule-formatting/script.md)
     * [Liquid](02-documentation/developer-guides/rule-formatting/liquid.md)
 
-## Next <a href="04-next" id="04-next"></a>
+## Next <a href="#04-next" id="04-next"></a>
 
 * [Squidex 3.0: API Compatibility](04-next/3.0-compatibility.md)

@@ -145,13 +145,13 @@ Options:
 The synchronization feature has a few restrictions:
 
 1. **Contributors cannot be exported**. We use the Email-Address of the users to add new contributors to your app. But because Squidex protects the personal identifiable information of our users we do not expose the Email Addresses via the API and therefore cannot export the contributors.
-2. **Contents cannot be exported. **In contrast to other entities like schemas or workflows an app can have tens of thousands of content items and it does not make sense to export them.
-3. **Contents cannot be deleted. **It is just too complicated.
+2. **Contents cannot be exported.** In contrast to other entities like schemas or workflows an app can have tens of thousands of content items and it does not make sense to export them.
+3. **Contents cannot be deleted.** It is just too complicated.
 
 ### Synchronize schemas
 
 {% hint style="info" %}
-You need a client with either **Developer **or **Owner** role for this use case.
+You need a client with either **Developer** or **Owner** role for this use case.
 {% endhint %}
 
 STEP 1: Go to first app and save the schema to a file

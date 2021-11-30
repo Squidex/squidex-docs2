@@ -23,7 +23,7 @@ A workflow defines the different statuses of a content item from the initial sta
 
 A content workflow is represented as a [graph](https://en.wikipedia.org/wiki/Graph\_\(discrete\_mathematics\)) of statuses (nodes) that are connected with transitions (edges). The **status** of a content item is defined by the workflow that is configured for the content schema.
 
-* A **status **is a unique name that represents the status of your content item and has a color to identify them in the user interface.
+* A **status** is a unique name that represents the status of your content item and has a color to identify them in the user interface.
 * A **transition** defines the next possible statuses of your content item. A transition defines the next status and can have an optional expression and roles.
 
 Workflows do not exist in older Squidex installations, but you can implement them with scripting.

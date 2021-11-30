@@ -12,7 +12,7 @@ There are several translation files in the repository, but the files used by the
 
 There are separate files for frontend and backend, one for each language.
 
-The master language is **English **(`backend_en.json`and `fronend_en.json`).
+The master language is **English** (`backend_en.json`and `fronend_en.json`).
 
 ## How to add a new language?
 

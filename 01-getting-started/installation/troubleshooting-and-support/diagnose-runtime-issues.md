@@ -88,7 +88,7 @@ There are a wide range of tools that are helpful:
 
 We focus on the following tools:
 
-1. **dotnet-dump: **Creates a full dump of the process. You can analyze the memory usage, stack traces and threads using this tool or third party solutions. The resulting file is really big, usually it has around the same size as the process.
+1. **dotnet-dump:** Creates a full dump of the process. You can analyze the memory usage, stack traces and threads using this tool or third party solutions. The resulting file is really big, usually it has around the same size as the process.
 2. **dotnet-gcdump**: This global tool collects GC (Garbage Collector) dumps of live .NET processes. GC dumps are created by triggering a GC in the target process, turning on special events, and regenerating the graph of object roots from the event stream. This process allows for GC dumps to be collected while the process is running and with minimal overhead. These dumps are useful for several scenarios:
    * Comparing the number of objects on the heap at several points in time.
    * Analyzing roots of objects and memory leaks.
@@ -124,7 +124,7 @@ In docker and kubernetes there is only one .NET process running with the Process
 dotnet-gcdump ps
 ```
 
-## 5. Download the dump to your local machine <a href="synopsis-2" id="synopsis-2"></a>
+## 5. Download the dump to your local machine <a href="#synopsis-2" id="synopsis-2"></a>
 
 It depends on your environment how to copy the dump file to your local machine.&#x20;
 

@@ -4,7 +4,7 @@ description: >-
   we will show you how to extend the rule system with custom actions.
 ---
 
-# How to write custom rule actions
+# Custom rule action
 
 In this guide we use the webhook action as an example to show you the basic principles.
 
@@ -70,9 +70,9 @@ You have to provide the following information:
 | (4) Description | A short description about your action                                                    |
 | (5) ReadMore    | An optional link to additional information, e.g. the website of the integrated solution. |
 
-![The metadata in the rule overview](<../../../.gitbook/assets/image (8).png>)
+![The metadata in the rule overview](<../../../.gitbook/assets/image (72).png>)
 
-![The metadata when selecting an asset](<../../../.gitbook/assets/image (9).png>)
+![The metadata when selecting an action.](<../../../.gitbook/assets/image (74).png>)
 
 ### Configuration values and editors
 
@@ -80,7 +80,7 @@ The properties of your action class hold the configuration values. You can only 
 
 Each property can also have a...
 
-#### Name (a)
+#### Name (1)
 
 An optional name that is shown as label.
 
@@ -88,7 +88,7 @@ An optional name that is shown as label.
 [Display(Name = "My Name")]
 ```
 
-#### Description (b)
+#### Description (4)
 
 An optional description that is rendered after the input field.
 
@@ -96,7 +96,7 @@ An optional description that is rendered after the input field.
 [Display(Description = "My Description.")]
 ```
 
-#### Required Hint (c)
+#### Required Hint (3)
 
 A hint that the property is required. This will add validation to the API and the Management UI.
 
@@ -104,7 +104,7 @@ A hint that the property is required. This will add validation to the API and th
 [Required]
 ```
 
-#### Formattable Hint (d)
+#### Formattable Hint (2)
 
 A hint that describes whether the property supports formatting via scripting or placeholders. More about this later.
 
@@ -112,21 +112,21 @@ A hint that describes whether the property supports formatting via scripting or 
 [Formattable]
 ```
 
-![The generated editor](<../../../.gitbook/assets/image (9) (2) (2) (2) (2) (1).png>)
+![The formatting options in the UI](<../../../.gitbook/assets/image (70).png>)
 
 #### Data Type
 
 An optional data type to define the HTML control that is used:
 
-| Control        | When                                                    |
-| -------------- | ------------------------------------------------------- |
-| Checkbox       | Used when the type of the property is `bool`or `bool?`. |
-| Number Input   | Used when the type of the property is `int` or `int?`.  |
-| URL Input      | Used with `[DataType(DataType.Url)]`.                   |
-| Password Input | Used with `[DataType(DataType.Password)]`.              |
-| Email Input    | Used with `[DataType(DataType.Email)]`.                 |
-| Textarea       | Used with `[DataType(DataType.MultilineText)]`.         |
-| Input          | For all other cases.                                    |
+| Control        | When                                                                                  |
+| -------------- | ------------------------------------------------------------------------------------- |
+| Checkbox       | Used when the type of the property is `bool`or `bool?`.                               |
+| Number Input   | Used when the type of the property is `int` or `int?`.                                |
+| URL Input      | <p>Used with with the attribute</p><p><code>[Editor(RuleFieldEditor.Url)]</code>.</p> |
+| Password Input | <p>Used with the attribute</p><p><code>[Editor(RuleFieldEditor.Password)]</code>.</p> |
+| Email Input    | <p>Used with the attribute</p><p><code>[Editor(RuleFieldEditor.Email)]</code>.</p>    |
+| Textarea       | <p>Used with the attribute</p><p><code>[Editor(RuleFieldEditor.TextArea)]</code>.</p> |
+| Input          | For all other cases.                                                                  |
 
 ## Step 3: Develop your action handler.
 
@@ -139,31 +139,28 @@ We see this structure in the action handlers:
 
 ```csharp
 public sealed class WebhookActionHandler :
-	RuleActionHandler<WebhookAction, WebhookJob>
+    RuleActionHandler<WebhookAction, WebhookJob>
 {
-	public WebhookActionHandler(RuleEventFormatter formatter)
-		: base(formatter)
-	{
-	}
-
-	protected override (string Description, WebhookJob Data) 
-	    CreateJob(EnrichedEvent @event, WebhookAction action)
-	{
-	   // Step 1: Create job.
-	}
-
-	protected override async Task<Result> 
-	    ExecuteJobAsync(WebhookJob job, CancellationToken ct = default)
-	{
-	   // Step 2: Execute job
-	}
+    public WebhookActionHandler(RuleEventFormatter formatter)
+        : base(formatter)
+    {
+    }
+    protected override (string Description, WebhookJob Data) 
+        CreateJob(EnrichedEvent @event, WebhookAction action)
+    {
+       // Step 1: Create job.
+    }
+    protected override async Task<Result> 
+        ExecuteJobAsync(WebhookJob job, CancellationToken ct = default)
+    {
+       // Step 2: Execute job
+    }
 }
 
 public sealed class WebhookJob
 {
-	public string RequestUrl { get; set; }
-
-	public string RequestBody { get; set; }
+    public string RequestUrl { get; set; }
+    public string RequestBody { get; set; }
 }
 ```
 
@@ -177,16 +174,14 @@ The first method we need to override is used to create the Job:
 protected override (string Description, WebhookJob Data) 
      CreateJob(EnrichedEvent @event, WebhookAction action)
 {
-	var requestUrl = Format(action.Url, @event);
-
-	var ruleDescription = $"Send event to webhook '{requestUrl}'";
-	var ruleJob = new WebhookJob
-	{
-		RequestUrl = Format(action.Url.ToString(), @event),
-		RequestBody = Format(action.Payload, @event)
-	};
-
-	return (ruleDescription, ruleJob);
+    var requestUrl = Format(action.Url, @event);
+    var ruleDescription = $"Send event to webhook '{requestUrl}'";
+    var ruleJob = new WebhookJob
+    {
+        RequestUrl = Format(action.Url.ToString(), @event),
+        RequestBody = Format(action.Payload, @event)
+    };
+    return (ruleDescription, ruleJob);
 }
 ```
 
@@ -204,16 +199,16 @@ The second method is used to execute the job. We do not have access to our origi
 protected override async Task<Result>
     ExecuteJobAsync(WebhookJob job, CancellationToken ct = default)
 {
-	try
-	{
-		await HTTP(job.RequestUrl, job.RequestBody, ct);
+    try
+    {
+        await HTTP(job.RequestUrl, job.RequestBody, ct);
 		
-		return Result.Success("My Request Dump");
-	}
-	catch (Exception ex)
-	{
-		return Result.Failed(ex, "My Request Dump");
-	}
+	return Result.Success("My Request Dump");
+    }
+    catch (Exception ex)
+    {
+        return Result.Failed(ex, "My Request Dump");
+    }
 }
 ```
 
@@ -237,4 +232,6 @@ public sealed class WebhookPlugin : IPlugin
 }
 ```
 
-That's it. If you have written a custom rule action for a system is that is publicly available, you can provide your implementation as a pull request.
+That's it.
+
+If you have written a custom rule action for a public system, like an SaaS solution, you can provide your implementation as a pull request.

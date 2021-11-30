@@ -73,7 +73,7 @@ You can also add the `quality` parameter to the asset URL to define the quality 
 
 ## How caching works
 
-Squidex provides the `ETag` **header for each asset. The browser caches the asset, along with its ETag. If the user wants retrieve the same URL resource again, it will first determine whether the locally cached version of the URL has expired (through the `Cache-Control` and the `Expire` **headers).\
+Squidex provides the `ETag` **header for each asset. The browser caches the asset, along with its ETag. If the user wants retrieve the same URL resource again, it will first determine whether the locally cached version of the URL has expired (through the `Cache-Control` and the `Expire` ** headers).\
 If the URL has not expired, it will retrieve the locally cached resource. If it is determined that the URL has expired (is stale), the client will contact the server and send its previously-saved copy of the ETag along with the request in an `If-None-Match` field.\
 Squidex now compares the passed ETag with the ETag of the current version of the asset. If the ETag values match, meaning that the asset has not changed, the server sends back an empty response with a [**HTTP 304 Not Modified**](https://en.wikipedia.org/wiki/HTTP\_304) status and the Browser will show the cached version.
 

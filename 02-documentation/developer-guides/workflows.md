@@ -66,7 +66,7 @@ We start by creating our Roles in Squidex:
 
 ![Roles](<../../.gitbook/assets/roles (1).png>)
 
-As you can see in the screenshot above, the **Creator **can only create and update content, but not publish it and the **Reviewer** can only update content. we use the default role **Editor** for the **Publisher**.
+As you can see in the screenshot above, the **Creator** can only create and update content, but not publish it and the **Reviewer** can only update content. we use the default role **Editor** for the **Publisher**.
 
 So we solved the problem that only the **Publisher** should be able to publish, unpublish content, but there is still something left to do.
 

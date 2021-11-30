@@ -165,12 +165,12 @@ https://.../api/content/geodata/cities?$top=30
 {% endtabs %}
 
 {% hint style="info" %}
-Because of a stupid error the parameter is called **top **in OData and **take **in JSON.
+Because of a stupid error the parameter is called **top** in OData and **take** in JSON.
 {% endhint %}
 
 ### Skipping items in the result set
 
-The `skip` query option requests the number of items in the queried collection that are to be skipped and not included in the result. Use it together with `top` / `take `to read the all your data page by page.
+The `skip` query option requests the number of items in the queried collection that are to be skipped and not included in the result. Use it together with `top` / `take` to read the all your data page by page.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -235,7 +235,7 @@ You can either use **search or filter** but not both.
 
 The filter system query option allows clients to filter a collection of resources that are addressed by a request URL.
 
-Find the city with the name _Munich _in English.
+Find the city with the name _Munich_ in English.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -328,7 +328,7 @@ https://.../api/content/app/term?$filter=data/tags/iv eq 'Beer'
 {% endtabs %}
 
 {% hint style="info" %}
-You can either use **search **or **filter** but not both.
+You can either use **search** or **filter** but not both.
 {% endhint %}
 
 #### More examples
