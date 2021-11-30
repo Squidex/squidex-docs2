@@ -6,9 +6,9 @@ description: Provide a live preview on your website for your content editors.
 
 By default, Squidex will only deliver content that has been published. But it can be very useful to review content in your production environment before you actually publish it. This guide shows you how to do it.
 
-## Step 1: Query unpublished content in your application
+## Step 1: Query unpublished content
 
-To retrieve unpublished content you can add the `X-Unpublished` header to all your Http Requests to the Squidex API. For the website I have added a top secret query parameter to the blog page. When this query parameter is set to true, it will create add this header to the requests.
+To retrieve unpublished content you can add the `X-Unpublished` header to all your HTTP requests to the Squidex API (REST or GraphQL). For the website I have added a top secret query parameter to the blog page. When this query parameter is set to true, it will create add this header to the requests.
 
 The following example shows how you can do it with the C# client library:
 
@@ -35,18 +35,23 @@ public async Task<IActionResult> OnGet(string slug, bool secretQueryParameter = 
 }
 ```
 
-## Step2: Manage preview urls
+## Step 2: Manage preview URLs
 
-You can define preview urls per schema in the following menu item:
+You can define preview URL per schema in the following menu item:
 
-![Menu Item](../../.gitbook/assets/menu.png)
+1. Go to the settings area (1)
+2. Select your schema (2)
+3. Select the "More" tab (3)
+4. Scroll to the "Preview URLs" (4)
 
-In the dialog you can define as preview urls as you want. The following example shows 2 preview urls:
+![Navigation to Preview URLs](<../../.gitbook/assets/image (75).png>)
 
-1. The url to the normal website.
-2. The url to an dedicated mobile website (just as an example).
+The following example shows 2 preview URLs:
 
-As you can see, you can use a placeholder with the javascript interpolation syntax, e.g.
+1. The URL to the normal website.
+2. The URL to an dedicated mobile website (just as an example).
+
+As you can see, you can use a placeholder with the JavaScript interpolation syntax, e.g.
 
 1. `${id}` of the content.
 2. `${data.slug}`: Slug field (if not localized).
@@ -55,10 +60,10 @@ As you can see, you can use a placeholder with the javascript interpolation synt
 5. `${data.title.en-US}`: Title in American English
 6. `${version}`: Version of the content item.
 
-![Preview Urls](../../.gitbook/assets/dialog.png)
+![Preview URLs](<../../.gitbook/assets/image (72).png>)
 
-## Step 3: Use the preview button to go the corresponding URL:
+## Step 3: Use the preview button
 
-If you open a saved content item, you will see the buttons with the preview urls:
+If you open a saved content item, you will see the buttons with the preview URLs:
 
-![Preview Buttons](../../.gitbook/assets/button.png)
+![The preview button](<../../.gitbook/assets/image (74).png>)
