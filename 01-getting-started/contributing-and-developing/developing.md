@@ -20,12 +20,13 @@ We generally recommend to install Docker on your Developer machine. It makes you
 * [Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/)
 
 {% hint style="info" %}
-Personally I was not able to setup the newer Docker Versions on Windows 10 Home. If you do not have a Windows 10 license, I recommend not to invest the Money. Get a cheap build server for a few bucks per month or just install MongoDB manually. It takes only around 15 minutes.
+Personally I was not able to run newer versions of Docker on Windows 10 Home. If you do not have a Windows 10 PRO license, I recommend not to invest the money. Get a cheap build server for a few bucks per month or just install MongoDB manually. It takes around 15 minutes only.
 {% endhint %}
 
 ### For the backend
 
-* [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
+* [.NET 6  SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+* [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) (for version <= 6.1.)
 * [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) or [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) (for older versions of Squidex)
 * [MongoDB](https://www.mongodb.com)
 * Optionally: [RabbitMQ](https://www.rabbitmq.com/download.html)
@@ -47,16 +48,17 @@ docker-compose up -d
 
 * [NodeJS](https://nodejs.org/en/) (>= 10.0)
 
-Usually newer versions are better but we have the experience that newer versions of NodeJS are more memory hungry in some situations. You can also use node through nvm - this will allow to work with multiple versions at the same time.
+Usually newer versions are better but we have the experience that newer versions of NodeJS consume a lot of memory during build or when running webpack dev server.
 
 ### IDE and editors
 
 You can use any editor you want, but our recommendation is to use:
 
+* [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/de/vs/community/) for the backend OR
 * [Visual Studio 2019 Community Edition ](https://visualstudio.microsoft.com/vs/?rr=https%3A%2F%2Fwww.google.com%2F)for the backend.
 * [Visual Studio Code](https://code.visualstudio.com) for the frontend with the following plugins installed:
-  * [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
-  * [Sass-Lint](https://marketplace.visualstudio.com/items?itemName=glen-84.sass-lint)
+  * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) (to run linting for typescript)
+  * [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) (to run linting for scss / css)
   * [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
 
 ## How to run Squidex
