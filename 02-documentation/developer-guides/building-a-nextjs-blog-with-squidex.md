@@ -20,15 +20,15 @@ To complete this guide, you need:
 
 In Squidex, an application is an isolated data store with schemas that define how its content is structured and API endpoints to query its content. You can visit [this page](https://docs.squidex.io/02-documentation/concepts/apps) of the Squidex docs to learn more about apps in Squidex.
 
-Start by logging into your Squidex account dashboard at https://cloud.squidex.io/. Click **New App** to create an empty application. Enter a name you choose for the app in the space provided and click **Create** to create the app. For the sake of this guide, we will assume the name of your Squidex application is `squidex-blog`.
+Start by logging into your Squidex account dashboard at https://cloud.squidex.io/. Click _New App_ to create an empty application. Enter a name you choose for the app in the space provided and click _Create_ to create the app. For the sake of this guide, we will assume the name of your Squidex application is `squidex-blog`.
 
 ## Step 2: Creating the posts schema on the CMS
 
 Now that you have created the app on Squidex, you will proceed to create the schema for the blog application. This schema will define the structure of your content.
 
-Still on your Squidex account dashboard at https://cloud.squidex.io, click **squidex-blog** (or whatever name you chose) on the dashboard to enter the dashboard for your newly created app.
+Still on your Squidex account dashboard at https://cloud.squidex.io, click _squidex-blog_ (or whatever name you chose) on the dashboard to enter the dashboard for your newly created app.
 
-On the left panel, select **Schemas** and click the Plus(**+**) to start creating the posts schema. Enter `posts` in the space provided under **Name**, select **Multiple contents** since you will be having many posts, and click **Create** to create the schema. 
+On the left panel, select _Schemas_ and click the Plus(_+_) to start creating the posts schema. Enter `posts` in the space provided under _Name_, select _Multiple contents_ since you will be having many posts, and click _Create_ to create the schema. 
 
 You will be creating three fields under the posts schema: Title for the title of your posts, Slug to define the URL of your posts, and Content to contain the body of your blog posts.
 
@@ -38,15 +38,15 @@ You will be creating three fields under the posts schema: Title for the title of
 | Slug       | String | Slug     |
 | Content    | String | Markdown |
 
-Select **posts** from the sidebar under **Schemas**. The first field you will add to the posts schema is the Title field. Click **Add Field**. A modal window will open. Select **String** from the data type options provided, enter `Title` the space provided to enter the field name and click **Create and Edit field**. A new modal will open. Under **Validation**, check the box for **Required** since every post must have a title and finally click **Save and add field** to save the `Title` field and proceed to add the `Slug` field.
+Select _posts_ from the sidebar under _Schemas_. The first field you will add to the posts schema is the Title field. Click _Add Field_. A modal window will open. Select _String_ from the data type options provided, enter `Title` the space provided to enter the field name and click _Create and Edit field_. A new modal will open. Under _Validation_, check the box for _Required_ since every post must have a title and finally click _Save and add field_ to save the `Title` field and proceed to add the `Slug` field.
 
-You will again be presented with a menu that lists the different types. Select **String**, type `Slug` as the name of the field in the space provided and click **Create and edit field**. Under the **Validation** tab, check both **Required** and **Unique** since every post must have a slug and that slug has to be unique. Under the **Editor** section of the **Editing** tab, select **Slug**. The options at this **Editor** section allow you to choose what type of editor you want to use to edit a particular field. Click **Save and add field** to save the `Slug` field and proceed to add the `Content` field. 
+You will again be presented with a menu that lists the different types. Select _String_, type `Slug` as the name of the field in the space provided and click _Create and edit field_. Under the _Validation_ tab, check both _Required_ and _Unique_ since every post must have a slug and that slug has to be unique. Under the _Editor_ section of the _Editing_ tab, select _Slug_. The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field. 
 
-Your blog content will be formatted as a [Markdown](https://daringfireball.net/projects/markdown/) text. The markdown content will then be parsed and displayed in your blog. Select **String** as the type, type `Content` as the field name in the space provided and click **Create and edit field**. Under **Editor** in the **Editing tab**, select **Markdown**. The markdown editor Squidex provides is a WYSIWYG editor that allows you to preview content as you type.(WYSIWYG meaning what you see is what you get) Click  **Save and close** to save the changes to the `Content` field.
+Your blog content will be formatted as a [Markdown](https://daringfireball.net/projects/markdown/) text. The markdown content will then be parsed and displayed in your blog. Select _String_ as the type, type `Content` as the field name in the space provided and click _Create and edit field_. Under _Editor_ in the _Editing tab_, select _Markdown_. The markdown editor Squidex provides is a WYSIWYG editor that allows you to preview content as you type.(WYSIWYG meaning what you see is what you get) Click  _Save and close_ to save the changes to the `Content` field.
 
-To be able to add content under the posts schema, you will publish the posts schema. Click **Published** around the top right corner of the page to publish your schema.
+To be able to add content under the posts schema, you will publish the posts schema. Click _Published_ around the top right corner of the page to publish your schema.
 
-Now your schema is published, you will add sample content to your schema that will be displayed once your blog is built. To add content, click **Content** on the sidebar and select **posts** if it is not already selected. Click **New** to create a new post. If you have some content you want to transfer to Squidex, you can paste it here. If you don't, you can manually enter some placeholders for title, slug and content then click **Save and Publish** to publish the content you created. Click the back icon and **New** again to create another sample blog post. Repeat this for as many posts as you like then proceed to the next step.
+Now your schema is published, you will add sample content to your schema that will be displayed once your blog is built. To add content, click _Content_ on the sidebar and select _posts_ if it is not already selected. Click _New_ to create a new post. If you have some content you want to transfer to Squidex, you can paste it here. If you don't, you can manually enter some placeholders for title, slug and content then click _Save and Publish_ to publish the content you created. Click the back icon and _New_ again to create another sample blog post. Repeat this for as many posts as you like then proceed to the next step.
 
 ## Step 3: Setting up your Next.js workspace
 
@@ -67,7 +67,7 @@ cd squidex-blog
 yarn dev
 ```
 
-The `yarn dev` command starts a Next.js development server at `http://localhost:3000`. Visit `htttp://localhost:3000` to see your Next.js app. You would see **Welcome to Next.js** on the page. You have now successfully installed Next.js and are ready to start building your blog.
+The `yarn dev` command starts a Next.js development server at `http://localhost:3000`. Visit `htttp://localhost:3000` to see your Next.js app. You would see _Welcome to Next.js_ on the page. You have now successfully installed Next.js and are ready to start building your blog.
 
 ## Step 4: Create global styles and a Layout component
 
@@ -171,9 +171,9 @@ Now that you have added the styles and a header and footer to your application, 
 
 To be able to fetch data from your Squidex App, you need to have a bearer token. A token gives you the permission to create, read or modify content on a Squidex application. But before you can get a token, you need to create a client on Squidex.
 
-Open the dashboard of your blog application(`squidex-blog` or whatever name you chose) from https://cloud.squidex.io. On the left sidebar, click the **cog icon** at the bottom left corner of the page to open settings. Under the **Security** section click **Clients**. At the top of the page, you will see a section where you can create a client. In the text box provided under **Add a new client**, type `nextjs-blog` as the name of the client and click **Add Client** to create the client. Now when you scroll down the page you will notice a new `nextjs-blog` client has been created. By default, this new client comes with the Editor role. In Squidex, roles define which schemas a client has access to and which operations such as reading and writing a client is authorized to do. Since you wouldn't be making any changes to your content from your blog's frontend, you will change the role of the client to Reader i.e. with only read permissions. In the dropdown for **Role**, select **Reader**.
+Open the dashboard of your blog application(`squidex-blog` or whatever name you chose) from https://cloud.squidex.io. On the left sidebar, click the _cog icon_ at the bottom left corner of the page to open settings. Under the _Security_ section click _Clients_. At the top of the page, you will see a section where you can create a client. In the text box provided under _Add a new client_, type `nextjs-blog` as the name of the client and click _Add Client_ to create the client. Now when you scroll down the page you will notice a new `nextjs-blog` client has been created. By default, this new client comes with the Editor role. In Squidex, roles define which schemas a client has access to and which operations such as reading and writing a client is authorized to do. Since you wouldn't be making any changes to your content from your blog's frontend, you will change the role of the client to Reader i.e. with only read permissions. In the dropdown for _Role_, select _Reader_.
 
-Now, to get the token, click the **Connect** button for the `nextjs-blog` client. From the list of connection methods provided, select **Connect manually**. A token will be generated and will be displayed below the text reading **Just use the following token**. Click the copy icon to copy the generated token.
+Now, to get the token, click the _Connect_ button for the `nextjs-blog` client. From the list of connection methods provided, select _Connect manually_. A token will be generated and will be displayed below the text reading _Just use the following token_. Click the copy icon to copy the generated token.
 
 After copying this token with Read access to your application, you will create a file containing environment variables for your Next.js app. Create a `.env.local` file in the `squidex-blog` folder and add the following contents
 
