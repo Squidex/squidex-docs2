@@ -16,13 +16,13 @@ To complete this guide, you need:
 * A Squidex account. You can create one at https://cloud.squidex.io
 * Node.js and Yarn installed on your computer. Follow these guides to install [Node.js](https://phoenixnap.com/kb/install-node-js-npm-on-windows) and [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)  if you haven't already.
 
-## Step 1 — Creating the app on Squidex
+## Step 1: Creating the app on Squidex
 
 In Squidex, an application is an isolated data store with schemas that define how its content is structured and API endpoints to query its content. You can visit [this page](https://docs.squidex.io/02-documentation/concepts/apps) of the Squidex docs to learn more about apps in Squidex.
 
 Start by logging into your Squidex account dashboard at https://cloud.squidex.io/. Click **New App** to create an empty application. Enter a name you choose for the app in the space provided and click **Create** to create the app. For the sake of this guide, we will assume the name of your Squidex application is `squidex-blog`.
 
-## Step 2 — Creating the posts schema on the CMS
+## Step 2: Creating the posts schema on the CMS
 
 Now that you have created the app on Squidex, you will proceed to create the schema for the blog application. This schema will define the structure of your content.
 
@@ -48,7 +48,7 @@ To be able to add content under the posts schema, you will publish the posts sch
 
 Now your schema is published, you will add sample content to your schema that will be displayed once your blog is built. To add content, click **Content** on the sidebar and select **posts** if it is not already selected. Click **New** to create a new post. If you have some content you want to transfer to Squidex, you can paste it here. If you don't, you can manually enter some placeholders for title, slug and content then click **Save and Publish** to publish the content you created. Click the back icon and **New** again to create another sample blog post. Repeat this for as many posts as you like then proceed to the next step.
 
-## Step 3 — Setting up your Next.js workspace
+## Step 3: Setting up your Next.js workspace
 
 Now that you have created your schema on Squidex, you will proceed to set up your Next.js workspace.
 
@@ -69,7 +69,7 @@ yarn dev
 
 The `yarn dev` command starts a Next.js development server at `http://localhost:3000`. Visit `htttp://localhost:3000` to see your Next.js app. You would see **Welcome to Next.js** on the page. You have now successfully installed Next.js and are ready to start building your blog.
 
-## Step 4 — Create global styles and a Layout component
+## Step 4: Create global styles and a Layout component
 
 You would start by creating a `Layout` component that adds a header and footer to all the pages of your blog. Create a `components ` folder in `squidex-blog` and create a  `layout.js` file in the `squidex-blog/components` folder with the following contents:
 
@@ -167,7 +167,7 @@ Visit `localhost:3000` if you haven't already. The development server will rebui
 
 Now that you have added the styles and a header and footer to your application, you will proceed to set up authentication for requests to the Squidex API.
 
-## Step 5 — Preparing to fetch data from the Squidex API
+## Step 5: Preparing to fetch data from the Squidex API
 
 To be able to fetch data from your Squidex App, you need to have a bearer token. A token gives you the permission to create, read or modify content on a Squidex application. But before you can get a token, you need to create a client on Squidex.
 
@@ -230,7 +230,7 @@ This exports a `fetchAPI` function that you pass a GraphQL query and its variabl
 
 You are now ready to fetch content from Squidex and display it in your Next.js blog.
 
-## Step 6 — Displaying blog posts on home page
+## Step 6: Displaying blog posts on home page
 
 In this step, you will fetch the titles of and links to your blog post and display them on the homepage of your blog.
 
@@ -379,7 +379,7 @@ If you look at your blog homepage in a browser, you will see that the titles of 
 
 Now that you have successfully created links to your posts on the homepage, you will create the pages where your blog posts can be read.
 
-## Step 7 — Creating the blog post pages
+## Step 7: Creating the blog post pages
 
 In the `pages` folder, create a `[slug].js` file. This kind of route in a Next.js app is known as a dynamic route. Learn more about dynamic routes and how they are used from [the Next.js docs](https://nextjs.org/docs/routing/dynamic-routes).
 
