@@ -14,7 +14,7 @@ This tutorial will guide you to create a blog application, set up its schema, an
 To complete this guide, you need:
 
 * A Squidex account. You can create one at https://cloud.squidex.io
-* Node.js and Yarn installed on your computer. Follow these guides to install [Node.js](https://phoenixnap.com/kb/install-node-js-npm-on-windows) and [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)  if you haven't already.
+* Node.js and Yarn installed on your computer. Follow these guides to install [Node.js](https://phoenixnap.com/kb/install-node-js-npm-on-windows) and [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable) if you haven't already.
 
 ## Step 1: Creating the app on Squidex
 
@@ -42,7 +42,7 @@ Select _posts_ from the sidebar under _Schemas_. The first field you will add to
 
 You will again be presented with a menu that lists the different types. Select _String_, type `Slug` as the name of the field in the space provided and click _Create and edit field_. Under the _Validation_ tab, check both _Required_ and _Unique_ since every post must have a slug and that slug has to be unique. Under the _Editor_ section of the _Editing_ tab, select _Slug_. The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field. 
 
-Your blog content will be formatted as a [Markdown](https://daringfireball.net/projects/markdown/) text. The markdown content will then be parsed and displayed in your blog. Select _String_ as the type, type `Content` as the field name in the space provided and click _Create and edit field_. Under _Editor_ in the _Editing tab_, select _Markdown_. The markdown editor Squidex provides is a WYSIWYG editor that allows you to preview content as you type.(WYSIWYG meaning what you see is what you get) Click  _Save and close_ to save the changes to the `Content` field.
+Your blog content will be formatted as a [Markdown](https://daringfireball.net/projects/markdown/) text. The markdown content will then be parsed and displayed in your blog. Select _String_ as the type, type `Content` as the field name in the space provided and click _Create and edit field_. Under _Editor_ in the _Editing tab_, select _Markdown_. The markdown editor Squidex provides is a WYSIWYG editor that allows you to preview content as you type.(WYSIWYG meaning what you see is what you get) Click _Save and close_ to save the changes to the `Content` field.
 
 To be able to add content under the posts schema, you will publish the posts schema. Click _Published_ around the top right corner of the page to publish your schema.
 
@@ -71,7 +71,7 @@ The `yarn dev` command starts a Next.js development server at `http://localhost:
 
 ## Step 4: Create global styles and a Layout component
 
-You would start by creating a `Layout` component that adds a header and footer to all the pages of your blog. Create a `components ` folder in `squidex-blog` and create a  `layout.js` file in the `squidex-blog/components` folder with the following contents:
+You would start by creating a `Layout` component that adds a header and footer to all the pages of your blog. Create a `components ` folder in `squidex-blog` and create a `layout.js` file in the `squidex-blog/components` folder with the following contents:
 
 ```jsx
 import Link from "next/link";
@@ -97,7 +97,7 @@ export default function Layout({ children }) {
 
 This creates a footer and a header with a link to your blog's homepage. The `children` prop allows you to wrap whatever content is added into the `Layout` component in the header and footer.
 
-After creating the `Layout` component, you will add create a CSS file that contains styles for your blog. Create a `styles.css` file in the `squidex-blog` folder  and add the following contents to the `squidex-blog/styles.css` file:
+After creating the `Layout` component, you will add create a CSS file that contains styles for your blog. Create a `styles.css` file in the `squidex-blog` folder and add the following contents to the `squidex-blog/styles.css` file:
 
 ```css
 html,
@@ -198,7 +198,7 @@ You will see a message on the terminal showing that environment variables have b
 
 Now you have set up the environment variables for your Next.js blog, you will create a helper function that adds the authorization token to the Authorization header of GraphQL queries you will make to Squidex.
 
-Create a `lib` folder in  `squidex-blog` and in this `lib` folder, create a `squidex.js` file. This file will contain the `fetchAPI` helper function for fetching data from Squidex.
+Create a `lib` folder in `squidex-blog` and in this `lib` folder, create a `squidex.js` file. This file will contain the `fetchAPI` helper function for fetching data from Squidex.
 
 Add the following contents to the `squidex-blog/lib/squidex.js` file:
 
@@ -285,9 +285,9 @@ export async function getStaticProps() {
 
 This sends a GraphQL query to your Squidex app to get the slug and titles of all your blog posts and it passes this data to your page. 
 
-In Next.js, `getStaticProps` is a function that is run at build time to fetch and store data needed to render a page.  To learn more about fetching data in Next.js see [Data Fetching in Next.js](https://nextjs.org/docs/basic-features/data-fetching). Save the file and refresh your browser to fetch page data from the CMS.
+In Next.js, `getStaticProps` is a function that is run at build time to fetch and store data needed to render a page. To learn more about fetching data in Next.js see [Data Fetching in Next.js](https://nextjs.org/docs/basic-features/data-fetching). Save the file and refresh your browser to fetch page data from the CMS.
 
-To make this data available to the  `Home` page component of `index.js`, pass posts as a prop to `Home` in index.js:
+To make this data available to the `Home` page component of `index.js`, pass posts as a prop to `Home` in index.js:
 
 ```js
 export default function Home({ posts }) {
@@ -580,4 +580,4 @@ You have now built a fully functioning blog in Next.js that sources data from Sq
 
 ## Conclusion
 
-Now that you have built your blog with Next.js and Squidex, you may want to know how to deploy  your blog to a live site. Check out this page on [Deploying a Next.js site](https://nextjs.org/docs/deployment). You may also want to explore the [Next.js Head component](https://nextjs.org/docs/api-reference/next/head) to see how to adding meta tags to your pages to allow search engines better understand your content.
+Now that you have built your blog with Next.js and Squidex, you may want to know how to deploy your blog to a live site. Check out this page on [Deploying a Next.js site](https://nextjs.org/docs/deployment). You may also want to explore the [Next.js Head component](https://nextjs.org/docs/api-reference/next/head) to see how to adding meta tags to your pages to allow search engines better understand your content.
