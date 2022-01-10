@@ -13,8 +13,8 @@ This tutorial will guide you to create a blog application, set up its schema, an
 
 To complete this guide, you need:
 
-* A Squidex account. You can create one at https://cloud.squidex.io
-* Node.js and Yarn installed on your computer. Follow these guides to install [Node.js](https://phoenixnap.com/kb/install-node-js-npm-on-windows) and [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable) if you haven't already.
+- A Squidex account. You can create one at https://cloud.squidex.io
+- Node.js and Yarn installed on your computer. Follow these guides to install [Node.js](https://phoenixnap.com/kb/install-node-js-npm-on-windows) and [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable) if you haven't already.
 
 ## Step 1: Creating the app on Squidex
 
@@ -28,7 +28,7 @@ Now that you have created the app on Squidex, you will proceed to create the sch
 
 Still on your Squidex account dashboard at https://cloud.squidex.io, click _squidex-blog_ (or whatever name you chose) on the dashboard to enter the dashboard for your newly created app.
 
-On the left panel, select _Schemas_ and click the Plus(_+_) to start creating the posts schema. Enter `posts` in the space provided under _Name_, select _Multiple contents_ since you will be having many posts, and click _Create_ to create the schema. 
+On the left panel, select _Schemas_ and click the Plus(_+_) to start creating the posts schema. Enter `posts` in the space provided under _Name_, select _Multiple contents_ since you will be having many posts, and click _Create_ to create the schema.
 
 You will be creating three fields under the posts schema: Title for the title of your posts, Slug to define the URL of your posts, and Content to contain the body of your blog posts.
 
@@ -40,7 +40,7 @@ You will be creating three fields under the posts schema: Title for the title of
 
 Select _posts_ from the sidebar under _Schemas_. The first field you will add to the posts schema is the Title field. Click _Add Field_. A modal window will open. Select _String_ from the data type options provided, enter `Title` the space provided to enter the field name and click _Create and Edit field_. A new modal will open. Under _Validation_, check the box for _Required_ since every post must have a title and finally click _Save and add field_ to save the `Title` field and proceed to add the `Slug` field.
 
-You will again be presented with a menu that lists the different types. Select _String_, type `Slug` as the name of the field in the space provided and click _Create and edit field_. Under the _Validation_ tab, check both _Required_ and _Unique_ since every post must have a slug and that slug has to be unique. Under the _Editor_ section of the _Editing_ tab, select _Slug_. The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field. 
+You will again be presented with a menu that lists the different types. Select _String_, type `Slug` as the name of the field in the space provided and click _Create and edit field_. Under the _Validation_ tab, check both _Required_ and _Unique_ since every post must have a slug and that slug has to be unique. Under the _Editor_ section of the _Editing_ tab, select _Slug_. The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field.
 
 Your blog content will be formatted as a [Markdown](https://daringfireball.net/projects/markdown/) text. The markdown content will then be parsed and displayed in your blog. Select _String_ as the type, type `Content` as the field name in the space provided and click _Create and edit field_. Under _Editor_ in the _Editing tab_, select _Markdown_. The markdown editor Squidex provides is a WYSIWYG editor that allows you to preview content as you type.(WYSIWYG meaning what you see is what you get) Click _Save and close_ to save the changes to the `Content` field.
 
@@ -92,7 +92,6 @@ export default function Layout({ children }) {
     </div>
   );
 }
-
 ```
 
 This creates a footer and a header with a link to your blog's homepage. The `children` prop allows you to wrap whatever content is added into the `Layout` component in the header and footer.
@@ -104,8 +103,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .container {
@@ -204,25 +203,25 @@ Add the following contents to the `squidex-blog/lib/squidex.js` file:
 
 ```js
 export default async function fetchAPI(query, { variables } = {}) {
-    const res = await fetch(process.env.SQUIDEX_API_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.SQUIDEX_BEARER_TOKEN}`,
-        },
-        body: JSON.stringify({
-            query,
-            variables,
-        }),
-    });
-    const json = await res.json();
+  const res = await fetch(process.env.SQUIDEX_API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.SQUIDEX_BEARER_TOKEN}`,
+    },
+    body: JSON.stringify({
+      query,
+      variables,
+    }),
+  });
+  const json = await res.json();
 
-    if (json.errors) {
-        console.error(json.errors);
-        throw new Error("Failed to fetch API");
-    }
+  if (json.errors) {
+    console.error(json.errors);
+    throw new Error("Failed to fetch API");
+  }
 
-    return json.data;
+  return json.data;
 }
 ```
 
@@ -249,7 +248,6 @@ export default function Home() {
     </div>
   );
 }
-
 ```
 
 Open `http://localhost:3000` in your browser if you haven't already to continue previewing changes.
@@ -274,16 +272,16 @@ export async function getStaticProps() {
       }
     }
   }
-  `)
+  `);
   return {
     props: {
-      posts: data.queryPostsContents
-    }
-  }
+      posts: data.queryPostsContents,
+    },
+  };
 }
 ```
 
-This sends a GraphQL query to your Squidex app to get the slug and titles of all your blog posts and it passes this data to your page. 
+This sends a GraphQL query to your Squidex app to get the slug and titles of all your blog posts and it passes this data to your page.
 
 In Next.js, `getStaticProps` is a function that is run at build time to fetch and store data needed to render a page. To learn more about fetching data in Next.js see [Data Fetching in Next.js](https://nextjs.org/docs/basic-features/data-fetching). Save the file and refresh your browser to fetch page data from the CMS.
 
@@ -311,7 +309,6 @@ export default function BlogItem({ title, slug }) {
     </div>
   );
 }
-
 ```
 
 To use `BlogItem` on your homepage, import it in `pages/index.js`
@@ -324,9 +321,13 @@ And in the `Home` function in `index.js`, after the `Head` tag, add the followin
 
 ```jsx
 <div className="blog-post-list">
-  {
-    posts.map((post) => <BlogItem title={post.flatData.title} slug={post.flatData.slug} key={post.id} />)
-  }
+  {posts.map((post) => (
+    <BlogItem
+      title={post.flatData.title}
+      slug={post.flatData.slug}
+      key={post.id}
+    />
+  ))}
 </div>
 ```
 
@@ -347,9 +348,13 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="blog-post-list">
-        {
-          posts.map((post) => <BlogItem title={post.flatData.title} slug={post.flatData.slug} key={post.id} />)
-        }
+        {posts.map((post) => (
+          <BlogItem
+            title={post.flatData.title}
+            slug={post.flatData.slug}
+            key={post.id}
+          />
+        ))}
       </div>
     </div>
   );
@@ -366,12 +371,12 @@ export async function getStaticProps() {
       }
     }
   }
-  `)
+  `);
   return {
     props: {
-      posts: data.queryPostsContents
-    }
-  }
+      posts: data.queryPostsContents,
+    },
+  };
 }
 ```
 
@@ -385,9 +390,7 @@ In the `pages` folder, create a `[slug].js` file. This kind of route in a Next.j
 
 ```jsx
 export default function BlogPost() {
-    return (<div>
-        Body
-    </div>)
+  return <div>Body</div>;
 }
 ```
 
@@ -408,21 +411,22 @@ yarn dev
 Import `serialize` and `MDXRemote` from `next-mdx-remote` at the top of `[slug].js`:
 
 ```jsx
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
 ```
 
 Import `fetchAPI` at the top of `[slug].js` since you need to fetch your blog post from Squidex:
 
 ```js
-import fetchAPI from '../lib/squidex';
+import fetchAPI from "../lib/squidex";
 ```
 
 Export a `getStaticProps` function from `[slug].js`:
 
 ```js
 export async function getStaticProps({ params }) {
-  const data = await fetchAPI(`
+  const data = await fetchAPI(
+    `
   query QueryPosts($query: String!) {
 		queryPostsContents(filter: $query) {
 			id
@@ -432,27 +436,29 @@ export async function getStaticProps({ params }) {
 			}
 		}
 	}
-  `, {
-		variables : {
-			"query": `data/Slug/iv eq '${params.slug}'`
-		}
-	})
-	
-	if(data.queryPostsContents.length === 0) {
-		return {
-            notFound: true,
-        }
-	}
-        const post = data.queryPostsContents[0].flatData;
-        
-        const mdxSource = await serialize(post.content)
-	
+  `,
+    {
+      variables: {
+        query: `data/Slug/iv eq '${params.slug}'`,
+      },
+    }
+  );
+
+  if (data.queryPostsContents.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
+  const post = data.queryPostsContents[0].flatData;
+
+  const mdxSource = await serialize(post.content);
+
   return {
     props: {
       post: post,
       source: mdxSource,
-    }
-  }
+    },
+  };
 }
 ```
 
@@ -473,18 +479,18 @@ export async function getStaticPaths() {
       }
     }
   }
-  `)
-	
+  `);
+
   return {
     paths: data.queryPostsContents.map((post) => {
-	  return {
-	    params: {
-		  slug: post.flatData.slug
-		}
-	  }
-	}),
-    fallback: false
-  }
+      return {
+        params: {
+          slug: post.flatData.slug,
+        },
+      };
+    }),
+    fallback: false,
+  };
 }
 ```
 
@@ -494,31 +500,36 @@ Modify the `BlogPost` function in `[slug].js`:
 
 ```jsx
 export default function BlogPost({ post, source }) {
-    return(<div>
-        <h1 className="blog-post-title">{post.title}</h1>
-	    <MDXRemote {...source} />
-    </div>)
+  return (
+    <div>
+      <h1 className="blog-post-title">{post.title}</h1>
+      <MDXRemote {...source} />
+    </div>
+  );
 }
 ```
 
-Once you save the file, the title of the blog post and the body of the post will show on the page. If you did not refresh the page after adding `getStaticProps`, you may see an error. Refresh the page to fetch data from your Squidex application. 
+Once you save the file, the title of the blog post and the body of the post will show on the page. If you did not refresh the page after adding `getStaticProps`, you may see an error. Refresh the page to fetch data from your Squidex application.
 
 The finished `[slug].js` file will look like this:
 
 ```jsx
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
-import fetchAPI from '../lib/squidex';
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
+import fetchAPI from "../lib/squidex";
 
 export default function BlogPost({ post, source }) {
-    return (<div>
-        <h1 className="blog-post-title">{post.title}</h1>
-        <MDXRemote {...source} />
-    </div>)
+  return (
+    <div>
+      <h1 className="blog-post-title">{post.title}</h1>
+      <MDXRemote {...source} />
+    </div>
+  );
 }
 
 export async function getStaticProps({ params }) {
-    const data = await fetchAPI(`
+  const data = await fetchAPI(
+    `
     query QueryPosts($query: String!) {
           queryPostsContents(filter: $query) {
               id
@@ -528,31 +539,33 @@ export async function getStaticProps({ params }) {
               }
           }
       }
-    `, {
-        variables: {
-            "query": `data/Slug/iv eq '${params.slug}'`
-        }
-    })
-
-    if (data.queryPostsContents.length === 0) {
-        return {
-            notFound: true,
-        }
+    `,
+    {
+      variables: {
+        query: `data/Slug/iv eq '${params.slug}'`,
+      },
     }
-    const post = data.queryPostsContents[0].flatData;
+  );
 
-    const mdxSource = await serialize(post.content)
-
+  if (data.queryPostsContents.length === 0) {
     return {
-        props: {
-            post: post,
-            source: mdxSource,
-        }
-    }
+      notFound: true,
+    };
+  }
+  const post = data.queryPostsContents[0].flatData;
+
+  const mdxSource = await serialize(post.content);
+
+  return {
+    props: {
+      post: post,
+      source: mdxSource,
+    },
+  };
 }
 
 export async function getStaticPaths() {
-    const data = await fetchAPI(`
+  const data = await fetchAPI(`
     {
       queryPostsContents {
         id,
@@ -561,18 +574,18 @@ export async function getStaticPaths() {
         }
       }
     }
-    `)
+    `);
 
-    return {
-        paths: data.queryPostsContents.map((post) => {
-            return {
-                params: {
-                    slug: post.flatData.slug
-                }
-            }
-        }),
-        fallback: false
-    }
+  return {
+    paths: data.queryPostsContents.map((post) => {
+      return {
+        params: {
+          slug: post.flatData.slug,
+        },
+      };
+    }),
+    fallback: false,
+  };
 }
 ```
 
