@@ -7,9 +7,7 @@ description: >-
 
 ### Introduction
 
-In this article, you will build a blog on [Next.js](https://nextjs.org) that uses [Squidex](https://www.squidex.io) as its Content Management System(CMS). Squidex is a headless CMS that provides a central point, separate from where the data is presented, where data for an application is stored. Next.js is a static site generator that allows you to render pages on build time. 
-
-In this tutorial, you will create your blog application, set up its schema, and add mock content on Squidex, and create a Next.js blog based on the data stored in your CMS.
+This tutorial will guide you to create a blog application, set up its schema, and add mock content on Squidex, and create a Next.js blog based on the data stored in your CMS.
 
 ## Prerequisites
 
