@@ -17,6 +17,7 @@
   * [Configuration](01-getting-started/installation/configuration.md)
   * [Troubleshooting and Support](01-getting-started/installation/troubleshooting-and-support/README.md)
     * [Diagnose runtime issues](01-getting-started/installation/troubleshooting-and-support/diagnose-runtime-issues.md)
+    * [Restore deleted apps](01-getting-started/installation/troubleshooting-and-support/restore-deleted-apps.md)
   * [Install Identity (Deprecated)](01-getting-started/installation/install-identity.md)
 * [Contributing and Developing](01-getting-started/contributing-and-developing/README.md)
   * [Building](01-getting-started/contributing-and-developing/building.md)

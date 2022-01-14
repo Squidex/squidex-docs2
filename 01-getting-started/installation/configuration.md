@@ -45,13 +45,16 @@ Casing does not matter.
 
 ## Important settings
 
+#### Settings and Environment Variables
+
 These are the most important settings:
 
-| Setting                  | Description                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `urls:baseUrl`           | The base url under which Squidex is running. It is used to generate hyperlinks and to make redirects with the correct host name. In some environments, squidex is running behind several proxies, e.g. cloudflare, google load balancer and so on. In these cases the original host name might get lost. Therefore we introduced this configuration value. |
-| `identity:adminEmail`    | The email address of the admin user.                                                                                                                                                                                                                                                                                                                       |
-| `identity:adminPassword` | The password of the admin user (Must contain lowercase, uppercase letter, number and special character.)                                                                                                                                                                                                                                                   |
+| Setting                  | Description                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `urls:baseUrl`           | The base URL under which Squidex is running. It is used to generate hyperlinks and to make redirects with the correct host name. In some environments, squidex is running behind several proxies, e.g. cloudflare, google load balancer and so on. In these cases the original host name might get lost. Therefore we introduced this configuration value.                                                |
+| `identity:adminEmail`    | The email address of the admin user. You can also set the admin email with the initial setup screen.                                                                                                                                                                                                                                                                                                      |
+| `identity:adminPassword` | The password of the admin user (Must contain lowercase, uppercase letter, number and special character). You can also set the admin password with the initial setup screen.                                                                                                                                                                                                                               |
+| `clustering:mode`        | Squidex uses [Microsoft Orleans](https://dotnet.github.io/orleans/index.html) for clustering. It is technology, which was written for online games, such as Halo. With Orleans you develop small classes that are deployed automatically to a cluster of nodes. To enable clustering you have to set this setting to `Mongo`, which means that a MongoDB table is used to store the state of the cluster. |
 
 Set
 
@@ -60,6 +63,17 @@ Set
 * `identity:microsoftClient`
 
 to empty to disable authentication with third party providers.
+
+#### Health Checks
+
+Many systems support health checks to determinate the health of a service. For example load balancers periodically call an endpoint of the service to remove dead nodes from the list of available nodes and to stop serving HTTP requests to these nodes.
+
+Squidex provides the following health checks:
+
+* `/healthz` (e.g. [https://cloud.squidex.io/healthz](https://cloud.squidex.io/healthz)): An endpoint to check if Squidex can serve HTTP request and has not consumed too much memory. Recommended health check for liveness, startup and readiness probes.
+* `/cluster-healthz`(e.g. [https://cloud.squidex.io/cluster-healthz](https://cloud.squidex.io/cluster-healthz)): An endpoint to check the status of the cluster and if a node can connect to the cluster. It is not recommended to use this endpoint for liveness, startup and readiness probes, because the clustering system has its own health system.
+* `/background-healthz` (e.g. [https://cloud.squidex.io/background-healthz](https://cloud.squidex.io/background-healthz)): An endpoint to check the status of background processes. It is not recommended to use this endpoint for liveness, startup and readiness probes, because a restart of a node would not help in most cases. But it is useful for monitoring.
+* `/readiness` (e.g. [https://cloud.squidex.io/readiness](https://cloud.squidex.io/readiness)): Special endpoint for readiness and startup probes. Usually it is not needed to use this endpoint.
 
 ## Troubleshooting
 
