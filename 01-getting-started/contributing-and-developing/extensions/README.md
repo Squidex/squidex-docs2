@@ -1,5 +1,5 @@
 ---
-description: How to extend squidex and the different extension points for customization's.
+description: How to extend Squidex and the different extension points for customization's.
 ---
 
 # Extensions

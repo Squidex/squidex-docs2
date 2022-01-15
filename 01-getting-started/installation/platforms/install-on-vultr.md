@@ -143,7 +143,7 @@ squidex_squidex:
       - ASSETSTORE__AMAZONS3__FORCEPATHSTYLE=${S3_FORCEPATHSTYLE}
 ```
 
-In your command line shell, update your squidex container to use the new asset storage settings:
+In your command line shell, update your Squidex container to use the new asset storage settings:
 
 ```
 docker-compose up -d

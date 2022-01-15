@@ -45,12 +45,12 @@ Go to the release page and download the `binaries.zip` file from the latest rele
 
 > [Squidex Releases](https://github.com/Squidex/squidex/releases)
 
-Create a folder for your squidex installation and extract the archive to this folder.
+Create a folder for your Squidex installation and extract the archive to this folder.
 
 ### 2.2. Create the IIS site
 
 1. In IIS Manager, open the server's node in the **Connections** panel. Right-click the **Sites** folder. Select **Add Website** from the contextual menu.
-2. Provide a **SiteName** and set the **Physical path** to the squidex folder that you created in the previous step. In this case we host Squidex at [https://localhost:80](https://localhost:80)
+2. Provide a **SiteName** and set the **Physical path** to the Squidex folder that you created in the previous step. In this case we host Squidex at [https://localhost:80](https://localhost:80)
 3. Ensure that you also create a https binding with a proper certificate or development certificate. Due to recent security changes in Chrome, you are not able to login to Squidex anymore if you are using http instead of https. You can also use Cloudflare as https termination if you do not want to pay for a certificate.
 4.  Confirm the process model identity has the proper permissions.
 
@@ -76,7 +76,7 @@ Create a folder for your squidex installation and extract the archive to this fo
 {
   "urls": {
     /*
-     * The url where your squidex installation is available at.
+     * The url where your Squidex installation is available at.
      */
     "baseUrl": "http://localhost"
   },

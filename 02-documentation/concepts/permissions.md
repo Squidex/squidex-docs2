@@ -104,4 +104,4 @@ As an administrator you can also assign permissions to users individually:
 There are some restrictions to the system:
 
 * When you assign permissions to a user manually, this user has to logout and login again, because these permissions are stored as claims in the cookie.
-* Even if a user has the admin permission (`squidex`) or permissions for alls apps (`squidex.apps`) he will not see them in the apps overview in the administration UI. A squidex can have have thousands of apps (like our cloud) and the user interface is not designed for that. Either assign him an explicit to an app, like `squidex.apps.{app}` or enter the url manually.
+* Even if a user has the admin permission (`squidex`) or permissions for alls apps (`squidex.apps`) he will not see them in the apps overview in the administration UI. A Squidex instance can have have thousands of apps (like our cloud) and the user interface is not designed for that. Either assign him an explicit to an app, like `squidex.apps.{app}` or enter the url manually.

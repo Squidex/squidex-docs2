@@ -66,7 +66,7 @@ You can use any editor you want, but our recommendation is to use:
 You have to run both, frontend and backend, independently. The first time it feels redundant and annoying and we also had some code to run the webpack dev server automatically when the application is started. But you will recognize that it takes a minute for the webpack dev server to start. Therefore we decoupled the commands, so that you can keep the webpack dev server running, even when you have to restart the backend application.
 
 {% hint style="info" %}
-Before you start you should also ensure that the certificates for the test environment are installed. They can be found under `/dev` in the squidex folder.
+Before you start you should also ensure that the certificates for the test environment are installed. They can be found under `/dev` in the Squidex folder.
 {% endhint %}
 
 ### Frontend

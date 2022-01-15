@@ -28,7 +28,7 @@ You can create the app with predefined schemas either in the cloud or in your cu
 
 ### 1.3. Update the identity configuration
 
-Update the configureation with the url to your squidex instance and the client id and secret of the default client.
+Update the configureation with the url to your Squidex instance and the client id and secret of the default client.
 
 ![Copy Default Client](<../../.gitbook/assets/default-client (1) (1) (1).png>)
 

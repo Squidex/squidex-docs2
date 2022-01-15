@@ -36,7 +36,7 @@ The client id and secret cannot be used directly in the API calls. You have to m
 
 {% swagger baseUrl="https://cloud.squidex.io/identity-server/connect/token" path="" method="post" summary="Get access token" %}
 {% swagger-description %}
-Get an access token from squidex identity.
+Get an access token from Squidex Identity.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="scope" type="string" %}

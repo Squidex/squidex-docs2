@@ -26,7 +26,7 @@ Make sure to have an [Ingress Controller](https://kubernetes.io/docs/concepts/se
 ### 1. Add the repository
 
 ```
-helm repo add squidex https://squidex.github.io/squidex/helm/
+helm repo add Squidex https://squidex.github.io/squidex/helm/
 ```
 
 ### 2. Install the chart

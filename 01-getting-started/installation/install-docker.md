@@ -24,7 +24,7 @@ It will run 4 containers:
 * NGINX sidecar to provision free and secure certificates with [LetsEncrypt](https://letsencrypt.org/de/).
 * [MongoDB](https://www.mongodb.com/de)
 
-On GitHub you can also find alternative docker-compose configurations to run squidex without a proxy or on Azure:
+On GitHub you can also find alternative docker-compose configurations to run Squidex without a proxy or on Azure:
 
 > [https://github.com/Squidex/squidex-hosting/tree/master/docker-compose](https://github.com/Squidex/squidex-hosting/tree/master/docker-compose)
 
