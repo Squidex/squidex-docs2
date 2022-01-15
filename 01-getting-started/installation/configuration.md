@@ -45,22 +45,24 @@ Casing does not matter.
 
 ## Important settings
 
+We assume that you use environment variables to store the settings. Therefore we use the notation with the two underscores.
+
 #### Settings and Environment Variables
 
 These are the most important settings:
 
 | Setting                  | Description                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `urls:baseUrl`           | The base URL under which Squidex is running. It is used to generate hyperlinks and to make redirects with the correct host name. In some environments, Squidex is running behind several proxies, e.g. cloudflare, google load balancer and so on. In these cases the original host name might get lost. Therefore we introduced this configuration value.                                                |
-| `identity:adminEmail`    | The email address of the admin user. You can also set the admin email with the initial setup screen.                                                                                                                                                                                                                                                                                                      |
-| `identity:adminPassword` | The password of the admin user (Must contain lowercase, uppercase letter, number and special character). You can also set the admin password with the initial setup screen.                                                                                                                                                                                                                               |
-| `clustering:mode`        | Squidex uses [Microsoft Orleans](https://dotnet.github.io/orleans/index.html) for clustering. It is technology, which was written for online games, such as Halo. With Orleans you develop small classes that are deployed automatically to a cluster of nodes. To enable clustering you have to set this setting to `Mongo`, which means that a MongoDB table is used to store the state of the cluster. |
+| `URLS__BASEURL`          | The base URL under which Squidex is running. It is used to generate hyperlinks and to make redirects with the correct host name. In some environments, Squidex is running behind several proxies, e.g. cloudflare, google load balancer and so on. In these cases the original host name might get lost. Therefore we introduced this configuration value.                                                |
+| `IDENTITY__ADMINEMAIL`   | The email address of the admin user. You can also set the admin email with the initial setup screen.                                                                                                                                                                                                                                                                                                      |
+| `IDENTITY__ADMINPASWORD` | The password of the admin user (Must contain lowercase, uppercase letter, number and special character). You can also set the admin password with the initial setup screen.                                                                                                                                                                                                                               |
+| `CLUSTERING__MODE`       | Squidex uses [Microsoft Orleans](https://dotnet.github.io/orleans/index.html) for clustering. It is technology, which was written for online games, such as Halo. With Orleans you develop small classes that are deployed automatically to a cluster of nodes. To enable clustering you have to set this setting to `Mongo`, which means that a MongoDB table is used to store the state of the cluster. |
 
 Set
 
-* `identity:googleClient`
-* `identity:githubClient`
-* `identity:microsoftClient`
+* `IDENTITY__GOOGLECLIENT`
+* `IDENTITY__GITHUBCLIENT`
+* `IDENTITY__MICROSOFTCLIENT`
 
 to empty to disable authentication with third party providers.
 
@@ -81,11 +83,11 @@ Please check the logs to see detailed error messages.
 
 ### Login screen shows 'Operation failed' message.
 
-Typically the login fails, because the `urls:baseUrl` setting has an invalid value. Ensure that the domain that is used by your users is configured here. Squidex might run behind several other servers like Cloudflare, load balancers and reverse proxies and does not know the original domain. Therefore we must configure the URL.
+Typically the login fails, because the `URLS__BASEURL` setting has an invalid value. Ensure that the domain that is used by your users is configured here. Squidex might run behind several other servers like Cloudflare, load balancers and reverse proxies and does not know the original domain. Therefore we must configure the URL.
 
 ### I see the login screen but I cannot login.
 
-Ensure that you have configured a strong password if you use `identity:adminPassword`.
+Ensure that you have configured a strong password if you use `IDENTITY__ADMINPASWORD`.
 
 You will see the following entry in your logs:
 
@@ -108,6 +110,7 @@ The password requirements are:
 2. Passwords must have at least one non alphanumeric character.
 3. Passwords must have at least one digit ('0'-'9').&#x20;
 4. Passwords must have at least one lowercase ('a'-'z').&#x20;
-5. Passwords must not have been appeared in a data breach before: [https://haveibeenpwned.com/](https://haveibeenpwned.com)
 
-In case you have forgotten your admin password you can use the `identity:adminRecreate=true` to always update the admin account with the password from the configuration.
+In case you have forgotten your admin password you can use the following environment variable to update the admin account with the password from the configuration with each start of a Squidex instance:
+
+`IDENTITY__ADMINRECREATE=true`
