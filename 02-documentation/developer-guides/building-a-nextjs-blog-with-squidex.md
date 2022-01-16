@@ -87,7 +87,7 @@ export default function Layout({ children }) {
       {children}
       <div className="footer">
         <div>My Blog</div>
-        <div>(c) 2021 </div>
+        <div>(c) 2022 </div>
       </div>
     </div>
   );
@@ -172,20 +172,15 @@ To be able to fetch data from your Squidex App, you need to have a bearer token.
 
 Open the dashboard of your blog application(`squidex-blog` or whatever name you chose) from https://cloud.squidex.io. On the left sidebar, click the _cog icon_ at the bottom left corner of the page to open settings. Under the _Security_ section click _Clients_. At the top of the page, you will see a section where you can create a client. In the text box provided under _Add a new client_, type `nextjs-blog` as the name of the client and click _Add Client_ to create the client. Now when you scroll down the page you will notice a new `nextjs-blog` client has been created. By default, this new client comes with the Editor role. In Squidex, roles define which schemas a client has access to and which operations such as reading and writing a client is authorized to do. Since you wouldn't be making any changes to your content from your blog's frontend, you will change the role of the client to Reader i.e. with only read permissions. In the dropdown for _Role_, select _Reader_.
 
-Now, to get the token, click the _Connect_ button for the `nextjs-blog` client. From the list of connection methods provided, select _Connect manually_. A token will be generated and will be displayed below the text reading _Just use the following token_. Click the copy icon to copy the generated token.
+Check the _Allow anonymous access_ checkbox to allow this client to be query published blog posts without an acess token.
 
-After copying this token with Read access to your application, you will create a file containing environment variables for your Next.js app. Create a `.env.local` file in the `squidex-blog` folder and add the following contents
+Now you have created a new client and allowed anonymous access to published blog posts, you will create a file containing environment variables for your Next.js app. Create a `.env.local` file in the `squidex-blog` folder and add the following contents
 
 ```
 SQUIDEX_API_URL=https://cloud.squidex.io/api/content/squidex-blog/graphql
-SQUIDEX_BEARER_TOKEN=API-KEY
 ```
 
-Replace `squidex-blog` in SQUIDEX_API_URL with the name of your app on Squidex and replace `API-KEY` with the token you copied from the dashboard.
-
-These environment variables will not be visible on the client-side bundle since they will only be used at build time to authenticate queries to the Squidex API. In Next.js, the only environment variables that are available on client-side are those prefixed with `NEXT_PUBLIC_`. You can learn more about environment variables in Next.js [here](https://nextjs.org/docs/basic-features/environment-variables#exposing-environment-variables-to-the-browser).
-
-**NOTE:** When you deploy your app to production, make sure to replace the Squidex token every month since the tokens are valid for only a month.
+Replace `squidex-blog` in the value of SQUIDEX_API_URL with the name of your app on Squidex.
 
 Restart the development server to load the environment variables from `.env.local`. Press the combination `Ctrl/CMD + C` on your terminal to stop the development server, then restart it by running:
 
@@ -195,11 +190,9 @@ yarn dev
 
 You will see a message on the terminal showing that environment variables have been loaded from `.env.local`.
 
-Now you have set up the environment variables for your Next.js blog, you will create a helper function that adds the authorization token to the Authorization header of GraphQL queries you will make to Squidex.
+Now you have set up the environment variables for your Next.js blog, you will create a helper function that you will use to make GraphQL queries to Squidex.
 
-Create a `lib` folder in `squidex-blog` and in this `lib` folder, create a `squidex.js` file. This file will contain the `fetchAPI` helper function for fetching data from Squidex.
-
-Add the following contents to the `squidex-blog/lib/squidex.js` file:
+Create a `lib` folder in `squidex-blog` and in this `lib` folder, create a `squidex.js` file. Add the following contents to the `squidex-blog/lib/squidex.js` file:
 
 ```js
 export default async function fetchAPI(query, { variables } = {}) {
@@ -207,7 +200,6 @@ export default async function fetchAPI(query, { variables } = {}) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.SQUIDEX_BEARER_TOKEN}`,
     },
     body: JSON.stringify({
       query,
