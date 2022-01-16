@@ -217,7 +217,7 @@ export default async function fetchAPI(query, { variables } = {}) {
 }
 ```
 
-This exports a `fetchAPI` function that you pass a GraphQL query and its variables as parameters to that queries the Squidex API, and returns the result.
+This exports a `fetchAPI` function that receives a GraphQL query and its variables as parameters, queries the Squidex API, and returns the result.
 
 You are now ready to fetch content from Squidex and display it in your Next.js blog.
 
@@ -388,7 +388,7 @@ export default function BlogPost() {
 
 Click one of the links on the homepage to visit the page where your blog posts will be read.
 
-Since you will need to render markdown content on this page, you will install [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote), a package that parses markdown content and renders it in your Next.js application. Stop the development server by pressing `Ctrl/Cmd + C` on your terminal and run this command to install `next-mdx-remote`:
+Since you will need to render markdown content on this page, you will install [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote), a package that parses markdown content and renders it in your Next.js application. Stop the development server by pressing `Ctrl/Cmd + C` on your terminal and run the following command to install `next-mdx-remote`:
 
 ```bash
 yarn add next-mdx-remote
@@ -407,7 +407,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 ```
 
-Import `fetchAPI` at the top of `[slug].js` since you need to fetch your blog post from Squidex:
+Import `fetchAPI` at the top of `[slug].js` as you will use it to fetch the contents your blog posts from Squidex:
 
 ```js
 import fetchAPI from "../lib/squidex";
@@ -456,7 +456,7 @@ export async function getStaticProps({ params }) {
 
 This returns data for the blog post associated with a particular slug or returns a 404 error if no such post exists.
 
-At this point, you may receive an error because when you use `getStaticPaths` with dynamic paths in Next.js, Next.js also requires you to export a `getStaticPaths` function that tells Next.js [what pages to generate at build time](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation).
+At this point, you may receive an error because when you use `getStaticPaths` with dynamic paths in Next.js, you are required to also export a `getStaticPaths` function that tells Next.js [what pages to generate at build time](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation).
 
 Export a `getStaticPaths` function in `squidex-blog/pages/index.js`:
 
