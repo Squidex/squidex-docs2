@@ -71,7 +71,7 @@ The `yarn dev` command starts a Next.js development server at `http://localhost:
 
 ## Step 4: Create global styles and a Layout component
 
-You would start by creating a `Layout` component that adds a header and footer to all the pages of your blog. Create a `components ` folder in `squidex-blog` and create a `layout.js` file in the `squidex-blog/components` folder with the following contents:
+You would start by creating a `Layout` component that adds a header and footer to all the pages of your blog. Create a `components` folder in `squidex-blog` and create a `layout.js` file in the `squidex-blog/components` folder with the following contents:
 
 ```jsx
 import Link from "next/link";
@@ -96,7 +96,7 @@ export default function Layout({ children }) {
 
 This creates a footer and a header with a link to your blog's homepage. The `children` prop allows you to wrap whatever content is added into the `Layout` component in the header and footer.
 
-After creating the `Layout` component, you will add create a CSS file that contains styles for your blog. Create a `styles.css` file in the `squidex-blog` folder and add the following contents to the `squidex-blog/styles.css` file:
+After creating the `Layout` component, replace the contents of the `squidex-blog/styles/globals.css` file with the following:
 
 ```css
 html,
@@ -145,13 +145,13 @@ body {
 }
 ```
 
-When you save, you will notice that there are no changes to the page at `localhost:3000`. At this point, you will modify the custom Next.js `App` component of your blog to load the styles from the `styles.css` stylesheet and wrap the application in a header and footer with the `Layout` component. In Next.js, a custom app component is used to add a persistent layout to app pages and to add global CSS to your app. You can learn more about it from the [Custom App page of the Next.js documentation](https://nextjs.org/docs/advanced-features/custom-app).
+Now that you have modified the website's stylesheet, you will go on to modify the custom Next.js `App` component of your blog to wrap the application in a header and footer with the `Layout` component you created. In Next.js, a custom app component is used to add a persistent layout to app pages and to add global CSS to your app. You can learn more about it from the [Custom App page of the Next.js documentation](https://nextjs.org/docs/advanced-features/custom-app).
 
 Modify `_app.js` in `squidex-blog/pages` to have the the following content:
 
 ```jsx
 import Layout from "../components/layout";
-import "../styles.css";
+import "../styles/globals.css";
 
 export default function MyApp({ Component, pageProps }) {
   return (
