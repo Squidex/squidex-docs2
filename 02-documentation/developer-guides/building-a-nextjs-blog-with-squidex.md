@@ -420,14 +420,14 @@ export async function getStaticProps({ params }) {
   const data = await fetchAPI(
     `
   query QueryPosts($query: String!) {
-		queryPostsContents(filter: $query) {
-			id
-			flatData {
-				title
-				content
-			}
-		}
-	}
+    queryPostsContents(filter: $query) {
+      id
+      flatData {
+        title
+        content
+      }
+    }
+  }
   `,
     {
       variables: {
@@ -523,14 +523,14 @@ export async function getStaticProps({ params }) {
   const data = await fetchAPI(
     `
     query QueryPosts($query: String!) {
-          queryPostsContents(filter: $query) {
-              id
-              flatData {
-                  title
-                  content
-              }
-          }
+      queryPostsContents(filter: $query) {
+        id
+        flatData {
+          title
+          content
+        }
       }
+    }
     `,
     {
       variables: {
