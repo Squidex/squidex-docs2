@@ -7,14 +7,14 @@ description: >-
 
 ### Introduction
 
-This tutorial will guide you to create a blog application, set up its schema, and add mock content on Squidex, and create a Next.js blog based on the data stored in your CMS.
+This tutorial will guide you to create a blog application, set up its schema, add mock content on Squidex, and create a Next.js blog based on the data stored in your CMS.
 
 ## Prerequisites
 
 To complete this guide, you need:
 
 - A Squidex account. You can create one at https://cloud.squidex.io
-- Node.js and Yarn installed on your computer. Follow these guides to install [Node.js](https://phoenixnap.com/kb/install-node-js-npm-on-windows) and [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable) if you haven't already.
+- Node.js installed on your computer. Follow this guide to install [Node.js](https://phoenixnap.com/kb/install-node-js-npm-on-windows) if you haven't already.
 
 ## Step 1: Creating the app on Squidex
 
@@ -28,7 +28,7 @@ Now that you have created the app on Squidex, you will proceed to create the sch
 
 Still on your Squidex account dashboard at https://cloud.squidex.io, click _squidex-blog_ (or whatever name you chose) on the dashboard to enter the dashboard for your newly created app.
 
-On the left panel, select _Schemas_ and click the Plus(_+_) to start creating the posts schema. Enter `posts` in the space provided under _Name_, select _Multiple contents_ since you will be having many posts, and click _Create_ to create the schema.
+On the left panel, select _Schemas_ and click the Plus(_+_) button to start creating the posts schema. Enter `posts` in the space provided under _Name_, select _Multiple contents_ since you will be having many posts, and click _Create_ to create the schema.
 
 You will be creating three fields under the posts schema: Title for the title of your posts, Slug to define the URL of your posts, and Content to contain the body of your blog posts.
 
@@ -38,7 +38,7 @@ You will be creating three fields under the posts schema: Title for the title of
 | Slug       | String | Slug     |
 | Content    | String | Markdown |
 
-Select _posts_ from the sidebar under _Schemas_. The first field you will add to the posts schema is the Title field. Click _Add Field_. A modal window will open. Select _String_ from the data type options provided, enter `Title` the space provided to enter the field name and click _Create and Edit field_. A new modal will open. Under _Validation_, check the box for _Required_ since every post must have a title and finally click _Save and add field_ to save the `Title` field and proceed to add the `Slug` field.
+Select _posts_ from the sidebar under _Schemas_. The first field you will add to the posts schema is the `Title` field. Click _Add Field_. A modal window will open. Select _String_ from the data type options provided, enter `Title` the space provided to enter the field name and click _Create and Edit field_. A new modal will open. Under _Validation_, check the box for _Required_ since every post must have a title and finally click _Save and add field_ to save the `Title` field and proceed to add the `Slug` field.
 
 You will again be presented with a menu that lists the different types. Select _String_, type `Slug` as the name of the field in the space provided and click _Create and edit field_. Under the _Validation_ tab, check both _Required_ and _Unique_ since every post must have a slug and that slug has to be unique. Under the _Editor_ section of the _Editing_ tab, select _Slug_. The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field.
 
@@ -60,18 +60,18 @@ npx create-next-app squidex-blog
 
 If you are prompted to confirm that you want to install the create-next-app package, type `y` and press enter to continue with the installation.
 
-Once the Next.js is set up, run the following commands to enter the `squidex-blog` directory and start the development server.
+Once Next.js is set up, run the following commands to enter the `squidex-blog` directory and start the development server.
 
 ```bash
 cd squidex-blog
 yarn dev
 ```
 
-The `yarn dev` command starts a Next.js development server at `http://localhost:3000`. Visit `htttp://localhost:3000` to see your Next.js app. You would see _Welcome to Next.js_ on the page. You have now successfully installed Next.js and are ready to start building your blog.
+The `yarn dev` command starts a Next.js development server at `http://localhost:3000`. Visit `htttp://localhost:3000` to see your Next.js app. You should see _Welcome to Next.js_ on the page. You have now successfully installed Next.js and are ready to start building your blog.
 
 ## Step 4: Create global styles and a Layout component
 
-You would start by creating a `Layout` component that adds a header and footer to all the pages of your blog. Create a `components` folder in `squidex-blog` and create a `layout.js` file in the `squidex-blog/components` folder with the following contents:
+You will start by creating a `Layout` component that adds a header and footer to all the pages of your blog. Create a `components` folder in `squidex-blog` and create a `layout.js` file in the `squidex-blog/components` folder with the following contents:
 
 ```jsx
 import Link from "next/link";
@@ -94,7 +94,7 @@ export default function Layout({ children }) {
 }
 ```
 
-This creates a footer and a header with a link to your blog's homepage. The `children` prop allows you to wrap whatever content is added into the `Layout` component in the header and footer.
+This creates a footer and a header with a link to your blog's homepage. The `children` prop allows you to embed whatever content is added into the `Layout` component between the header and footer.
 
 After creating the `Layout` component, replace the contents of the `squidex-blog/styles/globals.css` file with the following:
 
@@ -177,10 +177,10 @@ Check the _Allow anonymous access_ checkbox to allow this client to be query pub
 Now you have created a new client and allowed anonymous access to published blog posts, you will create a file containing environment variables for your Next.js app. Create a `.env.local` file in the `squidex-blog` folder and add the following contents
 
 ```
-SQUIDEX_API_URL=https://cloud.squidex.io/api/content/squidex-blog/graphql
+SQUIDEX_API_URL=https://cloud.squidex.io/api/content/<YOUR_APP>/graphql
 ```
 
-Replace `squidex-blog` in the value of SQUIDEX_API_URL with the name of your app on Squidex.
+Replace `<YOUR_APP>` in the value of SQUIDEX_API_URL with the name of your app on Squidex.
 
 Restart the development server to load the environment variables from `.env.local`. Press the combination `Ctrl/CMD + C` on your terminal to stop the development server, then restart it by running:
 
@@ -188,9 +188,7 @@ Restart the development server to load the environment variables from `.env.loca
 yarn dev
 ```
 
-You will see a message on the terminal showing that environment variables have been loaded from `.env.local`.
-
-Now you have set up the environment variables for your Next.js blog, you will create a helper function that you will use to make GraphQL queries to Squidex.
+You will see a message in the terminal showing that environment variables have been loaded from `.env.local`. Now you will proceed to create a helper function that you will use to make GraphQL queries to Squidex.
 
 Create a `lib` folder in `squidex-blog` and in this `lib` folder, create a `squidex.js` file. Add the following contents to the `squidex-blog/lib/squidex.js` file:
 
@@ -223,9 +221,9 @@ You are now ready to fetch content from Squidex and display it in your Next.js b
 
 ## Step 6: Displaying blog posts on home page
 
-In this step, you will fetch the titles of and links to your blog post and display them on the homepage of your blog.
+In this step, you will fetch the titles and links of your blog posts and display them on the homepage of your blog.
 
-Replace the contents of `squidex-blog/pages/index.js` with this:
+Replace the content of `squidex-blog/pages/index.js` with this:
 
 ```jsx
 import Head from "next/head";
@@ -242,7 +240,7 @@ export default function Home() {
 }
 ```
 
-Open `http://localhost:3000` in your browser if you haven't already to continue previewing changes.
+Open `http://localhost:3000` in your browser, if you haven't already, to continue previewing changes.
 
 At the top of `pages/index.js`, import the `fetchAPI` utility from `squidex-app/lib/squidex`:
 
@@ -273,7 +271,7 @@ export async function getStaticProps() {
 }
 ```
 
-This sends a GraphQL query to your Squidex app to get the slug and titles of all your blog posts and it passes this data to your page.
+This sends a GraphQL query to your Squidex app to get the slugs and titles of all your blog posts and returns this data to your page.
 
 In Next.js, `getStaticProps` is a function that is run at build time to fetch and store data needed to render a page. To learn more about fetching data in Next.js see [Data Fetching in Next.js](https://nextjs.org/docs/basic-features/data-fetching). Save the file and refresh your browser to fetch page data from the CMS.
 
