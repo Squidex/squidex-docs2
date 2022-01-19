@@ -145,7 +145,7 @@ body {
 }
 ```
 
-Now that you have modified the website's stylesheet, you will go on to modify the custom Next.js `App` component of your blog to wrap the application in a header and footer with the `Layout` component you created. In Next.js, a custom app component is used to add a persistent layout to app pages and to add global CSS to your app. You can learn more about it from the [Custom App page of the Next.js documentation](https://nextjs.org/docs/advanced-features/custom-app).
+Now that you have modified the website's stylesheet, you will go on to modify the custom Next.js `App` component of your blog to wrap the application in a header and footer with the `Layout` component you created. In Next.js, a custom app component is used to add a consistent layout to app pages and to add global CSS to your app. You can learn more about it from the [Custom App page of the Next.js documentation](https://nextjs.org/docs/advanced-features/custom-app).
 
 Modify `_app.js` in `squidex-blog/pages` to have the the following content:
 
@@ -285,7 +285,7 @@ export default function Home({ posts }) {
 
 Although the title and slugs of your blog posts are now available to the browser, you cannot see them yet. You will now create a `BlogItem` component that will be used to display and link to all your posts.
 
-Create a `blogItem.js` file in the `squidex-blog/components` folder with the following contents:
+Create a `blogItem.js` file in the `squidex-blog/components` folder with the following content:
 
 ```jsx
 import Link from "next/link";
@@ -384,7 +384,7 @@ export default function BlogPost() {
 }
 ```
 
-Click one of the links on the homepage to visit the page where your blog posts will be read.
+Click one of the links on the homepage to visit the page where your blog posts will be rendered.
 
 Since you will need to render markdown content on this page, you will install [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote), a package that parses markdown content and renders it in your Next.js application. Stop the development server by pressing `Ctrl/Cmd + C` on your terminal and run the following command to install `next-mdx-remote`:
 
