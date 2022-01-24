@@ -64,7 +64,7 @@ Switch to the _Editing_ tab and select _Slug_ as the editor as shown below:
 
 ![Use slug editor for Slug field](../../images/nextjs-blog-tutorial/use-slug-editor-for-slug.jpg)
 
- The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field.
+The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field.
 
 Your blog content will be formatted as a [Markdown](https://daringfireball.net/projects/markdown/) text. Configure the `Content` field as shown below:
 
@@ -404,11 +404,13 @@ export async function getStaticProps() {
 
 If you look at your blog homepage in a browser, you will see that the titles of your posts are shown and they link to the page where the article can be read.
 
-Now that you have successfully created links to your posts on the homepage, you will create the pages where your blog posts can be read.
+Now that you have successfully created links to your posts on the homepage, you will create a page to show the contents of the blog posts.
 
 ## Step 7: Creating the blog post pages
 
-In the `pages` folder, create a `[slug].js` file. This kind of route in a Next.js app is known as a dynamic route. Learn more about dynamic routes and how they are used from [the Next.js docs](https://nextjs.org/docs/routing/dynamic-routes).
+In the `pages` folder, create a `[slug].js` file. In Next.js, a page is a React Component file in the pages directory. The component at pages/about.js, for example will be accessible at /about. A page enclosed in square brackets like [slug].js is a fallback and Next.js will show this page for all URLs that are not handled by another page, and will pass a `slug` variable to the page. So when you visit a URL like /my-first-blog-post this page is used and `slug` will have the value my-first-blog-post.
+
+You can learn more about this from the [dynamic routes page of the Next.js documentation.](https://nextjs.org/docs/routing/dynamic-routes).
 
 ```jsx
 export default function BlogPost() {
@@ -516,7 +518,7 @@ export async function getStaticPaths() {
 }
 ```
 
-When you save the file, refresh the page to fetch data from Squidex. Right now, again, although the data is available to the page, you cannot see it since we have not rendered the blog post. You will now render the loaded blog post on the page.
+The Next.js development server only runs `getStaticProps` to fetch the page data when the page is initally loaded. So, to preview the changes made to `getStaticProps`, you will refresh the page. When you do so, the data will be made available but since it has not been rendered, nothing will be visible. You will now proceed to render the blog post on this page.
 
 Modify the `BlogPost` function in `[slug].js`:
 
@@ -531,7 +533,7 @@ export default function BlogPost({ post, source }) {
 }
 ```
 
-Once you save the file, the title of the blog post and the body of the post will show on the page. If you did not refresh the page after adding `getStaticProps`, you may see an error. Refresh the page to fetch data from your Squidex application.
+Once you save the file, the title of the blog post and the body of the post will be rendered on the page. If you did not refresh the page after adding `getStaticProps`, you may see an error because the page data has not been loaded. Refresh the page to fetch data from your Squidex application.
 
 The finished `[slug].js` file will look like this:
 
