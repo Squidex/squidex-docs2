@@ -38,13 +38,45 @@ You will be creating three fields under the posts schema: Title for the title of
 | Slug       | String | Slug     |
 | Content    | String | Markdown |
 
-Select _posts_ from the sidebar under _Schemas_. The first field you will add to the posts schema is the `Title` field. Click _Add Field_. A modal window will open. Select _String_ from the data type options provided, enter `Title` the space provided to enter the field name and click _Create and Edit field_. A new modal will open. Under _Validation_, check the box for _Required_ since every post must have a title and finally click _Save and add field_ to save the `Title` field and proceed to add the `Slug` field.
+Select _posts_ from the sidebar under _Schemas_ and click _Add Field_ to start adding fields. Configure the `Title` field in the modal window as shown below:
 
-You will again be presented with a menu that lists the different types. Select _String_, type `Slug` as the name of the field in the space provided and click _Create and edit field_. Under the _Validation_ tab, check both _Required_ and _Unique_ since every post must have a slug and that slug has to be unique. Under the _Editor_ section of the _Editing_ tab, select _Slug_. The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field.
+![Create Posts Title Field](../../images/nextjs-blog-tutorial/adding-title-field-to-posts-annotated.jpg)
 
-Your blog content will be formatted as a [Markdown](https://daringfireball.net/projects/markdown/) text. The markdown content will then be parsed and displayed in your blog. Select _String_ as the type, type `Content` as the field name in the space provided and click _Create and edit field_. Under _Editor_ in the _Editing tab_, select _Markdown_. The markdown editor Squidex provides is a WYSIWYG editor that allows you to preview content as you type.(WYSIWYG meaning what you see is what you get) Click _Save and close_ to save the changes to the `Content` field.
+Click _Create and Edit field_ to continue.
 
-To be able to add content under the posts schema, you will publish the posts schema. Click _Published_ around the top right corner of the page to publish your schema.
+Fill in the validation tab of the new modal that will open as shown below:
+
+![Configuring validation for the posts Title field](../../images/nextjs-blog-tutorial/posts-title-validation.jpg)
+
+The `Title` field is required since every post must have a title. Click _Save and add field_ to save your changes and proceed to add the `Slug` field.
+
+Configure the `Slug` field as shown below:
+
+![Creating the posts Slug field](../../images/nextjs-blog-tutorial/adding-slug-field-to-posts.jpg)
+
+Click _Create and edit field_ to continue.
+
+Since the every post must have a slug and that slug has to be unique, complete the _Validation_ tab in the modal that opens as shown below:
+
+![Make the Slug field unique and required](../../images/nextjs-blog-tutorial/make-slug-field-unique.jpg)
+
+Switch to the _Editing_ tab and select _Slug_ as the editor as shown below:
+
+![Use slug editor for Slug field](../../images/nextjs-blog-tutorial/use-slug-editor-for-slug.jpg)
+
+ The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field.
+
+Your blog content will be formatted as a [Markdown](https://daringfireball.net/projects/markdown/) text. Configure the `Content` field as shown below:
+
+![Create Content field for blog post body](../../images/nextjs-blog-tutorial/create-content-field.jpg)
+
+Click _Create and edit field_ to continue. Set the `Content` field to use a WYSIWYG editor by configuring the _Editing_ tab as shown below:
+
+![Use markdown editor for Content field](../../images/nextjs-blog-tutorial/use-markdown-editor-for-content.jpg)
+
+Click _Save and close_ to save the changes to the `Content` field.
+
+You have now finished creating the posts schema and its fields. To be able to add content under the posts schema, you will publish the posts schema. Click _Published_ around the top right corner of the page to publish it.
 
 Now your schema is published, you will add sample content to your schema that will be displayed once your blog is built. To add content, click _Content_ on the sidebar and select _posts_ if it is not already selected. Click _New_ to create a new post. If you have some content you want to transfer to Squidex, you can paste it here. If you don't, you can manually enter some placeholders for title, slug and content then click _Save and Publish_ to publish the content you created. Click the back icon and _New_ again to create another sample blog post. Repeat this for as many posts as you like then proceed to the next step.
 
