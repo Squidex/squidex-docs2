@@ -200,11 +200,11 @@ Now that you have added the styles and a header and footer to your application, 
 
 ## Step 5: Preparing to fetch data from the Squidex API
 
-To be able to fetch data from your Squidex App, you need to have a bearer token. A token gives you the permission to create, read or modify content on a Squidex application. But before you can get a token, you need to create a client on Squidex.
+To be able to fetch data from your Squidex App, you need to create a client on Squidex.
 
 Open the dashboard of your blog application(`squidex-blog` or whatever name you chose) from https://cloud.squidex.io. On the left sidebar, click the _cog icon_ at the bottom left corner of the page to open settings. Under the _Security_ section click _Clients_. At the top of the page, you will see a section where you can create a client. In the text box provided under _Add a new client_, type `nextjs-blog` as the name of the client and click _Add Client_ to create the client. Now when you scroll down the page you will notice a new `nextjs-blog` client has been created. By default, this new client comes with the Editor role. In Squidex, roles define which schemas a client has access to and which operations such as reading and writing a client is authorized to do. Since you wouldn't be making any changes to your content from your blog's frontend, you will change the role of the client to Reader i.e. with only read permissions. In the dropdown for _Role_, select _Reader_.
 
-Check the _Allow anonymous access_ checkbox to allow this client to be query published blog posts without an acess token.
+You would normally require an access token to be able to query the Squidex API, but since your blog application will only be reading data from Squidex, not editing or deleting, you will create an anonymous client. Check the _Allow anonymous access_ checkbox to allow this client to be query published blog posts without an access token.
 
 Now you have created a new client and allowed anonymous access to published blog posts, you will create a file containing environment variables for your Next.js app. Create a `.env.local` file in the `squidex-blog` folder and add the following contents
 
@@ -214,13 +214,13 @@ SQUIDEX_API_URL=https://cloud.squidex.io/api/content/<YOUR_APP>/graphql
 
 Replace `<YOUR_APP>` in the value of SQUIDEX_API_URL with the name of your app on Squidex.
 
-Restart the development server to load the environment variables from `.env.local`. Press the combination `Ctrl/CMD + C` on your terminal to stop the development server, then restart it by running:
+Next.js only loads data from the `.env.local` file once, when you start the development server. To load the environment variables you just created, you have to restart the development server. Press the combination `Ctrl/CMD + C` on your terminal to stop the development server, then restart it by running:
 
 ```bash
 yarn dev
 ```
 
-You will see a message in the terminal showing that environment variables have been loaded from `.env.local`. Now you will proceed to create a helper function that you will use to make GraphQL queries to Squidex.
+You will see a message in the terminal showing that environment variables have been loaded from `.env.local`. You can visit the [Environment Variables page of the Next.js documentation](https://nextjs.org/docs/basic-features/environment-variables) to learn more about environment variables in Next.js. Now you will proceed to create a helper function that you will use to make GraphQL queries to Squidex.
 
 Create a `lib` folder in `squidex-blog` and in this `lib` folder, create a `squidex.js` file. Add the following contents to the `squidex-blog/lib/squidex.js` file:
 
@@ -305,7 +305,7 @@ export async function getStaticProps() {
 
 This sends a GraphQL query to your Squidex app to get the slugs and titles of all your blog posts and returns this data to your page.
 
-In Next.js, `getStaticProps` is a function that is run at build time to fetch and store data needed to render a page. To learn more about fetching data in Next.js see [Data Fetching in Next.js](https://nextjs.org/docs/basic-features/data-fetching). Save the file and refresh your browser to fetch page data from the CMS.
+In Next.js, `getStaticProps` is a function that is run at build time to fetch and store data needed to render a page. To learn more about data fetching with getStaticProps in Next.js, see [the getStaticProps page of the Next.js documentation](https://nextjs.org/docs/basic-features/data-fetching/get-static-props). Save the file and refresh your browser to fetch page data from the CMS.
 
 To make this data available to the `Home` page component of `index.js`, pass posts as a prop to `Home` in index.js:
 
