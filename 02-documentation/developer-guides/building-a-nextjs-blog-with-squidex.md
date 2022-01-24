@@ -315,7 +315,7 @@ export default function Home({ posts }) {
 }
 ```
 
-Although the title and slugs of your blog posts are now available to the browser, you cannot see them yet. You will now create a `BlogItem` component that will be used to display and link to all your posts.
+Although the title and slugs of your blog posts are now available to `Home` component, they will not be rendered on the homepage. You will now create a `BlogItem` component that will be used to display and link to all your posts.
 
 Create a `blogItem.js` file in the `squidex-blog/components` folder with the following content:
 
