@@ -30,7 +30,7 @@ Still on your Squidex account dashboard at https://cloud.squidex.io, click _squi
 
 On the left panel, select _Schemas_ and click the Plus(_+_) button to start creating the posts schema. Enter `posts` in the space provided under _Name_, select _Multiple contents_ since you will be having many posts, and click _Create_ to create the schema.
 
-You will be creating three fields under the posts schema: Title for the title of your posts, Slug to define the URL of your posts, and Content to contain the body of your blog posts.
+You will be creating three fields under the posts schema: `Title` for the title of your posts, `Slug` to define the URL of your posts, and `Content` to contain the body of your blog posts.
 
 | Field name | Type   | Editor   |
 | ---------- | ------ | -------- |
