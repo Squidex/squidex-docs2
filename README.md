@@ -23,8 +23,8 @@ In contrast to a traditional CMS, Squidex is headless and does not provide the f
 
 Read our guide for new users and learn how to publish your first content with Squidex.
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="02-documentation/introduction-and-use-case.md" %}
+[introduction-and-use-case.md](02-documentation/introduction-and-use-case.md)
 {% endcontent-ref %}
 
 ### I want to install Squidex on my own (virtual) machines
