@@ -26,10 +26,12 @@ Resolves a content by ID and saves the content in a variable.
 
 ```
 // Input
+{% raw %}
 {% for id in event.data.references.iv %}
    {% reference 'ref', id %}
    Text: {{ ref.data.field1.iv }} {{ ref.data.field2.iv }} {{ ref.id }}
 {% endfor %}
+{% endraw %}
 
 // Output
 Text: Content1_Field1 Content1_Field2 Content1_ID
@@ -42,10 +44,12 @@ Resolves a asset by ID and saves the asset in a variable.
 
 ```
 // Input
+{% raw %}
 {% for id in event.data.assets.iv %}
    {% asset 'ref', id %}
    Text: {{ ref.fileName }} {{ ref.id }}
 {% endfor %}
+{% endraw %}
 
 // Output
 Text: Asset1_FileName Asset1_ID

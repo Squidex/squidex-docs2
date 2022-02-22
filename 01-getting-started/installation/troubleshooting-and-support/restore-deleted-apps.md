@@ -47,7 +47,7 @@ The main data source in Squidex is a list of events. Most other states are deriv
 2. Find the deletion event with the following filter: `{ "Events.Type": "AppDeletedEvent" }`
 3. Delete this document.
 
-![Delete the event](<../../../.gitbook/assets/image (73).png>)
+![Delete the event](<../../../.gitbook/assets/image (73) (1).png>)
 
 ### Step 2: Update the app document
 

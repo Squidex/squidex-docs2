@@ -76,7 +76,7 @@ Open the `.env` file and set the following variables:
 
 | Variable                | Description                                                                                                                                                                                                |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SQUIDEX_DOMAIN`        | Your domain name, e.g. we use `cloud.squidex.io`                                                                                                                                                           |
+| `SQUIDEX_DOMAIN`        | Your domain name, that you want to use for your installation. For example the domain name for the Squidex cloud is `cloud.squidex.io`. If you can Squidex on your local machine it is `localhost`.         |
 | `SQUIDEX_ADMINEMAIL`    | The email address of the admin user. You can leave it empty to create a new user with the setup page when you visit your Squidex installation in the browser.                                              |
 | `SQUIDEX_ADMINPASSWORD` | The password of the admin user. Must contain a lowercase and uppercase letter, a number and a special character. You can leave it empty to create a new user with the setup page when you visit your Squid |
 
@@ -92,6 +92,22 @@ The data like assets and the MongoDB database files will be stored outside of th
 docker-compose up -d
 ```
 
+### 5. Visit your installation
+
+Squidex should be up and running now. You can visit your installation under&#x20;
+
+[https://${SQUIDEX\_DOMAIN}](https://${squidex\_domain}).&#x20;
+
+You should see the following screen:
+
+![Setup Screen](<../../../.gitbook/assets/image (76).png>)
+
+The setup screen shows a checklist with hints and warnings. As long as there is no error (an red icon), everything is fine.
+
+If no external authentication provider such as Google or Github is configured you will not see the red area.
+
+Create a new administrator account now with an email address and password and you are ready to go. We will not send you an email to this email address, so you can choose whatever email address you want.
+
 ## Troubleshooting
 
 Please check the logs first using docker.
@@ -100,6 +116,16 @@ Please check the logs first using docker.
 docker ps # Get the container id first
 docker logs <CONTAINER-ID> # Read the logs
 ```
+
+### I get a NET::ERR\_CERT\_AUTHORITY\_INVALID from the browser
+
+You are very likely running under `localhost`. In this case the webserver (caddy) cannot create a valid certificate and will create a self signed certificate. Usually there is a button to continue to localhost:
+
+![Accept self signed certificate with Chrome](<../../../.gitbook/assets/image (73).png>)
+
+{% hint style="info" %}
+This screen is taken from Chrome and can look differently for other browsers.
+{% endhint %}
 
 ### I get a 502 Bad Gateway
 
