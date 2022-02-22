@@ -79,14 +79,12 @@ Open the `.env` file and set the following variables:
 | `SQUIDEX_DOMAIN`        | Your domain name, e.g. we use `cloud.squidex.io`                                                                                                                                                                                                |
 | `SQUIDEX_ADMINEMAIL`    | The email address of the admin user.                                                                                                                                                                                                            |
 | `SQUIDEX_ADMINPASSWORD` | The password of the admin user. Must contain a lowercase and uppercase letter, a number and a special character. Leaked passwords are also forbidden, check [https://haveibeenpwned.com/Passwords](https://haveibeenpwned.com/Passwords) first. |
-| `SQUIDEX_FORCE_HTTPS`   | Keep it unchanged. You can set it to false to disable permanent redirects from http to https.                                                                                                                                                   |
-| `SQUIDEX_PROTOCOL`      | Keep it unchanged. You can set it to http to disable secure connections.                                                                                                                                                                        |
 
 You can keep the other settings empty for now.
 
 ### 3. Data Folder
 
-The data will be stored outside of the docker container to simplify the backups. The default path /etc/squidex will be created by docker.
+The data like assets and the MongoDB database files will be stored outside of the docker container to simplify the backups. The default path `/etc/squidex` will be created by docker automatically.
 
 ### 4. Run the docker-compose file
 
