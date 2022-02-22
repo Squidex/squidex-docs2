@@ -74,11 +74,11 @@ Download the following files to your server:
 
 Open the `.env` file and set the following variables:
 
-| Variable                | Description                                                                                                                                                                                                                                     |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SQUIDEX_DOMAIN`        | Your domain name, e.g. we use `cloud.squidex.io`                                                                                                                                                                                                |
-| `SQUIDEX_ADMINEMAIL`    | The email address of the admin user.                                                                                                                                                                                                            |
-| `SQUIDEX_ADMINPASSWORD` | The password of the admin user. Must contain a lowercase and uppercase letter, a number and a special character. Leaked passwords are also forbidden, check [https://haveibeenpwned.com/Passwords](https://haveibeenpwned.com/Passwords) first. |
+| Variable                | Description                                                                                                                                                                                                |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SQUIDEX_DOMAIN`        | Your domain name, e.g. we use `cloud.squidex.io`                                                                                                                                                           |
+| `SQUIDEX_ADMINEMAIL`    | The email address of the admin user. You can leave it empty to create a new user with the setup page when you visit your Squidex installation in the browser.                                              |
+| `SQUIDEX_ADMINPASSWORD` | The password of the admin user. Must contain a lowercase and uppercase letter, a number and a special character. You can leave it empty to create a new user with the setup page when you visit your Squid |
 
 You can keep the other settings empty for now.
 
