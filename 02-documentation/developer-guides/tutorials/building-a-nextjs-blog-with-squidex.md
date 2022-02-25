@@ -40,39 +40,39 @@ You will be creating three fields under the posts schema: `Title` for the title 
 
 Select _posts_ from the sidebar under _Schemas_ and click _Add Field_ to start adding fields. Configure the `Title` field in the modal window as shown below:
 
-![Create Posts Title Field](../../images/nextjs-blog-tutorial/adding-title-field-to-posts-annotated.jpg)
+![Create Posts Title Field](../../../images/nextjs-blog-tutorial/adding-title-field-to-posts-annotated.jpg)
 
 Click _Create and Edit field_ to continue.
 
 Fill in the validation tab of the new modal that will open as shown below:
 
-![Configuring validation for the posts Title field](../../images/nextjs-blog-tutorial/posts-title-validation.jpg)
+![Configuring validation for the posts Title field](../../../images/nextjs-blog-tutorial/posts-title-validation.jpg)
 
 The `Title` field is required since every post must have a title. Click _Save and add field_ to save your changes and proceed to add the `Slug` field.
 
 Configure the `Slug` field as shown below:
 
-![Creating the posts Slug field](../../images/nextjs-blog-tutorial/adding-slug-field-to-posts.jpg)
+![Creating the posts Slug field](../../../images/nextjs-blog-tutorial/adding-slug-field-to-posts.jpg)
 
 Click _Create and edit field_ to continue.
 
 Since the every post must have a slug and that slug has to be unique, complete the _Validation_ tab in the modal that opens as shown below:
 
-![Make the Slug field unique and required](../../images/nextjs-blog-tutorial/make-slug-field-unique.jpg)
+![Make the Slug field unique and required](../../../images/nextjs-blog-tutorial/make-slug-field-unique.jpg)
 
 Switch to the _Editing_ tab and select _Slug_ as the editor as shown below:
 
-![Use slug editor for Slug field](../../images/nextjs-blog-tutorial/use-slug-editor-for-slug.jpg)
+![Use slug editor for Slug field](../../../images/nextjs-blog-tutorial/use-slug-editor-for-slug.jpg)
 
 The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field.
 
 Your blog content will be formatted as a [Markdown](https://daringfireball.net/projects/markdown/) text. Configure the `Content` field as shown below:
 
-![Create Content field for blog post body](../../images/nextjs-blog-tutorial/create-content-field.jpg)
+![Create Content field for blog post body](../../../images/nextjs-blog-tutorial/create-content-field.jpg)
 
 Click _Create and edit field_ to continue. Set the `Content` field to use a WYSIWYG editor by configuring the _Editing_ tab as shown below:
 
-![Use markdown editor for Content field](../../images/nextjs-blog-tutorial/use-markdown-editor-for-content.jpg)
+![Use markdown editor for Content field](../../../images/nextjs-blog-tutorial/use-markdown-editor-for-content.jpg)
 
 Click _Save and close_ to save the changes to the `Content` field.
 
