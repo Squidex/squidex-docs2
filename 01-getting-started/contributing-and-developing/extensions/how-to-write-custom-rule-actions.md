@@ -57,7 +57,7 @@ public sealed class WebhookAction : RuleAction
 
 ### Metadata
 
-The metadata is provided with the `[RuleAction]` attribute and is mainly used in the Management UI.&#x20;
+The metadata is provided with the `[RuleAction]` attribute and is mainly used in the Management UI.
 
 You have to provide the following information:
 
@@ -70,7 +70,7 @@ You have to provide the following information:
 | (4) Description | A short description about your action                                                    |
 | (5) ReadMore    | An optional link to additional information, e.g. the website of the integrated solution. |
 
-![The metadata in the rule overview](<../../../.gitbook/assets/image (72) (1).png>)
+![The metadata in the rule overview](<../../../.gitbook/assets/image (72) (1) (1).png>)
 
 ![The metadata when selecting an action.](<../../../.gitbook/assets/image (74) (1).png>)
 
@@ -185,9 +185,9 @@ protected override (string Description, WebhookJob Data)
 }
 ```
 
-As you can see, we create the job from the passed in action and also provide a short description about what we do. \
+As you can see, we create the job from the passed in action and also provide a short description about what we do.\
 \
-We use the `Format` method to call the `RuleEventFormatter` that has been passed in via the constructor to apply formatting rules to our configuration values.&#x20;
+We use the `Format` method to call the `RuleEventFormatter` that has been passed in via the constructor to apply formatting rules to our configuration values.
 
 Whenever we do this, we should add the `[Formattable]` attribute to the properties to point out this behavior to the end users.
 
@@ -214,7 +214,7 @@ protected override async Task<Result>
 
 In this case we make a HTTP call with the provided request URL and body. We have to return a result object to indicate whether our Job was successful or not.
 
-Exceptions are always handled anyway, but we can use the approach above to provide an optional request dump with all necessary information to make debugging easy. Such a request dump should contain the request body and response or headers.&#x20;
+Exceptions are always handled anyway, but we can use the approach above to provide an optional request dump with all necessary information to make debugging easy. Such a request dump should contain the request body and response or headers.
 
 The passed in cancellation token should be used to handle timeouts correctly and the cancel long running requests when they have exceeded the allowed execution limit.
 

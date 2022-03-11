@@ -94,13 +94,13 @@ docker-compose up -d
 
 ### 5. Visit your installation
 
-Squidex should be up and running now. You can visit your installation under&#x20;
+Squidex should be up and running now. You can visit your installation under
 
-[https://${SQUIDEX\_DOMAIN}](https://${squidex\_domain}).&#x20;
+[https://${SQUIDEX\_DOMAIN}](https://${squidex\_domain}).
 
 You should see the following screen:
 
-![Setup Screen](<../../../.gitbook/assets/image (76).png>)
+![Setup Screen](<../../../.gitbook/assets/image (76) (1).png>)
 
 The setup screen shows a checklist with hints and warnings. As long as there is no error (an red icon), everything is fine.
 
