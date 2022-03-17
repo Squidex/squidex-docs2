@@ -6,7 +6,7 @@ description: Rules are used to automate workflows by reacting to events.
 
 ## Concept
 
-Whenevery you make a change in Squidex, such as creating content or updating settings, an event is created. An event describes what happened in the past and has a unique name, for example `ContentChanged`. You can react to events by defining rules.
+Whenever you make a change in Squidex, such as creating content or updating settings, an event is created. An event describes what happened in the past and has a unique name, for example `ContentChanged`. You can react to events by defining rules.
 
 A rule has two parts:
 
