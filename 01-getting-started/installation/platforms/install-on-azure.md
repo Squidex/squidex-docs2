@@ -156,8 +156,18 @@ The following list provides all necessary settings. Please use the following pla
 | `[MONGO_USERNAME]`         | The username of the MongoDB user.                          | <p>In our case:<br>"root"</p>          |
 | `[MONGO_PASSWORD]`         | The password of the MongoDB user.                          | <p>In our case:<br>"1q2w3e$R"</p>      |
 | `[MONGO_IP]`               | The IP address to your MongoDB container.                  | <p>In our case:<br>"20.101.164.19"</p> |
+| `[WEBAPP_NAME]`            | The name of your webapp.                                   | <p>In our case:<br>"squidex2"</p>      |
 
+Execute the following steps:
 
+1. Copy the following JSON to a file.
+2. Replace all placeholders with your values (without quotes).
+3. Replace the configuration of your Webapp with the content of your file.
+4. Stop and start your application.
+
+{% hint style="info" %}
+**IMPORANT**: After you change your configuration values you have to restart your container. In our case the only option was to stop the app service and then start it again. **The restart button did not work**. Please write a comment if you know a better solution
+{% endhint %}
 
 ```javascript
 [
