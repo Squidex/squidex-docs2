@@ -150,12 +150,12 @@ Go back to your _App Services_ (1), select your web app (2) and go to the _Confi
 
 The following list provides all necessary settings. Please use the following placeholders:
 
-| Key                        | Description                                                | Sample                      |
-| -------------------------- | ---------------------------------------------------------- | --------------------------- |
-| `[AZURE_CONNECTIONSTRING]` | The connection string to your storage account. See step 2. |                             |
-| `[MONGO_USERNAME]`         | The username of the MongoDB user.                          | In our case: "root"         |
-| `[MONGO_PASSWORD]`         | The password of the MongoDB user.                          | In our case "1q2w3e$R"      |
-| `[MONGO_IP]`               | The IP address to your MongoDB container.                  | In our case "20.101.164.19" |
+| Key                        | Description                                                | Sample                                 |
+| -------------------------- | ---------------------------------------------------------- | -------------------------------------- |
+| `[AZURE_CONNECTIONSTRING]` | The connection string to your storage account. See step 2. |                                        |
+| `[MONGO_USERNAME]`         | The username of the MongoDB user.                          | <p>In our case:<br>"root"</p>          |
+| `[MONGO_PASSWORD]`         | The password of the MongoDB user.                          | <p>In our case:<br>"1q2w3e$R"</p>      |
+| `[MONGO_IP]`               | The IP address to your MongoDB container.                  | <p>In our case:<br>"20.101.164.19"</p> |
 
 
 
