@@ -77,7 +77,7 @@ You just have to reference the editor SDK and handle the events. You also have t
 
 ## API
 
-The `SquidexFormField` class is the entry point to your editor.&#x20;
+The `SquidexFormField` class is the entry point to your editor.
 
 Create a new instance when your editor is initialized.
 
@@ -88,7 +88,7 @@ Create a new instance when your editor is initialized.
 | `editor.getValue()`                     | Gets the current value of the field.                                                                                                                                                                                                       |
 | `editor.getContext()`                   | Gets the current context information. More about that later.                                                                                                                                                                               |
 | `editor.getFormValue()`                 | Gets the current value of the content form. Can be used to access the values of other fields.                                                                                                                                              |
-| `editor.getLanguage()`                  | Get the language of the field editor.  If the field is not localized the master language is passed through.                                                                                                                                |
+| `editor.getLanguage()`                  | Get the language of the field editor. If the field is not localized the master language is passed through.                                                                                                                                 |
 | `editor.getIndex()`                     | Get the index of the array item when the field is used within an array schema field.                                                                                                                                                       |
 | `editor.isDisabled()`                   | Get the current disabled state of the field form. Disabled (`true`) or Enabled (`false`).                                                                                                                                                  |
 | `editor.isFullscreen()`                 | Get the current fullscreen state of the field form. Fullscreen on (`true`) or off (`false`).                                                                                                                                               |
@@ -167,7 +167,7 @@ Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/cke-simple.html](https://squidex.github.io/squidex-samples/editors/cke-simple.html)
 
-![CKE Editor](<../../.gitbook/assets/image (69) (5) (4) (3).png>)
+![CKE Editor](<../../.gitbook/assets/image (69) (5) (4) (1) (3).png>)
 
 Clone the sample and configure the CKE editor as you need it.
 
@@ -221,4 +221,4 @@ This editor downloads json schema from the URL that is defined via the URL fragm
 
 [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
-![JSON Schema from external URL](<../../.gitbook/assets/image (34) (1).png>)
+![JSON Schema from external URL](<../../.gitbook/assets/image (34).png>)

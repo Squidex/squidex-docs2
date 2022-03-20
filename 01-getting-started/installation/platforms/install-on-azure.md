@@ -10,85 +10,160 @@ Please note that azure also supports Docker compose files so you can also follow
 
 In this tutorial I will also not teach you the basics of Azure. it is a very complicated product with thousands of features and you should be familiar with the basics before you follow this tutorial or just learn it on the fly.
 
+This tutorial will also demonstrate how to install MongoDB on your web app. But for production environments it is recommended to one of the offerings in Azure marketplace to get a MongoDB replica set with at least three members.
+
 ## Requirements
 
 Before you start you have to setup a few things first:
 
 1. A resource group for all your squidex resources.
 2. A service plan to host Squidex (Linux).
-3. A storage account for your assets and mongo db (general purpose v1 or v2).
-4. [Azure-CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
-5. The [Microsoft.ContainerInstance](https://azure.microsoft.com/en-gb/services/container-instances/) provider registered in your Azure subscription.
+3. A storage account for assets and MongoDB, standard performance (general purpose v1 or v2).
+4. An installation of the [Azure-CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) on your developer machine.
+5. An installation of a MongoDB tool like [Mongo Compass](https://www.mongodb.com/try/download/compass) on your developer machine.
+6. The [Microsoft.ContainerInstance](https://azure.microsoft.com/en-gb/services/container-instances/) provider registered in your Azure subscription.
 
 ## 1. Create the web app
 
-Create a new web app with the following `Basics`:
+Create a new web app with the following _Basics_ settings:
 
-![Create App Service Basics](../../../.gitbook/assets/create-app-service-basics.png)
+![Create App Service Basics](../../../images/started/azure/create-app-service-basics.png)
 
-Configure the `Docker` tab like this:
+Configure the _Docker_ tab like this.
 
-![Create App Service Docker](../../../.gitbook/assets/create-app-service-docker.png)
+{% hint style="info" %}
+It is recommended to use a image tag with a fixed version, e.g. squidex/squidex:6.5
+{% endhint %}
 
-## 2. Enable logging
+![Create App Service Docker](../../../images/started/azure/create-app-service-docker.png)
+
+### Enable logging
 
 In the next step we enable logging. This makes diagnostics easier.
 
-Go to your app service and scroll down to menu item `App Service logs` and turn on file logging. You can then use the `Log stream` to view all log entries.
+Go to your app service and scroll down to menu item _App Service logs_ and turn on file logging. Squidex logs everything to the standard output by default and the stream is forwarded to a file.
 
-![Enable logging](../../../.gitbook/assets/logging.png)
+{% hint style="info" %}
+You can then use the _Log stream_ to view all log entries.
+{% endhint %}
 
-## 3. Configure your storage account
+![Enable logging](../../../images/started/azure/logging.png)
 
-Go to your storage account instance, choose `Files` and create a file share named 'etc-squidex-mongodb'.
+## 2. Configure your storage account
 
-Choose `Blobs` and create a container named 'etc-squidex-assets'.
+Go to your storage account instance and execute the following step
 
-Choose `Access Keys` and copy one of the keys for the setup of the MongoDB and one Connection String for the setup of the Squidex asset store.
+1. Go to _Data storage / Files shares_ (1) __ and create a file share named `etc-squidex-mongodb`.
+2. Go to _Data storage / Blobs_ (2) and create a container named `etc-squidex-assets`.
 
-## 4. Create the container instance
+Also take the keys and connection string for later.
 
-The following setup of the container instance can only be done using the azure-cli at the moment. Open a terminal, login to azure using _az login_ and run the following command.
+To do so, go to _Security / Access Keys_ (3) and show all keys (4):
+
+1. Get one of the keys (5) and store them for later. We will use it to configure MongoDB.
+2. Get one of the connection strings (6) and store it for later.
+
+![](<../../../.gitbook/assets/image (78).png>)
+
+## 3. Create the MongoDB instance
+
+The following setup of the container instance can only be done using the azure-cli at the moment.
+
+Open a terminal, login to azure using `az login` and run the following command.
 
 ```bash
-  az container create --resource-group [YOUR VALUE HERE] --name mongodb --image mongo --azure-file-volume-account-name [YOUR VALUE HERE] --azure-file-volume-account-key "[YOUR VALUE HERE]" --azure-file-volume-share-name etc-squidex-mongodb --azure-file-volume-mount-path "/data/mongoaz" --ports 27017 --cpu 2 --ip-address public --memory 2 --os-type Linux --protocol TCP --command-line "mongod --dbpath=/data/mongoaz --bind_ip_all"
+  az container create --resource-group [YOUR_RESOURCE_GROUP] --name mongodb --image mongo --azure-file-volume-account-name [YOUR_STORAGE_ACCOUNT] --azure-file-volume-account-key "[YOUR_STORAGE_KEY]" --azure-file-volume-share-name etc-squidex-mongodb --azure-file-volume-mount-path "/data/mongoaz" --ports 27017 --cpu 2 --ip-address public --memory 2 --os-type Linux --protocol TCP --command-line "mongod --dbpath=/data/mongoaz --bind_ip_all"
 ```
 
 This will create a container Instance with a single container running mongo db.
 
-If you receivce the error message `The subscription is not registered to use namespace Microsoft.ContainerInstance` when creating the container, then the Container Instances provider is not registered in your Azure subscription. See [this article](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/error-register-resource-provider) for details.
+### Create an admin user
 
-To register the provider, run the following command:
+At this point your MongoDB server will run without authentication. But your MongoDB instance is also available from the public internet, therefore we need to secure it.
 
-```bash
-az provider register --namespace Microsoft.ContainerInstance
+Connect to your MongoDB container:
+
+1. Go to _Container instances_ (1)
+2. Select your container, usually mongodb (2)
+3. Go to _Containers_ (3)
+4. Go to _Connect_ (4)
+5. Select /bin/bash
+
+![](<../../../.gitbook/assets/image (79).png>)
+
+We have to execute the following steps to create a user
+
+```
+// Switch to Mongo shell
+mongo
+
+// Switch to admin db
+use admin
+
+// Create user
+db.createUser({ "user": "root", "pwd": "1q2w3e$R", "roles": ["root"] })
 ```
 
-> **IMPORTANT**: At this point your MongoDB will run without authentication. Connect to it with a Tool of your choice like [Robo 3T](https://robomongo.org) and create an admin user. After that run the above command again, but change the _--command-line_ argument to
->
-> ```
-> "mongod --dbpath=/data/mongoaz --bind_ip_all --auth"
-> ```
+{% hint style="info" %}
+Please choose a custom username and password.
+{% endhint %}
 
-## 5. Configure your application
+Now we have created a user, we can check the connection now.
 
-Go to the `Configuration section` and choose `Application settings` to configure squidex.
+Go to container instances (1), select your container (2) and copy the public IP address (3).
 
-> **IMPORANT**: After you change your configuration values you have to restart your container. In our case the only option was to stop the app service and then start it again. The restart button did not work. Please write a comment if you know a better solution.
+![](<../../../.gitbook/assets/image (81).png>)
 
-![All configuration values](../../../.gitbook/assets/configuration.png)
+Use a tool like [Mongo Compass](https://www.mongodb.com/try/download/compass) to connect to your database with this IP address.
 
-Configuration values for external authentication providers are empty to turn them off.
+Use the following connection string for that: `mongodb://[IP_ADDRESS].` As you can see the connection string does not connect the username and password. But you should be able to connect to your mongo database. The reason is that we authentication is not enabled yet.
 
-## 6. All settings
+Therefore we have to execute the previous command in the azure shell again, but this time, we change the command-line argument to enable authentication. The last part should look like this now. It can take a while to complete this command.
 
-All basic settings:
+```
+--command-line "mongod --dbpath=/data/mongoaz --bind_ip_all --auth"
+```
+
+If you try to connect with the connection string from above you should see this or a similar error.
+
+![](<../../../.gitbook/assets/image (77).png>)
+
+The final connection string will contain the username and password and we can successfully connect.
+
+`mongodb://root:1q2w3e$R@[IP_ADDRESS]`
+
+## 4. Configure your application
+
+Go to the _Configuration section_ and choose _Application settings_ to configure squidex.
+
+{% hint style="info" %}
+**IMPORANT**: After you change your configuration values you have to restart your container. In our case the only option was to stop the app service and then start it again. **The restart button did not work**. Please write a comment if you know a better solution.
+{% endhint %}
+
+Go back to your _App Services_ (1), select your web app (2) and go to the _Configuration_ page (3). You can use the _Advanced edit_ dialog to configure everything will the sample from below.
+
+![](<../../../.gitbook/assets/image (57).png>)
+
+
+
+### All settings
+
+The following list provides all necessary settings. Please use the following placeholders:
+
+| Key                        | Description                                                | Sample                      |
+| -------------------------- | ---------------------------------------------------------- | --------------------------- |
+| `[AZURE_CONNECTIONSTRING]` | The connection string to your storage account. See step 2. |                             |
+| `[MONGO_USERNAME]`         | The username of the MongoDB user.                          | In our case: "root"         |
+| `[MONGO_PASSWORD]`         | The password of the MongoDB user.                          | In our case "1q2w3e$R"      |
+| `[MONGO_IP]`               | The IP address to your MongoDB container.                  | In our case "20.101.164.19" |
+
+
 
 ```javascript
 [
   {
     "name": "ASSETSTORE__AZUREBLOB__CONNECTIONSTRING",
-    "value": "[YOUR VALUE HERE]",
+    "value": "[AZURE_CONNECTIONSTRING]",
     "slotSetting": false
   },
   {
@@ -118,17 +193,7 @@ All basic settings:
   },
   {
     "name": "EVENTSTORE__MONGODB__CONFIGURATION",
-    "value": "mongodb://[YOUR ADMIN]:[YOUR PASSWORD]@[YOUR IP]:27017",
-    "slotSetting": false
-  },
-  {
-    "name": "IDENTITY__ADMINEMAIL",
-    "value": "hello@squidex.io",
-    "slotSetting": false
-  },
-  {
-    "name": "IDENTITY__ADMINPASSWORD",
-    "value": "[YOUR VALUE HERE]",
+    "value": "mongodb://[MONGO_USER]:[MONGO_PASSWORD]@[MONGO_IP]:27017",
     "slotSetting": false
   },
   {
@@ -163,17 +228,17 @@ All basic settings:
   },
   {
     "name": "STORE__MONGODB__CONFIGURATION",
-    "value": "mongodb://[YOUR ADMIN]:[YOUR PASSWORD]@[YOUR IP]:27017",
+    "value": "mongodb://[MONGO_USER]:[MONGO_PASSWORD]@[MONGO_IP]:27017",
     "slotSetting": false
   },
   {
     "name": "URLS__BASEURL",
-    "value": "https://squidex-test.azurewebsites.net/",
+    "value": "https://[WEBAPP NAME].azurewebsites.net/",
     "slotSetting": false
   },
   {
     "name": "VIRTUAL_HOST",
-    "value": "squidex-test.azurewebsites.net",
+    "value": "[WEBAPP NAME].azurewebsites.net",
     "slotSetting": false
   },
   {
@@ -184,6 +249,12 @@ All basic settings:
 ]
 ```
 
-### More issues?
+Configuration values for external authentication providers are empty to turn them off.
 
-It is very likely a configuration problem and not related to hosting under azure. Go to the [Configuration](../configuration.md) page.
+## More issues?
+
+It is very likely a configuration problem and not related to Azure. Please visit the following page:&#x20;
+
+{% content-ref url="../configuration.md" %}
+[configuration.md](../configuration.md)
+{% endcontent-ref %}

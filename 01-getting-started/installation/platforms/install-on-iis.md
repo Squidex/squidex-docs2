@@ -2,7 +2,7 @@
 description: Install Squidex on Windows with IIS and a custom MongoDB server.
 ---
 
-# Install on  IIS
+# Install on IIS
 
 You can also read the guide from Microsoft, how to [Host ASP.NET Core on Windows with IIS](https://docs.microsoft.com/en-US/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2#install-the-net-core-hosting-bundle).
 
@@ -64,7 +64,7 @@ Create a folder for your Squidex installation and extract the archive to this fo
 2. Right-click the site's app pool and select **Basic Settings** from the contextual menu.
 3. In the **Edit Application Pool** window, set the **.NET CLR version** to **No Managed Code**:
 
-![IIS Application pool](../../../.gitbook/assets/pool.png)
+![IIS Application pool](../../../images/started/iis/pool.png)
 
 ### 2.4. Configure Squidex
 
@@ -123,7 +123,7 @@ Start the IIS site and go to [http://localhost](http://localhost). Login and sta
 
 ### Where can I see the logs?
 
-Squidex logs to standard output.&#x20;
+Squidex logs to standard output.
 
 To forward the logs to a file, open `web.config` and set `stdoutLogEnabled="true"`.
 

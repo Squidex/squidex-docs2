@@ -48,7 +48,7 @@ Just follow the link: [https://www.vultr.com/marketplace/apps/squidex](https://w
 ### Step 2: Deploy a new server
 
 1. Select your target location close to your center of operation.
-2. Select the size of your machine. At least 4GB or memory with 2 virtual cores are recommended.&#x20;
+2. Select the size of your machine. At least 4GB or memory with 2 virtual cores are recommended.
 
 ![Recommended server size](<../../../.gitbook/assets/image (60).png>)
 
@@ -81,7 +81,7 @@ cd /home/
 
 You will be asked to enter the domain here. All other values are optional. The installation script will start docker-compose then and download all images and start them in the right order.
 
-![Running the setup script](<../../../.gitbook/assets/image (20) (2) (2) (1).png>)
+![Running the setup script](<../../../.gitbook/assets/image (20) (1) (1).png>)
 
 Squidex is ready to be used now. If you visit your installation under [https://mydomain.com](https://mydomain.com) you will see a simple setup guide where you can create the initial admin user.
 

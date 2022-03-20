@@ -38,7 +38,7 @@ You only need the source code for Development. There are other approaches how to
 
 First you have to create a new .NET class library to the backend solution:
 
-![Squidex.Extensions Plugin](<../../../.gitbook/assets/image (19).png>)
+![Squidex.Extensions Plugin](<../../../.gitbook/assets/image (7).png>)
 
 Ensure that you target `netcoreapp3.0`.
 
@@ -76,17 +76,17 @@ namespace Squidex.Extensions.Samples.AssetStore
 }
 ```
 
-&#x20;You can also add multiple implementations to your class library in case you have multiple extensions in one project and want to group them together.
+You can also add multiple implementations to your class library in case you have multiple extensions in one project and want to group them together.
 
 ### 3. Reference your plugin
 
 Add a reference to your plugin to the `Squidex` project.
 
-![Add reference to your plugin](<../../../.gitbook/assets/image (2) (1).png>)
+![Add reference to your plugin](<../../../.gitbook/assets/image (2) (2).png>)
 
 Furthermore you need to add the path to your plugin to the configuration, for example to the `appSettings`file. Because we reference the plugin, it will be automatically copied to the output folder when the build or packaging is executed.
 
-![Reference your plugin in the configuration file](<../../../.gitbook/assets/image (28) (1).png>)
+![Reference your plugin in the configuration file](<../../../.gitbook/assets/image (28) (1) (1).png>)
 
 There is also a project on Github that demonstrates how to create a plugin for SendGrid with an older version of Squidex: [https://github.com/squidexcontrib/sendgrid](https://github.com/squidexcontrib/sendgrid)
 
@@ -131,7 +131,7 @@ The `Squidex.Infrastructure.Assets.IAssetStore` interface is used to encapsulate
 * `AzureBlobAssetStore`: Stores the assets in azure blob storage.
   * Read more: [https://azure.microsoft.com/en-us/services/storage/blobs/](https://azure.microsoft.com/en-us/services/storage/blobs/)
 * `GoogleCloudAssetStore`: Stores the assets in Google cloud.
-  * Read more: [https://cloud.google.com/storage/](https://cloud.google.com/storage/)``
+  * Read more: [https://cloud.google.com/storage/](https://cloud.google.com/storage/)\`\`
 * `MongoGridFsAssetStore`: Stores the assets in MongoDB using GridFS.
   * Read more: [https://docs.mongodb.com/manual/core/gridfs/](https://docs.mongodb.com/manual/core/gridfs/)
 * `FolderAssetStore`: Stores the assets in the file system.
@@ -144,9 +144,9 @@ Recommended implementations:
 
 The `Squidex.Infrastructure.CQRS.Events.IEventStore` is our abstraction for different event store implementations. You can append to events, query them or subscribe to events. Dependending on your implementation you might want to use the pub-sub system for subscriptions. The notification mechanism is provided by the `Squidex.Infrastructure.CQRS.Events.IEventNotifier` interface. Currently there are the following implementations:
 
-* `Squidex.Infrastructure.CQRS.Events.MongoEventStore`: Implementation for MongoDb.&#x20;
+* `Squidex.Infrastructure.CQRS.Events.MongoEventStore`: Implementation for MongoDb.
   * Read more: [https://docs.mongodb.com/ecosystem/drivers/csharp/](https://docs.mongodb.com/ecosystem/drivers/csharp/)
-* `Squidex.Infrastructure.CQRS.Events.GetEventStore`: Implementation for EventStore.&#x20;
+* `Squidex.Infrastructure.CQRS.Events.GetEventStore`: Implementation for EventStore.
   * Read more: [https://geteventstore.com/](https://geteventstore.com)
 
 Recommended implementations:
@@ -170,7 +170,7 @@ You can provide other implementations for repositories, e.g. for Elastic Search 
 * `Squidex.Infrastructure.States.IStore`: Key value store for json objects. Contains everything else like comments, apps, schemas, rules, custom indices and settings.
 * `Squidex.Infrastructure.UsageTracking.IUsageTracking`: Stores historic usage information and performance metrics.
 
-### Command Middleware&#x20;
+### Command Middleware
 
 Command middlewares are used to handle commands, for example when a new content item is created. They run in a pipeline and can be used to for a lot of different purposes. It is safe to implement the `ICustomCommandMiddleware` interface, that ensures that your commands are running in the correct order.
 

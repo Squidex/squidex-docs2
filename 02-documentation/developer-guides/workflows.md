@@ -30,7 +30,7 @@ Therefore we have 3 states for content:
 
 The following diagram visualizes our workflow.
 
-![Workflow](../../.gitbook/assets/workflow.png)
+![Workflow](../../images/articles/workflow/workflow.png)
 
 ## Step 1: Create the schema
 
@@ -83,7 +83,7 @@ I will not show everything in this tutorial, it is just too much and the solutio
 
 The solution is scripting. If you click the three dots in the schema editor a menu will pop up with a menu item to the scripting editor. Here you can define scripts that are invoked when a content item is queried, created, updated, deleted or when the status is changed.
 
-![Scripting](../../.gitbook/assets/scripting.png)
+![Scripting](../../images/articles/workflow/scripting.png)
 
 ### The create script:
 

@@ -52,7 +52,7 @@ If you go to the Visualize (1) tab you see a graphical representation of your wo
 
 ![The default workflow.](<../../.gitbook/assets/image (28).png>)
 
-* **(2)  Draft** is the initial status for each content item. The initial status is visualized by an arrow. From Draft you can either move a content item to "Published" or to "Archived".
+* **(2) Draft** is the initial status for each content item. The initial status is visualized by an arrow. From Draft you can either move a content item to "Published" or to "Archived".
 * **(3) Archived** is a status that is used to mark deleted content items without actually deleting them. It is a soft delete. Archived content items cannot be updated. From "Archived" you cannot go to "Published" immediately, you always have to go to "Draft" first.
 * **(4) Published** is a special status that cannot be removed. Only content items where the status is set to "Published" are available in the normal API. If you do not need a workflow at all you can delete all other statuses.
 
@@ -64,7 +64,7 @@ Hopefully the user interface is good enough that you do not need detailed instru
 
 The initial status is indicated with a small arrow icon (1). You can change this when you move the mouse over a status. Then the same arrow icon will pop up, which can be clicked to set the status.
 
-![](<../../.gitbook/assets/image (36).png>)
+![](<../../.gitbook/assets/image (26) (1).png>)
 
 ### Change the color of a status
 
@@ -133,7 +133,7 @@ Workflows can be assigned to schemas. If no schema is assigned, this workflow ha
 
 ![Assigned schemas](<../../.gitbook/assets/image (32).png>)
 
-You have to pay attention that you do not assign the same schema to multiple workflows. This can happen when you have multiple workflows that have no assigned schemas&#x20;
+You have to pay attention that you do not assign the same schema to multiple workflows. This can happen when you have multiple workflows that have no assigned schemas
 
 ![Multiple workflows with no schemas assigned](<../../.gitbook/assets/image (33).png>)
 
