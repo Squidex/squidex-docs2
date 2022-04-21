@@ -89,7 +89,7 @@ You can define preview URL per schema in the following menu item:
 3. Select the "More" tab (3)
 4. Scroll to the "Preview URLs" (4)
 
-![Navigation to Preview URLs](<../../.gitbook/assets/image (75).png>)
+![Navigation to Preview URLs](<../../.gitbook/assets/image (75) (1).png>)
 
 The following example shows 2 preview URLs:
 
@@ -119,7 +119,7 @@ If you open a saved content item, you will see the buttons with the preview URLs
 
 The following screenshot describes this feature best. The screenshot is from the Squidex website. The idea is to annotate content items on your website so that we can provide links to the Squidex Management UI where you can edit them.
 
-![How content items are linked in the Squidex website](<../../.gitbook/assets/image (76).png>)
+![How content items are linked in the Squidex website](<../../.gitbook/assets/image (76) (1).png>)
 
 As mentioned above Squidex has no control over your website, therefore you have to make a few changes to implement this feature.
 
