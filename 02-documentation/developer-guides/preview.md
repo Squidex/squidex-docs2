@@ -201,7 +201,6 @@ The property names are shortened to keep the edit token as small as possible. If
 
 ```json
 // eyJhIjoic3F1aWRleC13ZWJzaXRlIiwiaSI6ImFjNWVlOTE5LWE1NDQtNDVjNC1iZmQ2LWY4YTk2MDcwMWJiNCIsInUiOiJodHRwczovL2Nsb3VkLnNxdWlkZXguaW8vIn0=
-
 {
    "a":"squidex-website",                      // App Name
    "i":"ac5ee919-a544-45c4-bfd6-f8a960701bb4", // Asset ID
