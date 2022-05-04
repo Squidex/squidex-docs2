@@ -57,7 +57,7 @@ Before you upload the logs, search for the `exception` keyword. Perhaps you alre
 
 Sometimes the identity systems masks Personally Identifiable Information (PII) in the logs. If you see such a case in your log file and you think that relevant information are missing you can turn off this behavior with the following setting: [https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json#L580](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json#L580)
 
-The environment variable for this setting is `IDENTITY__SHOWPII=true`.&#x20;
+The environment variable for this setting is `IDENTITY__SHOWPII=true`.
 
 Read more about how to configure Squidex here:
 
@@ -141,5 +141,12 @@ Sometimes a migration fails, for example if the application is restarted before 
 
 ![The migration status](<../../../.gitbook/assets/image (21).png>)
 
+### My cluster fails to start
 
+Squidex used a clustering technology to scale. With this setup, the memberships communicate through a database collection which members are part of the cluster. If your cluster crashes or is not shutdown properly there are still members in the collection, which are not marked as dead yet. When you restart your cluster new Squidex instances try to connect to these members, which usually fails, because the new instances have new IP addresses. Depending on the setup this takes too long for your load balancer. Therefore it is easier to clear the membership collection:
 
+1. Ensure that your deployment has zero (0) instances.
+2. Clear the `Orleans_OrleansMembershipSingle` collection.
+3. Restart your cluster.
+
+![The Orleans\_OrleansMembershipSingle collection](<../../../.gitbook/assets/image (74).png>)

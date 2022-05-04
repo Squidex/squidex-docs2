@@ -113,7 +113,7 @@ If you use a query string to enable unpublished content items, you should also a
 
 If you open a saved content item, you will see the buttons with the preview URLs:
 
-![The preview button](<../../.gitbook/assets/image (74) (1).png>)
+![The preview button](<../../.gitbook/assets/image (74) (1) (1).png>)
 
 ## **Use Case 3: Link to the source of a content item**
 
