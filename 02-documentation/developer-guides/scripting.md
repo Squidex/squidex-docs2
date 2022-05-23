@@ -175,7 +175,7 @@ replace();
 Calculate the slug for a content title automatically:
 
 ```javascript
-ctx.data.slug.iv = slugifx(ctx.data.title.iv);
+ctx.data.slug.iv = slugify(ctx.data.title.iv);
 // Tell Squidex that the content should be replaced.
 replace();
 ```
