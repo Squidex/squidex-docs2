@@ -54,6 +54,7 @@
   * [Automation Tools (CLI)](02-documentation/developer-guides/automation-tools.md)
   * [Scripting](02-documentation/developer-guides/scripting/README.md)
     * [Scripting Helper Methods](02-documentation/developer-guides/scripting/scripting-helper-methods.md)
+  * [Embed Content](02-documentation/developer-guides/embed-content.md)
   * [Custom Workflows](02-documentation/developer-guides/workflows.md)
   * [Custom Editors](02-documentation/developer-guides/editors.md)
   * [Custom Sidebars](02-documentation/developer-guides/custom-sidebars.md)

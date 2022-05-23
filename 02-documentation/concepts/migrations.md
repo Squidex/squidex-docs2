@@ -47,7 +47,7 @@ When a change is not backwards compatible anymore and when it is very likely tha
 
 Therefore you will see collections that contain a number, for example Assets2 (1).
 
-![New collections](<../../.gitbook/assets/image (75).png>)
+![New collections](<../../.gitbook/assets/image (75) (1).png>)
 
 ## How to plan a migration
 

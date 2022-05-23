@@ -100,7 +100,7 @@ Squidex should be up and running now. You can visit your installation under
 
 You should see the following screen:
 
-![Setup Screen](<../../../.gitbook/assets/image (76) (1) (1).png>)
+![Setup Screen](<../../../.gitbook/assets/image (76) (1) (1) (1).png>)
 
 The setup screen shows a checklist with hints and warnings. As long as there is no error (an red icon), everything is fine.
 

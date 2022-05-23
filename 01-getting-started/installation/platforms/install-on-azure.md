@@ -89,7 +89,7 @@ Connect to your MongoDB container:
 4. Go to _Connect_ (4)
 5. Select /bin/bash
 
-![](<../../../.gitbook/assets/image (79).png>)
+![](<../../../.gitbook/assets/image (79) (1).png>)
 
 We have to execute the following steps to create a user
 
@@ -142,7 +142,7 @@ Go to the _Configuration section_ and choose _Application settings_ to configure
 
 Go back to your _App Services_ (1), select your web app (2) and go to the _Configuration_ page (3). You can use the _Advanced edit_ dialog to configure everything will the sample from below.
 
-![](<../../../.gitbook/assets/image (57).png>)
+![](<../../../.gitbook/assets/image (57) (1).png>)
 
 
 
