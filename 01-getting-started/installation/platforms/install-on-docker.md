@@ -133,20 +133,33 @@ In my tests it took sometime to issue the certificate. Probably around 10 minute
 
 Also ensure that your DNS server is configured correctly.
 
-### I cannot login and see a IDX20803 error code in my logs
+### I get a IDX20803: Unable to obtain configuration from \<URL>
+
+#### Problem 1: Firewall Issues
 
 In some cases, especially on CentOS 7, the communication between docker containers on the same host is blocked by the firewall. There is an open [issue on Github](https://github.com/moby/moby/issues/32138) for this problem.
 
 The solution that worked in our cases was to add https as a service to the firewall:
 
+CentOS:
+
 ```bash
 sudo firewall-cmd --add-service=https --permanent --zone=trusted
 sudo firewall-cmd --reload
+sudo systemctl restart docker
 ```
 
-### I see a IDX20803: Unable to obtain configuration from: \<IP> in the logs
+Ubuntu:
 
-This problem is because you use an host name or IP address that is not reachable from the docker itself. You can think about the Squidex being two processes in one application. There is the OpenID Connect Server (Identity Server) that generates the access tokens and the API. When the API receives an access token it makes a request to the Identity Server to validate the token (See following diagram).
+```bash
+sudo ufw allow 443
+sudo ufw enable
+sudo systemctl restart docker
+```
+
+#### Problem 2: Invalid host name
+
+This problem is because you use an host name or IP address that is not reachable from the docker itself. You can think about the Squidex being two processes in one application. There is the OpenID Connect Token Server that generates the access tokens and the API. When the API receives an access token it makes a request to the Token Server to validate the token (See following diagram).
 
 ![Authentication Flow](<../../../.gitbook/assets/Untitled presentation.png>)
 
