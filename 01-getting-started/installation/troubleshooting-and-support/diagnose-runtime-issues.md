@@ -18,16 +18,68 @@ Dumps can be analyzed with tools like
 * Visual Studio Code
 * Memory Analyzers, e.g. [dotmemory](https://www.jetbrains.com/dotmemory/?source=google\&medium=cpc\&campaign=12509621705\&gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk2ZvCwqDMmKuDzjmibSonfQuJyZZW\_jkhbizatYncy8ipncfEM05BIaAsaXEALw\_wcB)
 
-If you want to create a dump you have to execute the following steps.
+You have to options to create these dumps:
 
-1. &#x20;Connect to your production machine, container (docker) or pod (kubernetes).
+1. Directly with Squidex if you have version 6.8.0 or newer
+2. Manually after you have installed the necessary tools.
+
+## Automated process (v6.8.0)
+
+With version 6.8.0 Squidex has been extended to create dumps from either the API or automatically.
+
+### Configuration
+
+{% hint style="info" %}
+Just skip this section if you use a container image, because everything is already configured.
+{% endhint %}
+
+Squidex uses the same dump tools that are also used when you create the dumps manually. But they are not part of Squidex itself and therefore you have to tell Squidex where the binaries can be found. Use the following environment variables for that and change the path to point to your installation folder.
+
+```
+ENV DIAGNOSTICS__DUMPTOOL=/tools/dotnet-dump
+ENV DIAGNOSTICS__GCDUMPTOOL=/tools/dotnet-gcdump
+```
+
+### Create a dump via API
+
+To create a dump via the API you have to call the following endpoints using the normal authentication headers.
+
+```
+GET /api/diagnostics/dump
+GET /api/diagnostics/gcdump
+```
+
+The dumps are stored in your asset storage under the following paths:
+
+```
+diagnostics/dump/yyyy-MM-dd-HH-mm-ss.dump
+diagnostics/gcdump/yyyy-MM-dd-HH-mm-ss.gcdump
+```
+
+### Create a dump via configuration
+
+You can also tell Squidex to create a dump automatically once a memory limit is reached. The dump is only created once for the whole instance of the Squidex instance.
+
+```
+# Triggers the dump tool when the process has consumed more than 4GB
+DIAGNOSTICS__DUMPTRIGGERINMB=4096
+
+# Triggers the gcdump tool when the process has consumed more than 4GB
+DIAGNOSTICS__GCDUMPTRIGGERINMB=4096
+```
+
+## Manual process
+
+If you want to create a dump manually you have to execute the following steps.
+
+1. Connect to your production machine, container (docker) or pod (kubernetes).
 2. Install the .NET SDK and the necessary tools.
 3. Install the .NET tools
 4. Create the dump.
 5. Download the dump to your local machine.
 6. Optional: Upload the dump file to a network drive to make it available it others.
 
-## 1. Connect to your production machine
+### 1. Connect to your production machine
 
 It depends on your hosting environment how to connect:
 
@@ -55,7 +107,7 @@ If you use the official Squidex container you can use the following command to r
 kubectl exec -it <pod_name> -- /bin/bash
 ```
 
-## 2. Install .NET SDK
+### 2. Install .NET SDK
 
 Usually the .NET SDK is not installed on your server and only the runtime. This is also true for the official docker image. You can find detailed installation instructions for your environment from the official documentation:
 
@@ -78,7 +130,7 @@ chmod 777 sdk_install.sh
 ./sdk_install.sh -c 5.0
 ```
 
-## 3. Install the .NET tools
+### 3. Install the .NET tools
 
 There are a wide range of tools that are helpful:
 
@@ -107,7 +159,7 @@ cd /root/.dotnet
 cd tools
 ```
 
-## 4. Create the dump
+### 4. Create the dump
 
 In this following step we focus on **dotnet-gcdump**.
 
@@ -124,9 +176,9 @@ In docker and kubernetes there is only one .NET process running with the Process
 dotnet-gcdump ps
 ```
 
-## 5. Download the dump to your local machine <a href="#synopsis-2" id="synopsis-2"></a>
+### 5. Download the dump to your local machine <a href="#synopsis-2" id="synopsis-2"></a>
 
-It depends on your environment how to copy the dump file to your local machine.&#x20;
+It depends on your environment how to copy the dump file to your local machine.
 
 #### How to copy with docker
 
