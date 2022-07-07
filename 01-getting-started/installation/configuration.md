@@ -55,7 +55,7 @@ These are the most important settings:
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `URLS__BASEURL`          | The base URL under which Squidex is running. It is used to generate hyperlinks and to make redirects with the correct host name. In some environments, Squidex is running behind several proxies, e.g. cloudflare, google load balancer and so on. In these cases the original host name might get lost. Therefore we introduced this configuration value.                                                |
 | `IDENTITY__ADMINEMAIL`   | The email address of the admin user. You can also set the admin email with the initial setup screen.                                                                                                                                                                                                                                                                                                      |
-| `IDENTITY__ADMINPASWORD` | The password of the admin user (Must contain lowercase, uppercase letter, number and special character). You can also set the admin password with the initial setup screen.                                                                                                                                                                                                                               |
+| `IDENTITY__ADMINPASSWORD` | The password of the admin user (Must contain lowercase, uppercase letter, number and special character). You can also set the admin password with the initial setup screen.                                                                                                                                                                                                                               |
 | `CLUSTERING__MODE`       | Squidex uses [Microsoft Orleans](https://dotnet.github.io/orleans/index.html) for clustering. It is technology, which was written for online games, such as Halo. With Orleans you develop small classes that are deployed automatically to a cluster of nodes. To enable clustering you have to set this setting to `Mongo`, which means that a MongoDB table is used to store the state of the cluster. |
 
 Set
@@ -87,7 +87,7 @@ Typically the login fails, because the `URLS__BASEURL` setting has an invalid va
 
 ### I see the login screen but I cannot login.
 
-Ensure that you have configured a strong password if you use `IDENTITY__ADMINPASWORD`.
+Ensure that you have configured a strong password if you use `IDENTITY__ADMINPASSWORD`.
 
 You will see the following entry in your logs:
 
