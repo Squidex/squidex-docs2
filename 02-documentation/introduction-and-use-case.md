@@ -1,6 +1,8 @@
 # Introduction and Use Case
 
-We think it is easier to describe the features and functionality with Use Cases. To make the documentation easier and shorter we will use a single Use Case for all pages, which will be extended over time. This page describes the details of this use case. To unify the documentation is still in progress and only very few pages have been updated so far. We will add a note to this page for these pages.
+We think it's easier to describe features and functionality with use cases. To make our documentation easier and shorter to follow, we will use a single use case (which will be updated and extended over time). This page describes the details of this use case.
+
+Our documentation is still in progress, and only a few pages have been created/updated so far. As new information is published, we will update this page.
 
 {% hint style="info" %}
 We recommend to open this use case side by side with the documentation, so that you do not have to switch back and forth.
