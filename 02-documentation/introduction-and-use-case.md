@@ -1,6 +1,8 @@
 # Introduction and Use Case
 
-We think it is easier to describe the features and functionality with Use Cases. To make the documentation easier and shorter we will use a single Use Case for all pages, which will be extended over time. This page describes the details of this use case. To unify the documentation is still in progress and only very few pages have been updated so far. We will add a note to this page for these pages.
+We think it's easier to describe features and functionality with use cases. To make our documentation easier and shorter to follow, we will use a single use case (which will be updated and extended over time). This page describes the details of this use case.
+
+Our documentation is still in progress, and only a few pages have been created/updated so far. As new information is published, we will update this page.
 
 {% hint style="info" %}
 We recommend to open this use case side by side with the documentation, so that you do not have to switch back and forth.
@@ -56,14 +58,14 @@ This schema is called `startups` and has the following fields.
 | `founders`     | Array       | No          | The founders as list of name and position.  |
 | `tags`         | Tags        | No          | A list of tags for search.                  |
 | `location`     | Geolocation | No          | The geolocation of the headquarter.         |
-| `metadata`     | Json        | No          | Unstructured metadata.                      |
+| `metadata`     | JSON        | No          | Unstructured metadata.                      |
 | `givenUp`      | Boolean     | No          | Indicates whether the startup has given up. |
 
 ### &#x20;JSON structure
 
 If you are a content editor, you can skip this section.
 
-Of course we use JSON to represent our content in the database and API. Each content item is one document and the values of all fields are just called "content data" or "data". Because Squidex supports localized fields we need a way to structure our localized fields as well as our non-localized fields. In Squidex we have decided to use a common structure for that. Therefore our content has the following shape:
+We use JSON to represent our content in the database and API. Each content item is one document and the values of all fields are just called "content data" or "data". Because Squidex supports localized fields we need a way to structure our localized fields as well as our non-localized fields. In Squidex we have decided to use a common structure for that. Therefore our content has the following shape:
 
 ```javascript
 // contents
@@ -152,7 +154,7 @@ Of course we use JSON to represent our content in the database and API. Each con
 }
 ```
 
-As you can see, we need an JSON object for our localized fields. To use a generalized structure all objects use fields `iv` (for invariant) is used for localized fields. Read more about the reasoning in the section about localization:
+As you can see, we need a JSON object for our localized fields. To use a generalized structure, all objects have an `iv` (which stands for invariant) key which is used for localized fields. Read more about the reasoning in the section about localization:
 
 {% content-ref url="concepts/localization.md" %}
 [localization.md](concepts/localization.md)
