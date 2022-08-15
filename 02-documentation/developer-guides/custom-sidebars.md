@@ -128,7 +128,6 @@ You can use `apiUrl`, `access_token` and `token_type` to retrieve additional inf
 Squidex contains a few example plugins that can help you to understand the flow, for example:
 
 * [https://cloud.squidex.io/scripts/sidebar-context.html](https://cloud.squidex.io/scripts/editor-context.html): Demonstrates the structure of the context object by displaying the JSON representation in a text field.
-* [https://cloud.squidex.io/scripts/sidebar-content.html](https://cloud.squidex.io/scripts/editor-context.html): Demonstrates the structure of the content object by displaying the JSON representation in a text field.
 
 ## More examples
 
