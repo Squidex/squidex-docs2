@@ -106,7 +106,7 @@ Converts a HTML string to plain text.
 Converts a markdown string to plain text.
 
 ```
-{{event.data.body.iv | html2text}}
+{{event.data.body.iv | markdown2text}}
 ```
 
 #### md5
