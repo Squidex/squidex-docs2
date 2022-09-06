@@ -540,7 +540,51 @@ $filter=contains(data/name/en, 'ich')
 **contains**, **startsWith** and **endsWith** are always case insensitive.
 {% endhint %}
 
-In OData these operators can also be compared with `false`. In JSON queries you have to use a `not` operation to negate your filter expression.
+String property should match to a regex pattern:
+
+{% tabs %}
+{% tab title="First Tab" %}
+```
+$filter=matchs(data/name/en, 'a-z') // Case insensitive
+---
+$filter=matchs(data/name/en, '/a-z/') // Case sensitive
+---
+$filter=matchs(data/name/en, '/a-z/i') // Case insensitive
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```json
+{
+    "filter": {
+        "path": "data.name.en",
+        "op": "matchs",
+        "value": "a-z" // Case insensitive
+    }
+}
+---
+{
+    "filter": {
+        "path": "data.name.en",
+        "op": "matchs",
+        "value": "/a-z/" // Case sensitive
+    }
+}
+---
+{
+    "filter": {
+        "path": "data.name.en",
+        "op": "matchs",
+        "value": "/a-z/i" // Case insensitive
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+In OData these operators can also be compared with false.&#x20;
+
+In JSON queries you have to use a **not** operation to negate your filter expression.
 
 {% tabs %}
 {% tab title="OData" %}
