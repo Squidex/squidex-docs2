@@ -543,7 +543,7 @@ $filter=contains(data/name/en, 'ich')
 String property should match to a regex pattern:
 
 {% tabs %}
-{% tab title="First Tab" %}
+{% tab title="OData" %}
 ```
 $filter=matchs(data/name/en, 'a-z') // Case insensitive
 ---
