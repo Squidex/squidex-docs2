@@ -20,7 +20,7 @@ Both query languages support the same features:
 
 ### OData Queries
 
-OData  is an open [protocol](https://en.wikipedia.org/wiki/Protocol\_\(computing\)) which allows the creation and consumption of queryable and inoperable APIs in a simple and standardized way. It was designed and developed by Microsoft and provides ready to use solutions. We have decided to use the Query syntax because we wanted to leverage an existing system and parser and found it easy to adapt to our needs.&#x20;
+OData is an open [protocol](https://en.wikipedia.org/wiki/Protocol\_\(computing\)) which allows the creation and consumption of queryable and inoperable APIs in a simple and standardized way. It was designed and developed by Microsoft and provides ready to use solutions. We have decided to use the Query syntax because we wanted to leverage an existing system and parser and found it easy to adapt to our needs.
 
 The queries are provided over the URL and have a special syntax. OData query options start with a dollar character, e.g. `$filter`.
 
@@ -133,7 +133,7 @@ To identify a field of our content item we use the full path to this field, sepa
 
 When you use JSON queries, you can also use the dot-notation to have a syntax that is closer to Javascript and other programming languages. It is recommended to use this notation. For example:
 
-* &#x20;`data.population.iv`
+* `data.population.iv`
 
 #### OData Restrictions
 
@@ -341,10 +341,6 @@ An array (components, array fields, references, assets, strings) cannot be empty
 // Some code
 ```
 {% endtab %}
-
-{% tab title="Second Tab" %}
-
-{% endtab %}
 {% endtabs %}
 
 Date must match value:
@@ -539,6 +535,10 @@ $filter=contains(data/name/en, 'ich')
 ```
 {% endtab %}
 {% endtabs %}
+
+{% hint style="info" %}
+**contains**, **startsWith** and **endsWith** are always case insensitive.
+{% endhint %}
 
 In OData these operators can also be compared with `false`. In JSON queries you have to use a `not` operation to negate your filter expression.
 

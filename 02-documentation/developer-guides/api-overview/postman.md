@@ -22,7 +22,7 @@ The first step is to create an app, which is just another name for project or sp
 2. Enter a name for your App. The name must be unique so it might already been taken if you use the cloud version. The name can also contain only lowercase letters, numbers and dashes because it will be part of the URLs.
 3. Click the "Create" button.
 
-![Create a new App](<../../../.gitbook/assets/image (57) (2) (2) (2) (2) (2) (2) (1) (2).png>)
+![Create a new App](<../../../.gitbook/assets/image (57) (2) (2) (2) (2) (2) (2) (1) (2) (1).png>)
 
 Your app will show up in your list. Just click your App (1) to move to the next step:
 

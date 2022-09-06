@@ -167,7 +167,7 @@ Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/cke-simple.html](https://squidex.github.io/squidex-samples/editors/cke-simple.html)
 
-![CKE Editor](<../../.gitbook/assets/image (69) (5) (4) (1) (2) (3).png>)
+![CKE Editor](<../../.gitbook/assets/image (69) (5) (4) (1) (2) (1) (1).png>)
 
 Clone the sample and configure the CKE editor as you need it.
 

@@ -27,12 +27,14 @@ Resolves a content by ID and saves the content in a variable.
 ```
 // Input
 
+
 {% raw %}
 {% for id in event.data.references.iv %}
    {% reference 'ref', id %}
    Text: {{ ref.data.field1.iv }} {{ ref.data.field2.iv }} {{ ref.id }}
 {% endfor %}
 {% endraw %}
+
 
 
 // Output
@@ -46,6 +48,7 @@ Resolves a asset by ID and saves the asset in a variable.
 
 ```
 // Input
+
 
 {% raw %}
 {% for id in event.data.assets.iv %}
