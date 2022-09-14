@@ -20,7 +20,7 @@ Squidex uses a fine granular permission system. Permissions are defined with a d
 
 `{app}` and `{schema}` are placeholder that will be replaced with your current app name or schema name.
 
-The full list of permissions can be found here: [https://github.com/Squidex/squidex/blob/master/backend/src/Squidex.Shared/Permissions.cs](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex.Shared/Permissions.cs)
+The full list of permissions can be found here: [https://github.com/Squidex/squidex/blob/master/backend/src/Squidex.Shared/PermissionIds.cs](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex.Shared/PermissionIds.cs)
 
 The system is expressed as a hierarchy. If you visualize them as a tree you get the following structure
 
@@ -36,7 +36,7 @@ The system is expressed as a hierarchy. If you visualize them as a tree you get 
 
 This means...
 
-* That `squidex` gives you all permissions and makes you an adminstrator.
+* That `squidex` gives you all permissions and makes you an administrator.
 * That `squidex.apps.{app}` gives you all permissions for a specific app and makes you the app owner.
 
 ## Defining permissions
@@ -55,7 +55,7 @@ And furthermore exceptions:
 
 ### Special permissions
 
-If you have a look to the list of [available permissions](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex.Shared/Permissions.cs) the meaning should be obvious, but there is one exception:
+If you have a look to the list of [available permissions](https://github.com/Squidex/squidex/blob/master/backend/src/Squidex.Shared/PermissionIds.cs) the meaning should be obvious, but there is one exception:
 
 `squidex.apps.{app}.common` gives you the minimum permissions to access and app. If you create a role that can view content only, this role also needs the permissions to query the configured languages and published schemas for an app. Therefore all app roles have this permissions implicitly.
 
@@ -104,4 +104,4 @@ As an administrator you can also assign permissions to users individually:
 There are some restrictions to the system:
 
 * When you assign permissions to a user manually, this user has to logout and login again, because these permissions are stored as claims in the cookie.
-* Even if a user has the admin permission (`squidex`) or permissions for alls apps (`squidex.apps`) he will not see them in the apps overview in the administration UI. A Squidex instance can have have thousands of apps (like our cloud) and the user interface is not designed for that. Either assign him an explicit to an app, like `squidex.apps.{app}` or enter the url manually.
+* Even if a user has the admin permission (`squidex`) or permissions for all apps (`squidex.apps`) he will not see them in the apps overview in the administration UI. A Squidex instance can have thousands of apps (like our cloud) and the user interface is not designed for that. Either assign them explicitly to an app, like `squidex.apps.{app}`, or enter the url manually.
