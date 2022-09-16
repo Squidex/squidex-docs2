@@ -12,7 +12,7 @@ Some updates and new features require an update to the existing data structures 
 
 ### General Process
 
-The migration process uses a version in the database to determinate whether an update is needed.
+The migration process uses a version in the database to determine whether an update is needed.
 
 This version is stored in the `Squidex` database (1) in the `Migration` (2) collection, where only a single document (3) exists.
 
@@ -30,7 +30,7 @@ When a Squidex server is started the following steps are executed:
 3. If the lock has not been taken, the server waits for 5 seconds and continues with step 1. If another server is running the migration, the current server will therefore wait until the migration has been completed and it can take the lock. Usually the queried database version is then the same as the new version and the server will just release the lock for the next server.
 
 {% hint style="info" %}
-If a server crashes before it can release the lock the database is essentially locked forever and all servers would wait wait for the lock to be released. You have to release manually to solve this issue.
+If a server crashes before it can release the lock the database is essentially locked forever and all servers would wait for the lock to be released. You have to release manually to solve this issue.
 {% endhint %}
 
 ### Migration steps
@@ -41,7 +41,7 @@ There is no documentation which migration steps will run, but the following code
 Migration steps
 {% endembed %}
 
-Usually the migration will just rebuild a database from scratch. Squidex uses event sourcing, which means that each entity - for example an asset or content item - exists as a sequence of change events and as a snapshot document in the database for complex queries. As long as we do not loose the events, we can just rebuild the snapshot documents from the events. Therefore events are never deleted or updated.
+Usually the migration will just rebuild a database from scratch. Squidex uses event sourcing, which means that each entity - for example an asset or content item - exists as a sequence of change events and as a snapshot document in the database for complex queries. As long as we do not lose the events, we can just rebuild the snapshot documents from the events. Therefore events are never deleted or updated.
 
 When a change is not backwards compatible anymore and when it is very likely that the target collection contains a lot of documents, the snapshots are rebuild to a new collection. This makes it easier to roll back to and old version when the migration has failed or when the new version has a critical bug.
 
@@ -51,7 +51,7 @@ Therefore you will see collections that contain a number, for example Assets2 (1
 
 ## How to plan a migration
 
-Usually the migration will complete within a few minutes but there is not table or description how long it will take to make a migration from your version to a new version. It also depends on the number of content items and assets for example, because these these are typically the largest collections in the system.
+Usually the migration will complete within a few minutes but there is not table or description how long it will take to make a migration from your version to a new version. It also depends on the number of content items and assets for example, because these are typically the largest collections in the system.
 
 ### Migration steps
 
@@ -65,7 +65,7 @@ If you have a staging environment it is recommended to practice your migration f
 
 #### Step 1: Put your Squidex deployment to read-only mode.
 
-If you make a backup or run the migration you should not allow updates, because you will loose changes when these updates are executed while the migration is running. It is better to block updates. Therefore Squidex provides a setting to put your deployment to read-only mode:
+If you make a backup or run the migration you should not allow updates, because you will lose changes when these updates are executed while the migration is running. It is better to block updates. Therefore Squidex provides a setting to put your deployment to read-only mode:
 
 {% embed url="https://github.com/Squidex/squidex/blob/master/backend/src/Squidex/appsettings.json#L4" %}
 Read-only Mode
@@ -115,7 +115,7 @@ You can now cleanup old resources:
 
 No, assets are never updated or deleted. Therefore a migration processes is not necessary. You also do not have to backup your database.
 
-#### Do I always need a second deployment for migration
+#### Do I always need a second deployment for migration?
 
 No, it just reduces the risk that something goes wrong. If a migration is just a matter of a few minutes you can do it directly on the production system. Just increment the version (e.g. docker tag) and update your deployment.&#x20;
 
@@ -123,5 +123,5 @@ Whether a migration takes a few minutes or not can be answered with a test run.
 
 #### Is it always recommended to use the read-only flag
 
-Yes, because you will always looses updates when a user makes a change while a migration is running. The main problem are inconsistencies when a new event is added to the event stream but the snapshot has still the old version.
+Yes, because you will always lose updates when a user makes a change while a migration is running. The main problem are inconsistencies when a new event is added to the event stream but the snapshot has still the old version.
 
