@@ -62,12 +62,12 @@ On the Custom deployment page complete the following steps to submit the deploym
 4. Enter a name for the Container Group in **Container Name** field. (It uses the Resource Group name by default but you are free to change it)
 5. Click **Review + create**.
 
-![Deploy ARM Template](../.././images/started/azure/squidex-arm-01.png)
+![Deploy ARM Template](../../../images/started/azure/squidex-arm-01.png)
 
 6. Ensure that the _validation_ is successful.
 7. Click **Create** to submit the deployment.
 
-![Review ARM Template](../.././images/started/azure/squidex-arm-02.png)
+![Review ARM Template](../../../images/started/azure/squidex-arm-02.png)
 
 The deployment process will take a few minutes.
 
@@ -76,7 +76,7 @@ The deployment process will take a few minutes.
 1. Click **Outputs** (8) in the deployment page to retrieve the URL.
 2. Copy the URL (9).
 
-![Deployment Complete](../.././images/started/azure/squidex-arm-03.png)
+![Deployment Complete](../../../images/started/azure/squidex-arm-03.png)
 
 3. Open the URL in a browser to load the _Squidex Installation Page_.
 
@@ -101,7 +101,7 @@ In the Microsoft template deployment window click _Deployment failed. Click here
 
    * Restart the Azure Container Instance
 
-![Deployment Complete](../.././images/started/azure/squidex-aci-restart-01.png)
+![Deployment Complete](../../../images/started/azure/squidex-aci-restart-01.png)
 
 ## Squidex Issues
 It is very likely a configuration problem and not related to Azure. Please visit the following page:&#x20;
@@ -118,6 +118,6 @@ It is very likely a configuration problem and not related to Azure. Please visit
 6. Ensure _/bin/bash_ is selected
 7. Click _Connect_ again
 
-![Connect to MongoDB ACI](../.././images/started/azure/squidex-mongodb-connect-aci-01.png)
+![Connect to MongoDB ACI](../../../images/started/azure/squidex-mongodb-connect-aci-01.png)
 
 This will drop you into the Container Shell. Type **mongosh** to connect to MongoDB shell.
