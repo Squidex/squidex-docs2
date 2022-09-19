@@ -1,0 +1,268 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerName": {
+      "defaultValue": "squidex-crm",
+      "type": "String",
+      "metadata": {
+        "description": "The name of the Azure Container Instance Group"
+      }
+    }
+  },
+  "variables": {
+    "dnsNameLabel": "[concat('squidex',uniqueString(resourceGroup().id))]",
+    "mongodbContainerName": "[concat(variables('storageContainerName'), '-mongodb')]",
+    "webappContainerName": "[concat(variables('storageContainerName'), '-webapp')]",
+    "storageAccountName": "[format('store{0}', uniqueString(resourceGroup().id))]",
+    "storageAccountType": "Standard_LRS",
+    "storageShareName": "etc-squidex-mongodb",
+    "storageContainerName": "etc-squidex-assets",
+    "location": "[resourceGroup().location]",
+    "mongoDBCPUCores": "2",
+    "mongoDBMemory": "2",
+    "webAppCPUCores": "1",
+    "webAppMemory": "1.5",
+    "restartPolicy": "OnFailure"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-04-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[variables('location')]",
+      "sku": {
+        "name": "[variables('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {},
+      "resources": [
+        {
+          "type": "blobServices/containers",
+          "apiVersion": "2021-04-01",
+          "name": "[concat('default/', variables('storageContainerName'))]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+          ],
+          "properties": {
+            "deleteRetentionPolicy": {
+              "enabled": false
+            }
+          }
+        },
+        {
+          "type": "fileServices/shares",
+          "apiVersion": "2021-04-01",
+          "name": "[concat('default/', variables('storageShareName'))]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+          ],
+          "properties": {
+            "shareQuota": 1,
+            "shareDeleteRetentionPolicy": {
+              "enabled": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2021-10-01",
+      "name": "[parameters('containerName')]",
+      "location": "[variables('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+      ],
+      "tags": {},
+      "properties": {
+        "containers": [
+          {
+            "name": "[variables('mongodbContainerName')]",
+            "properties": {
+              "image": "mongo",
+              "resources": {
+                "requests": {
+                  "cpu": "[int(variables('mongoDBCPUCores'))]",
+                  "memoryInGB": "[float(variables('mongoDBMemory'))]"
+                }
+              },
+              "command": [
+                "mongod",
+                "--dbpath=/data/mongoaz"
+              ],
+              "environmentVariables": [],
+              "ports": [
+                {
+                  "port": "27017",
+                  "protocol": "TCP"
+                }
+              ],
+              "volumeMounts": [
+                {
+                  "mountPath": "/data/mongoaz",
+                  "name": "mongoaz"
+                }
+              ]
+            }
+          },
+          {
+            "name": "[variables('webappContainerName')]",
+            "properties": {
+              "image": "squidex/squidex:latest",
+              "resources": {
+                "requests": {
+                  "cpu": "[int(variables('webAppCPUCores'))]",
+                  "memoryInGB": "[float(variables('webAppMemory'))]"
+                }
+              },
+              "environmentVariables": [
+                {
+                  "name": "ASSETSTORE__AZUREBLOB__CONNECTIONSTRING",
+                  "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-04-01').keys[0].value,';EndpointSuffix=core.windows.net')]"
+                },
+                {
+                  "name": "ASSETSTORE__AZUREBLOB__CONTAINERNAME",
+                  "value": "[variables('storageContainerName')]"
+                },
+                {
+                  "name": "ASSETSTORE__TYPE",
+                  "value": "AzureBlob"
+                },
+                {
+                  "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+                  "value": ""
+                },
+                {
+                  "name": "DOCKER_REGISTRY_SERVER_URL",
+                  "value": "https://index.docker.io"
+                },
+                {
+                  "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+                  "value": ""
+                },
+                {
+                  "name": "EVENTSTORE__MONGODB__CONFIGURATION",
+                  "value": "mongodb://localhost:27017"
+                },
+                {
+                  "name": "IDENTITY__GITHUBCLIENT",
+                  "value": ""
+                },
+                {
+                  "name": "IDENTITY__GITHUBSECRET",
+                  "value": ""
+                },
+                {
+                  "name": "IDENTITY__GOOGLECLIENT",
+                  "value": ""
+                },
+                {
+                  "name": "IDENTITY__GOOGLESECRET",
+                  "value": ""
+                },
+                {
+                  "name": "IDENTITY__MICROSOFTCLIENT",
+                  "value": ""
+                },
+                {
+                  "name": "IDENTITY__MICROSOFTSECRET",
+                  "value": ""
+                },
+                {
+                  "name": "STORE__MONGODB__CONFIGURATION",
+                  "value": "mongodb://localhost:27017"
+                },
+                {
+                  "name": "URLS__BASEURL",
+                  "value": "[concat('https://', variables('dnsNameLabel'), '.', resourceGroup().location, '.azurecontainer.io')]"
+                },
+                {
+                  "name": "VIRTUAL_HOST",
+                  "value": "[concat(variables('dnsNameLabel'), '.', resourceGroup().location, '.azurecontainer.io')]"
+                },
+                {
+                  "name": "WEBSITE_HTTPLOGGING_RETENTION_DAYS",
+                  "value": "10"
+                },
+                {
+                  "name": "ASPNETCORE_URLS",
+                  "value": "http://+:5000"
+                }
+              ],
+              "ports": [
+                {
+                  "port": "5000",
+                  "protocol": "TCP"
+                }
+              ]
+            }
+          },
+          {
+            "name": "caddy-ssl-server",
+            "properties": {
+              "image": "caddy:latest",
+              "command": [
+                "caddy",
+                "reverse-proxy",
+                "--from",
+                "[concat('https://', variables('dnsNameLabel'), '.', resourceGroup().location, '.azurecontainer.io')]",
+                "--to",
+                "localhost:5000"
+              ],
+              "ports": [
+                {
+                  "protocol": "TCP",
+                  "port": 443
+                },
+                {
+                  "protocol": "TCP",
+                  "port": 80
+                }
+              ],
+              "environmentVariables": [],
+              "resources": {
+                "requests": {
+                  "memoryInGB": 1,
+                  "cpu": 1
+                }
+              }
+            }
+          }
+        ],
+        "restartPolicy": "[variables('restartPolicy')]",
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "port": "80",
+              "protocol": "TCP"
+            },
+            {
+              "port": "443",
+              "protocol": "TCP"
+            }
+          ],
+          "dnsNameLabel": "[variables('dnsNameLabel')]"
+        },
+        "volumes": [
+          {
+            "azureFile": {
+              "shareName": "[variables('storageShareName')]",
+              "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-04-01').keys[0].value]",
+              "storageAccountName": "[variables('storageAccountName')]"
+            },
+            "name": "mongoaz"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {
+    "squidexURL": {
+      "type": "String",
+      "value": "[concat('https://', variables('dnsNameLabel'), '.', resourceGroup().location, '.azurecontainer.io')]"
+    }
+  }
+}
