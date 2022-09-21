@@ -78,6 +78,10 @@ The deployment process will take a few minutes.
 
 ![Deployment Complete](../../../images/started/azure/squidex-arm-03.png)
 
+Alternatively, you can also retrieve the FQDN anytime from the Azure Container Instances blade. 
+
+![ACI FQDN](../../../images/started/azure/squidex-aci-fqdn-01.png)
+
 3. Open the URL in a browser to load the _Squidex Installation Page_.
 
 **It may take a few minutes before the certificates are generated and the URL starts working**
