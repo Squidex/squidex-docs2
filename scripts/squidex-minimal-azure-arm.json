@@ -12,8 +12,8 @@
   },
   "variables": {
     "dnsNameLabel": "[concat('squidex',uniqueString(resourceGroup().id))]",
-    "mongodbContainerName": "[concat(variables('storageContainerName'), '-mongodb')]",
-    "webappContainerName": "[concat(variables('storageContainerName'), '-webapp')]",
+    "mongodbContainerName": "[concat(variables('containerName'), '-mongodb')]",
+    "webappContainerName": "[concat(variables('containerName'), '-webapp')]",
     "storageAccountName": "[format('store{0}', uniqueString(resourceGroup().id))]",
     "storageAccountType": "Standard_LRS",
     "storageShareName": "etc-squidex-mongodb",
