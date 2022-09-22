@@ -43,7 +43,7 @@ The ARM template creates the following Azure resources:
   * Caddy reverse proxies to the Squidex Web App container.
   * An FQDN is provided by Azure Container Instance, _Caddy_ provides SSL for this as the FQDN does not come with SSL. This FQDN is set as the `URLS__BASEURL` and `VIRTUAL_HOST` for Squidex configuration.
 
-**NOTE: A future version of this template will support bringing your own domain and other customizations.**
+**NOTE: If you wish to modify any of the variables such as vCPU, Memory etc., you can do so by editing the ARM template. Click [here](#modifying-arm-variables) for basic instructions.**
 
 ## 1. Launch the ARM Template
 
@@ -60,31 +60,48 @@ On the Custom deployment page complete the following steps to submit the deploym
    * If creating a new Resource group, enter a name and click Ok.
 3. Select your preferred **Region** from the list.
 4. Enter a name for the Container Group in **Container Name** field. (It uses the Resource Group name by default but you are free to change it)
-5. Click **Review + create**.
+5. If you wish to provide your own Domain/Sub-domain (e.g. example.com or squidex.example.com), replace the value in **Squidex Domain** field with your own domain details.
+6. Click **Review + create**.
 
 ![Deploy ARM Template](../../../images/started/azure/squidex-arm-01.png)
 
-6. Ensure that the _validation_ is successful.
-7. Click **Create** to submit the deployment.
+7. Ensure that the _validation_ is successful.
+8. Click **Create** to submit the deployment.
 
 ![Review ARM Template](../../../images/started/azure/squidex-arm-02.png)
 
-The deployment process will take a few minutes.
+The deployment process will take a few minutes. (Preferably do not navigate away from this page)
 
 ## 3. Access Squidex
 
-1. Click **Outputs** (8) in the deployment page to retrieve the URL.
-2. Copy the URL (9).
+9. Once the deployment is complete, Click **Outputs** in the deployment page to retrieve the URL.
+10. Copy the URL.
 
 ![Deployment Complete](../../../images/started/azure/squidex-arm-03.png)
 
 Alternatively, you can also retrieve the FQDN anytime from the Azure Container Instances blade. 
 
+**NOTE This is only for deployments where custom domain is NOT provided**
+
 ![ACI FQDN](../../../images/started/azure/squidex-aci-fqdn-01.png)
 
-3. Open the URL in a browser to load the _Squidex Installation Page_.
+## 4. Update DNS record (For Own Domain Deployments Only)
 
-**It may take a few minutes before the certificates are generated and the URL starts working**
+11. Navigate to Azure Container Instances page, click on the Container instance (i.e. squidex) to access the details.
+12. Under Overview, to the right you should find the **IP Address (Public)** value, copy it.
+
+![ACI PublicIP](../../../images/started/azure/squidex-aci-pip-01.png)
+
+13. Now access your domain control panel, and create an **A Record** pointing your domain to this IP Address.
+14. Continue with the next steps once the DNS propagation is done, this would depend on your domain provider.
+
+**NOTE The SSL certificates are not generated (by Caddy) until the DNS resolution works**
+
+## 5. Complete Squidex Installation
+
+15. Open the URL in a browser to load the _Squidex Installation Page_.
+
+**It may take a few minutes before the certificates are generated and the URL starts working. For own domain scenarios this process may be even longer**
 
 5. Create the Admin User to complete the installation and login to Squidex.
 
@@ -125,3 +142,14 @@ It is very likely a configuration problem and not related to Azure. Please visit
 ![Connect to MongoDB ACI](../../../images/started/azure/squidex-mongodb-connect-aci-01.png)
 
 This will drop you into the Container Shell. Type **mongosh** to connect to MongoDB shell.
+
+## Modifying ARM Variables
+
+1. After clicking _Deploy to Azure_ button, click **Edit template**.
+
+![Edit Template](../../../images/started/azure/squidex-edit-arm-template-01.png)
+
+3. Click **Variables** on left and this should show the variables section on the right.
+4. You can now change any of the variables such as _mongoDBCPUCores_ or _mongoDBMemory_ etc.
+
+![Modifying ARM Variables](../../../images/started/azure/squidex-modify-arm-variables-01.png)
