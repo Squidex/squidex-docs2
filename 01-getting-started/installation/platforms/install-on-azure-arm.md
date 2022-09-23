@@ -43,7 +43,7 @@ The ARM template creates the following Azure resources:
   * Caddy reverse proxies to the Squidex Web App container.
   * An FQDN is provided by Azure Container Instance, _Caddy_ provides SSL for this as the FQDN does not come with SSL. This FQDN is set as the `URLS__BASEURL` and `VIRTUAL_HOST` for Squidex configuration.
 
-**NOTE: If you wish to modify any of the variables such as vCPU, Memory etc., you can do so by editing the ARM template. Click [here](#modifying-arm-variables) for basic instructions.**
+{% hint style="info" %}NOTE: If you wish to modify any of the variables such as vCPU, Memory etc., you can do so by editing the ARM template. Click [here](#modifying-arm-variables) for basic instructions.{% endhint %}
 
 ## 1. Launch the ARM Template
 
@@ -81,7 +81,7 @@ The deployment process will take a few minutes. (Preferably do not navigate away
 
 Alternatively, you can also retrieve the FQDN anytime from the Azure Container Instances blade. 
 
-**NOTE This is only for deployments where custom domain is NOT provided**
+{% hint style="info" %}NOTE: This is only for deployments where custom domain is NOT provided{% endhint %}
 
 ![ACI FQDN](../../../images/started/azure/squidex-aci-fqdn-01.png)
 
@@ -95,7 +95,7 @@ Alternatively, you can also retrieve the FQDN anytime from the Azure Container I
 13. Now access your domain control panel, and create an **A Record** pointing your domain to this IP Address.
 14. Continue with the next steps once the DNS propagation is done, this would depend on your domain provider.
 
-**NOTE The SSL certificates are not generated (by Caddy) until the DNS resolution works**
+{% hint style="info" %}NOTE: The SSL certificates are not generated (by Caddy) until the DNS resolution works{% endhint %}
 
 ## 5. Complete Squidex Installation
 
@@ -116,7 +116,7 @@ Alternatively, you can also retrieve the FQDN anytime from the Azure Container I
 
 In the Microsoft template deployment window click _Deployment failed. Click here for more details_ to view the error details and look for clues. This tutorial does not go into the details of Azure troubleshooting.
 
-**NOTE: Use _Redeploy_ to resubmit the deployment again (after fixing errors). This continues the operation instead of creating a fresh deployment.**
+{% hint style="info" %}NOTE: Use _Redeploy_ to resubmit the deployment again (after fixing errors). This continues the operation instead of creating a fresh deployment.{% endhint %}
 
 3. Containers in _waiting_, _failed_ or _terminated_ status. 
 
