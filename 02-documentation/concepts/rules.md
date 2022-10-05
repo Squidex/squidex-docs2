@@ -181,7 +181,7 @@ Webhooks are the most flexible rule actions. You have to provide a HTTP endpoint
 
 * `X-Application` and `User-Agent`
 
-Used to identity the sender and has the static value: `Squidex Webhook`
+Used to identify the sender and has the static value: `Squidex Webhook`
 
 * `X-Signature`
 
