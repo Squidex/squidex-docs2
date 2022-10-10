@@ -167,7 +167,7 @@ Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/cke-simple.html](https://squidex.github.io/squidex-samples/editors/cke-simple.html)
 
-![CKE Editor](<../../.gitbook/assets/image (69) (5) (4) (1) (2) (1) (1) (1).png>)
+![CKE Editor](<../../.gitbook/assets/image (69) (5) (4) (1) (1) (1).png>)
 
 Clone the sample and configure the CKE editor as you need it.
 
@@ -221,4 +221,4 @@ This editor downloads json schema from the URL that is defined via the URL fragm
 
 [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
-![JSON Schema from external URL](<../../.gitbook/assets/image (34).png>)
+![JSON Schema from external URL](<../../.gitbook/assets/image (34) (1).png>)

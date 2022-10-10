@@ -21,7 +21,7 @@ The document has two relevant fields:
 1. **Version:** The actual version of the database. This number has nothing to do with the production version. For example Squidex 6.6.0 has the database version 26.
 2. **IsLocked**: A field that indicates whether a migration is already in process. This is useful when you have more than one Squidex server to synchronize the work between the instances.
 
-![The migration document](<../../.gitbook/assets/image (83).png>)
+![The migration document](<../../.gitbook/assets/image (76) (1).png>)
 
 When a Squidex server is started the following steps are executed:
 
@@ -81,7 +81,7 @@ It is not a good idea to use the backup system of Squidex itself, because it is 
 
 #### Step 3: Clone your database
 
-Use the backup you have created to clone your database.&#x20;
+Use the backup you have created to clone your database.
 
 #### Step 4: Deploy a new Squidex version to your cloned database
 
@@ -117,11 +117,10 @@ No, assets are never updated or deleted. Therefore a migration processes is not 
 
 #### Do I always need a second deployment for migration?
 
-No, it just reduces the risk that something goes wrong. If a migration is just a matter of a few minutes you can do it directly on the production system. Just increment the version (e.g. docker tag) and update your deployment.&#x20;
+No, it just reduces the risk that something goes wrong. If a migration is just a matter of a few minutes you can do it directly on the production system. Just increment the version (e.g. docker tag) and update your deployment.
 
 Whether a migration takes a few minutes or not can be answered with a test run.
 
 #### Is it always recommended to use the read-only flag
 
 Yes, because you will always lose updates when a user makes a change while a migration is running. The main problem are inconsistencies when a new event is added to the event stream but the snapshot has still the old version.
-
