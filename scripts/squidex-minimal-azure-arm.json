@@ -6,7 +6,7 @@
       "defaultValue": "squidex",
       "type": "String",
       "metadata": {
-        "description": "Name of your deployment and prefix for all container names.""
+        "description": "Name of your deployment and prefix for all container names."
       }
     },
     "squidexDomain": {

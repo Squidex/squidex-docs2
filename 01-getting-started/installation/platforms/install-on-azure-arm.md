@@ -60,7 +60,7 @@ On the Custom deployment page complete the following steps to submit the deploym
    * If creating a new Resource group, enter a name and click Ok.
 3. Select your preferred **Region** from the list.
 4. Enter a name for the Container Group in **Container Name** field. (It uses the Resource Group name by default but you are free to change it)
-5. If you wish to provide your own Domain/Sub-domain (e.g. example.com or squidex.example.com), replace the value in **Squidex Domain** field with your own domain details.
+5. If you wish to provide your own Domain/Sub-domain (e.g. example.com or squidex.example.com) enter it in the **Squidex Domain** field, otherwise leave it blank.
 6. Click **Review + create**.
 
 ![Deploy ARM Template](../../../images/started/azure/squidex-arm-01.png)
