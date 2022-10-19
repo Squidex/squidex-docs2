@@ -64,7 +64,7 @@ Hopefully the user interface is good enough that you do not need detailed instru
 
 The initial status is indicated with a small arrow icon (1). You can change this when you move the mouse over a status. Then the same arrow icon will pop up, which can be clicked to set the status.
 
-![](<../../.gitbook/assets/image (36).png>)
+![](<../../.gitbook/assets/image (26) (1).png>)
 
 ### Change the color of a status
 

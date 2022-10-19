@@ -27,7 +27,7 @@ Before you start you have to setup a few things first:
 
 Create a new web app with the following _Basics_ settings:
 
-![Create App Service Basics](../../../.gitbook/assets/create-app-service-basics.png)
+![Create App Service Basics](../../../images/started/azure/create-app-service-basics.png)
 
 Configure the _Docker_ tab like this.
 
@@ -35,7 +35,7 @@ Configure the _Docker_ tab like this.
 It is recommended to use a image tag with a fixed version, e.g. squidex/squidex:6.5
 {% endhint %}
 
-![Create App Service Docker](../../../.gitbook/assets/create-app-service-docker.png)
+![Create App Service Docker](../../../images/started/azure/create-app-service-docker.png)
 
 ### Enable logging
 
@@ -47,7 +47,7 @@ Go to your app service and scroll down to menu item _App Service logs_ and turn 
 You can then use the _Log stream_ to view all log entries.
 {% endhint %}
 
-![Enable logging](../../../.gitbook/assets/logging.png)
+![Enable logging](../../../images/started/azure/logging.png)
 
 ## 2. Configure your storage account
 
@@ -126,7 +126,7 @@ Therefore we have to execute the previous command in the azure shell again, but 
 
 If you try to connect with the connection string from above you should see this or a similar error.
 
-![](<../../../.gitbook/assets/image (69).png>)
+![](<../../../.gitbook/assets/image (77).png>)
 
 The final connection string will contain the username and password and we can successfully connect.
 
@@ -142,7 +142,7 @@ Go to the _Configuration section_ and choose _Application settings_ to configure
 
 Go back to your _App Services_ (1), select your web app (2) and go to the _Configuration_ page (3). You can use the _Advanced edit_ dialog to configure everything will the sample from below.
 
-![](<../../../.gitbook/assets/image (74) (1) (2) (1) (1).png>)
+![](<../../../.gitbook/assets/image (57) (1).png>)
 
 
 

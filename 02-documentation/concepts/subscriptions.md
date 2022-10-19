@@ -37,7 +37,7 @@ Squidex provides access to a billing portal where you can...
 4. View and change payment methods.
 5. View the payment history and download invoices.
 
-![Billing portal](<../../.gitbook/assets/image (17) (1) (1) (1).png>)
+![Billing portal](<../../.gitbook/assets/image (17) (1) (1).png>)
 
 Just click to "Billing Portal" link in the subscription settings.
 

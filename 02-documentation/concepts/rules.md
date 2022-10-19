@@ -15,7 +15,7 @@ A rule has two parts:
 
 For example
 
-![A rule that creates a twitter update when content has changed](../../images/articles/rules/rule.png)
+![A rule that creates a twitter update when content has changed](../../.gitbook/assets/rule.png)
 
 ## Workflow
 
