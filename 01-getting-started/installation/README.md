@@ -12,8 +12,9 @@ If you want to install Squidex on a bare metal server or virtual machine.
 If you want to install Squidex in the Cloud.
 
 * [Install on Azure App Service](platforms/install-on-azure.md)
+* [Install as Azure Containers (ARM)](platforms/install-on-azure-arm.md)
 * [Install on AWS](platforms/install-on-aws.md)
-* [Install on Google Cloud Platform (GCP)](broken-reference)
+* [Install on Google Cloud Platform (GCP)](broken-reference/)
 * [Install on Heroku](platforms/install-on-heroku.md)
 * [Install on Render](platforms/install-on-render.md)
 * [Install on VULTR](platforms/install-on-vultr.md)

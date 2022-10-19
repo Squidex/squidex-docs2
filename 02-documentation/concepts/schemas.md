@@ -118,7 +118,7 @@ Booleans have only 2 states: True or false, yes or no, 1 or 0.
 
 ### DateTime
 
-![DateTime](../../images/fields/datetime.png)
+![DateTime](../../.gitbook/assets/datetime.png)
 
 Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ssZ`.
 
@@ -136,7 +136,7 @@ Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ssZ`.
 
 ### Assets
 
-![Assets](../../images/fields/assets.png)
+![Assets](../../.gitbook/assets/assets.png)
 
 Asset fields are used to maintain a list of asset IDs. You can also restrict the number of assets with a minimum and maximum limit, for example when you want to have a single avatar or preview image for a content. You can use the IDs load the asset. Read more about [here](schemas.md). When you delete an asset a cleanup process will remove the asset id from your contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an id to an deleted asset.
 
@@ -176,7 +176,7 @@ References fields are used to model relationship to other content items. For exa
 
 ### Array
 
-![Arrays](../../images/fields/array.png)
+![Arrays](../../.gitbook/assets/array.png)
 
 Some content items only exist as child content for another content item. For example a product could have variations like different sizes and prices. These content items can be represented with array fields, where each item in the field has a specified structured, that is called **nested schema**.
 

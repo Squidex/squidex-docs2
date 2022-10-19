@@ -64,7 +64,7 @@ Create a folder for your Squidex installation and extract the archive to this fo
 2. Right-click the site's app pool and select **Basic Settings** from the contextual menu.
 3. In the **Edit Application Pool** window, set the **.NET CLR version** to **No Managed Code**:
 
-![IIS Application pool](../../../images/started/iis/pool.png)
+![IIS Application pool](../../../.gitbook/assets/pool.png)
 
 ### 2.4. Configure Squidex
 
