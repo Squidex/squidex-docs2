@@ -5,16 +5,16 @@ Description: >-
 
 # Deploy Squidex on Google Cloud Platform using Cloud Run, Cloud Storage & MongoDB Atlas
 
-This version of the installation tutorial deploys Squidex as a container on [Cloud Run](https://cloud.google.com/run/) in Google Cloud Platform. The approach is PaaS or Managed service.
+This tutorial deploys Squidex as a container on [Cloud Run](https://cloud.google.com/run/), which is a managed compute platform that lets you run containerized applications. 
 
 The tutorial does not cover the basics of GCP. You should be familiar with them before you begin with the installation instructions. It uses the following services from GCP:
 * [Google Cloud Storage](https://cloud.google.com/storage)
 * [Google Cloud Run](https://cloud.google.com/run/)
 * [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/mongodb-google-cloud) running on Google Cloud
 
-This tutorial runs MongoDB in a free tier mode is recommended for non-production or trial environments. For production environments it is recommended to go for the Pay-as-you-go model available at the Google Cloud [marketplace](https://console.cloud.google.com/marketplace/product/mongodb/mdb-atlas-self-service).
+This tutorial used MongoDB Atlas on Cloud running in shared (free) mode and is recommended for non-production, trial or sandboxed environments as it has limited resources and basic configuration. For production environments it is recommended to go for one of the Pay-as-you-go models such as Dedicated. Read more about it ![here](https://www.mongodb.com/pricing). You can also deploy your own cluster.
 
-Use this tutorial as a getting started guide in GCP to explore Squidex or use it as a Dev/Sandbox environment. This setup may not be recommended for a production environment. 
+Use this tutorial as a getting started guide in GCP to explore Squidex or use it as a Dev/Sandbox environment. This setup may not be recommended for a production environment as it does meet requirements such as scalability and high-availability. 
 
 ## Pre-requisites
 
@@ -150,19 +150,19 @@ You will be taken to the bucket page. This completes the storage bucket creation
 
 2. Click **Select** (2), choose **Artifact Registry** tab and select (3) the Squidex image added earlier. Click **Select** (4) to continue.
 
-![Create Cloud Run Step 1](/images/started/gcp/2022-10-20_13-24.png)
+![Create Cloud Run Step 2](/images/started/gcp/2022-10-20_13-24.png)
 
 3. A Service name (5) is already assigned, modify this if needed. Set **Minimum number of instance** to _1_ and **Maximum number of instance** to _1_ (6).
 
-![Create Cloud Run Step 1](/images/started/gcp/2022-10-20_13-29.png)
+![Create Cloud Run Step 3](/images/started/gcp/2022-10-20_13-29.png)
 
 4. Scroll down and select **Allow all traffic** (7) and **Allow unauthenticated invocations** (8). Then expand (9) the _Containers, Connections, Security_ section. 
 
-![Create Cloud Run Step 1](/images/started/gcp/2022-10-20_13-31.png)
+![Create Cloud Run Step 4](/images/started/gcp/2022-10-20_13-31.png)
 
 5. Set **Container port** to _5000_ (10) and set Memory to _1_ and CPU to _1_ (11).
 
-![Create Cloud Run Step 1](/images/started/gcp/2022-10-20_13-34.png)
+![Create Cloud Run Step 5](/images/started/gcp/2022-10-20_13-34.png)
 
 6. Finally we set the environment variables. Click **+Add Variable** (12) and set the following environment variables (13) one by one replacing the values with your actual values where applicable, click **Create** (14) when done.
 
@@ -174,11 +174,11 @@ You will be taken to the bucket page. This completes the storage bucket creation
 | `[STORE__MONGODB__CONFIGURATION]`          | _[MONGODB CONNECTION STRING]_                       | Provide your own value             |
 | `[ASPNETCORE_URLS]`                        | http://+:5000                                       | Do not change this value           |
 
-![Create Cloud Run Step 1](/images/started/gcp/2022-10-20_13-42.png)
+![Create Cloud Run Step 6](/images/started/gcp/2022-10-20_13-42.png)
 
 7. Wait until the deployment is complete and you have sucessful notification with a green check. Copy the URL (15) and click **Edit & Deploy New Version** (16). 
 
-![Create Cloud Run Step 1](/images/started/gcp/2022-10-20_13-52.png)
+![Create Cloud Run Step 7](/images/started/gcp/2022-10-20_13-52.png)
 
 8. Add a new environment variable by clicking **+Add Variable** (17) and then adding the following (18). Click **Deploy** (19) when done.
 
@@ -186,10 +186,12 @@ You will be taken to the bucket page. This completes the storage bucket creation
 | ------------------------------------------ | --------------------------------------------------- | ---------------------------------- |
 | `[URLS__BASEURL]`                          | _[CLOUD RUN URL]_                                   | Provide your own value             |
 
-![Create Cloud Run Step 1](/images/started/gcp/2022-10-20_13-56.png)
+{% hint style="info" %}If you want to use your **custom domain**, enter the domain/sub-domain here instead of the Cloud Run URL.{% endhint %}
+
+![Create Cloud Run Step 8](/images/started/gcp/2022-10-20_13-56.png)
 
 9. This should deploy a new revision of the Cloud Run and update the Base URL value in the app.
 
-![Create Cloud Run Step 1](/images/started/gcp/2022-10-20_16-45.png)
+![Create Cloud Run Step 9](/images/started/gcp/2022-10-20_16-45.png)
 
 10. You can now open the URL in a browser and continue with Squidex setup.
