@@ -154,13 +154,15 @@ You will be taken to the bucket page. This completes the storage bucket creation
 
 3. A Service name (5) is already assigned, modify this if needed. Set **Minimum number of instance** to _1_ and **Maximum number of instance** to _1_ (6).
 
+{% hint style="info" %}At this point Squidex has not been tested for autoscaling on Cloud Run, setting more than 1 instances here may have issues.{% endhint %}
+
 ![Create Cloud Run Step 3](/images/started/gcp/2022-10-20_13-29.png)
 
 4. Scroll down and select **Allow all traffic** (7) and **Allow unauthenticated invocations** (8). Then expand (9) the _Containers, Connections, Security_ section. 
 
 ![Create Cloud Run Step 4](/images/started/gcp/2022-10-20_13-31.png)
 
-5. Set **Container port** to _5000_ (10) and set Memory to _1_ and CPU to _1_ (11).
+5. Set **Container port** to _5000_ (10) and set Memory to _1_ and CPU to _1_ (11). 
 
 ![Create Cloud Run Step 5](/images/started/gcp/2022-10-20_13-34.png)
 
