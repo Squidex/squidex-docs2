@@ -10,6 +10,7 @@
     * [Install on AWS](01-getting-started/installation/platforms/install-on-aws.md)
     * [Install on Azure](01-getting-started/installation/platforms/install-on-azure.md)
     * [Install on Azure using ARM](01-getting-started/installation/platforms/install-on-azure-arm.md)
+    * [Install on Google Cloud Platform (GCP)](01-getting-started/installation/platforms/install-on-gcp.md)
     * [Install on Docker](01-getting-started/installation/platforms/install-on-docker.md)
     * [Install on Heroku](01-getting-started/installation/platforms/install-on-heroku.md)
     * [Install on IIS](01-getting-started/installation/platforms/install-on-iis.md)
