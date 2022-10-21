@@ -21,4 +21,4 @@ Possible operations are:
  * `reject()`: Reject the operation and return a HTTP 400 (Bad request) instead.
  * `disallow()`: Reject the operation because of security reasons and return a HTTP 403 (Forbidden) instead.
 
-Read more about scripting in the [Docs](../02-documentation/developer-guides/scripting).
+Read more about scripting in the [Documentation](../02-documentation/developer-guides/scripting).
