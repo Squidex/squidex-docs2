@@ -12,7 +12,7 @@ You have to publish your schema before you can create content.
 
 Read more about schemas in the [Docs](../02-documentation/concepts/schemas).
 
----
+--
 
 ### Scripts
 
@@ -25,7 +25,7 @@ For example:
  * `ctx.oldData` will provide the current data value of the content item.
  * `ctx.status`: The new status when a content is changed or the current status otherwise.
  * `ctx.statusOld`: The current status of a content item. Undefined for new items.
- * `ctx.contentId`: The id of the content item as a string.
+ * `ctx.contentId`: The IF of the content item as a string.
 
 Possible operations are:
 
