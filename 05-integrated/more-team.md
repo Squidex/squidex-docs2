@@ -1,0 +1,1 @@
+The team name is only used to display them and is not relevant otherwise.

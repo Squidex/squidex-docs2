@@ -1,0 +1,1 @@
+Templates are basically export apps. You can restore a template using the CLI from your machine. This process can take a while, dependending on the template.
