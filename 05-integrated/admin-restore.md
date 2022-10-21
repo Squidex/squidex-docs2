@@ -5,7 +5,11 @@ Furthermore you can use file URLs if the backup is located on the machine where 
 ```
 // Windows
 file://c:/backups/backup.zip
+``` 
 
+or 
+
+```
 // Unix
 file://home/backups/backup.zip
 ```
