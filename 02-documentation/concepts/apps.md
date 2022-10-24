@@ -17,4 +17,4 @@ An app is the highest level or organization in the Squidex hierarchy. Your conte
 * **Collaborators** who can work on your content with roles and permissions.
 * A subscription and an associated plan in the Squidex Cloud.
 
-![My projects in the Squidex Cloud](<../../.gitbook/assets/image (7) (1) (1) (1).png>)
+![My projects in the Squidex Cloud](<../../.gitbook/assets/image (7) (1) (1).png>)

@@ -24,13 +24,13 @@ git clone https://github.com/Squidex/squidex-identity.git
 
 You can create the app with predefined schemas either in the cloud or in your custom installation:
 
-![Create Identity App](<../../.gitbook/assets/new-identity-app (1) (1) (1).png>)
+![Create Identity App](<../../images/started/identity/new-identity-app (1).png>)
 
 ### 1.3. Update the identity configuration
 
 Update the configureation with the url to your Squidex instance and the client id and secret of the default client.
 
-![Copy Default Client](<../../.gitbook/assets/default-client (1) (1).png>)
+![Copy Default Client](<../../images/started/identity/default-client (1).png>)
 
 Update the configuration file at: `Squidex.Identity/appsettings.json`
 
@@ -56,7 +56,7 @@ If you create a identity app in Squidex you will see a schema with the settings,
 
 Most settings are optional but you must setup credentials to an SMTP server.
 
-![Site Setting](<../../.gitbook/assets/content-setting (1) (1) (1).png>)
+![Site Setting](<../../.gitbook/assets/content-setting (1) (1) (1) (1).png>)
 
 Email Delivery Service:
 
@@ -75,7 +75,7 @@ the redirect URLs for other authentication providers are:
 * `http://localhost:3500/signin-facebook`
 * `http://localhost:3500/signin-github`
 
-![Authentication Schemes](<../../.gitbook/assets/authentication-schemes (1).png>)
+![Authentication Schemes](<../../.gitbook/assets/authentication-schemes (1) (1).png>)
 
 ## 4. External clients
 
@@ -87,9 +87,9 @@ You can also setup Squidex as an external client, so that the same users can als
 
 In the first step you have to create a new client:
 
-![Self-Hosted](<../../.gitbook/assets/self-hosted-1 (1).png>)
+![Self-Hosted](<../../.gitbook/assets/self-hosted-1 (1) (1).png>)
 
-![Self-Hosted](../../.gitbook/assets/self-hosted-2.png)
+![Self-Hosted](<../../.gitbook/assets/self-hosted-2 (1).png>)
 
 In the second step you have to update the Squidex configuration at `Squidex/appsettings.json`
 
@@ -106,4 +106,4 @@ In the second step you have to update the Squidex configuration at `Squidex/apps
 
 Then you can register at Squidex identity.
 
-![Self-Hosted](<../../.gitbook/assets/self-hosted-register (1).png>)
+![Self-Hosted](../../images/started/identity/self-hosted-register.png)

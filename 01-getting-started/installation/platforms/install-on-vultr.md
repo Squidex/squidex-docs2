@@ -81,7 +81,7 @@ cd /home/
 
 You will be asked to enter the domain here. All other values are optional. The installation script will start docker-compose then and download all images and start them in the right order.
 
-![Running the setup script](<../../../.gitbook/assets/image (20) (1) (1) (1).png>)
+![Running the setup script](<../../../.gitbook/assets/image (20) (1) (1) (2) (1).png>)
 
 Squidex is ready to be used now. If you visit your installation under [https://mydomain.com](https://mydomain.com) you will see a simple setup guide where you can create the initial admin user.
 

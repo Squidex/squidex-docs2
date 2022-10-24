@@ -21,7 +21,7 @@ The document has two relevant fields:
 1. **Version:** The actual version of the database. This number has nothing to do with the production version. For example Squidex 6.6.0 has the database version 26.
 2. **IsLocked**: A field that indicates whether a migration is already in process. This is useful when you have more than one Squidex server to synchronize the work between the instances.
 
-![The migration document](<../../.gitbook/assets/image (83).png>)
+![The migration document](<../../.gitbook/assets/image (76) (1).png>)
 
 When a Squidex server is started the following steps are executed:
 

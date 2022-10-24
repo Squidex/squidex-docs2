@@ -72,7 +72,7 @@ You have to provide the following information:
 
 ![The metadata in the rule overview](<../../../.gitbook/assets/image (72) (1) (1).png>)
 
-![The metadata when selecting an action.](<../../../.gitbook/assets/image (73) (1) (1) (1).png>)
+![The metadata when selecting an action.](<../../../.gitbook/assets/image (74) (1) (1) (1).png>)
 
 ### Configuration values and editors
 

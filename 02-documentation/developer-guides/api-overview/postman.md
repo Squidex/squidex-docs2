@@ -22,7 +22,7 @@ The first step is to create an app, which is just another name for project or sp
 2. Enter a name for your App. The name must be unique so it might already been taken if you use the cloud version. The name can also contain only lowercase letters, numbers and dashes because it will be part of the URLs.
 3. Click the "Create" button.
 
-![Create a new App](<../../../.gitbook/assets/image (57) (2) (2) (2) (2) (2) (2) (1) (2) (1) (1) (1).png>)
+![Create a new App](<../../../.gitbook/assets/image (57) (2) (2) (2) (2) (2) (2) (1) (1) (1).png>)
 
 Your app will show up in your list. Just click your App (1) to move to the next step:
 
@@ -52,7 +52,7 @@ Now we are going to add a new field:
 3. Enter a field name.
 4. Click "Create and close" to create a new field.
 
-![Add a new field to our schema](<../../../.gitbook/assets/image (69) (1) (1).png>)
+![Add a new field to our schema](<../../../.gitbook/assets/image (69) (1).png>)
 
 Also ensure that the schema is published. Otherwise you cannot create content for the schema.
 
@@ -101,7 +101,7 @@ To acquire a token you have to do the following steps:
 2. Go the the clients setting.
 3. Click the "Connect" button.
 
-![](<../../../.gitbook/assets/image (65) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (65) (1) (1).png>)
 
 In this dialog we provide explanations how to connect to your app. For now we connect manually with Postman. Click the first option (1).
 

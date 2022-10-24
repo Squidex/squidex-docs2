@@ -32,7 +32,7 @@ In this case we only allow embedding hotels.
 
 We can now use the markdown editor to add links to other content items:
 
-![Add links](<../../.gitbook/assets/image (80).png>)
+![Add links](<../../.gitbook/assets/image (79).png>)
 
 ### 3. Use the GraphQL to fetch references
 
