@@ -16,7 +16,16 @@ The master language is **English** (`backend_en.json`and `fronend_en.json`).
 
 ## How to add a new language?
 
-Please create a request in the support forum: [https://support.squidex.io ](https://support.squidex.io)
+If you want to add a new language you have to do a few manual steps:
+
+1. Add the language to the backend: [https://github.com/Squidex/squidex/blob/de60af0bbb857cfb936edd3d1059d892e8f0bd1c/backend/src/Squidex/Config/Web/WebExtensions.cs#L35](https://github.com/Squidex/squidex/blob/de60af0bbb857cfb936edd3d1059d892e8f0bd1c/backend/src/Squidex/Config/Web/WebExtensions.cs#L35) (they are called culture in .NET)
+2. Add the language to the frontend: [https://github.com/Squidex/squidex/blob/master/frontend/src/app/shared/state/ui-languages.ts](https://github.com/Squidex/squidex/blob/master/frontend/src/app/shared/state/ui-languages.ts). Please use the native name in your language as display name.
+3. Add the language to the translator tool: [https://github.com/Squidex/squidex/blob/master/backend/i18n/translator/Squidex.Translator/Commands.cs#L143](https://github.com/Squidex/squidex/blob/master/backend/i18n/translator/Squidex.Translator/Commands.cs#L143)
+4. Create the backend translation file in the following folder: [https://github.com/Squidex/squidex/tree/master/backend/i18n/source](https://github.com/Squidex/squidex/tree/master/backend/i18n/source)
+5. Create the frontend translation file in the following folder: [https://github.com/Squidex/squidex/tree/master/backend/i18n/source](https://github.com/Squidex/squidex/tree/master/backend/i18n/source)
+6. Translate everything.
+7. Run the translator.
+8. Provide a PR.
 
 ## How to update a language
 
