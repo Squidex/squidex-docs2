@@ -146,7 +146,7 @@ In OData dash characters (-) are not allowed. Therefore you have to replace them
 
 ### Limiting the number of results
 
-The `top` / `take` query option requests the number of items in the queried collection to be included in the result. The default value is 20 and the maximum allowed value is 200.
+The `top` / `take`query option requests the number of items in the queried collection to be included in the result. The default value is 20 and the maximum allowed value is 200.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -202,45 +202,6 @@ https://.../api/content/geodata/cities?$skip=20&$top=30
 {
     "skip": 20,
     "take": 30
-}
-```
-{% endtab %}
-{% endtabs %}
-
-### Get random items
-
-You can get random operators with the `random`option:
-
-{% tabs %}
-{% tab title="OData" %}
-```markup
-https://.../api/content/geodata/cities?$random=5
-```
-{% endtab %}
-
-{% tab title="JSON" %}
-```json
-{
-    "random": 5
-}
-```
-{% endtab %}
-{% endtabs %}
-
-The random operator picks elements from the result set, not from the entire database, for example this query returns 5 random items from the first 200 elements with the default order:
-
-{% tabs %}
-{% tab title="OData" %}
-```markup
-https://.../api/content/geodata/cities?$random=5&$top=200
-```
-{% endtab %}
-
-{% tab title="JSON" %}
-```json
-{
-    "random": 5,
-    "take": 200%%&% 
 }
 ```
 {% endtab %}
