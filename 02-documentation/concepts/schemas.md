@@ -4,21 +4,23 @@ description: Schemas define the structure of your content.
 
 # Schemas
 
-## Introduction
-
-This documentation is based on the FoodCrunch use case. Please follow the link and open it side by side to this page to understand the examples.
+This documentation is based on the _FoodCrunch_ use case. Please open the below link side by side to this page to understand the examples.
 
 {% content-ref url="../introduction-and-use-case.md" %}
 [introduction-and-use-case.md](../introduction-and-use-case.md)
 {% endcontent-ref %}
 
-Schemas define the structure of your content:
+## Introduction
 
-![Startups schema](<../../.gitbook/assets/image (39).png>)
+Schemas define the structure of your content. Creating one or more schemas to organize your content is usually the first step after creating an App.&#x20;
 
-In the screenshot above we define a blog schema with several fields.
+There can be more than 1 schema in an App.&#x20;
 
-Each field is identified by the following properties:
+To create a schema click **+** (1) button under Schemas, give it a **Name** (2) and select the **Type** (3). Click **Create** (4).
+
+<figure><img src="../../.gitbook/assets/2022-11-05_21-51.png" alt=""><figcaption><p>Creating a schema</p></figcaption></figure>
+
+A schema consists of multiple fields of various data types. Each field in a schema is identified by the following important properties:
 
 | State            | Immutable | Description                                                                                                                                                                                                        |
 | ---------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -28,25 +30,44 @@ Each field is identified by the following properties:
 | **Partitioning** | No        | Defines whether the field content is localizable and managed in multiple languages or not.                                                                                                                         |
 | **Validation**   | Yes       | A set of validation properties, which depend on the type of the field. For example they define the maximum length of a string or the maximum number of assets you can reference.                                   |
 
-Furthermore a schema has a published change. Only published schemas can have content.
+To create a field, click **+ Add Field** (1), and select the **Field Type** (2), give it a **name** (3) and optionally select if this is a **Localizable** field. Click **Create and close** (4) when done.
+
+{% hint style="info" %}
+To add multiple fields simultaneously click **Create and add field** or to immediately edit additional properties on the field click **Create and edit field**.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/2022-11-06_00-14.png" alt=""><figcaption><p>Creating a field</p></figcaption></figure>
+
+There are additional properties that can be set on the field after it is created.
+
+<figure><img src="../../.gitbook/assets/2022-11-06_00-25.png" alt=""><figcaption><p>An example of a schema with fields of different data types</p></figcaption></figure>
+
+The screenshot above shows the final schema of the startups database for FoodCrunch.
+
+Furthermore a schema has a published change. Only published schemas can have content. To publish a schema click **Published**.
+
+<figure><img src="../../.gitbook/assets/Nov-09-2022 01-17-01.gif" alt=""><figcaption><p>Publishing a schema</p></figcaption></figure>
 
 ## Field States
 
-Each field has multiple states:
+A field has multiple states:
 
-1. **Locked**: The field cannot be updated or deleted anymore.
-2. **Hidden**: The field will not be returned by the api and is only visible in the Management UI.
-3. **Disabled**: The field cannot be manipulated in the Management UI. Do not use it together with the required validator, because you will not be able to update invalid content items anymore.
+1. **Enabled:** This is is the default state.
+2. **Disabled**: The field cannot be manipulated in the Management UI. Do not use it together with the required validator, because you will not be able to update invalid content items anymore.
+3. **Hidden**: The field will not be returned by the api and is only visible in the Management UI.
+4. **Locked**: The field cannot be updated or deleted anymore.
+
+To change the state click on the elipsis (three dots) next to the field and select the right option.
+
+<figure><img src="../../.gitbook/assets/2022-11-06_00-36.png" alt=""><figcaption><p>Changing the state of a field</p></figcaption></figure>
 
 ## Field Types
 
-Field types define how a field is structured in the API and in the processing pipeline. You can define the editor for each field, so a string field can either be a html text, markdown or a list of allowed values with a dropdown editor. We use a product catalog as an example to describe the different field types.
+Field types define how a field is structured in the API and in the processing pipeline. You can define the editor for each field, so a string field can either be a HTML text, markdown or a list of allowed values with a dropdown editor. We use a product catalog as an example to describe the different field types.
 
 {% hint style="info" %}
 If a field is not required it can also be **null** or **omitted**. This is also the case when a field has been added or marked as required after a content items have already been added to this schema.
 {% endhint %}
-
-###
 
 ### String
 
@@ -311,3 +332,9 @@ A json field is for developers. Whenever you have some structured or unstructure
     "iv": null
 }
 ```
+
+### UI
+
+<figure><img src="../../.gitbook/assets/Screenshot 2022-10-27 at 6.30.02 PM.png" alt=""><figcaption><p>UI</p></figcaption></figure>
+
+Separator for editing UI.

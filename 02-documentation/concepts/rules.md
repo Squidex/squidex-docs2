@@ -4,22 +4,34 @@ description: Rules are used to automate workflows by reacting to events.
 
 # Rules
 
-## Concept
+## Concepts
+
+### Event
 
 Whenever you make a change in Squidex, such as creating content or updating settings, an event is created. An event describes what happened in the past and has a unique name, for example `ContentChanged`. You can react to events by defining rules.
 
 A rule has two parts:
 
-1. A `trigger` defines when to execute the rule.
-2. An `action` defines what to do.
+1.  A `trigger` that defines when to execute the rule. This is otherwise called **if ...** in the UI.\
+    The following triggers are currently available in rules:
 
-For example
+    <figure><img src="../../.gitbook/assets/2022-11-08_23-32.png" alt=""><figcaption><p>Triggers in rules</p></figcaption></figure>
+2.  An `action` that defines what to do. This is otherwise called **then ...** in the UI.\
+    Following actions are currently available:
+
+    <figure><img src="../../.gitbook/assets/2022-11-08_23-33.png" alt=""><figcaption><p>Actions in rules</p></figcaption></figure>
+
+To create a rule go to **Rules** (1) and click **+ Add Rule** (2) or **+ New Rule**.
+
+<figure><img src="../../.gitbook/assets/2022-11-08_23-16.png" alt=""><figcaption><p>Creating a rule</p></figcaption></figure>
+
+The final list of rules would look something similar to the screenshot below.
 
 ![A rule that creates a twitter update when content has changed](../../images/articles/rules/rule.png)
 
 ## Workflow
 
-To execute a rule the following steps are excuted:
+To execute a rule the following steps are performed:
 
 1. **Enrichment**: The event is enriched with additional information.
 2. **Matching**: The matching rules are determined by comparing the rule triggers with the enriched event.
@@ -166,10 +178,10 @@ More information can be found at:
 Squidex will make several attempts to execute an job:
 
 1. First attempt, a few seconds after the event has happened.
-2. After 5 minutes
-3. After 1 hour.
-4. After 6 hours.
-5. After 12 hours.
+2. The next attempt is after 5 minutes.
+3. The next attempt after 1 hour.
+4. Another attempt after 6 hours.
+5. The next attempt after 12 hours.
 
 Jobs expire after 2 days and will be deleted automatically.
 

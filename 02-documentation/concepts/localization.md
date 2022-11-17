@@ -4,9 +4,75 @@ description: Localization allows you to define content in multiple languages.
 
 # Localization
 
+This documentation is based on the _FoodCrunch_ use case. Please open the below link side by side to this page to understand the examples.
+
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
+{% endcontent-ref %}
+
 ## Basic concept
 
-You can define per field if the field is localizable or not. We call this system partitioning, but more about that later.
+Localization is defined on a per field basis. We call this system partitioning, more about that [here](localization.md#why-do-you-call-it-partitioning).&#x20;
+
+Referring to our _FoodCrunch_ use case, the **Description** field in the _startups_ schema is a _Localizable_ field.&#x20;
+
+{% hint style="info" %}
+Localization is set when adding a field and cannot be modified later.&#x20;
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/2022-11-09_19-49.png" alt=""><figcaption><p>Setting a field as Localizable</p></figcaption></figure>
+
+### Languages
+
+Before you can add localized content, you must add the additional languages you wish to support and their fallback settings. This is configured in the Management UI.
+
+To add languages click **Settings** (1) and then select **Languages** (2). **Search** (3) for the desired language, select it and click **Add Language** (4).&#x20;
+
+<figure><img src="../../.gitbook/assets/2022-11-12_09-07.png" alt=""><figcaption><p>Adding localization/ language support </p></figcaption></figure>
+
+### Language Settings
+
+There are three configurable parameters for the Languages used for localization.&#x20;
+
+To modify or set these settings click on the **gear** icon next to the respective language.
+
+<figure><img src="../../.gitbook/assets/2022-11-12_11-28.png" alt=""><figcaption><p>Modify language settings</p></figcaption></figure>
+
+*   **Fallback** - This setting states that whenever a value for a localizable fields is not available Squidex tries to resolve the value from the master language which is the default fallback language. You can set more than one fallback language.\
+    To set a fallback, select a language from the **dropdown** (1) (list only includes enabled languages) and click **Add Language** (2).
+
+    <figure><img src="../../.gitbook/assets/2022-11-12_11-32.png" alt=""><figcaption><p>Adding a fallback language</p></figcaption></figure>
+
+    The final screenshot for the Swedish language in our use case looks something like below. Reorder them to set the priority. To reorder, use the ![](<../../.gitbook/assets/Screenshot 2022-11-12 at 11.41.37 AM.png>)  icon and drag it up or down.\
+
+
+    <figure><img src="../../.gitbook/assets/2022-11-12_11-34.png" alt=""><figcaption><p>Set multiple fallback languages</p></figcaption></figure>
+
+{% hint style="info" %}
+Master language cannot have fallback languages and it cannot be Optional.
+{% endhint %}
+
+* **Is Master** - This is used to set if a language is the master language, meaning when another language has no value it displays the content in this language. English is the master language by default.
+* **Is Optional** - This means that required fields can be omitted. This is useful when you introduce a new language. You can save contents with required fields even if the field value has not been entered for the optional language.
+
+&#x20;Remember to click **Save** when done.
+
+{% hint style="info" %}
+A master language cannot be modified or deleted unless a different language is set as a the master language.
+{% endhint %}
+
+For our FoodCrunch use case, we have added the following languages along with their settings.&#x20;
+
+| Name        | Code | Fallback       | Optional | Description                                                                                                                                                                                                                                                                    |
+| ----------- | ---- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **English** | `en` | -              | N/A      | Our master language. Whenever a fields is not available in a language it falls back to the master language.                                                                                                                                                                    |
+| **Swedish** | `sv` | Not configured | Yes      | Swedish has no fallback language configured, therefore the fallback language is always English. This is an optional language.                                                                                                                                                  |
+| **Finnish** | `fi` | `sv,en`        | Yes      | Finish has Swedish configured as a fallback language. This means that whenever a value for a localizable fields is not available Squidex tries to resolve the value from Swedish first and then from the master language (English). Finish is also marked as optional.         |
+| **Italian** | `it` | `en`           | Yes      | Italian is a new language and has been added after the content editors have created most of the content. Therefore most content items do not have a value available. Since no fallback language is configured, English will be the fallback language. Italian is optional too. |
+
+The final screenshot may look similar to the screenshot below.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2022-11-12 at 11.44.25 AM.png" alt=""><figcaption><p>Languages settings for FoodCrunch app.</p></figcaption></figure>
 
 It is easy to understand when you have a look to an content object from the API:
 
@@ -35,19 +101,6 @@ Each field value is a set of values that are associated to keys. In JavaScript i
 
 * The `population` field is not localizable. Therefore the only allowed key is `iv`, which stands for "invariant".
 * The `name` field is localizable. The allowed keys are the language codes for the languages you have configured.
-
-The languages an fallback rules can be configured in the Management UI:
-
-![Settings](../../.gitbook/assets/settings.png)
-
-In this example we have 4 languages:
-
-| Name        | Code | Fallback | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------- | ---- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **English** | `en` | -        | Our master language. Whenever a fields is not available in a language it falls back to the master language.                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Swedish** | `sv` | `en`     | Swedish has no fallback language configured, therefore the fallback language is always English.                                                                                                                                                                                                                                                                                                                                                                                             |
-| **Finnish** | `fi` | `sv,en`  | Finish has Swedish configured as a fallback language. This means that whenever a value for a localizable fields is not available Squidex tries to resolve the value from Swedish first and then from the master language (English). Finish is also marked as optional, which mean that required fields can be omitted. This is useful when you introduce a new language. You can save contents with required fields even if the field value has not been entered for the optional language. |
-| **Italian** | `it` | `en`     | Italian is a new language and has been added after the content editors have created most of the content. Therefore most content items do not have a value available.                                                                                                                                                                                                                                                                                                                        |
 
 ## How to use the API
 
