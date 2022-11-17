@@ -46,7 +46,7 @@ To modify or set these settings click on the **gear** icon next to the respectiv
     The final screenshot for the Swedish language in our use case looks something like below. Reorder them to set the priority. To reorder, use the ![](<../../.gitbook/assets/Screenshot 2022-11-12 at 11.41.37 AM.png>)  icon and drag it up or down.\
 
 
-    <figure><img src="../../.gitbook/assets/2022-11-12_11-34.png" alt=""><figcaption><p>Set multiple fallback languages</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/2022-11-12_11-34 (1).png" alt=""><figcaption><p>Set multiple fallback languages</p></figcaption></figure>
 
 {% hint style="info" %}
 Master language cannot have fallback languages and it cannot be Optional.

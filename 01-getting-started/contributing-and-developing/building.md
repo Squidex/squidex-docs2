@@ -59,10 +59,9 @@ If you don't want to use docker, you can also build it manually. The project str
 
 #### 2.2.1. Build the .NET 3.0 version
 
-The new structure differentiates between the frontend and the backend:\
+The new structure differentiates between the frontend and the backend:\\
 
-
-![Project structure](../../.gitbook/assets/image.png)
+![Project structure](<../../.gitbook/assets/image (6).png>)
 
 This has the advantage that the code is separated and that we can using multiple contains to build them independently and make better use of caching in docker. After both, frontend and backend, have been built, you need to copy the build artifacts to a common folder. We just assume that we use `$SQUIDEX/publish` for that.
 
