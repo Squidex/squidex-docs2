@@ -1,7 +1,7 @@
 ---
 description: >-
-  Workflows define the different statuses of a content item from the initial
-  status to the Published status , when the content item is available in the
+  Workflows define the various statuses of a content item, from the initial
+  status to the Published status when the content item is available in the
   public API.
 ---
 
@@ -9,7 +9,7 @@ description: >-
 
 ## Introduction
 
-This documentation is based on the FoodCrunch use case. Please follow the link and open it side by side to this page to understand the examples.
+This documentation is based on the _FoodCrunch_ use case. Please open the below link side by side to this page to understand the examples.
 
 {% content-ref url="../introduction-and-use-case.md" %}
 [introduction-and-use-case.md](../introduction-and-use-case.md)
@@ -17,7 +17,7 @@ This documentation is based on the FoodCrunch use case. Please follow the link a
 
 ## What is a Workflow?
 
-A workflow defines the different statuses of a content item from the initial status to the Published status. Workflows are typically used when contributors work together to create and publish content items and when the contributors have different roles, such as Writer, Reviewer and Publisher. They are very flexible and you can have an unlimited number of workflows per App.
+A workflow defines the various statuses of a content item from the initial status to the Published status. Workflows are typically used when contributors work together to create and publish content items and when they have different roles, such as Writer, Reviewer and Publisher. Workflows are very flexible and you can have an unlimited number of workflows per App.
 
 ### Terms
 
@@ -36,43 +36,44 @@ Workflows do not exist in older Squidex installations, but you can implement the
 
 Do the following steps to create a new workflow
 
-1. Go to your App.
-2. Go to the app settings.
-3. Go to the workflow settings of your App.
-4. Enter a new name for your workflow. This name is only used in this screen and can be changed later.
-5. Just press the button to create a new workflow with a default setup.
+1. Go to your **App** (1).
+2. Click **Settings** (2) and then select **Workflows** (3).
+3. Enter a **name** (4) for the workflow and click **Add Workflow** (5).\
+   This name is only used in this screen and can be changed later.
 
-![How to create a new workflow](<../../.gitbook/assets/image (25).png>)
+<figure><img src="../../.gitbook/assets/2022-11-23_15-25.png" alt=""><figcaption><p>Adding a Workflow</p></figcaption></figure>
 
-Typically your list of workflows is empty, which means that the default workflow is applied to all your schemas. The default workflow has the same structure as the new workflow that you just created. If a schemas has no matching workflow, this default workflow is also applied.
+Typically the list of workflows is empty, which means that the _default workflow_ is applied to all the schemas. The default workflow has the same structure as the new workflow just created. If a schemas has no matching workflow, this default workflow is also applied.
 
 #### The default workflow
 
-If you go to the Visualize (1) tab you see a graphical representation of your workflow:
+To visualize the default workflow click on the **gear icon** (1) ![](../../.gitbook/assets/2022-11-22\_19-23.png) next to the workflow name, then click the **Visualize** (2) tab. You should see the graphical representation of your workflow here.
 
-![The default workflow.](<../../.gitbook/assets/image (28).png>)
+<figure><img src="../../.gitbook/assets/2022-11-23_15-58.png" alt=""><figcaption><p>Visualizing the default workflow</p></figcaption></figure>
 
-* **(2) Draft** is the initial status for each content item. The initial status is visualized by an arrow. From Draft you can either move a content item to "Published" or to "Archived".
-* **(3) Archived** is a status that is used to mark deleted content items without actually deleting them. It is a soft delete. Archived content items cannot be updated. From "Archived" you cannot go to "Published" immediately, you always have to go to "Draft" first.
-* **(4) Published** is a special status that cannot be removed. Only content items where the status is set to "Published" are available in the normal API. If you do not need a workflow at all you can delete all other statuses.
+The default workflow has three statuses.&#x20;
+
+* **Draft** (3) is the initial status for each content item. The initial status is visualized by an arrow. From Draft, you can either change content item to "Published" or to "Archived".
+* **Archived** (4) is a status that is used to mark deleted content items without actually deleting them. It is a soft delete. Archived content items cannot be updated. You cannot change from "Archived" to "Published" directly, you must change to "Draft" first.
+* **Published** (5) is a special status that cannot be removed. Only content items whose status is set to "Published" are available in the normal API. If you do not need a workflow at all you can delete all other statuses.
 
 ## How to edit a workflow
 
-Hopefully the user interface is good enough that you do not need detailed instructions. But there are some special cases that needs explanation.
+The user interface is intuitive enough that it does not detailed instructions. But there are some special cases that need explaining.
 
-### Change the initial status
+### Changing the initial status
 
 The initial status is indicated with a small arrow icon (1). You can change this when you move the mouse over a status. Then the same arrow icon will pop up, which can be clicked to set the status.
 
 ![](<../../.gitbook/assets/image (36).png>)
 
-### Change the color of a status
+### Changing the color of a status
 
 The steps of colors can be changed. Just click to the colored circle next to each step to change the color.
 
 ![Change the color of a status](<../../.gitbook/assets/image (29).png>)
 
-### Restrict transitions with Roles
+### Restricting transitions with Roles
 
 You can assign one or more roles to a transition. When a role is assigned only contributors that have the correct role can move a content item to the target status that is defined by this transition. When no role is assigned all contributors can do that. This is restricted by permissions, so when a user has cannot update content items at all, the workflow does not change that.
 
@@ -94,7 +95,7 @@ This workflow can be extended even more and multiple review steps can be impleme
 Workflows can be combined with Permissions to restrict who can create content items.
 {% endhint %}
 
-### Restrict transitions with Expressions
+### Restricting transitions with Expressions
 
 You can write an Javascript expression. This expressions is evaluated each time a content is updated to evaluate whether a transitions to another status is possible.
 
@@ -127,7 +128,7 @@ The structure has been explained in detail the use case:
 [introduction-and-use-case.md](../introduction-and-use-case.md)
 {% endcontent-ref %}
 
-### Assign a workflow to schemas
+### Assigning a workflow to schemas
 
 Workflows can be assigned to schemas. If no schema is assigned, this workflow handles all schemas where no other workflow is assigned for. Other schemas, that have no assigned workflow have an implicit default workflow with.
 

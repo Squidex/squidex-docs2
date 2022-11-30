@@ -12,46 +12,59 @@ A backup is an ZIP archive file that stores all your data for one app. It contai
 2. One file per asset in your app.
 3. Metadata files, for example all users in your system as a pairs of user id and email addresses. When the backup is restored these users are created in target system if they do not exist yet.
 
-## How to create and restore backups?
+## Creating Backups
 
 ### How to create backups
 
-If you are the owner of your app, go to "Settings" (1) and then to "Backups" (2). You can create a new backup there by pressing the "Start Backup" (3) button. The screen will not update immediately and it can take a few seconds until you see the status of your backup.
+If you are the owner of the app, go to **Settings** (1) and then **Backups** (2). To create a new backup press the **Start Backup** (3) button.&#x20;
 
-![Your backup](<../../.gitbook/assets/image (70).png>)
+![Backups in Squidex](<../../.gitbook/assets/image (70).png>)
 
-Squidex only allows 10 backups per App. If you have reached this limit you have to deleted an old backup. Each backup item has a download link (5) that you need to restore the backup and also shows the number of events and assets in your backup (4). When you restore the backup it will print the number of restored events and you can compare this with the total number of events in your backup to get an understanding how long the backup operation might take. We do not show a progress indicator because it almost never works properly (see Microsoft Windows).
+The screen will not refresh immediately and it can take a few seconds until you see the status of your backup.
 
-### How to restore a backup
+{% hint style="info" %}
+Squidex only allows 10 backups per App. If you have reached this limit you have to deleted an old backup.&#x20;
+{% endhint %}
 
-If you are hosting Squidex yourself you are very likely the administrator and you will see a link to the Administration section when you click your profile. This option is not available for you in the Cloud.
+Each backup item has a **download link** (5) that you need to restore the backup and also shows the **number of events and assets** in your backup (4). When you restore the backup it will print the number of restored events and you can compare this with the total number of events in your backup to get an understanding how long the backup operation might take. We do not show a progress indicator because it almost never works properly (see Microsoft Windows).
 
-1. Go to "Administration" (1) and "Restore" (2)
-2. Copy the URL from your backup and add it the the first input field (3)
-3. Presse the "Restore Backup" button to restore your backup (4). If you have restored a backup before you will still see the logs as shown in the following screenshot.
-4. If an app with the same name already exists you to either delete this app first or define a new name for your restored app (5).
+## Restoring Backups
+
+### Restore a backup - Self-hosted
+
+In order to restore a backup you will need access to the Administration page. If you are hosting Squidex, you are very likely the administrator and you will see a link to the Administration section when you click your profile.&#x20;
+
+{% hint style="info" %}
+This option is not available for you in the Cloud.
+{% endhint %}
+
+1. Click on your profile, select **Administration** (1) and click **Restore** (2).
+2. Copy the URL from your backup and add it the the first input field called **Url to backup** (3). You can optionally give an **app name** (4) as well in the second input field.\
+   If an app with the same name already exists you have to either delete the app first or define a new name for your restored app.
+3. Press the **Restore Backup** button (5) to restore your backup. If you have restored a backup before you will still see the logs as shown in the following screenshot.
 
 ![Restore a backup](<../../.gitbook/assets/image (73) (1) (1).png>)
 
-### How to restore the backup in the Cloud?
+### Restore a backup - Cloud
 
-Backups are critical paths for Squidex and do not provide the same security mechanisms as normal API calls, therefore we have to prove first that your backup does not cause any harm to our system. Create a backup of your local or cloud app and send us the URL in personal message in the [support forum](https://support.squidex.io).
+Backups are critical paths for Squidex and do not provide the same security mechanisms as normal API calls, therefore we have to validate first that your backup does not cause any harm to our system. Create a backup of your local or cloud app and send us the URL in personal message in the [support forum](https://support.squidex.io).
 
 If you want to restore a backup please do the following things:
 
-1. Provide a download link directly to the backup. If you need to delete your app (see point 4) you have to upload your backup first. Please ensure that an anonymous user can download your backup. Do not use Google Drive, because it causes issue when downloading the backup.
-2. Provide the number of events and assets, so that we can have an understanding how long it might take to restore the backup.
-3. If you want to change the name of the app, provide a new name please.
-4. If you want to keep the name you have to delete your app first. Please do that. The download link for your backup becomes invalid, so you have to upload your backup first (see point 1).
+1. Provide a download link directly to the backup. If you need to delete your app (see point 4) you have to upload your backup to an external storage location first. Please ensure that the backup can be downloaded anonymously (without any authentication). \
+   <mark style="color:orange;">Do not use Google Drive, because it causes issue when downloading the backup.</mark>
+2. Provide the number of events and assets, so that we can estimate how long it might take to restore the backup.
+3. If you want to change the name of the app, provide a new name.
+4. If you want to keep the name you have to delete your app first. Once the app is deleted, the download link for the backup becomes invalid, hence it is important to upload the backup first to an external storage location (see point 1).
 5. Do not share your backup link in a public post, use personal messages for that.
 
 {% hint style="info" %}
-Just click the profile picture of the user you want to write a personal message.
+Click the profile picture of the user you want to write a personal message to.
 {% endhint %}
 
 ### How does the restore process work?
 
-&#x20;The restore process executes the following steps:
+The restore process executes the following steps:
 
 1. The name of the app is reserved.
 2. All events from the backup are inserted into the system. If the event is an asset event, the corresponding asset is added to the system.
@@ -63,9 +76,9 @@ Just click the profile picture of the user you want to write a personal message.
 The backup cannot use an existing app and creates a new app to avoid conflicts.
 {% endhint %}
 
-## Usages for the backup system
+## Using the backup system
 
-The backup has a few implications that are important to understand.
+The backup feature has a few DOs and DONTs that are important to understand.
 
 ### When to use the backup system?
 
@@ -74,10 +87,9 @@ The backup has a few implications that are important to understand.
 
 ### When not to use the backup system?
 
-1. The backup system is not as fast as MongoDB backup and can only secure your app information. Therefore it is not recommended to use the backup system for system backups. Have a look the official documentation about [Back Up and Restore with MongoDB Tools](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/#back-up-and-restore-with-mongodb-tools) to understand the different backup options for MongoDB. If you use a cloud provider like Mongo Atlas, it is typically built in.
-2. The backup system creates a new app all the time and old apps are not deleted from the system and only marked as deleted. Therefore you should not use the backup system to make syncs between different environments. It is much more efficient to use the synchronization features of the CLI for that. If you use the backup system for this use case you create a lot of zombie apps in your system.
+1. The backup system is not as fast as MongoDB backup and can only secure your app information. Therefore it is not recommended to use the backup system for system backups. Have a look at the official documentation about [Back Up and Restore with MongoDB Tools](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/#back-up-and-restore-with-mongodb-tools) to understand the different backup options for MongoDB. If you use a cloud provider like MongoDB Atlas, it is typically built in.
+2. The backup system creates a new app all the time and old apps are not deleted from the system and only marked as deleted. Therefore you should not use the backup system to make syncs between different environments. It is much more efficient to use the synchronization features of the CLI (link below) for that. If you use the backup system for this use case you create a lot of zombie apps in your system.
 
 {% content-ref url="../developer-guides/automation-tools.md" %}
 [automation-tools.md](../developer-guides/automation-tools.md)
 {% endcontent-ref %}
-

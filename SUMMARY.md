@@ -42,7 +42,7 @@
   * [Assets](02-documentation/concepts/assets.md)
   * [Localization](02-documentation/concepts/localization.md)
   * [Migrations](02-documentation/concepts/migrations.md)
-  * [Permissions](02-documentation/concepts/permissions.md)
+  * [Roles & Permissions](02-documentation/concepts/permissions.md)
   * [Rules](02-documentation/concepts/rules.md)
   * [Backups](02-documentation/concepts/backups.md)
   * [Subscriptions](02-documentation/concepts/subscriptions.md)

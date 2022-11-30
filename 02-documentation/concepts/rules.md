@@ -12,11 +12,11 @@ Whenever you make a change in Squidex, such as creating content or updating sett
 
 A rule has two parts:
 
-1.  A `trigger` that defines when to execute the rule. This is otherwise called **if ...** in the UI.\
+1.  A `trigger` that defines when to execute the rule. This is otherwise called **If** in the UI.\
     The following triggers are currently available in rules:
 
     <figure><img src="../../.gitbook/assets/2022-11-08_23-32.png" alt=""><figcaption><p>Triggers in rules</p></figcaption></figure>
-2.  An `action` that defines what to do. This is otherwise called **then ...** in the UI.\
+2.  An `action` that defines what to do. This is otherwise called **then** in the UI.\
     Following actions are currently available:
 
     <figure><img src="../../.gitbook/assets/2022-11-08_23-33.png" alt=""><figcaption><p>Actions in rules</p></figcaption></figure>
