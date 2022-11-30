@@ -711,7 +711,7 @@ $filter=data/population/iv ge 1 // Greater or equals than
 {
     "filter": {
         "path": "data.population.iv",
-        "op": "ne", // Equals
+        "op": "eq", // Equals
         "value": 1
     }
 }
