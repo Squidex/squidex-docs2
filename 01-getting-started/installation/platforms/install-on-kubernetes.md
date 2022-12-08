@@ -6,50 +6,97 @@ description: Install Squidex on a Kubernetes cluster
 
 ## Supported platforms
 
-* Kubernetes 1.14+
+* Kubernetes 1.23+
+
+## Pre-requisites
+
+* Kubernetes cluster
+* An [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) such as [NGINX](https://www.nginx.com/products/nginx-ingress-controller/) deployed in the cluster
+* [cert-manager](https://cert-manager.io/v0.14-docs/installation/kubernetes/) for auto SSL of custom domain
+* A custom domain for use during Squidex deployment
 
 ## Use the Helm chart
 
-We provide a Helm chart:
+We provide a Helm chart that deploys Squidex along with MongoDB.
+
+The helm chart creates the following resources / objects:
+
+* Deployments
+  * A Squidex primary deployment
+  * And a Squidex worker deployment for background jobs&#x20;
+* Statefulsets
+  * A MongoDB statefulset with 3 replicas&#x20;
+* PVs & PVCs
+  * Persistent volumes for MongoDB
+* Services
+* Ingress
+
+The github link below has all the details:
 
 > [https://github.com/Squidex/squidex/tree/master/helm](https://github.com/Squidex/squidex/tree/master/helm)
 
-It will run 2 deployments:
+### 1. Connect to the Kubernetes cluster
 
-* Squidex
-* [MongoDB](https://www.mongodb.com/de)
+Use _kubeconfig_ to connect to your Kubernetes cluser and ensure you are able to run `kubectl` commands.
 
-It will also create a service and ingress.
+### 2. Add the repository
 
-Make sure to have an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) already setup, such as [NGINX](https://www.nginx.com/products/nginx-ingress-controller/).
-
-### 1. Add the repository
+Here _squidex_ is the name used for the repo.&#x20;
 
 ```
-helm repo add Squidex https://squidex.github.io/squidex/helm/
+helm repo add squidex https://squidex.github.io/squidex/helm/
 ```
 
-### 2. Install the chart
+### 3. Install the chart
 
-Your kubeconfig must already be in place, and you should be able to run `kubectl` commands against your cluster.
-
-```
-helm install squidex/squidex --set env.URLS__BASEURL=https://squidex.your.domain --set ingress.hostName=squidex.your.domain
-```
-
-### 3. Wait for the rollout
+The below command installs version 7 of Squidex. &#x20;
 
 ```
-kubectl rollout status deployment/squidex
+helm install squidex squidex/squidex7 --set env.URLS__BASEURL=https://squidex.your.domain --set ingress.hostName=squidex.your.domain
 ```
+
+* Here _squidex/squidex7_ means we are installing version 7 of squidex.
+* Replace _squidex.your.domain_ with your custom domain name.
+
+### 4. Wait for the rollout
+
+It may take a few minutes before the rollout is successful. Run the below command to check the status:
+
+```
+kubectl rollout status deployments
+```
+
+Below is a sample screenshot of a successful rollout
+
+<figure><img src="../../../.gitbook/assets/2022-12-08_16-46.png" alt=""><figcaption><p>Successful rollout of Squidex deployments</p></figcaption></figure>
+
+### 5. Verify resources/objects
+
+Once can verify / see all the objects created by running:
+
+```
+kubectl get all
+```
+
+<figure><img src="../../../.gitbook/assets/2022-12-08_16-54.png" alt=""><figcaption><p>Screenshot of all objects deployment by the helm chart</p></figcaption></figure>
+
+### 6. Access Squidex
+
+Open the custom URL address on a browser to continue with Squidex setup.
 
 ## Troubleshooting
 
-Please check the logs first using docker.
+To troubleshoot check deployment logs of the respective deployment. You can also check the pod logs.
 
 ```bash
-kubectl logs deploy/squidex
+kubectl logs deployment/squidex-squidex7
 ```
+
+### 404 Error on accessing URL
+
+It's mostly an ingress issue. Check the ingress class name for your ingress controller deployment.
+
+This helm chart uses the _ingressClassName_ as **nginx**.
 
 ### Common issues
 
@@ -64,7 +111,7 @@ kubectl logs deploy/squidex
 
 This is not a critical warning. ServerGC is a special garbage collector as it has no positive or negative impact when running with a single core. You can just ignore it.
 
-**Solution**: Request more than 1 CPU
+**Solution**: Request more than 1 CPU&#x20;
 
 ```
 resources:

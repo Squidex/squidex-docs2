@@ -43,7 +43,7 @@ Next create a schema, which is like a database table with fields of different ty
 3. Choose a name of your schema. Like the App name it is used in URLs, so it must be unique within your App and it cannot be changed later.
 4. Click the "Create" button to create a new schema.
 
-![Create a new Schema](<../../../.gitbook/assets/image (43).png>)
+![Create a new Schema](<../../../.gitbook/assets/image (43) (1).png>)
 
 Now we are going to add a new field:
 
@@ -60,8 +60,8 @@ Also ensure that the schema is published. Otherwise you cannot create content fo
 
 If you want to learn more about schemas use the following page:
 
-{% content-ref url="../../concepts/schemas.md" %}
-[schemas.md](../../concepts/schemas.md)
+{% content-ref url="../../concepts/schemas/" %}
+[schemas](../../concepts/schemas/)
 {% endcontent-ref %}
 
 ### 3. Add Content

@@ -22,8 +22,8 @@ Therefore we create one project in Squidex for all our content, assets and setti
 
 The structure of the content is defined by Schemas in Squidex. In this section we describe the different content types for our use case. Read more about schemas here:
 
-{% content-ref url="concepts/schemas.md" %}
-[schemas.md](concepts/schemas.md)
+{% content-ref url="concepts/schemas/" %}
+[schemas](concepts/schemas/)
 {% endcontent-ref %}
 
 ### Editorial content
@@ -32,15 +32,15 @@ The CTO decided to have a single structure for all editorial content. After brin
 
 This schema is just called `contents` and has the following fields.
 
-| Name        | Type      | Localizable | Description                                        |
-| ----------- | --------- | ----------- | -------------------------------------------------- |
-|  `language` | String    | No          | The content language.                              |
-| `title`     | String    | No          | The title of the editorial content.                |
-| `slug`      | String    | No          | A single slug for Google friendly URLs.            |
-| `content`   | String    | No          | The actual content.                                |
-| `type`      | String    | No          | The type of the content, e.g. "Article" or "News". |
-| `startup`   | Reference | No          | A reference to the startup in the database.        |
-| `image`     | Assets    | No          | One or more teaser images.                         |
+| Name       | Type      | Localizable | Description                                        |
+| ---------- | --------- | ----------- | -------------------------------------------------- |
+| `language` | String    | No          | The content language.                              |
+| `title`    | String    | No          | The title of the editorial content.                |
+| `slug`     | String    | No          | A single slug for Google friendly URLs.            |
+| `content`  | String    | No          | The actual content.                                |
+| `type`     | String    | No          | The type of the content, e.g. "Article" or "News". |
+| `startup`  | Reference | No          | A reference to the startup in the database.        |
+| `image`    | Assets    | No          | One or more teaser images.                         |
 
 ### Startup database
 
@@ -61,7 +61,7 @@ This schema is called `startups` and has the following fields.
 | `metadata`     | JSON        | No          | Unstructured metadata.                      |
 | `givenUp`      | Boolean     | No          | Indicates whether the startup has given up. |
 
-### &#x20;JSON structure
+### JSON structure
 
 If you are a content editor, you can skip this section.
 

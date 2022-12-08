@@ -82,7 +82,7 @@ You can also add multiple implementations to your class library in case you have
 
 Add a reference to your plugin to the `Squidex` project.
 
-![Add reference to your plugin](<../../../.gitbook/assets/image (2) (1).png>)
+![Add reference to your plugin](<../../../.gitbook/assets/image (2) (1) (1).png>)
 
 Furthermore you need to add the path to your plugin to the configuration, for example to the `appSettings`file. Because we reference the plugin, it will be automatically copied to the output folder when the build or packaging is executed.
 
