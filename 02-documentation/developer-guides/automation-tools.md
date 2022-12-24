@@ -66,7 +66,7 @@ STEP 3: Switch to another config
 
 The following section describes the most common use cases and how to execute them with the CLI:
 
-### Synchronize all app settings (BETA)
+### Synchronize all app settings
 
 {% hint style="info" %}
 You need a client with **Owner** role for this use case.
@@ -246,7 +246,7 @@ To get a good understanding of the paths, it is helpful to have a look to the AP
 
 Some sample paths
 
-* `personName.iv=personName`&#x20;
+* `personName.iv=personName`
 * `personName` (`iv` is added by default for non-localized fields)
 
 More examples (not from the example operation above):
