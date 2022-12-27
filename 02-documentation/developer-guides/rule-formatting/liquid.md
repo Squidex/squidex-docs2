@@ -10,6 +10,10 @@ You can use Liquid templates using the following syntax:
 Liquid(<YOUR_SCRIPT>)
 ```
 
+{% hint style="info" %}
+In newer versions of Squidex the user interface has been improved and custom input fields have been introduced which let you select the syntax and add the necessary prefix automatically.
+{% endhint %}
+
 ## Basic syntax
 
 The liquid syntax is documented by shopify at [https://shopify.github.io/liquid/](https://shopify.github.io/liquid/)

@@ -31,7 +31,7 @@ Follow the steps below to subscribe to a paid plan.
 3. Next, select **Subscription** from the settings.
 4. Click the **Change** button next to the plan that meets your usage requirements.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Subscribe to a plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption><p>Subscribe to a plan</p></figcaption></figure>
 
 ### How can I subscribe to a paid plan for a Team?
 
@@ -45,7 +45,7 @@ Follow the steps below to subscribe to a paid plan for a team.
 4. Select **Subscription**.
 5. Click the **Change** button next to the plan that meets your usage requirements.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Subscribe to a plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (3).png" alt=""><figcaption><p>Subscribe to a plan</p></figcaption></figure>
 
 ### Can every contributor subscribe to a paid plan?
 
