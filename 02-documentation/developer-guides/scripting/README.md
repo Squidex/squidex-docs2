@@ -18,22 +18,27 @@ This documentation is based on the FoodCrunch use case. Please follow the link a
 
 Some business rules around security and validation are hard to solve with a generic feature that works for everybody and is easy to use. The workflow system has limitations as well and you cannot write permissions that depend on the data of the content.
 
-Scripting can be used to handle gaps in the Squidex feature set. You can create scripts that run whenever a content is created, updated, deleted, queried or when the status changes (e.g. from Draft to Published).
+In general scripting can be used to handle gaps in the Squidex feature set.&#x20;
+
+### Scripting for contents
+
+You can create scripts that run whenever a content is created, updated, deleted, queried or when the status changes (e.g. from Draft to Published).
 
 Scripts can be defined in the schema editor:
 
 1. Go to your App.
-2. Go to the schema settings.
+2. Go to the **schema** settings.
 3. Select the schema you want to write a script for.
-4. Select the "Scripts" tab
+4. Select the **Scripts** tab
 5. Select the script you want to edit.
 
-![](<../../../.gitbook/assets/image (40).png>)
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 In the editor you can define scripts for the following actions:
 
 * **Query** scripts are executed whenever a content item is queried with the API, but not when queried by the Management UI.
-* **Create** scripts are executed before a content item is created.&#x20;
+* **Prepare Query** is called once for all content items of the current query. It can be used to precompute or prefetch data.
+* **Create** scripts are executed before a content item is created.
 * **Change** scripts are executed before the status of a content item is changed. When you use scheduling to change the status of a content item in the future, the script is called just before the status is changed and not when you schedule it. This can also stop your scheduling, when the script fails or rejects the change.
 * **Delete** scripts are executed before a content item is deleted.
 * **Update** scripts are executed before a content item is updated.
@@ -52,6 +57,25 @@ This means that you have the guarantee in your scripts, that the data is always 
 Scripts are executed for the REST endpoint as well as for the GraphQL endpoint.
 {% endhint %}
 
+### Scripting for Assets
+
+Asset scripts can be defined in the settings:
+
+1. Go to your App.
+2. Go to the **settings**.
+3. Select the **Asset Scripts** menu item.
+4. Select the script you want to edit.
+
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+In the editor you can define scripts for the following actions:
+
+* **Annotate** scripts are executed before the metadata of an asset are changed.
+* **Create** scripts are executed before an asset is created.
+* **Moved** scripts are executed before an asset is moved to another folder.
+* **Delete** scripts are executed before an assetis deleted.
+* **Update** scripts are executed before an asset is replaced with a new file.
+
 ## Execution and variables
 
 The scripts are executed in an Sandbox. You do not have access to the file system and only to allowed functions. Only the ES5 Javascript syntax is implemented so far, which means you cannot use Lambda expressions, Promises or classes.
@@ -60,17 +84,17 @@ The scripts are executed in an Sandbox. You do not have access to the file syste
 
 All variables are accessible over the `ctx` (Context) variable. The following fields can be used.
 
-| Name            | Type   | Description                                                                                                                                                                                                                                                      |
-| --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ctx.data`      | Object | The data for the content item as it is also described in the [Use Case introduction](../../introduction-and-use-case.md).                                                                                                                                        |
-| `ctx.dataOld`   | Object | The old data of the content item as it is also described in the [Use Case introduction](../../introduction-and-use-case.md). Only for "Update" scripts. You can also use `ctx.oldData`as an alias.                                                               |
-| `ctx.operation` | String | The name of the operation, as it is also used in the UI ("Query", "Create", "Update", "Delete", "Change"). In addition to that "Published" is used when the status is changed to "Published" and "Unpublished" is used when the previous status is "Published".  |
-| `ctx.status`    | String | The status of the content.                                                                                                                                                                                                                                       |
-| `ctx.statusOld` | String | The old status of the content item. Only for "Change" scripts. You can also use  `ctx.oldStatus`as an alias.                                                                                                                                                     |
-| `ctx.contentId` | String | The ID of the content item.                                                                                                                                                                                                                                      |
-| `ctx.appId`     | String | The ID of the current app.                                                                                                                                                                                                                                       |
-| `ctx.appName`   | String | The name of the current app.                                                                                                                                                                                                                                     |
-| `ctx.user`      | Object | Information about the current user. See next table.                                                                                                                                                                                                              |
+| Name            | Type   | Description                                                                                                                                                                                                                                                     |
+| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ctx.data`      | Object | The data for the content item as it is also described in the [Use Case introduction](../../introduction-and-use-case.md).                                                                                                                                       |
+| `ctx.dataOld`   | Object | The old data of the content item as it is also described in the [Use Case introduction](../../introduction-and-use-case.md). Only for "Update" scripts. You can also use `ctx.oldData`as an alias.                                                              |
+| `ctx.operation` | String | The name of the operation, as it is also used in the UI ("Query", "Create", "Update", "Delete", "Change"). In addition to that "Published" is used when the status is changed to "Published" and "Unpublished" is used when the previous status is "Published". |
+| `ctx.status`    | String | The status of the content.                                                                                                                                                                                                                                      |
+| `ctx.statusOld` | String | The old status of the content item. Only for "Change" scripts. You can also use `ctx.oldStatus`as an alias.                                                                                                                                                     |
+| `ctx.contentId` | String | The ID of the content item.                                                                                                                                                                                                                                     |
+| `ctx.appId`     | String | The ID of the current app.                                                                                                                                                                                                                                      |
+| `ctx.appName`   | String | The name of the current app.                                                                                                                                                                                                                                    |
+| `ctx.user`      | Object | Information about the current user. See next table.                                                                                                                                                                                                             |
 
 The user object has the following structure.
 
@@ -103,14 +127,14 @@ Squidex provides a set of general helper functions for scripting and and rule fo
 
 In addition to that, there are also methods which are only available for scripting.
 
-| Name                            | Description                                                                                                                                                                                                                                                                                                    |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `getJSON(url,callback)`         | Makes a request to the defined URL. If the request succeeds with a HTTP response status code (2XX) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object.. The script fails otherwise.                                                |
-| `getJSON(url,callback,headers)` | Makes a request to the defined URL and adds the specified headers to the request. If the request succeeds with a HTTP response status code (2XX) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object.. The script fails otherwise.  |
-| `getReferences(ids, callback)`  | Queries the content items with the specified IDs and invokes the callback with the resulting content items when the request has been completed. If the current user does not have permissions to read the content items, the callback is invoked with an empty array.                                          |
-| `getReference(id, callback)`    | Queries the content item with the specified ID and invokes the callback with an array that includes the resulting content item when the request has been completed. If the current user does not have permissions to read the content item, the callback is invoked with an empty array.                       |
-| `getAssets(ids, callback)`      | Queries the assets with the specified IDs and invokes the callback with the resulting assets when the request has been completed. If the current user does not have permissions to read assets, the script will fail.                                                                                          |
-| `getAsset(id, callback)`        | Queries the asset with the specified ID and invokes the callback with an array that includes the resolved  asset when the request has been completed. If the current user does not have permissions to read assets, the script will fail.                                                                      |
+| Name                            | Description                                                                                                                                                                                                                                                                                                   |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `getJSON(url,callback)`         | Makes a request to the defined URL. If the request succeeds with a HTTP response status code (2XX) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object.. The script fails otherwise.                                               |
+| `getJSON(url,callback,headers)` | Makes a request to the defined URL and adds the specified headers to the request. If the request succeeds with a HTTP response status code (2XX) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object.. The script fails otherwise. |
+| `getReferences(ids, callback)`  | Queries the content items with the specified IDs and invokes the callback with the resulting content items when the request has been completed. If the current user does not have permissions to read the content items, the callback is invoked with an empty array.                                         |
+| `getReference(id, callback)`    | Queries the content item with the specified ID and invokes the callback with an array that includes the resulting content item when the request has been completed. If the current user does not have permissions to read the content item, the callback is invoked with an empty array.                      |
+| `getAssets(ids, callback)`      | Queries the assets with the specified IDs and invokes the callback with the resulting assets when the request has been completed. If the current user does not have permissions to read assets, the script will fail.                                                                                         |
+| `getAsset(id, callback)`        | Queries the asset with the specified ID and invokes the callback with an array that includes the resolved asset when the request has been completed. If the current user does not have permissions to read assets, the script will fail.                                                                      |
 
 ## Use Cases
 
