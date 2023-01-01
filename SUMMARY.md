@@ -31,6 +31,8 @@
   * [Translating](01-getting-started/contributing-and-developing/translating.md)
   * [Squidex Docs Program](01-getting-started/contributing-and-developing/squidex-docs-program.md)
 * [Roadmap](01-getting-started/roadmap.md)
+* [Quick Start Guides](01-getting-started/quick-start-guides/README.md)
+  * [Vue.js blog with Squidex CMS](01-getting-started/quick-start-guides/vue.js-blog-with-squidex-cms.md)
 
 ## Documentation <a href="#02-documentation" id="02-documentation"></a>
 
