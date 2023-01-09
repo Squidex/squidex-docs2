@@ -4,7 +4,7 @@ description: Write advanced workflows with scripting
 
 # Custom Workflows
 
-Custom workflows have been already requested several times and have implemented it 2019, but if you are using an older version this guide will teach you how to implement custom workflows with permissions and scripting.
+Custom workflows have been already requested several times and was implemented in 2019, but if you are using an older version this guide will teach you how to implement custom workflows with permissions and scripting.
 
 If you are up to date with your Squidex version you can go to the documentation about workflows.
 
@@ -83,7 +83,7 @@ I will not show everything in this tutorial, it is just too much and the solutio
 
 The solution is scripting. If you click the three dots in the schema editor a menu will pop up with a menu item to the scripting editor. Here you can define scripts that are invoked when a content item is queried, created, updated, deleted or when the status is changed.
 
-![Scripting](../../.gitbook/assets/scripting.png)
+<figure><img src="../../.gitbook/assets/2023-01-09_13-15.png" alt=""><figcaption><p>Scripting</p></figcaption></figure>
 
 ### The create script:
 
@@ -131,13 +131,13 @@ The rest of the requirements can be implemented with a some more `if`-statements
 
 ## Summary
 
-You can already implement custom workflow with Squidex, but this solutions has several small issues:
+With the steps above you can implement custom workflows with Squidex, but this solution has several shortcomings:
 
 1. You have a second field for the status of the addition.
 2. The user experience could be better.
-3. You have to define, write and define the scripts.
+3. You have to define and write the scripts.
 
-But on the other side there are also some points on the PRO side:
+There are some benefits to this solution too such as:
 
-1. You can implement very fine grained workflows and you are not restricted by a built-in solution.
-2. You can even make the Status field localizable and ensure that all texts are reviewed from different person before you publish a content.
+1. You can implement very fine grained workflows and not restricted by a built-in solution.
+2. You can even make the _Status_ field localizable and ensure that all texts are reviewed from different person before you publish a content.

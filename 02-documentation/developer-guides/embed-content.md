@@ -8,25 +8,25 @@ description: >-
 
 ## Use Case
 
-Let's consider we have built a travel website and have a content type for hotels. When a content author writes an article about new offers or a guide for a destination, he might want to add hotel information to his article. Because the article is unstructured and just markdown or rich text, he has three options and none of them is satisfying.
+Let's consider we have built a travel website and have a content type for hotels. When a content author writes an article about new offers or a guide for a destination, they might want to add hotel information to his article. Because the article is unstructured and just markdown or rich text, there are limited options mentioned below and none of them really work.&#x20;
 
-1. He can copy and paste the hotel information to his article. When the hotel is updated his article will contain outdated information.
-2. He can use a special placeholder in the markdown to reference an hotel and ask the developers to resolve this reference in the UI.
+1. The author can copy and paste the hotel information to his article. When the hotel is updated the article will contain outdated information.
+2. Use a special placeholder in the markdown to reference a hotel and ask the developers to resolve this reference in the UI.
 3. The developers can build a complex schema, for example with arrays, to structure the article.
 
-As I said, none of these options is satisfying. Therefore this feature has been added.
+Since none of the options are practical and convenient, this feature has been added.
 
 ## How to
 
-How to use this feature:
+To use this feature follow the steps below:
 
 ### 1. Define which schemas can be embedded
 
-When you create a string field, you can decide which schemas can be embedded:
+When you create a string field, you can decide which schemas can be embedded.
 
-![Configure String Field](<../../.gitbook/assets/image (76).png>)
+<figure><img src="../../.gitbook/assets/2023-01-09_12-20.png" alt=""><figcaption><p>Embedding schemas</p></figcaption></figure>
 
-In this case we only allow embedding hotels.
+In this case we only allow embedding the _startups_ schema.
 
 ### 2. Add links to your string field
 
@@ -42,7 +42,7 @@ Use the new GraphQL structure to fetch the text and references. When you allow e
 
 ### 4. Use the references to render the embedded content
 
-In our frontend we can use both information together to render the embedded contents. In this sample we use react and react-markdown for that. We can hook into the rendering process and render custom components for links.
+In our frontend we can use both information together to render the embedded contents. In this sample code we use react and react-markdown for that. We can hook into the rendering process and render custom components for links.
 
 We just check if the link is referencing to a content item and if this content item is part of our references. Then we render the hotel.
 
@@ -75,7 +75,7 @@ Because markdown is unstructured we have to use a regular expression for that. T
 
 ![Embedded Hotels in the UI](<../../.gitbook/assets/image (57).png>)
 
-This feature gives your content authors a lot more flexibility, simplifies your schemas and still n.
+This feature gives the content authors a lot more flexibility and simplifies your schemas.
 
 A sample for this feature is available in Github: [https://github.com/Squidex/squidex-samples/tree/master/jscript/react/sample-hotels](https://github.com/Squidex/squidex-samples/tree/master/jscript/react/sample-hotels).&#x20;
 

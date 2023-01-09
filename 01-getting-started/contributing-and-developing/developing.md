@@ -1,7 +1,8 @@
 ---
 description: >-
-  If you want to contribute to Squidex or write custom extensions for it, this
-  page will give you an introduction how to setup your development environment.
+  This page gives an introduction on setting up your development environment,
+  required if you wish to contribute to Squidex or write custom extensions for
+  it.
 ---
 
 # Developing
@@ -14,7 +15,7 @@ To work with the source code you need the following tools.
 
 ### Docker
 
-We generally recommend to install Docker on your Developer machine. It makes your live much easier.
+We recommend using Docker on your developer machine. It makes your live much easier.
 
 * [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/)
 * [Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/)
@@ -25,7 +26,7 @@ Personally I was not able to run newer versions of Docker on Windows 10 Home. If
 
 ### For the backend
 
-* [.NET 6  SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+* [.NET 6 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 * [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) (for version <= 6.1.)
 * [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) or [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) (for older versions of Squidex)
 * [MongoDB](https://www.mongodb.com)
@@ -34,9 +35,9 @@ Personally I was not able to run newer versions of Docker on Windows 10 Home. If
 
 #### Setup
 
-We also provide ready to use docker configurations: [https://github.com/squidex/squidex-docker](https://github.com/squidex/squidex-docker).
+We provide ready to use docker configurations for development at [https://github.com/squidex/squidex-docker](https://github.com/squidex/squidex-docker).
 
-Just execute the following commands to get a MongoDB installation for development:
+Execute the following commands to get a MongoDB installation for development.
 
 ```bash
 git clone https://github.com/squidex/squidex-docker
@@ -48,14 +49,13 @@ docker-compose up -d
 
 * [NodeJS](https://nodejs.org/en/) (>= 10.0)
 
-Usually newer versions are better but we have the experience that newer versions of NodeJS consume a lot of memory during build or when running webpack dev server.
+Usually newer versions are better but the newer versions of NodeJS are known to consume a lot of memory during build or when running webpack dev server.
 
 ### IDE and editors
 
 You can use any editor you want, but our recommendation is to use:
 
-* [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/de/vs/community/) for the backend OR
-* [Visual Studio 2019 Community Edition ](https://visualstudio.microsoft.com/vs/?rr=https%3A%2F%2Fwww.google.com%2F)for the backend.
+* [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/de/vs/community/) OR [Visual Studio 2019 Community Edition ](https://visualstudio.microsoft.com/vs/?rr=https%3A%2F%2Fwww.google.com%2F)for the backend.
 * [Visual Studio Code](https://code.visualstudio.com) for the frontend with the following plugins installed:
   * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) (to run linting for typescript)
   * [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) (to run linting for scss / css)
@@ -63,10 +63,10 @@ You can use any editor you want, but our recommendation is to use:
 
 ## How to run Squidex
 
-You have to run both, frontend and backend, independently. The first time it feels redundant and annoying and we also had some code to run the webpack dev server automatically when the application is started. But you will recognize that it takes a minute for the webpack dev server to start. Therefore we decoupled the commands, so that you can keep the webpack dev server running, even when you have to restart the backend application.
+You have to run both frontend and backend independently. It may feel redundant and annoying at first (we also had some code to run the webpack dev server automatically when the application is started), but it only takes a minute for the webpack dev server to start . We have decoupled the commands so that you can keep the webpack dev server running, even when you have to restart the backend application.
 
 {% hint style="info" %}
-Before you start you should also ensure that the certificates for the test environment are installed. They can be found under `/dev` in the Squidex folder.
+Before you start, ensure that the certificates for the test environment are installed. They can be found under `/dev` in the Squidex folder.
 {% endhint %}
 
 ### Frontend
@@ -91,7 +91,7 @@ Optionally:
 2. `npm test` (Runs the unit tests and listens for changes)
 3. `npm run test:coverage` (Runs the unit tests and calculates the test coverage).
 
-Btw: As the name _webpack dev server_ indicates, it is only used for development. For production we bundle and minimize all typescript, html and sass files and add the bundles to the deployment package. So don't be worried when the frontend downloads hundred of files during development.
+As the name _webpack dev server_ indicates, it is only used for development. For production we bundle and minimize all typescript, html and sass files and add the bundles to the deployment package. So it is normal when the frontend downloads hundred of files during development.
 
 ### Backend
 
@@ -106,7 +106,7 @@ Ensure that the `ASPNETCORE_ENVIRONMENT` environment variable is set to `Develop
 
 Open [https://localhost:5001](https://localhost:5001) to run Squidex.
 
-You can also run and debug the backend with Visual Studio 2019. But here are some things you should do before you start your debug session:
+You can also run and debug the backend with Visual Studio 2019. Here are some **recommended** things you should do before you start your debug session:
 
-1. Recommended: Ensure that you run the `Squidex` project, which means that you use the integrated Kestrel web server, which starts faster than IIS Express.
-2. Recommended: Uncheck the `Launch browser` setting. You just want to keep Squidex open during development and not close and open the window all the time to make debugging the frontend with your browser easier.
+1. Ensure that you run the `Squidex` project, which means that you use the integrated Kestrel web server, which starts faster than IIS Express.
+2. Uncheck the `Launch browser` setting. You just want to keep Squidex open during development and not close and open the window all the time to make debugging the frontend with your browser easier.

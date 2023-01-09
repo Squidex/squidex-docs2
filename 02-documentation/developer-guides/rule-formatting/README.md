@@ -15,9 +15,9 @@ To get an understanding of the rule system read the following page:
 
 The rule formatting is used to format your custom payloads in rule actions, for example when you use email actions and you want to use certain values from the event inside the email subject or body.
 
-To get an understanding what we can do with the rule system we need to have a look to an event.
+To get an understanding what we can do with the rule system we need to have a look at an event.
 
-This example is a full content event that has been triggered when a new content item has been created.
+The below example is a full content event that has been triggered when a new content item has been created.
 
 ```javascript
 {

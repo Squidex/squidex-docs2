@@ -4,30 +4,30 @@ description: Provide a live preview on your website for your content editors.
 
 # Preview Content
 
-By default, Squidex will only deliver content that has been published. But it can be very useful to review content in your production or staging environment before you actually publish it. This guide shows you how to do it.
+By default, Squidex only delivers content that has been published. But it is beneficial to review the content in your production or staging environment before actually publishing it. This guide shows how you can use Preview URLs to do it.
 
-## What is the problem?
+## The problem statement
 
-In traditional content management systems you very often have a WYSIWYG (what you see is what you get) editor or other editing functionality where the editor can edit the content directly and understands how and where the content is used.&#x20;
+A traditional content management systems typically has a WYSIWYG (what you see is what you get) editor or other editing functionality where the editor can edit the content directly and understands how and where the content is used.&#x20;
 
-This is a challenge for a headless CMS, because of several reasons:
+This is a challenge for a headless CMS, because of the following reasons:
 
-1. There might be more than one place where a content item is used. For example when you have multiple websites or multiple applications (e.g. mobile apps).
-2. The frontend is not controlled or created by the headless CMS. Therefore it cannot provide direct WYSIWG functionality and inline editing in general is tricky.
-3. Sometimes a content item has to go through multiple steps until it is published at a website. For example when you have a complex workflow with several review steps or when the publishing process takes very long due to technical challenges.
+1. There might be more than one place where a content item is used. For example, multiple websites or multiple applications (e.g. mobile apps).
+2. The frontend is not controlled or created by the headless CMS. Therefore, it cannot provide direct WYSIWG functionality and inline editing in general is tricky.
+3. Sometimes a content item has to go through multiple steps until it is published to a website. For example, when you have a complex workflow with several review steps or when the publishing process takes very long due to technical challenges.
 
-Squidex cannot solve all these problems for you. But with a little bit help from your frontend developers it can make the live easier for content editors.
+Squidex cannot solve all these problems. But with a little bit help from the frontend developers it can make the lives easier for content editors.
 
 ### Solutions
 
-In general we have several solutions to the problem which work together. They are are best described as Use Cases.
+We have several solutions that work together to solve the challenges. They are are best described as through use cases.
 
 1. **Use Case 1: Show unpublished content items.** \
-   As a content editor I want to preview the content item, even if it is not published or reviewed yet, to check if it looks correct and well formatted in the production environment.
+   As a content editor I want to preview the content item even if it is not published or reviewed yet, to check if it looks correct and well formatted in the production environment.
 2. **Use Case 2: Link to the usage of a content item.**\
-   ****As a content editor I want to see all locations where a content item is used, when I edit the content item in the Squidex Management UI.
+   ****As a content editor I want to see all locations where a content item is used when I edit the content item in the Squidex Management UI.
 3. **Use Case 3: Link to the source of a content item**\
-   As a content editor I want to see, which parts of the website come from Squidex and how I can edit them in the Squidex Management UI.
+   As a content editor I want to see which parts of the website come from Squidex and how I can edit them in the Squidex Management UI.
 
 ## Use Case 1: Show unpublished content items
 
@@ -35,7 +35,7 @@ By default Squidex only provides published content items over the API, because t
 
 But this means that a content editor cannot preview content items while he still edits them. Even if he would know where a content item would be used he cannot see it, because the application only gets published content items.
 
-Therefore Squidex provides a special header.
+To solve this challenge, Squidex provides a special header.
 
 Add the `X-Unpublished = 1` header to all requests to retrieve unpublished content items.
 
@@ -43,11 +43,11 @@ Add the `X-Unpublished = 1` header to all requests to retrieve unpublished conte
 You will receive all content items, even if they are in a state that is not needed. For example when they are in Archive state or a custom state that indicates that a content item should not be used anymore. Therefore you might want to add a filter to your query to filter out these content items.
 {% endhint %}
 
-Of course you do not want to show unpublished content items to your end users. Therefore it makes sense to use the header conditionally. The condition could depend on the user, environment or just a secret setting.
+Of course we do not want to show unpublished content items to the end users. Therefore it makes sense to use the header conditionally. The condition could depend on the user, environment or just a secret setting.
 
-* When you have a development or staging version of your website, where you test new features, you can show unpublished content items only there.
-* When you have a login system and you can distinguish end users from content editors, you could show unpublished content items for content editors only.
-* When you neither have a login system nor a staging environment, you could just introduce a secret setting, for example a query string parameter, to enable unpublished content items.
+* You can show unpublished content items in a development or staging version of your website where you test new features.
+* Use a login system and distinguish end users from content editors, you can then show unpublished content items for content editors only.
+* When you neither have a login system nor a staging environment, you could just introduce a secret setting, for example a query string parameter to enable unpublished content items.
 
 For the Squidex website we have just added a "top secret" query parameter to the blog page. When this query parameter is set to true, it will create add this header to the requests.
 
@@ -84,19 +84,20 @@ For each content item you can define preview URLs. These are just normal links t
 
 You can define preview URL per schema in the following menu item:
 
-1. Go to the settings area (1)
-2. Select your schema (2)
-3. Select the "More" tab (3)
-4. Scroll to the "Preview URLs" (4)
+1. Go to **Schemas** (1) and select your **schema** (2).
+2. Select the **More** tab (3)
+3. Under **Preview URLs** section (4) click **+** (5) to add Preview URLs.
 
-![Navigation to Preview URLs](<../../.gitbook/assets/image (75) (1) (1).png>)
+<figure><img src="../../.gitbook/assets/2023-01-09_12-44.png" alt=""><figcaption><p>Navigating to Preview URLs</p></figcaption></figure>
 
 The following example shows 2 preview URLs:
 
 1. The URL to the normal website.
-2. The URL to an dedicated mobile website (just as an example).
+2. The URL to an dedicated mobile website (just an example).
 
-As you can see, you can use a placeholder with the JavaScript interpolation syntax, e.g.
+![Preview URLs](<../../.gitbook/assets/image (72) (1).png>)
+
+As you can see, a placeholder can be used with the JavaScript interpolation syntax, e.g.
 
 1. `${id}` of the content.
 2. `${data.slug}`: Slug field (if not localized).
@@ -105,19 +106,17 @@ As you can see, you can use a placeholder with the JavaScript interpolation synt
 5. `${data.title.en-US}`: Title in American English
 6. `${version}`: Version of the content item.
 
-![Preview URLs](<../../.gitbook/assets/image (72) (1).png>)
-
 If you use a query string to enable unpublished content items, you should also add it to the URL.
 
 ### Use the preview button
 
 If you open a saved content item, you will see the buttons with the preview URLs:
 
-![The preview button](<../../.gitbook/assets/image (74) (1) (1).png>)
+<figure><img src="../../.gitbook/assets/2023-01-09_13-06.png" alt=""><figcaption><p>Accessing the Preview button</p></figcaption></figure>
 
 ## **Use Case 3: Link to the source of a content item**
 
-The following screenshot describes this feature best. The screenshot is from the Squidex website. The idea is to annotate content items on your website so that we can provide links to the Squidex Management UI where you can edit them.
+The following screenshot from the Squidex website describes this feature best. The idea is to annotate content items on your website so that we can provide links to the Squidex Management UI where you can edit them.
 
 ![How content items are linked in the Squidex website](<../../.gitbook/assets/image (76) (1) (1).png>)
 
@@ -147,7 +146,7 @@ The script is very small and has only **8.5kB** at the moment, so it is not a pr
 </html>
 ```
 
-The script works as followed:
+The script works as follows:
 
 1. When the user moves the mouse cursor over an element, the scripts tests whether this element or a parent element is annotated (more about this later).&#x20;
 2. The annotation also contains information about the URL of the Squidex installation. This URL is used to test whether the current user is authenticated in the Squidex Management and to maintain a list of known Squidex URLs.

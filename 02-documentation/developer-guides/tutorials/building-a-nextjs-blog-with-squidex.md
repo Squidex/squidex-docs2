@@ -1,36 +1,45 @@
 ---
-description: >-
-  How to build a Next.js blog powered by content from Squidex CMS.
+description: How to build a Next.js blog powered by content from Squidex CMS.
 ---
 
 # Building a blog with Squidex and Next.js
 
 ### Introduction
 
-This tutorial will guide you to create a blog application, set up its schema, add mock content on Squidex, and create a Next.js blog based on the data stored in your CMS.
+This tutorial will guide you to create a blog application, set up its schema and add mock content on Squidex. Then demonstrate how to create a Next.js blog based on the data stored in your CMS.
 
 ## Prerequisites
 
 To complete this guide, you need:
 
-- A Squidex account. You can create one at https://cloud.squidex.io
-- Node.js installed on your computer. Follow this guide to install [Node.js](https://phoenixnap.com/kb/install-node-js-npm-on-windows) if you haven't already.
+* A Squidex account. You can create one at [https://cloud.squidex.io](https://cloud.squidex.io)
+* Node.js installed on your computer. Follow this guide to install [Node.js](https://phoenixnap.com/kb/install-node-js-npm-on-windows) if you haven't already.
 
 ## Step 1: Creating the app on Squidex
 
 In Squidex, an application is an isolated data store with schemas that define how its content is structured and API endpoints to query its content. You can visit [this page](https://docs.squidex.io/02-documentation/concepts/apps) of the Squidex docs to learn more about apps in Squidex.
 
-Start by logging into your Squidex account dashboard at https://cloud.squidex.io/. Click _New App_ to create an empty application. Enter a name you choose for the app in the space provided and click _Create_ to create the app. For the sake of this guide, we will assume the name of your Squidex application is `squidex-blog`.
+Start by logging into your Squidex account dashboard at [https://cloud.squidex.io/](https://cloud.squidex.io). Click **New App** (1) to create an empty application. Enter a unique **name** (2) for the app in the space provided and click **Create** (3) to create the app. For the purposes of this guide, we will assume the name of your Squidex application is `squidex-blog`.
+
+{% hint style="info" %}
+App names in cloud.squidex.io are global, hence the name has to be unique. You can add your name initials or a word to make it unique.
+{% endhint %}
+
+<figure><img src="../../../.gitbook/assets/2023-01-05_16-32.png" alt=""><figcaption><p>Create an empty app</p></figcaption></figure>
 
 ## Step 2: Creating the posts schema on the CMS
 
-Now that you have created the app on Squidex, you will proceed to create the schema for the blog application. This schema will define the structure of your content.
+Now that the app is created on Squidex, let's proceed to create the schema for the blog application. This schema will define the structure of your content.
 
-Still on your Squidex account dashboard at https://cloud.squidex.io, click _squidex-blog_ (or whatever name you chose) on the dashboard to enter the dashboard for your newly created app.
+On the Squidex dashboard, click _squidex-blog_ (or whatever name you chose) to enter the dashboard for the newly created app.
 
-On the left panel, select _Schemas_ and click the Plus(_+_) button to start creating the posts schema. Enter `posts` in the space provided under _Name_, select _Multiple contents_ since you will be having many posts, and click _Create_ to create the schema.
+<figure><img src="../../../.gitbook/assets/2023-01-05_16-40.png" alt=""><figcaption><p>Select the new app</p></figcaption></figure>
 
-You will be creating three fields under the posts schema: `Title` for the title of your posts, `Slug` to define the URL of your posts, and `Content` to contain the body of your blog posts.
+On the left panel, select **Schemas** (5) and click the **Plus(+)** (6) button to start creating the posts schema. Enter `posts` in the space provided under **Name** __ (7), select **Multiple contents** (8) since you will be having many posts, and click **Create** (9) to create the schema.
+
+<figure><img src="../../../.gitbook/assets/2023-01-05_16-47.png" alt=""><figcaption><p>Create the 'posts' schema</p></figcaption></figure>
+
+The posts schema will have 3 fields i.e. `Title` for the title of your posts, `Slug` to define the URL of your posts, and `Content` to contain the body of your blog posts.
 
 | Field name | Type   | Editor   |
 | ---------- | ------ | -------- |
@@ -38,47 +47,59 @@ You will be creating three fields under the posts schema: `Title` for the title 
 | Slug       | String | Slug     |
 | Content    | String | Markdown |
 
-Select _posts_ from the sidebar under _Schemas_ and click _Add Field_ to start adding fields. Configure the `Title` field in the modal window as shown below:
+Ensure you are in **posts** (11) schema under **Schemas** (10) and click **+Add Field** (12) to start adding fields.&#x20;
 
-![Create Posts Title Field](../../../images/nextjs-blog-tutorial/adding-title-field-to-posts-annotated.jpg)
+<figure><img src="../../../.gitbook/assets/2023-01-05_16-53.png" alt=""><figcaption><p>Adding fields</p></figcaption></figure>
 
-Click _Create and Edit field_ to continue.
+Create the `Title` field in the modal window, select **String** (13) enter `Title` (14) in the field provided and click **Create and edit field** (15) as shown below.
 
-Fill in the validation tab of the new modal that will open as shown below:
+<figure><img src="../../../.gitbook/assets/2023-01-05_16-57.png" alt=""><figcaption><p>Create the Title field</p></figcaption></figure>
 
-![Configuring validation for the posts Title field](../../../images/nextjs-blog-tutorial/posts-title-validation.jpg)
+Click the **Validation** (16) tab on the new modal window that opens up, check **Required** (17). This is needed as every post must have a title, hence we are making it a required / mandatory field. Click **Save and add field** (18) to save your changes.
 
-The `Title` field is required since every post must have a title. Click _Save and add field_ to save your changes and proceed to add the `Slug` field.
+<figure><img src="../../../.gitbook/assets/2023-01-05_17-08.png" alt=""><figcaption><p>Configure validation properties of title field</p></figcaption></figure>
 
-Configure the `Slug` field as shown below:
+Repeat the steps above to create the rest two field i.e, `Slug` and `Content`.&#x20;
 
-![Creating the posts Slug field](../../../images/nextjs-blog-tutorial/adding-slug-field-to-posts.jpg)
+The `Slug` field is configured as shown in the screenshots below:
 
-Click _Create and edit field_ to continue.
+<figure><img src="../../../.gitbook/assets/2023-01-05_17-10.png" alt=""><figcaption><p>Create slug field</p></figcaption></figure>
 
-Since the every post must have a slug and that slug has to be unique, complete the _Validation_ tab in the modal that opens as shown below:
+Since the every post must have a slug and it has to be unique, complete the _Validation_ tab in the modal that opens as shown below.
 
-![Make the Slug field unique and required](../../../images/nextjs-blog-tutorial/make-slug-field-unique.jpg)
+<figure><img src="../../../.gitbook/assets/2023-01-05_17-12.png" alt=""><figcaption><p>Configure validation properties of slug field</p></figcaption></figure>
 
-Switch to the _Editing_ tab and select _Slug_ as the editor as shown below:
+Finally, switch to the **Editing** tab and select **Slug** as the editor as shown below. The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field.
 
-![Use slug editor for Slug field](../../../images/nextjs-blog-tutorial/use-slug-editor-for-slug.jpg)
+<figure><img src="../../../.gitbook/assets/2023-01-05_17-13.png" alt=""><figcaption><p>Configure editing properties of slug field</p></figcaption></figure>
 
-The options at this _Editor_ section allow you to choose what type of editor you want to use to edit a particular field. Click _Save and add field_ to save the `Slug` field and proceed to add the `Content` field.
 
-Your blog content will be formatted as a [Markdown](https://daringfireball.net/projects/markdown/) text. Configure the `Content` field as shown below:
 
-![Create Content field for blog post body](../../../images/nextjs-blog-tutorial/create-content-field.jpg)
+The third field i.e the `Content` field will be formatted as a [Markdown](https://daringfireball.net/projects/markdown/) text. Configure the `Content` field as shown below. Click **Create and edit field** to continue.
 
-Click _Create and edit field_ to continue. Set the `Content` field to use a WYSIWYG editor by configuring the _Editing_ tab as shown below:
+<figure><img src="../../../.gitbook/assets/2023-01-05_17-35.png" alt=""><figcaption><p>Create Content field</p></figcaption></figure>
 
-![Use markdown editor for Content field](../../../images/nextjs-blog-tutorial/use-markdown-editor-for-content.jpg)
+Set the `Content` field to use a WYSIWYG editor by configuring the Editor to **Markdown** in the **Editing** tab as shown below. Click **Save and close** to save the changes to the `Content` field.
 
-Click _Save and close_ to save the changes to the `Content` field.
+<figure><img src="../../../.gitbook/assets/2023-01-05_17-36.png" alt=""><figcaption><p>Configure editing properties of content field</p></figcaption></figure>
 
-You have now finished creating the posts schema and its fields. To be able to add content under the posts schema, you will publish the posts schema. Click _Published_ around the top right corner of the page to publish it.
+You have now finished creating the posts schema and its fields. To be able to add content under the posts schema, it has to be published. Click **Published** on the top right corner of the page to do so.
 
-Now your schema is published, you will add sample content to your schema that will be displayed once your blog is built. To add content, click _Content_ on the sidebar and select _posts_ if it is not already selected. Click _New_ to create a new post. If you have some content you want to transfer to Squidex, you can paste it here. If you don't, you can manually enter some placeholders for title, slug and content then click _Save and Publish_ to publish the content you created. Click the back icon and _New_ again to create another sample blog post. Repeat this for as many posts as you like then proceed to the next step.
+<figure><img src="../../../.gitbook/assets/2023-01-05_17-40.png" alt=""><figcaption><p>Publishing the schema</p></figcaption></figure>
+
+Now that the schema is published, we can add sample content to it which will be displayed once the blog is built.&#x20;
+
+To add content, click **Content** (1) on the sidebar and select **posts** (2) if it is not already selected. Click **+New** (3) to create a new post.&#x20;
+
+<figure><img src="../../../.gitbook/assets/2023-01-05_18-06.png" alt=""><figcaption><p>Create a new post / content</p></figcaption></figure>
+
+If you have some content you want to transfer to Squidex, you can paste it here. If you don't, you can manually enter some placeholders for title, slug and content,  then click **Save and Publish** (4) to publish the content you created.&#x20;
+
+<figure><img src="../../../.gitbook/assets/2023-01-05_18-04.png" alt=""><figcaption><p>Create content and publish</p></figcaption></figure>
+
+Click the back icon to go back to the list of contents for the posts schema, click **+New** again and  repeat the steps for as many posts as you like.
+
+<figure><img src="../../../.gitbook/assets/2023-01-05_17-47.png" alt=""><figcaption></figcaption></figure>
 
 ## Step 3: Setting up your Next.js workspace
 
@@ -212,7 +233,7 @@ Now you have created a new client and allowed anonymous access to published blog
 SQUIDEX_API_URL=https://cloud.squidex.io/api/content/<YOUR_APP>/graphql
 ```
 
-Replace `<YOUR_APP>` in the value of SQUIDEX_API_URL with the name of your app on Squidex.
+Replace `<YOUR_APP>` in the value of SQUIDEX\_API\_URL with the name of your app on Squidex.
 
 Next.js only loads data from the `.env.local` file once, when you start the development server. To load the environment variables you just created, you have to restart the development server. Press the combination `Ctrl/CMD + C` on your terminal to stop the development server, then restart it by running:
 
@@ -408,7 +429,7 @@ Now that you have successfully created links to your posts on the homepage, you 
 
 ## Step 7: Creating the blog post pages
 
-In the `pages` folder, create a `[slug].js` file. In Next.js, a page is a React Component file in the pages directory. The component at pages/about.js, for example will be accessible at /about. A page enclosed in square brackets like [slug].js is a fallback and Next.js will show this page for all URLs that are not handled by another page, and will pass a `slug` variable to the page. So when you visit a URL like /my-first-blog-post this page is used and `slug` will have the value my-first-blog-post.
+In the `pages` folder, create a `[slug].js` file. In Next.js, a page is a React Component file in the pages directory. The component at pages/about.js, for example will be accessible at /about. A page enclosed in square brackets like \[slug].js is a fallback and Next.js will show this page for all URLs that are not handled by another page, and will pass a `slug` variable to the page. So when you visit a URL like /my-first-blog-post this page is used and `slug` will have the value my-first-blog-post.
 
 You can learn more about this from the [dynamic routes page of the Next.js documentation.](https://nextjs.org/docs/routing/dynamic-routes).
 
@@ -613,7 +634,7 @@ export async function getStaticPaths() {
 }
 ```
 
-You have now built a fully functioning blog in Next.js that sources data from Squidex.
+Congratulations! You have now built a fully functional blog in Next.js that sources data from Squidex.
 
 ## Conclusion
 

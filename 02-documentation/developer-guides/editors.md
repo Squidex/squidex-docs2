@@ -6,13 +6,13 @@ description: Build and use custom editors to support your content editors.
 
 ## How to write your own editor
 
-Custom editors are enabling developers to replace the default editors with HTML5 applications so that the editing experience of the Squidex Web App can be customized.
+Custom editors are enable developers to replace the default editors with HTML5 applications so that the editing experience of the Squidex Web App can be customized.
 
 Technically speaking a UI editor lives in a sandboxed iframe,which interacts with the web application through a small SDK using messaging. This SDK is a proxy of the Angular [ControlValueAccessor](https://angular.io/api/forms/ControlValueAccessor), without having the dependencies to Angular itself.
 
-![Define Editor URL](../../.gitbook/assets/custom-editors.png)
+<figure><img src="../../.gitbook/assets/2023-01-04_22-34.png" alt=""><figcaption><p>Using an custom editor for a field</p></figcaption></figure>
 
-Lets see how the code looks like:
+Lets take a look at how the code looks like:
 
 ```markup
 <!DOCTYPE html>
@@ -73,7 +73,7 @@ Lets see how the code looks like:
 </html>
 ```
 
-You just have to reference the editor SDK and handle the events. You also have to push the current value to the web application whenever it changes. Validation will happen automatically then.
+You just have to reference the editor SDK and handle the events. You also have to push the current value to the web application whenever it changes. Validation will then happen automatically.
 
 ## API
 
@@ -167,7 +167,7 @@ Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/cke-simple.html](https://squidex.github.io/squidex-samples/editors/cke-simple.html)
 
-![CKE Editor](<../../.gitbook/assets/image (69) (5) (4) (1) (1) (1).png>)
+<figure><img src="../../.gitbook/assets/2023-01-04_22-48.png" alt=""><figcaption><p>Example of a field using the simple CKE editor</p></figcaption></figure>
 
 Clone the sample and configure the CKE editor as you need it.
 
@@ -177,29 +177,39 @@ Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/country-selector.html](https://squidex.github.io/squidex-samples/editors/country-selector.html)
 
-![Country Selector](<../../.gitbook/assets/image (65).png>)
+Let's assume in our FoodCrunch use case, we want to add a field with the information about the country the startup is from. We can achieve this using the country selector editor.
+
+<figure><img src="../../.gitbook/assets/2023-01-04_22-57.png" alt=""><figcaption><p>Country selector editor</p></figcaption></figure>
 
 ### 3. Product taxonomy
 
 Required Field Type: json
 
-Reference: [https://squidex.github.io/squidex-samples/editors/tags-category.html](https://squidex.github.io/squidex-samples/editors/tags-category.html)
+Reference: [https://squidex.github.io/squidex-samples/editors/startups-category.html](https://squidex.github.io/squidex-samples/editors/tags-category.html)
 
-The data format is a list of URL like paths for each product category that will be converted to a tree structure.
+The data format is a list of URL like paths for each product category that will be converted to a tree structure. An example for food startups category is listed below:
 
 ```javascript
 [
-  "/laptops-and-netbooks/thinkpad-x-series-chromebook-laptops/",
-  "/laptops-and-netbooks/thinkpad-edge-laptops/thinkpad-edge-e330/",
-  "/laptops-and-netbooks/ideapad-s-series-netbooks/ideapad-s210-notebook/",
-  "/tablets/a-series/a2109-tablet/",
-  "/servers/thinkserver/rs110/6438/",
-  "/desktops-and-all-in-ones/thinkcentre-m-series-desktops/m715q/10m2/",
-  "/phones/a-series/a328-smartphone/"
+  "/food-delivery/b2c/",
+  "/food-delivery/b2b/",
+  "/food-logistics/b2c/",
+  "/food-logistics/b2b/",
+  "/food-production/meat/",
+  "/food-production/seafood/",
+  "/food-production/vegetables/",
+  "/food-production/fruits/",
+  "/cloud-kitchen/home-delivery/",
+  "/cloud-kitchen/restaurant-delivery/",
+  "/cloud-kitchen/catering-services/",
+  "/food-sustainability/surplus/",
+  "/food-sustainability/wastage/"
 ]
 ```
 
-![Product Taxonomy](<../../.gitbook/assets/image (66).png>)
+Citing the FoodCrunch use case again, let's say we want to use a taxonomy to tag startups based on their operations.
+
+<figure><img src="../../.gitbook/assets/2023-01-05_11-47.png" alt=""><figcaption></figcaption></figure>
 
 ### 4. JSON Tree
 
@@ -207,9 +217,9 @@ Required Field Type: `json`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/jstree-editor.html](https://squidex.github.io/squidex-samples/editors/jstree-editor.html)
 
-Create a visual tree for a JSON object.
+Create a visual tree for a JSON object. For example, one of the food startups wants to show a visual tree of the locations they operate in around the world.
 
-![JSON Tree](<../../.gitbook/assets/image (67).png>)
+<figure><img src="../../.gitbook/assets/2023-01-05_12-05.png" alt=""><figcaption><p>JSON Tree</p></figcaption></figure>
 
 ### 5. JSON Schema Editor
 
@@ -221,4 +231,6 @@ This editor downloads json schema from the URL that is defined via the URL fragm
 
 [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
-![JSON Schema from external URL](<../../.gitbook/assets/image (34) (1).png>)
+<figure><img src="../../.gitbook/assets/2023-01-05_12-50.png" alt=""><figcaption><p>JSON Schema from external URL</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/2023-01-05_12-53.png" alt=""><figcaption><p>JSON schema used in the example above</p></figcaption></figure>
