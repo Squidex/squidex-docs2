@@ -4,6 +4,7 @@
 
 ## Getting Started <a href="#01-getting-started" id="01-getting-started"></a>
 
+* [Squidex Cloud](01-getting-started/squidex-cloud.md)
 * [Installation Instructions](01-getting-started/installation/README.md)
   * [Platforms](01-getting-started/installation/platforms/README.md)
     * [Install on Kubernetes](01-getting-started/installation/platforms/install-on-kubernetes.md)
