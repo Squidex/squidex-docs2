@@ -59,7 +59,7 @@ Furthermore there are still some special placeholders for backwards compatibilit
 | ------------ | ------------------------------ |
 | `$ASSET_URL` | The download URL of the asset. |
 
-## Functions
+## Filters
 
 The simple syntax also supports a few functions filters when you use the new syntax:
 
