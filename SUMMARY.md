@@ -54,6 +54,7 @@
   * [Rules](02-documentation/concepts/rules.md)
   * [Backups](02-documentation/concepts/backups.md)
   * [Subscriptions](02-documentation/concepts/subscriptions.md)
+  * [Notifications](02-documentation/concepts/notifications.md)
   * [Workflows](02-documentation/concepts/workflows.md)
 * [Software Development Kits](02-documentation/software-development-kits/README.md)
   * [.NET Standard](02-documentation/software-development-kits/.net-standard.md)
