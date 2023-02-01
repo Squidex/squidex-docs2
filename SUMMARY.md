@@ -22,6 +22,8 @@
     * [Diagnose runtime issues](01-getting-started/installation/troubleshooting-and-support/diagnose-runtime-issues.md)
     * [Restore deleted apps](01-getting-started/installation/troubleshooting-and-support/restore-deleted-apps.md)
   * [Install Identity (Deprecated)](01-getting-started/installation/install-identity.md)
+  * [External Identity Providers](01-getting-started/installation/external-identity-providers/README.md)
+    * [Azure AD (OAuth) with Squidex](01-getting-started/installation/external-identity-providers/azure-ad-oauth-with-squidex.md)
 * [Contributing and Developing](01-getting-started/contributing-and-developing/README.md)
   * [Building](01-getting-started/contributing-and-developing/building.md)
   * [Developing](01-getting-started/contributing-and-developing/developing.md)
