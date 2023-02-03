@@ -32,7 +32,7 @@ Scripts can be defined in the schema editor:
 4. Select the **Scripts** tab
 5. Select the script you want to edit.
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the editor you can define scripts for the following actions:
 
@@ -66,7 +66,7 @@ Asset scripts can be defined in the settings:
 3. Select the **Asset Scripts** menu item.
 4. Select the script you want to edit.
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the editor you can define scripts for the following actions:
 
@@ -127,14 +127,13 @@ Squidex provides a set of general helper functions for scripting and and rule fo
 
 In addition to that, there are also methods which are only available for scripting.
 
-| Name                            | Description                                                                                                                                                                                                                                                                                                   |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `getJSON(url,callback)`         | Makes a request to the defined URL. If the request succeeds with a HTTP response status code (2XX) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object.. The script fails otherwise.                                               |
-| `getJSON(url,callback,headers)` | Makes a request to the defined URL and adds the specified headers to the request. If the request succeeds with a HTTP response status code (2XX) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object.. The script fails otherwise. |
-| `getReferences(ids, callback)`  | Queries the content items with the specified IDs and invokes the callback with the resulting content items when the request has been completed. If the current user does not have permissions to read the content items, the callback is invoked with an empty array.                                         |
-| `getReference(id, callback)`    | Queries the content item with the specified ID and invokes the callback with an array that includes the resulting content item when the request has been completed. If the current user does not have permissions to read the content item, the callback is invoked with an empty array.                      |
-| `getAssets(ids, callback)`      | Queries the assets with the specified IDs and invokes the callback with the resulting assets when the request has been completed. If the current user does not have permissions to read assets, the script will fail.                                                                                         |
-| `getAsset(id, callback)`        | Queries the asset with the specified ID and invokes the callback with an array that includes the resolved asset when the request has been completed. If the current user does not have permissions to read assets, the script will fail.                                                                      |
+| Name                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <ul><li><code>getJSON(url,cb,h?)</code></li><li><code>postJSON(url,body,cb,h?)</code></li><li><code>putJSON(url,body,cb,h?)</code></li><li><code>patchJSON(url,body,cb,h?)</code> </li><li><code>deleteJSON(url,cb,h?)</code> </li></ul> | Makes a request to the defined URL. If the request succeeds with a HTTP response status code (2XX) and a valid JSON response is returned the callback (`cb`) is invoked and the JSON response is passed to the callback as a JSON object. The script fails otherwise. You can also pass in an object with headers (`h`). |
+| `getReferences(ids, callback)`                                                                                                                                                                                                           | Queries the content items with the specified IDs and invokes the callback with the resulting content items when the request has been completed. If the current user does not have permissions to read the content items, the callback is invoked with an empty array.                                                    |
+| `getReference(id, callback)`                                                                                                                                                                                                             | Queries the content item with the specified ID and invokes the callback with an array that includes the resulting content item when the request has been completed. If the current user does not have permissions to read the content item, the callback is invoked with an empty array.                                 |
+| `getAssets(ids, callback)`                                                                                                                                                                                                               | Queries the assets with the specified IDs and invokes the callback with the resulting assets when the request has been completed. If the current user does not have permissions to read assets, the script will fail.                                                                                                    |
+| `getAsset(id, callback)`                                                                                                                                                                                                                 | Queries the asset with the specified ID and invokes the callback with an array that includes the resolved asset when the request has been completed. If the current user does not have permissions to read assets, the script will fail.                                                                                 |
 
 ## Use Cases
 

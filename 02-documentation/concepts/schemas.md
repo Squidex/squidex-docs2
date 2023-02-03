@@ -6,8 +6,8 @@ description: Schemas define the structure of your content.
 
 This documentation is based on the _FoodCrunch_ use case. Please open the below link side by side to this page to understand the examples.
 
-{% content-ref url="../../introduction-and-use-case.md" %}
-[introduction-and-use-case.md](../../introduction-and-use-case.md)
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
 {% endcontent-ref %}
 
 ## Introduction
@@ -18,7 +18,7 @@ There can be more than 1 schema in an App.&#x20;
 
 To create a schema click **+** (1) button under Schemas, give it a **Name** (2) and select the **Type** (3). Click **Create** (4).
 
-<figure><img src="../../../.gitbook/assets/2022-11-05_21-51.png" alt=""><figcaption><p>Creating a schema</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2022-11-05_21-51.png" alt=""><figcaption><p>Creating a schema</p></figcaption></figure>
 
 A schema consists of multiple fields of various data types. Each field in a schema is identified by the following important properties:
 
@@ -36,17 +36,17 @@ To create a field, click **+ Add Field** (1), and select the **Field Type** (2),
 To add multiple fields simultaneously click **Create and add field** or to immediately edit additional properties on the field click **Create and edit field**.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/2022-11-06_00-14.png" alt=""><figcaption><p>Creating a field</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2022-11-06_00-14.png" alt=""><figcaption><p>Creating a field</p></figcaption></figure>
 
 There are additional properties that can be set on the field after it is created.
 
-<figure><img src="../../../.gitbook/assets/2022-11-06_00-25.png" alt=""><figcaption><p>An example of a schema with fields of different data types</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2022-11-06_00-25.png" alt=""><figcaption><p>An example of a schema with fields of different data types</p></figcaption></figure>
 
 The screenshot above shows the final schema of the startups database for FoodCrunch.
 
 Furthermore a schema has a published change. Only published schemas can have content. To publish a schema click **Published**.
 
-<figure><img src="../../../.gitbook/assets/Nov-09-2022 01-17-01.gif" alt=""><figcaption><p>Publishing a schema</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Nov-09-2022 01-17-01.gif" alt=""><figcaption><p>Publishing a schema</p></figcaption></figure>
 
 ## Field States
 
@@ -59,7 +59,7 @@ A field has multiple states:
 
 To change the state click on the elipsis (three dots) next to the field and select the right option.
 
-<figure><img src="../../../.gitbook/assets/2022-11-06_00-36.png" alt=""><figcaption><p>Changing the state of a field</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2022-11-06_00-36.png" alt=""><figcaption><p>Changing the state of a field</p></figcaption></figure>
 
 ## Field Types
 
@@ -71,7 +71,7 @@ If a field is not required it can also be **null** or **omitted**. This is also 
 
 ### String
 
-![String](../../../.gitbook/assets/string.png)
+![String](../../.gitbook/assets/string.png)
 
 A string is the most used field type and can be used for any kind of texts, like product names, descriptions and additional information. It is also the most flexible field and the usage depends very much on the editor you are using:
 
@@ -95,7 +95,7 @@ A string is the most used field type and can be used for any kind of texts, like
 
 ### Number
 
-![Number](../../../.gitbook/assets/number.png)
+![Number](../../.gitbook/assets/number.png)
 
 A number can either be a point number or integer. Typical examples when to use numbers are quantities, IDs and prices.
 
@@ -117,7 +117,7 @@ A number can either be a point number or integer. Typical examples when to use n
 
 ### Boolean
 
-![Boolean](../../../.gitbook/assets/boolean.png)
+![Boolean](../../.gitbook/assets/boolean.png)
 
 Booleans have only 2 states: True or false, yes or no, 1 or 0.
 
@@ -139,7 +139,7 @@ Booleans have only 2 states: True or false, yes or no, 1 or 0.
 
 ### DateTime
 
-![DateTime](../../../.gitbook/assets/datetime.png)
+![DateTime](../../.gitbook/assets/datetime.png)
 
 Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ssZ`.
 
@@ -157,9 +157,9 @@ Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ssZ`.
 
 ### Assets
 
-![Assets](../../../.gitbook/assets/assets.png)
+![Assets](../../.gitbook/assets/assets.png)
 
-Asset fields are used to maintain a list of asset IDs. You can also restrict the number of assets with a minimum and maximum limit, for example when you want to have a single avatar or preview image for a content. You can use the IDs load the asset. Read more about [here](./). When you delete an asset a cleanup process will remove the asset id from your contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an id to an deleted asset.
+Asset fields are used to maintain a list of asset IDs. You can also restrict the number of assets with a minimum and maximum limit, for example when you want to have a single avatar or preview image for a content. You can use the IDs load the asset. Read more about [here](schemas.md). When you delete an asset a cleanup process will remove the asset id from your contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an id to an deleted asset.
 
 #### API representation
 
@@ -177,7 +177,7 @@ Asset fields are used to maintain a list of asset IDs. You can also restrict the
 
 ### References
 
-![References](../../../.gitbook/assets/references.png)
+![References](../../.gitbook/assets/references.png)
 
 References fields are used to model relationship to other content items. For example you could have a schema for products and a schema for product categories. A product has a field with references to the categories it belongs to. Both, products and categories can be created, updated and managed independently. Please think about the direction of the reference very carefully. For example a typical product is only in very few categories, but a product category could have thousand of products. Therefore it is not recommended to reference the products from the categories. When you delete content a cleanup process will remove the referenced id from all contents. This process is executed in the background to improve the performance and it can take several minutes to complete. Therefore it is highly recommended to handle cases where an content has an reference to an deleted content.
 
@@ -197,7 +197,7 @@ References fields are used to model relationship to other content items. For exa
 
 ### Array
 
-![Arrays](../../../.gitbook/assets/array.png)
+![Arrays](../../.gitbook/assets/array.png)
 
 Some content items only exist as child content for another content item. For example a product could have variations like different sizes and prices. These content items can be represented with array fields, where each item in the field has a specified structured, that is called **nested schema**.
 
@@ -221,7 +221,7 @@ Some content items only exist as child content for another content item. For exa
 
 ### Component
 
-![Component](<../../../.gitbook/assets/image (63).png>)
+![Component](<../../.gitbook/assets/image (63).png>)
 
 A component is content item (defined by another schema) that is embedded into the current content.
 
@@ -243,7 +243,7 @@ A component is content item (defined by another schema) that is embedded into th
 
 ### Components
 
-![Components](<../../../.gitbook/assets/image (64).png>)
+![Components](<../../.gitbook/assets/image (64).png>)
 
 A components field is used to embed multiple content items (defined by other schemas) into the current item. The order is defined when creating or updating the content item and can be changed in the UI.
 
@@ -274,7 +274,7 @@ A components field is used to embed multiple content items (defined by other sch
 
 ### Geolocation
 
-![Geolocation](../../../.gitbook/assets/geolocation.png)
+![Geolocation](../../.gitbook/assets/geolocation.png)
 
 The geolocation field represents a tuple of latitude and longitude and is designed to be used in combination with maps. It does not store additional data about the location, such as names, addresses or other information. You have to add additional fields for this purpose.
 
@@ -293,7 +293,7 @@ The geolocation field represents a tuple of latitude and longitude and is design
 
 ### Tags
 
-![Tags](../../../.gitbook/assets/tags.png)
+![Tags](../../.gitbook/assets/tags.png)
 
 Tags are list of strings that are use in the combination tag editor in the Management UI. It is especially useful if you enrich your content with external systems. At the moment the tag editor does not support advanced tag management, such as global lists of tags, renaming and merging of tags.
 
@@ -315,9 +315,9 @@ Tags are list of strings that are use in the combination tag editor in the Manag
 
 ### Json
 
-![Json](../../../.gitbook/assets/json.png)
+![Json](../../.gitbook/assets/json.png)
 
-A json field is for developers. Whenever you have some structured or unstructured content, that you cannot cover with the built in field types or editors you should the json field. You should either write a [custom editor](../../developer-guides/editors.md) when the content editors can edit the field or disable the field when the content for this field comes from an external source. Editing the json manually is fragile and can easily break your processes.
+A json field is for developers. Whenever you have some structured or unstructured content, that you cannot cover with the built in field types or editors you should the json field. You should either write a [custom editor](../developer-guides/editors.md) when the content editors can edit the field or disable the field when the content for this field comes from an external source. Editing the json manually is fragile and can easily break your processes.
 
 #### API representation
 
@@ -335,6 +335,6 @@ A json field is for developers. Whenever you have some structured or unstructure
 
 ### UI
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2022-10-27 at 6.30.02 PM.png" alt=""><figcaption><p>UI</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2022-10-27 at 6.30.02 PM.png" alt=""><figcaption><p>UI</p></figcaption></figure>
 
 Separator for editing UI.
