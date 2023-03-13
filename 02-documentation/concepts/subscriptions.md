@@ -31,7 +31,7 @@ Follow the steps below to subscribe to a paid plan.
 3. Next, select **Subscription** from the settings.
 4. Click the **Change** button next to the plan that meets your usage requirements.
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Subscribe to a plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption><p>Subscribe to a plan</p></figcaption></figure>
 
 ### How can I subscribe to a paid plan for a Team?
 
@@ -45,7 +45,7 @@ Follow the steps below to subscribe to a paid plan for a team.
 4. Select **Subscription**.
 5. Click the **Change** button next to the plan that meets your usage requirements.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Subscribe to a plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (3).png" alt=""><figcaption><p>Subscribe to a plan</p></figcaption></figure>
 
 ### Can every contributor subscribe to a paid plan?
 
@@ -88,4 +88,4 @@ Squidex provides access to a billing portal for this. Using this portal you can 
 
 To access the Billing Portal, navigate to _Subscription_ in _Settings_ and click **Billing Portal** link at the bottom of the page.
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Link to the billing portal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Link to the billing portal</p></figcaption></figure>

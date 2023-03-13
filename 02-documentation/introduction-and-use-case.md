@@ -22,8 +22,8 @@ Therefore we create one project in Squidex for all our content, assets and setti
 
 The structure of the content is defined by Schemas in Squidex. In this section we describe the different content types for our use case. Read more about schemas here:
 
-{% content-ref url="concepts/schemas.md" %}
-[schemas.md](concepts/schemas.md)
+{% content-ref url="concepts/schemas/" %}
+[schemas](concepts/schemas/)
 {% endcontent-ref %}
 
 ### Editorial content
