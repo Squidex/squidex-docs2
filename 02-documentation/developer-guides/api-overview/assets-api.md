@@ -14,7 +14,7 @@ You can download and link assets from the following URL:
 http://<YOUR-DOMAIN>/api/assets/{app}/{idOrSlug}/{*more}
 ```
 
-So in case you are using the API you have to use:
+So in case you are using the Squidex Cloud you have to use:
 
 ```
 https://cloud.squidex.io/api/assets/{app}/{idOrSlug}/{*more}
@@ -48,11 +48,21 @@ The API provides several parameters to provide and manipulate images. Resized im
 
 Use the following query string parameters:
 
-| Parameter         | Description                                                          |
-| ----------------- | -------------------------------------------------------------------- |
-| `width` (number)  | The target width of the asset, if it is an image.                    |
-| `height` (number) | The target height of the asset, if it is an image.                   |
-| `mode` (string)   | The resize mode when the width and height is defined. Default: `Max` |
+| Parameter  | Type    | Description                                                                                                                                                                                                                               |
+| ---------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `width`    | number  | The target width of the asset, if it is an image.                                                                                                                                                                                         |
+| `height`   | number  | The target height of the asset, if it is an image.                                                                                                                                                                                        |
+| `mode`     | string  | The resize mode when the width and height is defined. Default: `Max`                                                                                                                                                                      |
+| `download` | number  | By default, Squidex provides the file name of the asset in the response. Therefore most browsers will download the file, which might be not desired for images. By setting this parameter to `0` you can prevent the download for images. |
+| `version`  | number  | Use this value to get a concrete version. If omitted, the last version is returned. The initial version is `0` and it is updated with each update of the asset, not only when a new file version is uploaded.                             |
+| `cache`    | number  | The client cache duration in seconds. Only affects the response header.                                                                                                                                                                   |
+| `quality`  | number  | Define the quality of the resized image.                                                                                                                                                                                                  |
+| `bg`       | string  | Background color, if the image has a transparent background.                                                                                                                                                                              |
+| `focusX`   | number  | Overrides the X value of focus point as a relative value from 0 (left) to 1 (right). Can also be configured via the Management UI. The dimensions are changed during resize, the focus point will be always visible.                      |
+| `focusY`   | number  | Overrides the Y value of focus point as a relative value from 0 (top) to 1 (bottom). Can also be configured via the Management UI. The dimensions are changed during resize, the focus point will be always visible.                      |
+| `nofocus`  | boolean | Ignores the focus point when resizing.                                                                                                                                                                                                    |
+| `force`    | boolean | Resizes the image, even it is cached on the server side. Can be used to invalidate broken cache entries.                                                                                                                                  |
+| `auto`     | boolean | Delivers the image in the best format, depending on the `Accept` header. This is usually `webp` or `avif`.                                                                                                                                |
 
 You have to pass in either the `width` or `height` parameter. if the asset is not an image these parameters have no effect.
 
@@ -86,14 +96,7 @@ Then the following header is added to the response:
 Cache-Control: public,max-age=<cache>
 ```
 
-### More useful query parameters
-
-| Parameter          | Description                                                                                                                                                                                                                               |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `version` (number) | If you have update the asset with a new version of the file you can retrieve old versions of the file by adding the version header. The first version has value `0`, then `1`, `2` and so on.                                             |
-| `download`(number) | By default, Squidex provides the file name of the asset in the response. Therefore most browsers will download the file, which might be not desired for images. By setting this parameter to `0` you can prevent the download for images. |
-
-## Resolve references assets
+### Resolve references assets
 
 When you have content items with asset fields, the assets are added as IDs to content item. Therefore by default you will only retrieve the IDs when you query content items and you have to do additional requests to get asset information.
 
@@ -101,7 +104,7 @@ You have two options to solve this:
 
 ### Use GraphQL
 
-With GraphQL you can get exactly the information you are looking for. You have to define the fields you want to retrieve, also from referenced assets or referenced contents. In the following example I have built a query to retrieve the testimonials with the associated company logo the fields I am interested for.
+With GraphQL you can get exactly the information you are looking for. You have to define the fields you want to retrieve, also from referenced assets or referenced contents. In the following example I have built a query to retrieve the testimonials with the associated company logo as the fields I am interested for.
 
 ![Use GraphQL to get asset information](<../../../.gitbook/assets/image (11).png>)
 
