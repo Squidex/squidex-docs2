@@ -66,7 +66,7 @@ Asset scripts can be defined in the settings:
 3. Select the **Asset Scripts** menu item.
 4. Select the script you want to edit.
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 In the editor you can define scripts for the following actions:
 

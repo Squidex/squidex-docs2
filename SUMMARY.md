@@ -44,6 +44,7 @@
 * [Introduction and Use Case](02-documentation/introduction-and-use-case.md)
 * [Concepts](02-documentation/concepts/README.md)
   * [Apps](02-documentation/concepts/apps.md)
+  * [Teams](02-documentation/concepts/teams.md)
   * [Schemas](02-documentation/concepts/schemas/README.md)
     * [Field Rules](02-documentation/concepts/schemas/field-rules.md)
   * [Content](02-documentation/concepts/content/README.md)

@@ -88,4 +88,4 @@ Squidex provides access to a billing portal for this. Using this portal you can 
 
 To access the Billing Portal, navigate to _Subscription_ in _Settings_ and click **Billing Portal** link at the bottom of the page.
 
-<figure><img src="../../.gitbook/assets/image (2) (4).png" alt=""><figcaption><p>Link to the billing portal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Link to the billing portal</p></figcaption></figure>

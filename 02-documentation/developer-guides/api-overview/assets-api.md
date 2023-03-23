@@ -68,14 +68,14 @@ You have to pass in either the `width` or `height` parameter. if the asset is no
 
 Squidex supports the following resize modes:
 
-| Mode         | Description                                                                                                                                                          |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Crop`       | Crops the resized image to fit the bounds of its container. If the desired width and height is greater than the image dimensions it behaves like `BoxPad`.           |
-| `CropUpsize` | Crops the resized image to fit the bounds of its container, also desired width and height is greater than the image dimensions.                                      |
-| `Pad`        | Pads the resized image to fit the bounds of its container. If only one dimension is passed, will maintain the original aspect ratio.                                 |
-| `BoxPad`     | Pads the image to fit the bound of the container without resizing the original source. When downscaling, performs the same functionality as `Pad`.                   |
-| `Max`        | Constrains the resized image to fit the bounds of its container maintaining the original aspect ratio.                                                               |
-| `Min`        | Resizes the image until the shortest side reaches the set given dimension. Up-scaling is disabled in this mode and the original image will be returned if attempted. |
+| Mode         | Description                                                                                                                                                         |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Crop`       | Crops the resized image to fit the bounds of its container. If the desired width and height is greater than the image dimensions it behaves like `BoxPad`.          |
+| `CropUpsize` | Crops the resized image to fit the bounds of its container, also desired width and height is greater than the image dimensions.                                     |
+| `Pad`        | Pads the resized image to fit the bounds of its container. If only one dimension is passed, will maintain the original aspect ratio.                                |
+| `BoxPad`     | Pads the image to fit the bound of the container without resizing the original source. When downscaling, performs the same functionality as `Pad`.                  |
+| `Max`        | Constrains the resized image to fit the bounds of its container maintaining the original aspect ratio.                                                              |
+| `Min`        | Resizes the image until the shortest side reaches the set given dimension. Upscaling is disabled in this mode and the original image will be returned if attempted. |
 
 ### How to change the image quality?
 
