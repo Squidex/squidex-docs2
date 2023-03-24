@@ -107,7 +107,7 @@ public class BlogPostData {
 }
 ```
 
-This must be repeated for each field and would create a lot of code. Therefore it is better to create the content classes manually and use custom converters to let the JSON serializer deal with that.
+This must be repeated for each field and would create a lot of code. Therefore it is better to create the content classes manually and use custom converters to let the Newtonsoft Json serializer deal with that.
 
 ### 1. Create your class model
 
@@ -115,26 +115,38 @@ For each schema two classes are needed.
 
 The data object is the structure of your content data.
 
-```csharp
-public sealed class BlogPostData
-{
+<pre class="language-csharp"><code class="lang-csharp">using Newtonsoft.Json;
+using Squidex.ClientLibrary;
+
+<strong>namespace YourNamespace;
+</strong><strong>
+</strong><strong>public sealed class BlogPostData
+</strong>{
     // The invariant converter converts the object to a flat property.
     [JsonConverter(typeof(InvariantConverter))]
     public string Slug { get; set; }
 
     // For localizable fields you can use dictionaries.
-    [JsonPropertyName("my_title")]
-    public Dictionary<string, string> Title { get; set; }
+    [JsonProperty("my_title")]
+    public Dictionary&#x3C;string, string> Title { get; set; }
 }
-```
+</code></pre>
 
 Another class is created for the blog post itself, which holds the data and metadata.
 
 ```csharp
+using Squidex.ClientLibrary;
+
+namespace YourNamespace;
+
 public sealed class BlogPost : Content<BlogPostData>
 {
 }
 ```
+
+{% hint style="info" %}
+Please note that the SDK still uses Newtonsoft.JSON and not System.Text.Json. Some types, like JsonConverterAttribute exists in both namespaces, so you have to ensure you add the using to the correct namespace. Otherwise you will get serialization exceptions, because the attributes are not considered.
+{% endhint %}
 
 #### How to map fields to .NET types
 
@@ -172,6 +184,11 @@ public class Geolocation
 When you have an array field you need a class for your array items, for example:
 
 ```csharp
+using Newtonsoft.Json;
+using Squidex.ClientLibrary;
+
+namespace YourNamespace;
+
 public class Comment 
 {
     public string Author { get; set; }
@@ -186,7 +203,7 @@ public sealed class BlogPostData
     public List<Comment> Comments { get; set; }
 
     // For localized array fields.
-    [JsonPropertyName("my_comments")]
+    [JsonProperty("my_comments")]
     public Dictionary<string, List<Comment>> Comments  { get; set; }
 }
 ```
