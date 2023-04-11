@@ -6,20 +6,20 @@ description: Lets get started with Squidex.
 
 ## What is Squidex?
 
-Squidex is a content management hub. A central place to manage all your content.
+Squidex is a content management hub or content management system (CMS). A central place to manage all your content.
 
 For example:
 
-* Dynamic elements for your mobile apps.
+* Dynamic elements for your mobile Apps.
 * Blog posts and articles for your website.
 * Configuration data for your backend.
-* Rich and structured data for your application.
+* Rich and structured data for your applications.
 
-In contrast to a traditional CMS, Squidex is headless and does not provide the frontend. This makes you free to choose a technology of your choice to create an awesome User Experience.
+In contrast to a traditional CMS, Squidex is headless and does not provide the front end. This frees you up to choose a technology of your choice to create a thoroughly awesome user experience!
 
-## How to get started?
+## How to Get Started?
 
-### I want to start immediately with Squidex Cloud
+### I want to get started immediately with Squidex Cloud
 
 Read our guide for new users and learn how to publish your first content with Squidex.
 
@@ -37,7 +37,7 @@ Follow our installation instructions to install Squidex on your own hardware.
 
 ### I want to contribute as a developer or understand the architecture
 
-Check out the contributor guide with instructions how to build, run and extend Squidex.
+Check out our contributor guide with instructions how to build, run and extend Squidex.
 
 {% content-ref url="01-getting-started/contributing-and-developing/" %}
 [contributing-and-developing](01-getting-started/contributing-and-developing/)
