@@ -171,7 +171,7 @@ During this step, we will add the configuration values to the Web App and restar
     <figure><img src="../../../.gitbook/assets/2022-10-22_11-23.png" alt=""><figcaption></figcaption></figure>
 2.  Copy and paste the following JSON into the code window (**DO NOT click OK.**)
 
-    ```
+    ```javascript
     [
       {
         "name": "ASSETSTORE__AZUREBLOB__CONNECTIONSTRING",
