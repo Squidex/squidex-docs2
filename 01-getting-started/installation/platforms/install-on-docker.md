@@ -4,7 +4,7 @@ description: Install Squidex on Linux machines with docker and docker-compose.
 
 # Install on Docker
 
-## Supported platforms
+## Supported Platforms
 
 * Linux with [Docker CE](https://docs.docker.com/install/linux/docker-ce/centos/)
 * Windows 10 Pro, Enterprise or Education with [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
@@ -15,9 +15,9 @@ description: Install Squidex on Linux machines with docker and docker-compose.
 Digital Ocean [Droplets](https://www.digitalocean.com/products/droplets) are not supported right now, because their DNS prevents that a container can make a request to itself, which is needed to get OIDC via Identity Server working properly. The issue has been discussed in the [support forum](https://support.squidex.io/t/non-standard-port-installation/1262).
 {% endhint %}
 
-## Use the docker-compose setup
+## Use the Docker Compose Setup
 
-We provide a docker-compose configuration:
+We provide a Docker Compose configuration:
 
 > [https://github.com/Squidex/squidex-hosting/tree/master/docker-compose](https://github.com/Squidex/squidex-hosting/tree/master/docker-compose)
 
@@ -25,7 +25,7 @@ There are 3 alternatives:
 
 #### Squidex + Caddy
 
-`docker-compose.yml` with the following containers:
+`docker-compose.yml` has the following containers:
 
 * Squidex
 * [Caddy ](https://caddyserver.com)as reverse proxy to support HTTPS. Also issues the certificate.
@@ -39,7 +39,7 @@ Recommended setup because of the performance of Caddy and the number of containe
 
 #### Squidex + NGINX
 
-`docker-compose-nginx.yml` with the following containers:
+`docker-compose-nginx.yml` has the following containers:
 
 * Squidex
 * [NGINX ](https://www.nginx.com)as reverse proxy to support HTTPS
@@ -54,7 +54,7 @@ Recommended setup when you are familiar with Nginx and have special requirements
 
 #### Squidex without Proxy
 
-`docker-compose-noproxy.yml` with the following containers:
+`docker-compose-noproxy.yml` has the following containers:
 
 * Squidex
 * [MongoDB](https://www.mongodb.com/de)
@@ -84,7 +84,7 @@ You can keep the other settings empty for now.
 
 ### 3. Data Folder
 
-The data like assets and the MongoDB database files will be stored outside of the docker container to simplify the backups. The default path `/etc/squidex` will be created by docker automatically.
+The data files, such as assets and the MongoDB database files will be stored, outside of the Docker container to simplify backups. The default path `/etc/squidex` will be created by Docker automatically.
 
 ### 4. Run the docker-compose file
 
@@ -92,9 +92,9 @@ The data like assets and the MongoDB database files will be stored outside of th
 docker-compose up -d
 ```
 
-### 5. Visit your installation
+### 5. Visit your Installation
 
-Squidex should be up and running now. You can visit your installation under
+Squidex should be up and running now. You can visit your installation under the following URL:
 
 [https://${SQUIDEX\_DOMAIN}](https://${squidex\_domain}).
 
@@ -102,44 +102,44 @@ You should see the following screen:
 
 ![Setup Screen](<../../../.gitbook/assets/image (76) (1) (1) (1).png>)
 
-The setup screen shows a checklist with hints and warnings. As long as there is no error (an red icon), everything is fine.
+The setup screen shows a checklist with hints and warnings. As long as there is no error (a red icon), everything is fine.
 
 If no external authentication provider such as Google or Github is configured you will not see the red area.
 
-Create a new administrator account now with an email address and password and you are ready to go. We will not send you an email to this email address, so you can choose whatever email address you want.
+Next, create a  new administrator account with an email address and password and you are ready to go. We will not send you an email to this email address, so you can choose whatever email address you want.
 
 ## Troubleshooting
 
-Please check the logs first using docker.
+Please check the logs first using Docker.
 
 ```bash
 docker ps # Get the container id first
 docker logs <CONTAINER-ID> # Read the logs
 ```
 
-### I get a NET::ERR\_CERT\_AUTHORITY\_INVALID from the browser
+### I Get NET::ERR\_CERT\_AUTHORITY\_INVALID from the Browser
 
-You are very likely running under `localhost`. In this case the webserver (caddy) cannot create a valid certificate and will create a self signed certificate. Usually there is a button to continue to localhost:
+You are very likely running under `localhost`. In which case the webserver (Caddy) cannot create a valid certificate and will create a self signed certificate. Usually, there\`is a button to continue to localhost:
 
 ![Accept self signed certificate with Chrome](<../../../.gitbook/assets/image (73).png>)
 
 {% hint style="info" %}
-This screen is taken from Chrome and can look differently for other browsers.
+This screenshot is taken from Chrome and might look different on other browsers.
 {% endhint %}
 
-### I get a 502 Bad Gateway
+### I Get a 502 Bad Gateway
 
-In my tests it took sometime to issue the certificate. Probably around 10 minutes.
+It can take some time to issue the certificate, approximately around 10 minutes.
 
-Also ensure that your DNS server is configured correctly.
+Do also ensure that your DNS server is configured correctly.
 
-### I get a IDX20803: Unable to obtain configuration from \<URL>
+### I Get a IDX20803: Unable to obtain configuration from \<URL>
 
 #### Problem 1: Firewall Issues
 
-In some cases, especially on CentOS 7, the communication between docker containers on the same host is blocked by the firewall. There is an open [issue on Github](https://github.com/moby/moby/issues/32138) for this problem.
+In some cases, especially on CentOS 7, the communication between Docker containers on the same host is blocked by a firewall. There is an open [issue on Github](https://github.com/moby/moby/issues/32138) for this problem.
 
-The solution that worked in our cases was to add https as a service to the firewall:
+The best solution is to add https as a service to the firewall:
 
 CentOS:
 
@@ -157,17 +157,17 @@ sudo ufw enable
 sudo systemctl restart docker
 ```
 
-#### Problem 2: Invalid host name
+#### Problem 2: Invalid Host name
 
-This problem is because you use an host name or IP address that is not reachable from the docker itself. You can think about the Squidex being two processes in one application. There is the OpenID Connect Token Server that generates the access tokens and the API. When the API receives an access token it makes a request to the Token Server to validate the token (See following diagram).
+This problem occurs because you are using a host name or IP address that is not reachable from the Docker itself. You can think about Squidex being two processes in one application. There is the OpenID Connect Token Server (that generates the access tokens and the API). When the API receives an access token it makes a request to the Token Server to validate the token (see the following diagram).
 
 ![Authentication Flow](<../../../.gitbook/assets/Untitled presentation.png>)
 
-When you use a local host name or IP address such as `localhost` or `127.0.0.1`your are referring to the host name. But containers inside docker cannot resolve the network routes and therefore the authentication flow fails. The solution is to either use another local hostname, that you have to configure in the host file of your Operation system or to use a real hostname, such as a public domain name.
+When you use a local host name or IP address such as `localhost` or `127.0.0.1,` you're referring to the host name, but containers inside docker cannot resolve the network routes and therefore the authentication flow fails. The solution is to either use another local host name, that you have to configure in the host file of your operation system or to use a real host name, such as a public domain name.
 
-### More issues?
+### More Issues?
 
-It is very likely a configuration problem and not related to hosting under Docker. Checkout
+For other issues, it is likely that you have a configuration problem not related to hosting under Kubernetes. Checkout the following documentation:
 
 {% content-ref url="../configuration.md" %}
 [configuration.md](../configuration.md)
