@@ -6,23 +6,23 @@ description: >-
 
 # Install on Azure
 
-The instructions provided here results in Squidex running on an Azure WebApp with the assets & MongoDB data hosted on Azure Storage and MongoDB running on an Azure Container Instance.
+The instructions provided help you to get your Squidex installation running on an Azure WebApp with the assets & MongoDB data hosted on Azure Storage and MongoDB running on an Azure Container Instance.
 
 {% hint style="info" %}
-Please note that Azure also supports Docker compose files so you can follow the Docker tutorial, especially if it is important for you to be independent from your cloud provider (avoid vendor lock-in).
+Please note, that Azure also supports Docker Compose files so you can follow the Docker tutorial, especially if it is important for you to be independent from your Cloud provider (avoid vendor lock-in).
 {% endhint %}
 
-This tutorial does not cover the basics of Azure. You should be familiar with them before you begin with the installation instructions. We have attempted to keep the instructions simple enough so it can be followed by anyone.
+This tutorial does not cover the basics of Azure. You should be familiar with them before you begin with the installation instructions. We have attempted to keep the instructions simple enough so they can be followed by anyone.
 
-This tutorial demonstrates running MongoDB as a single container and is recommended for non-production or trial environments. For production environments it is recommended to use one of the MongoDB Atlas (or Enterprise) offerings from [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=mongodb\&page=1) with atleast 3 members for High Availability etc.
+This tutorial demonstrates running MongoDB as a single container and is recommended for non-production or trial environments. For production environments, it is best to use one of the MongoDB Atlas (or Enterprise) offerings from [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=mongodb\&page=1) with at least 3 members for High Availability etc.
 
 ## Requirements
 
 Before you start you have to setup a few things first:
 
-1. An active Azure Subscription
+1. An active Azure subscription
 2. A Resource Group for all your Squidex resources.
-3. An App Service plan (_Linux_) to host Squidex.
+3. An App Service plan (Linux) to host Squidex.
 4. A _Standard (General Purpose v2)_ Storage Account for assets and MongoDB.
 5. An installation of the [Azure-CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) on your developer machine (optional).
 6. An installation of a MongoDB tool like [MongoDB Compass](https://www.mongodb.com/try/download/compass2) on your developer machine (optional).
@@ -36,11 +36,11 @@ Execute the following steps in the storage account.
 You must have a storage account before continuing. The steps do not cover the process of storage account creation.
 {% endhint %}
 
-1.  Click **Containers** __ (1) under _Data Storage_ and then click **+ Container** (2) to load the _New container blade_.\
+1.  Click **Containers** (1) under _Data Storage_ and then click **+ Container** (2) to load the _New container blade_.\
 
 
     <figure><img src="../../../.gitbook/assets/2022-10-17_19-45.png" alt=""><figcaption></figcaption></figure>
-2.  Create a container named `etc-squidex-assets`(3). Do not make any other modifications, click **Create** __ (4).\
+2.  Create a container named `etc-squidex-assets`(3). Do not make any other modifications, click **Create** (4).\
 
 
     <figure><img src="../../../.gitbook/assets/2022-10-17_19-55.png" alt=""><figcaption></figcaption></figure>
@@ -48,20 +48,20 @@ You must have a storage account before continuing. The steps do not cover the pr
 
 
     <figure><img src="../../../.gitbook/assets/2022-10-17_20-03.png" alt=""><figcaption></figcaption></figure>
-4.  Next, we must note down the storage account _Connection String_ and one of the _Access Keys_ for use in the subsequent steps.\
+4.  Next, note down the storage account _Connection String_ and one of the _Access Keys_ for use in the subsequent steps.\
     \
-    To do so, go to **Access Keys** __ (9) and click **Show** (10) next to _Key_ in key1. Copy this Access Key safely somewhere. Similarly click **Show** (11) next to _Connection string_ and copy it.\
+    To do so, go to **Access Keys** (9) and click **Show** (10) next to _Key_ in key1. Copy this Access Key safely somewhere. Similarly click **Show** (11) next to _Connection string_ and copy it.\
 
 
     <figure><img src="../../../.gitbook/assets/2022-10-17_20-15.png" alt=""><figcaption></figcaption></figure>
 
-## 2. Create the MongoDB instance
+## 2. Create the MongoDB Instance
 
 To create the MongoDB Azure Container Instance we will use the Azure CLI. Using the browser based Azure Shell is the easiest and quickest way to run the command.&#x20;
 
 <figure><img src="../../../.gitbook/assets/2022-10-22_12-34.png" alt=""><figcaption></figcaption></figure>
 
-You can also execure them through an installation of Azure CLI on your developer machine. If you are using your own installation of Azure CLI, on the command prompt run `az login` first to login to Azure (This step is not required if you are using Azure Shell)
+You can also execute them through an installation of Azure CLI on your developer machine. If you are using your own installation of Azure CLI, on the command prompt run `az login` first to login to Azure (this step is not required if you are using Azure Shell).
 
 {% hint style="info" %}
 The following creation of the container instance can only be done using the Azure CLI at the moment.
@@ -79,14 +79,14 @@ az container create --resource-group [YOUR_RESOURCE_GROUP] --name mongodb --imag
 
 This creates a single container instance running MongoDB.
 
-### 2.1 Create an admin user
+### 2.1 Create an Admin User
 
 At this point the MongoDB instance is running but requires authentication. But we do not have any users, so we will go ahead and create a user for use with the database.&#x20;
 
 Connect to your MongoDB container console from Azure:
 
 1. Go to **Container instances** (1) and select your container, usually **mongodb** (2).
-2. Click **Containers** __ (3) and then select the **Connect** tab (4).
+2. Click **Containers** (3) and then select the **Connect** tab (4).
 3. Select **/bin/bash** and click **Connect** (5) button.
 
 <figure><img src="../../../.gitbook/assets/2022-10-18_17-06 (1).png" alt=""><figcaption></figcaption></figure>
@@ -108,7 +108,7 @@ use admin
 db.createUser({ "user": "root", "pwd": "1q2w3e$R", "roles": ["root"] })
 ```
 
-Now that the user is created, you can optionally connect to it from a tool like [MongoDB Compass](https://www.mongodb.com/try/download/compass2) and verify connectivity. To connect, you will need the Public IP address of the MongoDB instance. To do so, go to **Container instances** (1), select your **container** (2) and from **Overview** (3) copy the **Public IP address** (4). Make a note of it as it will be needed in the future steps.
+Now that the user is created, you can optionally connect to it from a tool like [MongoDB Compass](https://www.mongodb.com/try/download/compass2) and verify connectivity. To connect, you will need the Public IP address of the MongoDB instance. To do so, go to **Container instances** (1), select your **container** (2) and from **Overview** (3) copy the **Public IP address** (4). Make a note of it as it will be needed again in future steps.
 
 <figure><img src="../../../.gitbook/assets/2022-10-18_17-29.png" alt=""><figcaption></figcaption></figure>
 
@@ -131,7 +131,7 @@ To connect to it from MongoDB Compass, create a connection string that contains 
     3. Select **Docker Container** (3)
     4. Choose **Linux** (4) for the Operating System
     5. Set your preferred **Region** (5), preferably the same region as other resources
-    6. The default Sku and size selected is ideal for production environments and costs more. If this is a sandbox, trial or a non-production environment it is recommended to change this to a lower Sku. Click **Change size** (6) to do so and change it to _F1_ or _B1_.
+    6. The default _Sku and size_ selected is ideal for production environments and costs more. If this is a sandbox, trial or a non-production environment it is best to change this to a lower Sku. Click **Change size** (6) to do so and change it to _F1_ or _B1_.
     7. Click **Next: Docker** to continue with the next steps.\
 
 
@@ -156,7 +156,7 @@ To connect to it from MongoDB Compass, create a connection string that contains 
 
 ### 3.2 Configure Web App
 
-In this step we will add the configuration values to the Web App and restart the Web App. Before proceeding ensure you have the following info handy, you will need them.
+During this step, we will add the configuration values to the Web App and restart the Web App. Before proceeding ensure you have the following info handy, you will need it:
 
 | Key                        | Description                                                | Sample                                      |
 | -------------------------- | ---------------------------------------------------------- | ------------------------------------------- |
@@ -279,7 +279,7 @@ In this step we will add the configuration values to the Web App and restart the
 If the restart in Step 5 above does not work, stop and start the Web App.
 {% endhint %}
 
-### 3.3 Turn on logging
+### 3.3 Turn on Logging
 
 While this is an optional step, logging can make diagnostics easier.
 
@@ -294,7 +294,7 @@ You can then use the _Log stream_ to view all log entries
 
 ## More issues?
 
-It is very likely a configuration problem and not related to Azure. Please visit the following page:&#x20;
+For other issues, it is likely that you have a configuration problem not related to hosting under Azure. Checkout the following documentation:
 
 {% content-ref url="../configuration.md" %}
 [configuration.md](../configuration.md)
