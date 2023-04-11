@@ -6,25 +6,25 @@ description: >-
 
 # Install on Vultr
 
-## Considering Vultr
+## Why you Should Consider Vultr
 
-### When to use Vultr?
+### When to Use Vultr
 
 * You want a server for low costs.
 * You do not need scalability.
 * You do not need integrated monitoring and logging.
 * You have a custom domain.
 
-### When not to use Vultr
+### When Not to Use Vultr
 
-* You are already customer of another cloud provider.
+* You are already customer of another Cloud provider.
 * You need scalability for Squidex and the database.
 
 ### Requirements
 
 * A custom domain or subdomain and the ability to create an A DNS record.
 
-## What is included?
+## What is Included
 
 This installation configures a Ubuntu 20.04 x64 machine with
 
@@ -39,28 +39,28 @@ Based on this setup 3 containers are installed:
 
 To work properly you need a DNS A record entry pointing to your machine, because caddy will issue a certificate using lets-encrypt.
 
-## Installation guide
+## Installation Guide
 
-### Step 1: Go to the marketplace
+### Step 1: Go to the Marketplace
 
 Just follow the link: [https://www.vultr.com/marketplace/apps/squidex](https://www.vultr.com/marketplace/apps/squidex)
 
-### Step 2: Deploy a new server
+### Step 2: Deploy a New Server
 
 1. Select your target location close to your center of operation.
 2. Select the size of your machine. At least 4GB or memory with 2 virtual cores are recommended.
 
 ![Recommended server size](<../../../.gitbook/assets/image (60).png>)
 
-### Step 3: Wait for the server to spin up
+### Step 3: Wait For the Server to Spin Up
 
 It can take a while until your server is ready to be used.
 
 ![Waiting for the server](<../../../.gitbook/assets/image (61).png>)
 
-### Step 4: Create a DNS record
+### Step 4: Create a DNS Record
 
-Click your new server and wait until you got a IP address.
+Click your new server and wait until you get an IP address.
 
 ![IP address is ready](<../../../.gitbook/assets/image (62).png>)
 
@@ -68,7 +68,7 @@ Create a DNS A record to this IP address.
 
 ### Step 5: Connect using SSH
 
-On the same page you see the SSH username and password. Login to your server with SSH or putty for Windows to run the installation script.
+On the same page, you will see the SSH username and password. Login to your server with SSH or Putty for Windows to run the installation script.
 
 Go to the home directory and run the setup script
 
@@ -79,33 +79,33 @@ cd /home/
 ./setup-squidex.sh
 ```
 
-You will be asked to enter the domain here. All other values are optional. The installation script will start docker-compose then and download all images and start them in the right order.
+You will be asked to enter the domain here. All other values are optional. The installation script will start Docker Compose then and download all images and start them in the right order.
 
 ![Running the setup script](<../../../.gitbook/assets/image (20) (1) (1) (2) (1).png>)
 
-Squidex is ready to be used now. If you visit your installation under [https://mydomain.com](https://mydomain.com) you will see a simple setup guide where you can create the initial admin user.
+Squidex is ready for use. If you visit your installation under [https://mydomain.com](https://mydomain.com) you will see a simple setup guide where you can create the initial admin user.
 
-## Configuring object storage
+## Configuring Object Storage
 
 Vultr Object Storage provides an option for cost-effective and scalable S3 compatible storage for Squidex assets. The following steps outline the process of configuring Squidex to use this Vultr product.
 
-### Step 1: Add object storage
+### Step 1: Add Object storage
 
 Follow this link [https://my.vultr.com/objectstorage/add/](https://my.vultr.com/objectstorage/add/) and proceed to add object storage to your account.
 
 ![Vultr object storage setup](../../../.gitbook/assets/vultr-object-storage.png)
 
-### Step 2: Add a bucket and a folder
+### Step 2: Add a Bucket and a Folder
 
 Navigate to the buckets tab and add a bucket.
 
 ![Vultr object storage bucket list](../../../.gitbook/assets/vultr-object-storage-bucket-list.png)
 
-Click on the bucket you just created and add a folder.
+Click on the bucket you've just created and add a folder.
 
 ![Vultr object storage bucket list](../../../.gitbook/assets/vultr-object-storage-folder-list.png)
 
-### Step 3: Configure asset storage to use S3
+### Step 3: Configure Asset Storage to Use S3
 
 Navigate to the overview tab and make note of your S3 credentials.
 
@@ -126,7 +126,7 @@ S3_SECRETKEY=PUT_YOUR_SECRET_KEY_HERE
 S3_FORCEPATHSTYLE=true
 ```
 
-Next, edit the `/home/docker-compose.yml` file to pass these environment variables on to the container:
+Next, edit the `/home/docker-compose.yml` file to pass these environment variables onto the container:
 
 ```
 squidex_squidex:
