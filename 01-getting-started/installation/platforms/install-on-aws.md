@@ -30,7 +30,7 @@ Once that is ready, click **Continue to Configuration** (1).
 
 ## 3. Instance Configuration
 
-Pick an **architecture** (1), a **software version** (2) and a **region** (3), then click **Continue to Launch** (4).
+Pick an **Delivery Method** (1), a **Software Version** (2) and a **Region** (3), then click **Continue to Launch** (4).
 
 ![Software Configuration](../../../.gitbook/assets/aws-3-1.png)
 
@@ -50,7 +50,7 @@ Once the instance is launched, go to the **EC2 Console** (1).
 
 ## 4. Connect
 
-Once the instance is ready, take it's **Public IP** (1) and connect to it using SSH and the key pair you selected previously.
+Once the instance is ready, take its **Public IPv4** (1) and connect to it using SSH and the key pair you selected previously.
 
 ![Public IP](../../../.gitbook/assets/aws-4-1.png)
 
@@ -64,7 +64,7 @@ Once you are logged in, run the setup command and follow the on-screen instructi
 /opt/squidex/setup-squidex.sh
 ```
 
-You will be asked to enter the domain here. All other values are optional. The installation script will start docker-compose then and download all images and start them in the right order.
+You will be asked to enter the domain here. All other values are optional. The installation script will start _docker-compose,_ download all images and start them in the right order.
 
 After you make sure the domain you configured is pointing to the public IP of your instance and that the DNS changes propagated, go to [https://your\_domain.com](https://your\_domain.com) and you should be ready to go.
 
