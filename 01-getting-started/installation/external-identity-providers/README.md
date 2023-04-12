@@ -1,5 +1,5 @@
 ---
-description: Instructions to using external Identity Providers with Strapi
+description: Instructions to using external Identity Providers with Squidex
 ---
 
 # External Identity Providers
