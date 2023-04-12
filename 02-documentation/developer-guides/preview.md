@@ -25,7 +25,7 @@ We have several solutions that work together to solve the challenges. They are a
 1. **Use Case 1: Show unpublished content items.** \
    As a content editor I want to preview the content item even if it is not published or reviewed yet, to check if it looks correct and well formatted in the production environment.
 2. **Use Case 2: Link to the usage of a content item.**\
-   ****As a content editor I want to see all locations where a content item is used when I edit the content item in the Squidex Management UI.
+   As a content editor I want to see all locations where a content item is used when I edit the content item in the Squidex Management UI.
 3. **Use Case 3: Link to the source of a content item**\
    As a content editor I want to see which parts of the website come from Squidex and how I can edit them in the Squidex Management UI.
 

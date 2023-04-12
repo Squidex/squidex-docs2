@@ -4,30 +4,36 @@ description: Gives you an overview about the different APIs.
 
 # API
 
+This documentation is based on the _FoodCrunch_ use case. Please open the below link side by side to this page to understand some of the examples.
+
+{% content-ref url="../../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../../introduction-and-use-case.md)
+{% endcontent-ref %}
+
 ## Introduction
 
 With the API you can:
 
-* ... create, change or query your content.
-* ... upload, download or query assets.
-* ... make complex queries with the GraphQL endpoint.
-* ... execute all management operations such as creating apps, schemas, rules and updating settings.
+* Create, change or query your content.
+* Upload, download or query assets.
+* Make complex queries with the GraphQL endpoint.
+* Execute all management operations such as creating apps, schemas, rules and updating settings.
 
-The Management UI is using the same endpoints. If you can do something manually you can also do it with code.
+The Management UI also uses the same API endpoints. If something can be done manually it can also be done with code.
 
-The next paragraph will give you a short introduction about the different endpoints. After that we have some useful links to additional pages about specific aspects of the API.
+The next paragraph will give you a short introduction about the different API endpoints. After that we have some useful links to additional pages about specific aspects of the API.
 
-## Different endpoints
+## API Endpoints
 
-Technically the API has only a single endpoint, but they API is distributed in several parts, with different principles and generated documentations:
+Technically the API has only a single endpoint, but they API is distributed into several parts, with different principles and generated documentations.
 
 ### Content API
 
 Each app has its own content API. The documentation is generated when you change your schemas and is tailored for your content structure. The documentation is cached and it might take a few minutes to serve the newest version for your app and schemas.
 
-You can find the link to your Content API in the API section of the Management UI:
+You can find the link to your Content API in the API section of the Management UI.
 
-![](../../../.gitbook/assets/Untitled.png)
+<figure><img src="../../../.gitbook/assets/2023-04-10_09-53.png" alt=""><figcaption><p>Content API</p></figcaption></figure>
 
 For example, this this is the Content API for the app that serves the content for the Squidex website:
 
@@ -35,17 +41,19 @@ For example, this this is the Content API for the app that serves the content fo
 
 ### Content GraphQL API
 
-The [GraphQL ](https://graphql.org)endpoint is also generated per client. The documentation is provided by GraphiQL, an integrated, interactive GraphQL query editor. This endpoint can only be used to query content items and assets. Mutations have not been implemented yet, due several restrictions with the underlying GraphQL framework. The GraphQL endpoint is also cached for each API with a time to live time of 10 minutes. Therefore it can take up to 10 minutes until you see your changes.
+The [GraphQL ](https://graphql.org)endpoint is also generated per client. The documentation is provided by GraphQL, an integrated, interactive GraphQL query editor. This endpoint can only be used to query content items and assets. Mutations have not been implemented yet, due to several restrictions with the underlying GraphQL framework. The GraphQL endpoint is also cached for each API with a time to live (TTL) of 10 minutes. Therefore it can take up to 10 minutes until you see your changes.
 
-![Link to GraphQL API](../../../.gitbook/assets/graphql.png)
+<figure><img src="../../../.gitbook/assets/2023-04-10_09-57.png" alt=""><figcaption><p>GraphQL</p></figcaption></figure>
 
 ### General API
 
-The rest of the API is the same for all your apps. This includes endpoints to query and manipulate apps, schemas, assets, rules and all settings. For the cloud the generated documentation and can be found at:
+The rest of the API is the same for all your apps. This includes endpoints to query and manipulate apps, schemas, assets, rules and all settings.&#x20;
+
+For Squidex cloud the generated documentation and can be found at:
 
 [https://cloud.squidex.io/api/docs](https://cloud.squidex.io/api/docs)
 
-![Link to the General API](../../../.gitbook/assets/general.png)
+<figure><img src="../../../.gitbook/assets/2023-04-10_09-59.png" alt=""><figcaption><p>General API</p></figcaption></figure>
 
 ## Cloud CDN (BETA)
 
@@ -59,34 +67,26 @@ We provide dedicated endpoints for different parts of the API. The CDN is not th
 
 #### Contents CDN
 
-The content CDN endpoint provides only access to your content items, including the GraphQL endpoint. &#x20;
+The content CDN endpoint provides access to only your content items, including the GraphQL endpoint.
 
-The endpoint is:
-
-{% embed url="https://contents.squidex.io/<app>/<schema>" %}
-
-instead of [https://cloud.squidex.io/api/contents/\<app>/\<schema>](https://cloud.squidex.io/api/contents/%3Capp%3E/%3Cschema%3E).
+The endpoint is `https://contents.squidex.io/<app>/<schema>` instead of `https://cloud.squidex.io/api/contents/<app>/<schema>`.
 
 #### Assets CDN
 
 The assets CDN endpoint provides only access to your content items and should be used for images.
 
-The endpoint is:
+The endpoint is `https://contents.squidex.io/<app>/<asset-id>` instead of `https://cloud.squidex.io/api/contents/<app>/<asset-id>`.
 
-{% embed url="http://assets.squidex.io/<app>/<asset-id>" %}
+### How Caching works
 
-instead of [http://cloud.squidex.io/api/assets/\<app>/\<asset-id>](http://cloud.squidex.io/api/assets/%3Capp%3E/%3Casset-id%3E).
+Caching works only for GET requests.
 
-### &#x20;How Caching works
+Therefore you will not be able to leverage the caching system of the CDN provider when you query content items using GraphQL and POST requests. But the GraphQL specification and our implementation supports [POST, as well as GET](https://graphql.org/learn/serving-over-http/#http-methods-headers-and-body).
 
-In general caching works only for GET requests.&#x20;
+The CDN provider uses the URL and the authentication states as cache keys. When you make requests with a user access token, we use the bearer token as an additional cache key. When the bearer token is created for an app client, the name of the client is used. This means that when you create a new access token for this client and then make the request again you will use the cached version because the name of the client has not changed.
 
-Therefore you will not leverage the caching system of the CDN provider when you query contents items using GraphQL and POST requests. But the GraphQL specification and our implementation supports [POST, as well as GET](https://graphql.org/learn/serving-over-http/#http-methods-headers-and-body).
-
-The CDN provider uses the URL and the authentication states as cache keys. When you make requests with a user access token we use the bearer token as an additional cache key. When the bearer token is created for an app client the name of the client is used. This means that when you create a new access token for this client and then make the request again you will the cached version because the name of the client has not changed.
-
-In addition to that we make use of [surrogate keys](https://docs.fastly.com/en/guides/purging-api-cache-with-surrogate-keys). Surrogate keys is a HTTP response header that contains ids that make up the HTTP response. \
-For example when your retrieve a single content item, the response is dependent on the content item itself, but also on the related schema and the app it belongs to. Therefore we also add the app id and schema id together with the content id as a response header. \
+In addition to that we make use of [surrogate keys](https://docs.fastly.com/en/guides/purging-api-cache-with-surrogate-keys). Surrogate keys is a HTTP response header that contains ids that make up the HTTP response.\
+For example, when your retrieve a single content item the response is not only dependent on the content item itself but also on the related schema and the app it belongs to. Therefore we also add the app id and schema id together with the content id as a response header.\
 When the app or schema id is changed we send a purge notification to the CDN provider to delete all cached entries that contains this id. This means that changing app settings like roles, contributors and clients purges all cached content items. This is useful when you restrict the permissions of a client.
 
 {% hint style="info" %}
@@ -95,11 +95,11 @@ Surrogate keys header has a limitation of 16KB. Therefore we can only serve arou
 
 ### Pricing
 
-The same pricing structures as described in the next paragraph is applied but the costs for cached requests are reduced by 50%.
+The pricing structure applied is mentioned in the following paragraph but the costs for cached requests are reduced by 50%.
 
 ## Cloud Costs
 
-The pricing for the cloud version mainly depends on the number of API calls. But not all API endpoints have associated costs:
+The pricing for the cloud version mainly depends on the number of API calls. But not all API endpoints have associated costs.
 
 | Action                                     | Costs |
 | ------------------------------------------ | ----- |
@@ -112,7 +112,7 @@ The pricing for the cloud version mainly depends on the number of API calls. But
 | Query roles / Modify roles                 | 0 / 1 |
 | Query histories                            | 0     |
 | Query rules / Modify rules                 | 1 / 1 |
-| Query rule events / Modify  rule events    | 0 / 0 |
+| Query rule events / Modify rule events     | 0 / 0 |
 | Query workflows / Modify workflows         | 0 / 1 |
 | Query assets / Modify assets               | 1 / 1 |
 | Query asset folders / Modify asset folders | 1 / 1 |
@@ -123,11 +123,9 @@ The pricing for the cloud version mainly depends on the number of API calls. But
 
 Modifications include creations, updates and deletions.
 
+## Additional Reference
 
-
-## Further pages
-
-If you want to jump into the details of the API these pages might be helpful:
+If you want to jump into the details of how to use the API, the following articles can be helpful.
 
 ### How to get started with Postman
 

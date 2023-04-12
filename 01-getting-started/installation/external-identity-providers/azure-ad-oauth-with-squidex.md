@@ -101,7 +101,7 @@ The rest of the steps here refer to a Docker based containerized installation th
 2. Next update the Squidex container by recreating it. Run the following command to do so.\
    \
    `docker-compose up -d --force-recreate squidex_squidex`\
-   ``\
+   \
    `squidex_squidex` is the default name of the container if you are running the docker-compose.yml file provided by us.&#x20;
 
 ## Test the Configuration

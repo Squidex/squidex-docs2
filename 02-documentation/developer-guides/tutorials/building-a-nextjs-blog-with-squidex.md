@@ -35,7 +35,7 @@ On the Squidex dashboard, click _squidex-blog_ (or whatever name you chose) to e
 
 <figure><img src="../../../.gitbook/assets/2023-01-05_16-40.png" alt=""><figcaption><p>Select the new app</p></figcaption></figure>
 
-On the left panel, select **Schemas** (5) and click the **Plus(+)** (6) button to start creating the posts schema. Enter `posts` in the space provided under **Name** __ (7), select **Multiple contents** (8) since you will be having many posts, and click **Create** (9) to create the schema.
+On the left panel, select **Schemas** (5) and click the **Plus(+)** (6) button to start creating the posts schema. Enter `posts` in the space provided under **Name** (7), select **Multiple contents** (8) since you will be having many posts, and click **Create** (9) to create the schema.
 
 <figure><img src="../../../.gitbook/assets/2023-01-05_16-47.png" alt=""><figcaption><p>Create the 'posts' schema</p></figcaption></figure>
 

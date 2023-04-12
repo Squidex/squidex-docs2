@@ -4,6 +4,12 @@ description: How to retrieve access tokens to get access to the API
 
 # Authentication
 
+This documentation is based on the _FoodCrunch_ use case. Please open the below link side by side to this page to understand some of the examples.
+
+{% content-ref url="../../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../../introduction-and-use-case.md)
+{% endcontent-ref %}
+
 ## Introduction
 
 Squidex uses OpenID Connect and OAuth2.0 as authentication protocols. Both are state of the art specifications and adopted by a lot of internet services. You have already used it when you logged in with your Google account to a third-party website.
@@ -18,13 +24,13 @@ Lets talk about the general authentication flow first.
 
 Before you get an access token you have to create a client first. A client is just another name for an application and could be a mobile app, a public website, single page application or a backend server.
 
-If you create a new app, it has already a default client.
+If you create a new app, it already has a default client.
 
-![Create a new client](<../../../.gitbook/assets/image (10).png>)
+<figure><img src="../../../.gitbook/assets/2023-04-10_11-50.png" alt=""><figcaption><p>Default Client</p></figcaption></figure>
 
-Each client has also a role assigned to define which updates or queries can be performance with the client. This is particularly useful when your client is a public application that can easily be reversed engineer like a mobile app or single page application. You can store your client credentials (client id and client secret) in the application but you have to ensure, that you give your client only the necessary permissions and not more.
+Each client also has a role assigned that defines which operations can be performed i.e. permissions. This is particularly useful when the client is a public application that can be easily reverse engineered like a mobile app or single page application. You can store your client credentials (client id and client secret) in the application but you have to ensure, that you give your client only the necessary permissions and not more.
 
-Read more about permissions:
+Read more about permissions in the following link.
 
 {% content-ref url="../../concepts/permissions.md" %}
 [permissions.md](../../concepts/permissions.md)
@@ -32,26 +38,26 @@ Read more about permissions:
 
 ### 2. Request a token
 
-The client id and secret cannot be used directly in the API calls. You have to make an additional request to identity-server first to get an access token. This token is then valid for 30 days.&#x20;
+The client id and secret cannot be used directly in the API calls. You have to make an additional request to identity-server first to get an access token. This token is then valid for 30 days.
 
 {% swagger baseUrl="https://cloud.squidex.io/identity-server/connect/token" path="" method="post" summary="Get access token" %}
 {% swagger-description %}
 Get an access token from Squidex Identity.
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="scope" type="string" %}
+{% swagger-parameter in="body" name="scope" type="string" required="false" %}
 squidex-api
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="client_secret" type="string" %}
+{% swagger-parameter in="body" name="client_secret" type="string" required="false" %}
 **<YOUR_CLIENT_SECRET>**
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="client_id" type="string" %}
+{% swagger-parameter in="body" name="client_id" type="string" required="false" %}
 **<YOUR_CLIENT_ID>**
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="grant_type" type="string" %}
+{% swagger-parameter in="body" name="grant_type" type="string" required="false" %}
 client_credentials
 {% endswagger-parameter %}
 
@@ -81,7 +87,7 @@ curl
 
 ### 3. Use the token
 
-Add the returned token to all consecutive requests:
+Add the returned token to all consecutive requests.
 
 ```bash
 Authorization: Bearer <YOUR_ACCESS_TOKEN>
@@ -91,7 +97,7 @@ Authorization: Bearer <YOUR_ACCESS_TOKEN>
 
 An often asked question is how to deal with the access token, because there are a few challenges:
 
-1. The token is only valid for 30 days.
+1. The token is valid only for 30 days.
 2. The token might expire sooner, for example when a certificate is replaced on the server.
 3. You need an additional request to get the token.
 
@@ -125,6 +131,6 @@ function makeRequest(url, body) {
 }
 ```
 
-As you can see, we use a simple memory cache to keep our token. We request a new token when it has been expired in the cache or on the server and before the first request after our application started.
+As you can see, we use a simple memory cache to keep our token. We request a new token when it has been expired in the cache or on the server, before the first request after our application has started.
 
 You can also request multiple tokens in parallel, for example when you have a cluster of servers. There is no need to sync the access tokens between your servers or to keep them in a centralized cache.

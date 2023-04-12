@@ -4,162 +4,126 @@ description: A short tutorial how to use Squidex with Postman.
 
 # Postman
 
-This is a short tutorial how to make the first requests with Postman.
+This documentation is based on the _FoodCrunch_ use case. Please open the below link side by side to this page to understand some of the examples.
+
+{% content-ref url="../../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../../introduction-and-use-case.md)
+{% endcontent-ref %}
 
 ## What is Postman
 
-Postman is a free collaboration platform for API development and a good way to get started.
+Postman is a free collaboration platform for API development and a good way to get started. You can download Postman from the link below.
 
-{% embed url="https://www.getpostman.com/downloads/" %}
+[https://www.postman.com/downloads/](https://www.postman.com/downloads/)
 
-## Lets get started
+## Using Postman
 
-### 1. Create an App
+### Pre-requisites
 
-The first step is to create an app, which is just another name for project or space.
+* Postman
+* A Squidex app
 
-1. Click the "New App" button.
-2. Enter a name for your App. The name must be unique so it might already been taken if you use the cloud version. The name can also contain only lowercase letters, numbers and dashes because it will be part of the URLs.
-3. Click the "Create" button.
+If you do not have an app, you can refer one of the quick start guides to quickly create an app that has a pre-defined schema and sample content.
 
-![Create a new App](<../../../.gitbook/assets/image (57) (2) (2) (2) (2) (2) (2) (1) (1) (1).png>)
-
-Your app will show up in your list. Just click your App (1) to move to the next step:
-
-![](<../../../.gitbook/assets/image (42).png>)
-
-Read more about Apps:
-
-{% content-ref url="../../concepts/apps.md" %}
-[apps.md](../../concepts/apps.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
-### 2. Create a Schema
+Alternatively, if you wish to create an app from scratch and learn how to create a schema and add content then the following link is a good place to start.\
 
-Next create a schema, which is like a database table with fields of different types:
 
-1. Go to the schemas section of your App.
-2. Click the "+" button.
-3. Choose a name of your schema. Like the App name it is used in URLs, so it must be unique within your App and it cannot be changed later.
-4. Click the "Create" button to create a new schema.
-
-![Create a new Schema](<../../../.gitbook/assets/image (43) (1).png>)
-
-Now we are going to add a new field:
-
-1. Click the "Add Field" button in the bottom right of the screen.
-2. Ensure that the field type is set to "String".
-3. Enter a field name.
-4. Click "Create and close" to create a new field.
-
-![Add a new field to our schema](<../../../.gitbook/assets/image (69) (1).png>)
-
-Also ensure that the schema is published. Otherwise you cannot create content for the schema.
-
-![Publish your content](<../../../.gitbook/assets/image (45).png>)
-
-If you want to learn more about schemas use the following page:
-
-{% content-ref url="../../concepts/schemas/" %}
-[schemas](../../concepts/schemas/)
+{% content-ref url="../tutorials/building-a-nextjs-blog-with-squidex.md" %}
+[building-a-nextjs-blog-with-squidex.md](../tutorials/building-a-nextjs-blog-with-squidex.md)
 {% endcontent-ref %}
 
-### 3. Add Content
-
-Add some content to your schema.
-
-1. Go to the content section of your App.
-2. Select your created schema.
-3. Click the "New" button to create a new content item.
-
-![Create content](<../../../.gitbook/assets/image (46).png>)
-
-![Go to contents section](<../../../.gitbook/assets/contents (1).png>)
-
-Now you will see the content screen. If you have added more fields it will look differently of course.
-
-1. Enter some texts or values for your fields.
-2. Click the "Save and Publish" button. By default only published content items are visible in the API. Therefore it is important not to click the "Save" button.
-
-![](<../../../.gitbook/assets/image (47).png>)
-
-### 4. Connect to your app using a client
+### 1. Generate a token for the client
 
 A client represents an application like a mobile app or server application.
 
-We have implemented the [OpenID client credentials flow](https://docs.axway.com/u/documentation/api\_gateway/7.5.3/webhelp\_portal\_oauth/Content/OAuthGuideTopics/oauth\_flows\_client\_credentials.). It is an secure and open standard to protect your APIs and to provide authentication for clients (aka applications) and users. It is also used big big players like Microsoft, Github and Google. When you login to applications using third party logins you have already used it.
+We have implemented the [OpenID client credentials flow](https://docs.axway.com/u/documentation/api\_gateway/7.5.3/webhelp\_portal\_oauth/Content/OAuthGuideTopics/oauth\_flows\_client\_credentials.). It is a secure and open standard to protect your APIs and to provide authentication for clients (aka applications) and users. It is also used by big players like Microsoft, GitHub and Google. When you login to applications using third party logins you have already used it.
 
 {% content-ref url="authentication.md" %}
 [authentication.md](authentication.md)
 {% endcontent-ref %}
 
-By default, a default client is generated for your App If this is not the case you are probably running an older version of Squidex. Then you have to create a new client with a name of your choice.
+By default, a client called _default_ is generated for your Squidex app. If this is not the case you are probably running an older version of Squidex. In that case you have to create a new client with a name of your choice.
 
-To acquire a token you have to do the following steps:
+To acquire a token perform the following steps:
 
-1. Go the setting section of your App.
-2. Go the the clients setting.
-3. Click the "Connect" button.
+Start by navigating to the **Settings** (1) section of your App and then select **Clients** (2). Click the **Connect** (3) button.
 
-![](<../../../.gitbook/assets/image (65) (1) (1).png>)
+<figure><img src="../../../.gitbook/assets/2023-04-10_12-43.png" alt=""><figcaption><p>Acquire a token - 1</p></figcaption></figure>
 
-In this dialog we provide explanations how to connect to your app. For now we connect manually with Postman. Click the first option (1).
+In the pop-up dialog, we provide explanations on how to connect to your app. For this example we will connect manually with Postman. Click the first option i.e. **Connect manually** (4).
 
-![Connect Wizard Step 1](<../../../.gitbook/assets/image (48).png>)
+<figure><img src="../../../.gitbook/assets/2023-04-10_12-44.png" alt=""><figcaption><p>Acquire a token - 2</p></figcaption></figure>
 
-In the next step you see the token that is generated for you and how to use it. Just copy the token by clicking the copy-button (2) that is marked with a red dot here.
+In the next step you see the token that is generated and how to use it. Copy the token by clicking the **copy-button** (5).
 
-![Connect Wizard Step 2](<../../../.gitbook/assets/image (49).png>)
+<figure><img src="../../../.gitbook/assets/2023-04-10_12-45.png" alt=""><figcaption><p>Acquire a token - 3</p></figcaption></figure>
 
 This token is valid for 30 days, but can be renewed as often as you want.
 
 You can also access a token with a HTTP request using the client id and secret:
 
+{% code overflow="wrap" %}
+```bash
+curl \
+-X POST 'https://cloud.squidex.io/identity-server/connect/token/' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'grant_type=client_credentials&client_id=[APP_NAME]:[CLIENT_ID]&client_secret=[CLIENT_SECRET]&scope=squidex-api'
 ```
-$ curl
-    -X POST 'https://cloud.squidex.io/identity-server/connect/token/' 
-    -H 'Content-Type: application/x-www-form-urlencoded' 
-    -d 'grant_type=client_credentials&
-        client_id=[APP_NAME]:[CLIENT_ID]&
-        client_secret=[CLIENT_SECRET]&
-        scope=squidex-api'
-```
+{% endcode %}
 
-### 5. Download OpenAPI Specification
+### 2. Download the OpenAPI Specification
 
-Squidex creates an OpenAPI documentation for your App. We are going to download it to import it to Postman:
+Squidex creates an OpenAPI documentation for your App. We will download and import it to Postman. To do so:
 
-1. Go to the API section of your App.
-2. Click the "Content API" link to open the API docs in a new tab.
+Go to the **API** (1) section of your App. Click the **Content API** (2) link to open the API docs in a new tab.
 
-![API section](<../../../.gitbook/assets/image (50).png>)
+<figure><img src="../../../.gitbook/assets/2023-04-10_13-23.png" alt=""><figcaption><p>Content API</p></figcaption></figure>
 
-The documentation shows all the endpoints that are available for your content. Download the OpenAPI specification file and save it in your file system to import it with Postman.
+The documentation shows all the endpoints available for your content. **Download** (3) the OpenAPI specification file and save it in your file system to later import it with Postman. The file is called `swagger.json`.
 
-![Download the OpenAPI specification](<../../../.gitbook/assets/image (51).png>)
+<figure><img src="../../../.gitbook/assets/2023-04-10_13-26.png" alt=""><figcaption><p>Download OpenAPI specification</p></figcaption></figure>
 
-### 6. Make the request with Postman
+### 3. Import the OpenAPI into Postman
 
-We have to import the OpenAPI file to Postman. Click the Import button (1) in the file settings and select your file that you have saved before.
+Launch Postman. To import the OpenAPI file to Postman, click **Import** (1) in your Workspace (or alternatively click File and then Import).&#x20;
 
-![Import the OpenAPI spec in Postman](<../../../.gitbook/assets/image (53).png>)
+<figure><img src="../../../.gitbook/assets/2023-04-10_13-42.png" alt=""><figcaption><p>Import OpenAPI file - 1 </p></figcaption></figure>
 
-You should be able to see your API now:
+Then, select the downloaded **file** (2) that you have saved before.
 
-1. Go to Collections section.
-2. Select the ContentAPI for your App.
-3. Select the endpoints for your schema.
-4. Select the query endpoint to query all contents items.
-5. Unclick all query parameters.
+<figure><img src="../../../.gitbook/assets/2023-04-10_13-48.png" alt=""><figcaption><p>Import OpenAPI file - 2</p></figcaption></figure>
 
-![Your schema in Postman](<../../../.gitbook/assets/image (54).png>)
+Select **Postman Collection** (3) (selected by default). Click **Import** (4).
 
-The last step is to enter you access token:
+<figure><img src="../../../.gitbook/assets/2023-04-10_13-50.png" alt=""><figcaption><p>Import OpenAPI file - 3</p></figcaption></figure>
 
-1. Go to the Authorization settings of your API.
-2. Paste in your access token.
-3. Send your request with the "Send" button.
+You should be able to see the API now.&#x20;
 
-![](<../../../.gitbook/assets/image (55).png>)
+### 4. Make a request using Postman
 
-You have created your first app, schema and content with Squidex and you have learned how to retrieve the content items.
+We are now ready to make requests using Postman. To make a request:&#x20;
+
+1. Go to **Collections** (5).
+2. Select the ContentAPI (6) for your App, its called _Squidex API_ in this example
+3. Select the endpoints for your **schema** (7). In our example there are two schemas and the _magazine_ schema is selected.
+4. Next, select the **query** endpoint (8) to query all content items.
+5. **Uncheck** (9) all query parameters.
+
+<figure><img src="../../../.gitbook/assets/2023-04-10_14-09.png" alt=""><figcaption><p>GET request using Postman - 1</p></figcaption></figure>
+
+Finally, the last step is to enter the access token. To do so:
+
+1. Click the **Authorization** (10) tab.
+2. Ensure **Type** (11) is `OAuth 2.0`.
+3. Paste in the **Access Token** (12).
+4. Send your request with the **Send** (13) button.
+
+<figure><img src="../../../.gitbook/assets/2023-04-10_16-06.png" alt=""><figcaption><p>GET request using Postman - 2</p></figcaption></figure>
+
+You should see a response body which is the result of the GET request.
+
+You have learnt how to retrieve the content items.
