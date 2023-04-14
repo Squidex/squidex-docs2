@@ -28,7 +28,7 @@
   * [Building](01-getting-started/contributing-and-developing/building.md)
   * [Developing](01-getting-started/contributing-and-developing/developing.md)
   * [Extensions](01-getting-started/contributing-and-developing/extensions/README.md)
-    * [Custom rule action](01-getting-started/contributing-and-developing/extensions/how-to-write-custom-rule-actions.md)
+    * [Custom Rule Action](01-getting-started/contributing-and-developing/extensions/how-to-write-custom-rule-actions.md)
   * [Contributing](01-getting-started/contributing-and-developing/contributing.md)
   * [Architecture](01-getting-started/contributing-and-developing/overview.md)
   * [Translating](01-getting-started/contributing-and-developing/translating.md)
