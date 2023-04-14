@@ -1,16 +1,20 @@
+---
+description: Learn How to Install Squidex Identity
+---
+
 # Install Identity (Deprecated)
 
 ## About Squidex Identity
 
-Squidex Identity server based on Squidex Headless CMS. It implements the OpenId Connect and OAuth 2.0 protocols to act as a central single sign on server.
+The Squidex Identity server is based on the Squidex Headless CMS. It implements the OpenID Connect and OAuth 2.0 protocols to act as a central, single sign-on server.
 
 > [https://github.com/Squidex/squidex-identity](https://github.com/Squidex/squidex-identity)
 
 {% hint style="info" %}
-WARNING: Squidex Identity is not maintained anymore.
+WARNING: Squidex Identity is no longer maintained.
 {% endhint %}
 
-## 1. Setup of Squidex identity
+## 1. Setup of Squidex Identity
 
 ### 1.1. Clone Squidex.Identity
 
@@ -20,19 +24,19 @@ Clone the Squidex identity repository with the following command:
 git clone https://github.com/Squidex/squidex-identity.git
 ```
 
-### 1.2. Create an identity app
+### 1.2. Create an Identity App
 
-You can create the app with predefined schemas either in the cloud or in your custom installation:
+You can create the App with predefined schemas either in the Cloud or in your custom installation:
 
 ![Create Identity App](<../../images/started/identity/new-identity-app (1).png>)
 
-### 1.3. Update the identity configuration
+### 1.3. Update the Identity Configuration
 
-Update the configureation with the url to your Squidex instance and the client id and secret of the default client.
+Update the configuration with the URL to your Squidex instance along with the Client ID and Secret of the default client.
 
 ![Copy Default Client](<../../images/started/identity/default-client (1).png>)
 
-Update the configuration file at: `Squidex.Identity/appsettings.json`
+Update the configuration file at: `Squidex.Identity/appsettings.json`.
 
 ```javascript
 "app": {
@@ -44,15 +48,15 @@ Update the configuration file at: `Squidex.Identity/appsettings.json`
 }
 ```
 
-Of course you can also use environment variables, e.g.
+Of course, you can also use environment variables, e.g.
 
 * `APP__URL=https://cloud.squidex.io`
 * `APP__CLIENTID=identity:default`
 * `APP__CLIENTSECRET=xxx`
 
-## 2. General application settings:
+## 2. General Application Settings:
 
-If you create a identity app in Squidex you will see a schema with the settings, where you can upload a logo, footer text, privacy settings and so on.
+If you create an identity App in Squidex you will see a schema with the settings where you can upload a logo, footer text, privacy settings and so on.
 
 Most settings are optional but you must setup credentials to an SMTP server.
 
@@ -63,13 +67,13 @@ Email Delivery Service:
 * [https://www.mailjet.com/](https://www.mailjet.com)
 * [https://www.sendgrid.com/](https://www.sendgrid.com)
 
-## 3. External authentication providers
+## 3. External Authentication Providers
 
-If you want to use external authentication providers you can setup them in the authentication schemes section, here is an example for Google.
+If you want to use external authentication providers, you can set them up in the authentication schemes section. Here is an example for Google:
 
-You have to create an OAuth 2.0-Client-IDs in the google developer console. You have to define the `redirect_uri` in this process and you must use `http://localhost:3500/signin-google`
+You have to create an OAuth 2.0-Client-IDs in the Google Developer console. You must define the `redirect_uri` in this process and you must use `http://localhost:3500/signin-google`.
 
-the redirect URLs for other authentication providers are:
+The redirect URLs for other authentication providers are:
 
 * `http://localhost:3500/signin-twitter`
 * `http://localhost:3500/signin-facebook`
@@ -77,21 +81,21 @@ the redirect URLs for other authentication providers are:
 
 ![Authentication Schemes](<../../.gitbook/assets/authentication-schemes (1) (1).png>)
 
-## 4. External clients
+## 4. External Clients
 
-When you want to connect an external application to Squidex identity you have to configure a client. This is a little bit complicated, but you can find all settings here: [http://docs.identityserver.io/en/latest/reference/client.html](http://docs.identityserver.io/en/latest/reference/client.html)
+When you want to connect an external application to Squidex identity, you have to configure a client. This is a little bit complicated, but you can find all settings here: [http://docs.identityserver.io/en/latest/reference/client.html](http://docs.identityserver.io/en/latest/reference/client.html)
 
-### Squidex as an external client
+### Squidex as an External Client
 
 You can also setup Squidex as an external client, so that the same users can also login to manage content.
 
-In the first step you have to create a new client:
+During first step, you have to create a new client:
 
 ![Self-Hosted](<../../.gitbook/assets/self-hosted-1 (1) (1).png>)
 
 ![Self-Hosted](<../../.gitbook/assets/self-hosted-2 (1).png>)
 
-In the second step you have to update the Squidex configuration at `Squidex/appsettings.json`
+In the second step you have to update the Squidex configuration at `Squidex/appsettings.json`.
 
 ```javascript
 "identity": {
