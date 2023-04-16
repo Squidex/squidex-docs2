@@ -33,6 +33,6 @@ In the following example, we will use the starter sample blog to quickly create 
     <figure><img src="../.gitbook/assets/2023-01-04_14-45.png" alt=""><figcaption></figcaption></figure>
 4. You can now explore the pre-populated schemas and content and make modifications / additions to them. For a better understanding we highly recommend looking at the [documentation](../02-documentation/concepts/).
 5. At this point the App is ready to be used with a frontend of your choice. We have a few quick start guides that work with the blog sample which you can explore here:
-   * [Vue.js blog with Squidex CMS](quick-start-guides/vue.js-blog-with-squidex-cms.md)
-   * [React.js blog with Squidex CMS](quick-start-guides/react.js-blog-with-squidex-cms.md)
-   * [Angular blog with Squidex CMS](quick-start-guides/angular-blog-with-squidex-cms.md)
+   * [Vue.js blog with Squidex CMS](quick-start-guides/vue.js-blog-with-squidex.md)
+   * [React.js blog with Squidex CMS](quick-start-guides/react.js-blog-with-squidex.md)
+   * [Angular blog with Squidex CMS](quick-start-guides/angular-blog-with-squidex.md)
