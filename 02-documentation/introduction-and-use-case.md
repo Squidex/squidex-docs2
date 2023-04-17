@@ -1,95 +1,96 @@
+---
+description: A Brief Introduction to Squidex and a Use Case
+---
+
 # Introduction and Use Case
 
-We think it's easier to describe features and functionality with use cases. To make our documentation easier and shorter to follow, we will use a single use case (which will be updated and extended over time). This page describes the details of this use case.
+It's best to describe features and functionality with a use case. So, to make following our documentation easier and briefer, will use a single use case (which will be updated and extended over time). This page describes the details of this particular use case.
 
-Our documentation is still in progress, and only a few pages have been created/updated so far. As new information is published, we will update this page.
+Our documentation is still in progress and only a few pages have been created/updated so far. As new information is published, we will update this page.  Do check back for our updates.
 
 {% hint style="info" %}
-We recommend to open this use case side by side with the documentation, so that you do not have to switch back and forth.
+We recommend opening this use case alongside the documentation, so you don't need to keep switching back and forth!
 {% endhint %}
 
-## The company
+## The Company
 
-The user is the Lead Developer and CTO of a midsize news magazine called "FoodCrunch", a magazine for everything around food startups. It has just over 100 employees from 14 different languages. The editors and content authors write articles, news and other kind of editorial content. In addition to that the magazine also maintains a database called "Food Base" with information about all startup in the food area and information like co-founders, investment rounds and more.
+The user is the Lead Developer and CTO of a mid-size news magazine called "_FoodCrunch_", a magazine for everything surrounding food startups. It has just over 100 employees speaking 14 different languages. The editors and content authors write articles, news and other types of editorial content. In addition to that, the magazine also maintains a database called "_FoodBase_" with information about all startups in the food industry and information on topics such as co-founders, investment rounds and more.
 
-Therefore we create one project in Squidex for all our content, assets and settings and invite all developers and content editors to this project to work together. In Squidex we call this an "App".
+Therefore, for this use case, the team has created one project in Squidex for all content, assets and settings and invited all developers and content editors to the project to work together. In Squidex we call this an "App".
 
 {% content-ref url="concepts/apps.md" %}
 [apps.md](concepts/apps.md)
 {% endcontent-ref %}
 
-## The content structure
+## The Content Structure
 
-The structure of the content is defined by Schemas in Squidex. In this section we describe the different content types for our use case. Read more about schemas here:
+The structure of the content is defined by schemas in Squidex. In this section, we describe the different content types for our use case. Read more about schemas here:
 
 {% content-ref url="concepts/schemas/" %}
 [schemas](concepts/schemas/)
 {% endcontent-ref %}
 
-### Editorial content
+### Editorial Content
 
-The CTO decided to have a single structure for all editorial content. After bringing everybody to the table, the developers and editors have decided together what information they need for each content. Even though our website is available in four different languages we write editorial content for exactly one language.
+The CTO has decided to have a single structure for all editorial content. After bringing everybody to the table, the developers and editors have confirmed what information they need for each type of content. Even though the _FoodCrunch_ website is available in four different languages, the team writes editorial content in one language.
 
-This schema is just called `contents` and has the following fields.
+This schema is called `magazine` and has the following fields.
 
-| Name       | Type      | Localizable | Description                                        |
-| ---------- | --------- | ----------- | -------------------------------------------------- |
-| `language` | String    | No          | The content language.                              |
-| `title`    | String    | No          | The title of the editorial content.                |
-| `slug`     | String    | No          | A single slug for Google friendly URLs.            |
-| `content`  | String    | No          | The actual content.                                |
-| `type`     | String    | No          | The type of the content, e.g. "Article" or "News". |
-| `startup`  | Reference | No          | A reference to the startup in the database.        |
-| `image`    | Assets    | No          | One or more teaser images.                         |
+| Name           | Type      | Localizable | Description                                        |
+| -------------- | --------- | ----------- | -------------------------------------------------- |
+| `slug`         | String    | No          | A single slug for Google friendly URLs.            |
+| `title`        | String    | No          | The title of the editorial content.                |
+| `content`      | String    | No          | The actual content.                                |
+| `content-type` | String    | No          | The type of the content, e.g. "Article" or "News". |
+| `startup`      | Reference | No          | A reference to the startup in the database.        |
+| `image`        | Assets    | No          | One or more teaser images.                         |
 
-### Startup database
+### Startup Database
 
-The startup database is maintained in multiple languages, so that entries can be reference them from all articles, independent from the language they are written in.
+The startup database is maintained in multiple languages, so that entries can be reference in the languages from all articles, independent from the language they are written in.
 
 This schema is called `startups` and has the following fields.
 
-| Name           | Type        | Localizable | Description                                 |
-| -------------- | ----------- | ----------- | ------------------------------------------- |
-| `slug`         | String      | No          | A single slug for Google friendly URLs.     |
-| `name`         | String      | No          | The name of the startup.                    |
-| `description`  | String      | Yes         | The description of the startup.             |
-| `funding`      | Number      | No          | The total funding in USD ($).               |
-| `foundingDate` | DateTime    | No          | The date the startup has been founded.      |
-| `founders`     | Array       | No          | The founders as list of name and position.  |
-| `tags`         | Tags        | No          | A list of tags for search.                  |
-| `location`     | Geolocation | No          | The geolocation of the headquarter.         |
-| `metadata`     | JSON        | No          | Unstructured metadata.                      |
-| `givenUp`      | Boolean     | No          | Indicates whether the startup has given up. |
+| Name          | Type        | Localizable | Description                                 |
+| ------------- | ----------- | ----------- | ------------------------------------------- |
+| `slug`        | String      | No          | A single slug for Google friendly URLs.     |
+| `name`        | String      | No          | The name of the startup.                    |
+| `description` | String      | Yes         | The description of the startup.             |
+| `funding`     | Number      | No          | The total funding in millions (USD).        |
+| `founded`     | String      | No          | The year the startup has been founded.      |
+| `founders`    | Array       | No          | The founders as list of name and position.  |
+| `tags`        | Tags        | No          | A list of tags for search.                  |
+| `location`    | Geolocation | No          | The geolocation of the headquarter.         |
+| `metadata`    | JSON        | No          | Unstructured metadata.                      |
+| `givenUp`     | Boolean     | No          | Indicates whether the startup has given up. |
 
-### JSON structure
+### JSON Structure
 
 If you are a content editor, you can skip this section.
 
-We use JSON to represent our content in the database and API. Each content item is one document and the values of all fields are just called "content data" or "data". Because Squidex supports localized fields we need a way to structure our localized fields as well as our non-localized fields. In Squidex we have decided to use a common structure for that. Therefore our content has the following shape:
+We use JSON to represent content in the database and API. Each content item is one document and the values of all fields are just called "_content data_" or "_data_". As Squidex supports localized fields, we need a way to structure these localized fields as well as the non-localized fields. In Squidex we have decided to use a common structure for this purpose. Therefore, our content takes the following shape:
 
+{% code overflow="wrap" %}
 ```javascript
-// contents
+// magazine
 {
     // Additional metadata, such as content id.
     "data": {
-        "language": {
-            "iv": "en"
-        },
         "slug": {
-            "iv": "super-corp-buys-food-startup"
+            "iv": "sustainable-eating-by-foodco"
         },
         "title": {
-            "iv": "Super Corp buys Food Startup"
+            "iv": "Sustainable eating by FoodCo"
         },
         "content": {
-            "iv": "A very long text"
+            "iv": "Introducing FoodCo, the latest player in the food industry. FoodCo aims to revolutionize the way we eat. Their innovative products and focus on sustainability have already garnered attention from foodies and investors alike. Stay tuned for what's cooking next!"
         },
-        "type": {
+        "content-type": {
             "iv": "Article"
         },
         "startup": {
             "iv": [
-                "673d3a3a-988f-4ce6-a8ec-022e73e12f9f"
+                "3a20690a-c40b-44bc-832e-0a6e3e708d93"
             ]
         },
         "image": {
@@ -105,47 +106,45 @@ We use JSON to represent our content in the database and API. Each content item 
     // Additional metadata, such as content id.
     "data": {
         "slug": {
-            "iv": "best-organgs"
+            "iv": "foodco"
         },
         "name": {
-            "iv": "Best Oranges"
+            "iv": "FoodCo"
         },
         "description": {
-            "en": "Best Oranges sells the best oranges in the Valley",
-            "de": "Best Oranges verkauft die besten Orangen im Tal"
+            "en": "Sustainable eating products",
+            "de": null
+        },
+        "stage": {
+            "iv": "Early"
+        },
+        "founded": {
+            "iv": 2019
         },
         "funding": {
-            "iv": 1000000
-        },
-        "foundingDate": {
-            "iv": 2021-01-10T00:00:00z"
+            "iv": 234
         },
         "founders": {
-            "iv": [{
-                "name": "John Doe",
-                "position": "Marketing"
-            }, {
-                "name": "Jane Doe",
-                "position": "Sales"
-            }]
+            "iv": [
+                {
+                    "name": "John Doe",
+                    "position": "CEO"
+                }
+            ]
         },
         "tags": {
             "iv": [
-                "oranges",
-                "food",
-                "valley"
+                "sustainability"
             ]
         },
         "location": {
             "iv": {
-                "longitude": -122.431297,
-                "latitude": 37.773972
+                "latitude": 32.0237703,
+                "longitude": -92.0390231
             }
         },
         "metadata": {
-            "iv": {
-                "createBy": "auto-importer"
-            }
+            "iv": null
         },
         "givenUp": {
             "iv": false
@@ -153,18 +152,19 @@ We use JSON to represent our content in the database and API. Each content item 
     }
 }
 ```
+{% endcode %}
 
-As you can see, we need a JSON object for our localized fields. To use a generalized structure, all objects have an `iv` (which stands for invariant) key which is used for localized fields. Read more about the reasoning in the section about localization:
+As you can see, we need a JSON object for our localized fields. To use a generalized structure, all objects have an `iv` (which stands for invariant) key, used for localized fields. Read more about the reasoning in the section concerning localization:
 
 {% content-ref url="concepts/localization.md" %}
 [localization.md](concepts/localization.md)
 {% endcontent-ref %}
 
-## People and roles
+## People and Roles
 
-The following people work together with Squidex to bring content to the website.
+The following people work together with Squidex to bring content to a website.
 
-* **Developers** work together to bring new features to the website. Their responsibility is to define the schemas in Squidex and to implement the business roles with Workflows and Permissions. To make it easier for them to find and fix bugs on the website they also have full control to the content itself.
-* **Editors** are responsibility to write the articles in different languages and to make all the research around it. Because false information are a big deal in the News industry they are not allowed to publish the content itself.
-* **Reviewers** check the content before it gets published for spelling and grammar mistakes and also check correctness of all facts and information in the content.
-* **Publisher** work together with Marketing and social media to decide when a content should go live. They can also publish reviewed content and do not create any content themselves.
+* **Developers** work together to bring new features to a website. Their responsibilities are to define the schemas in Squidex and to implement the business roles with Workflows and Permissions. To make it easier for them to find and fix bugs on the website, they also have full control of the content itself.
+* **Editors** are responsible for writing the articles in different languages and conducting research for preparation of articles. As false information is a big deal in the news industry, Editors are not allowed to publish the content itself.
+* **Reviewers** check the content before it gets published for spelling, grammar and the accuracy of facts, as well as reviewing other information in the content.
+* **Publishers** work together with marketing and social media to decide when content should go live. They can also publish reviewed content but don't create any content themselves.
