@@ -4,6 +4,12 @@ description: This page describes the Dashboard page and how to customize it.
 
 # Dashboard
 
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
+
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
+{% endcontent-ref %}
+
 Apps in Squidex have a dashboard that shows various statistics about the app along with some quick links to operations and external links.
 
 The default view of the dashboard shows the following statistics as cards:

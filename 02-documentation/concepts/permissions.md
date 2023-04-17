@@ -6,6 +6,12 @@ description: >-
 
 # Roles & Permissions
 
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
+
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
+{% endcontent-ref %}
+
 ## Permissions in Squidex
 
 Squidex uses a fine grained permission system. Permissions are defined with a dot-notation as outlined below.

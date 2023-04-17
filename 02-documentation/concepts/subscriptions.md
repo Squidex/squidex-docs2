@@ -6,6 +6,12 @@ description: >-
 
 # Subscriptions
 
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
+
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
+{% endcontent-ref %}
+
 In Squidex Cloud (i.e. cloud.squidex.io) each App has a subscription. And each subscription has a quota which is a defined number of the following:
 
 * API Calls

@@ -4,6 +4,12 @@ description: Rules are used to automate workflows by reacting to events.
 
 # Rules
 
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
+
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
+{% endcontent-ref %}
+
 ## Concepts
 
 ### Event

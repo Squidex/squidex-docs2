@@ -4,6 +4,12 @@ description: Backups store all your app content and is useful for a few scenario
 
 # Backups
 
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
+
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
+{% endcontent-ref %}
+
 ## What is a backup?
 
 A backup is an ZIP archive file that stores all your data for one app. It contains several files of these types:

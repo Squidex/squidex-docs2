@@ -4,6 +4,12 @@ description: Learn how to configure and subscribe to notifications in Squidex
 
 # Notifications
 
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
+
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
+{% endcontent-ref %}
+
 ## Introduction
 
 Squidex provides a notification service that is power by Notifo. [Notifo](https://notifo.io) is an open source general purpose notification framework initally developed for Squidex to be able to subscribe to changes and get notified.

@@ -1,5 +1,11 @@
 # Querying Assets
 
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
+
+{% content-ref url="../../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../../introduction-and-use-case.md)
+{% endcontent-ref %}
+
 Squidex provides the capability to query your uploaded assets. You can query (search) by tags or name or a combination of both.
 
 The following example shows how to search based on a tag _type/png_.

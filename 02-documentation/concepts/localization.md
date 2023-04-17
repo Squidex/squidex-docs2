@@ -4,7 +4,7 @@ description: Localization allows you to define content in multiple languages.
 
 # Localization
 
-This documentation is based on the _FoodCrunch_ use case. Please open the below link side by side to this page to understand the examples.
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
 
 {% content-ref url="../introduction-and-use-case.md" %}
 [introduction-and-use-case.md](../introduction-and-use-case.md)
