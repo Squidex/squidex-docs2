@@ -1,5 +1,5 @@
 ---
-description: Localization allows you to define content in multiple languages.
+description: Localization Allows You to Define Content in Multiple Languages.
 ---
 
 # Localization
@@ -10,11 +10,11 @@ This documentation is based on the _FoodCrunch_ use case. Please open the link b
 [introduction-and-use-case.md](../introduction-and-use-case.md)
 {% endcontent-ref %}
 
-## Basic concept
+## Basic Concept
 
-Localization is defined on a per field basis. We call this system partitioning, more about that [here](localization.md#why-do-you-call-it-partitioning).&#x20;
+Localization is defined on a per field basis. We call this system "partitioning", more about that [here](localization.md#why-do-you-call-it-partitioning).&#x20;
 
-Referring to our _FoodCrunch_ use case, the **Description** field in the _startups_ schema is a _Localizable_ field.&#x20;
+Referring to our _FoodCrunch_ use case, the **Description** field in the `startups` schema is a _Localizable_ field.&#x20;
 
 {% hint style="info" %}
 Localization is set when adding a field and cannot be modified later.&#x20;
@@ -34,34 +34,36 @@ To add languages click **Settings** (1) and then select **Languages** (2). **Sea
 
 There are three configurable parameters for the Languages used for localization.&#x20;
 
-To modify or set these settings click on the **gear** icon next to the respective language.
+To modify or apply these settings, click on the **Gear** icon next to the respective language.
 
 <figure><img src="../../.gitbook/assets/2022-11-12_11-28.png" alt=""><figcaption><p>Modify language settings</p></figcaption></figure>
 
-*   **Fallback** - This setting states that whenever a value for a localizable fields is not available Squidex tries to resolve the value from the master language which is the default fallback language. You can set more than one fallback language.\
+*   **Fallback** - This setting states that whenever a value for a localizable field is not available, Squidex tries to resolve the value from the master language which is the default fallback language. You can set more than one fallback language.\
     To set a fallback, select a language from the **dropdown** (1) (list only includes enabled languages) and click **Add Language** (2).
 
     <figure><img src="../../.gitbook/assets/2022-11-12_11-32.png" alt=""><figcaption><p>Adding a fallback language</p></figcaption></figure>
 
-    The final screenshot for the Swedish language in our use case looks something like below. Reorder them to set the priority. To reorder, use the ![](<../../.gitbook/assets/Screenshot 2022-11-12 at 11.41.37 AM.png>)  icon and drag it up or down.\
+    The final screenshot for the Swedish language in our example looks something like below: \
 
 
     <figure><img src="../../.gitbook/assets/2022-11-12_11-34 (1).png" alt=""><figcaption><p>Set multiple fallback languages</p></figcaption></figure>
 
+    You can reorder these to set your priority. To reorder, use the ![](<../../.gitbook/assets/Screenshot 2022-11-12 at 11.41.37 AM.png>)  icon and drag it up or down.
+
 {% hint style="info" %}
-Master language cannot have fallback languages and it cannot be Optional.
+_Master Language_ cannot have fallback languages and it cannot be Optional.
 {% endhint %}
 
-* **Is Master** - This is used to set if a language is the master language, meaning when another language has no value it displays the content in this language. English is the master language by default.
-* **Is Optional** - This means that required fields can be omitted. This is useful when you introduce a new language. You can save contents with required fields even if the field value has not been entered for the optional language.
+* **Is Master** - This is used to set if a language is the _Master Language_, meaning when another language has no value, it displays the content in this language. English is the _Master Language_ by default.
+* **Is Optional** - This means that required fields can be omitted. This is useful when you introduce a new language. You can save content with required fields even if the field value has not been entered for the _Optional Language_.
 
 &#x20;Remember to click **Save** when done.
 
 {% hint style="info" %}
-A master language cannot be modified or deleted unless a different language is set as a the master language.
+A _Master Language_ cannot be modified or deleted unless a different language is set as a the _Master Language_.
 {% endhint %}
 
-For our FoodCrunch use case, we have added the following languages along with their settings.&#x20;
+For our _FoodCrunch_ use case, we have added the following languages along with their settings.&#x20;
 
 | Name        | Code | Fallback       | Optional | Description                                                                                                                                                                                                                                                                    |
 | ----------- | ---- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -74,8 +76,9 @@ The final screenshot may look similar to the screenshot below.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2022-11-12 at 11.44.25 AM.png" alt=""><figcaption><p>Languages settings for FoodCrunch app.</p></figcaption></figure>
 
-It is easy to understand when you have a look to an content object from the API:
+It's easy to understand when you look at a content object from the API:
 
+{% code overflow="wrap" %}
 ```javascript
 { 
     "id": "01",
@@ -84,135 +87,149 @@ It is easy to understand when you have a look to an content object from the API:
     "lastModified": "2017-02-25T19:56:35Z",
     "lastModifiedBy": "...",
     "data": {
-        "name": {
-            "en": "Copenhagen",
-            "sv": "Köpenhamn",
-            "fi": "Kööpenhamina",
-            "it": undefined // Not part of the API response
+        "description": {
+            "en": "FoodCo aims to revolutionize the way we eat. Their innovative products focus on sustainability.",
+            "fi": "FoodCo pyrkii mullistamaan ruokailutottumuksiamme. Niiden innovatiiviset tuotteet keskittyvät kestävään kehitykseen.",
+            "it": null,
+            "sv": "FoodCo har som mål att revolutionera vårt sätt att äta. Deras innovativa produkter fokuserar på hållbarhet."
         },
-        "population": {
-            "iv": 1400000
+        "founded": {
+            "iv": 2019
         }
     }
 }
 ```
+{% endcode %}
 
-Each field value is a set of values that are associated to keys. In JavaScript it is called a `object`, other programming languages call it `HashMap` or `Dictionary`. The keys must be unique. Depending whether the field is localizable or not the API accepts different keys.
+Each field value is a set of values that are associated with keys. In JavaScript this is called an `Object`, other programming languages call it `HashMap` or `Dictionary`. The keys must be unique. Depending whether the field is localizable or not the API accepts different keys.
 
-* The `population` field is not localizable. Therefore the only allowed key is `iv`, which stands for "invariant".
-* The `name` field is localizable. The allowed keys are the language codes for the languages you have configured.
+* The `founded` field is not localizable. Therefore the only allowed key is `iv`, which stands for "_invariant_".
+* The `description` field is localizable. The allowed keys are the language codes for the languages you have configured.
 
-## How to use the API
+## How to Use the API
 
-### How to retrieve the correct languages?
+### How to Retrieve the Correct Languages?
 
 The rest endpoint provides two headers that can be used to query the correct language.
 
 #### X-Languages Header
 
-You can filter the languages with the `X-Languages` header. Other languages will be omitted. We do not use the `Accept-Language` header because we want to avoid compatibility issues. If you define a language that is not supported, this language will be ignored. For example: If you set: `X-Languages: en,sv,de` for our example above you will only retrieve English (`en`) and Swedish (`sv`).
+You can filter the languages with the `X-Languages` header. Other languages will be omitted. We do not use the `Accept-Language` header because we want to avoid compatibility issues. If you define a language that is not supported, this language will be ignored. For example, if you set `X-Languages: en,sv,it` for our example above you will only retrieve English (`en`) and Swedish (`sv`).
 
+{% code overflow="wrap" %}
 ```javascript
 X-Languages: en,sv,it
 { 
     ...,
     "data": {
-        "name": {
-            "en": "Copenhagen",
-            "it": "Copenhagen"
+        "description": {
+            "en": "FoodCo aims to revolutionize the way we eat. Their innovative products focus on sustainability.",
+            "sv": "FoodCo har som mål att revolutionera vårt sätt att äta. Deras innovativa produkter fokuserar på hållbarhet."
         },
-        "population": {
-            "iv": 1400000
+        "founded": {
+            "iv": 2019
         }
     }
 }
 ```
+{% endcode %}
 
-If none of the specified languages is provided you will retrieve the master language only.
+If none of the specified languages are provided, you will only retrieve the _Master Language_.
 
+{% code overflow="wrap" %}
 ```javascript
 X-Languages: de
 { 
     ...,
     "data": {
-        "name": {
-            "en": "Copenhagen"
+        "description": {
+            "en": "FoodCo aims to revolutionize the way we eat. Their innovative products focus on sustainability."
         },
-        "population": {
-            "iv": 1400000
+        "founded": {
+            "iv": 2019
         }
     }
 }
 ```
+{% endcode %}
 
 #### X-Flatten Header
 
 If you add this header, fields that only have a single value will be flattened. So the example above will be transformed to:
 
+{% code overflow="wrap" %}
 ```javascript
 X-Flatten: true
 { 
     ...,
     "data": {
-        "name": {
-            "de": "Copenhagen",
-            "sv": "Köpenhamn"
+        "description": {
+            "en": "FoodCo aims to revolutionize the way we eat. Their innovative products focus on sustainability.",
+            "fi": "FoodCo pyrkii mullistamaan ruokailutottumuksiamme. Niiden innovatiiviset tuotteet keskittyvät kestävään kehitykseen.",
+            "it": null,
+            "sv": "FoodCo har som mål att revolutionera vårt sätt att äta. Deras innovativa produkter fokuserar på hållbarhet."
         },
-        "population": 1400000
+        "founded": 2019
+        }
     }
 }
 ```
+{% endcode %}
 
-Both headers can be combined. If you define a single language with the `X-Languages` header the localizable fields will contain only one value each and therefore they can be flattened as well. If you provide an unsupported language you will just get the master language.
+Both headers can be combined. If you define a single language with the `X-Languages` header, the localizable fields will contain only one value each and therefore the fields can be flattened as well. If you provide an unsupported language you will just get the _Master Language_.
 
-So our example from above might look like:
+So, our example from above might look like this:
 
+{% code overflow="wrap" %}
 ```javascript
 X-Languages: de, X-Flatten: true
 { 
     ...,
     "data": {
-        "name": "Copenhagen",
-        "population": 1400000
+        "description": "FoodCo aims to revolutionize the way we eat. Their innovative products focus on sustainability.",
+        "founded": 2019
     }
 }
 ```
+{% endcode %}
 
-It basically means that you can just forward the user language and Squidex will handle the rest.
+This means that you can just forward the user language and Squidex will handle the rest.
 
 {% hint style="info" %}
-The headers above are not supported by the GraphQL endpoint, because in graphql the output should be defined the query only.
+The headers above are not supported by the GraphQL endpoint, because in GraphQL the output should be defined as only the query.
 {% endhint %}
 
-### How to disable fallback languages?
+### How to Disable Fallback Languages?
 
-If you want to do the fallback handling in your API, you can disable the behavior above. Add the following header to all your to all your requests: `X-NoResolveLanguages=1`
+If you want to complete the fallback handling in your API, you can disable the behavior above. Add the following header to all your to all your requests: `X-NoResolveLanguages=1`
 
-You will get the raw data then and some fields might not have a value for a language, for example when this language is new and nobody has entered a value yet:
+You will then receive the raw data and some fields might not have a value for a language, for example when this language is new and nobody has entered a value yet:
 
+{% code overflow="wrap" %}
 ```javascript
 X-NoResolveLanguages: 1
 { 
     ...,
     "data": {
-        "name": {
-            "en": "Copenhagen",
-            "sv": "Köpenhamn",
-            "fi": "Kööpenhamina",
+        "description": {
+            "en": "FoodCo aims to revolutionize the way we eat. Their innovative products focus on sustainability.",
+            "fi": "FoodCo pyrkii mullistamaan ruokailutottumuksiamme. Niiden innovatiiviset tuotteet keskittyvät kestävään kehitykseen.",
+            "sv": "FoodCo har som mål att revolutionera vårt sätt att äta. Deras innovativa produkter fokuserar på hållbarhet."
         },
-        "population": {
-            "iv": 1400000
+        "founded": {
+            "iv": 2019
         }
     }
 }
 ```
+{% endcode %}
 
-## Why do you call it partitioning?
+## Why is this Called Partitioning?
 
-It basically means that the a value is partitioned into multiple subvalues. When we implemented the localization feature we realized that it might be very helpful to extend this feature to other type of keys, for example you could...
+This means that the a value is partitioned into multiple subvalues. When we implemented the localization feature we realized that it might be very helpful to extend this feature to other types of keys, for example you can:
 
-* ... define your prices for different currencies.
-* ... write your texts for different countries.
-* ... define customer groups.
+* Define your prices for different currencies.
+* Write your texts for different countries.
+* Define customer groups.
 
-So we implemented the localization feature with the idea in mind that we might extend it in coming versions.
+So, we implemented the localization feature with the idea in mind that we might extend it in coming versions.
