@@ -1,12 +1,12 @@
 ---
-description: Learn how to install, initialize and create classes for version 15 of the SDK.
+description: Learn How to Install, Initialize and Create Classes for Version 15 of the SDK
 ---
 
-# Version v15 and later
+# Version v15 (and Later)
 
 ## Introduction
 
-The basic concepts of the SDK are documented at the root page, linked below, because they are the same for all versions of this package.
+The basic concepts of the SDK are documented  on the root page, linked below (this is because they are the same for all versions of this package):
 
 {% content-ref url="./" %}
 [.](./)
@@ -22,19 +22,19 @@ The SDK is available on [nuget.org](https://www.nuget.org/packages/Squidex.Clien
 dotnet add package Squidex.ClientLibrary
 ```
 
-## Create the classes manually
+## Creating Classes Manually
 
 The main entry class is `ISquidexClient` which handles authentication and creates the actual client classes, where each client is used for one endpoint such as assets, schemas and so on.
 
-The client will create an access token using the client credentials and cache this token in the memory for 30 days. When the token expires it is recreated automatically. The cache is not shared between the instances of your application and not needed.
+The client creates an access token using the client credentials and caches this token in the memory for 30 days. When the token expires, it is recreated automatically. The cache is not shared between the instances of your application and it is not needed.
 
-Read more about the authentication flow and best practices below.
+Read more about the authentication flow and best practices below:
 
 {% content-ref url="../../developer-guides/api-overview/authentication.md" %}
 [authentication.md](../../developer-guides/api-overview/authentication.md)
 {% endcontent-ref %}
 
-To instantiate the client you need the _App Name_, the _Client Id_ and _Client Secret_. For self-hosted installations the _Url_ is also needed. For Squidex cloud it is `https://cloud.squidex.io`.
+To instantiate the client you need the _App Name_, the _Client Id_ and _Client Secret_. For self-hosted installations the _URL_ is also required. For Squidex Cloud it is `https://cloud.squidex.io`.
 
 ```csharp
 ISquidexClient client =
@@ -48,11 +48,11 @@ ISquidexClient client =
         });
 ```
 
-### Configure multiple apps
+### Configuring Multiple Apps
 
-The client does not support multiple apps anymore. Use one client per app.
+The client no longer supports multiple Apps anymore. Use one client per App.
 
-## Create the classes with Dependency Injection
+## Creation of Classes with Dependency Injection
 
 If you use [Dependency Injection](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0) (especially in ASP.NET Core) you can use the following package:
 
@@ -74,7 +74,7 @@ This package provides extension methods to register the Squidex Client at the se
 
 You can inject `ISquidexClient` to your other classes.
 
-The configuration uses the [Options Pattern](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-7.0), so it can also be configured the following way:
+The configuration uses the [Options Pattern](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-7.0), so it can also be configured in the following way:
 
 ```csharp
 services.AddSquidexClient()
@@ -95,9 +95,9 @@ services.Configure<SquidexServiceOptions>(
     configuration.GetSection("squidex"));
 ```
 
-### Configure multiple apps
+### Configure Multiple Apps
 
-Multiple apps can be managed with the service provider by using named registrations as shown in the snippet below.
+Multiple Apps can be managed with the service provider by using named registrations as shown in the snippet below:
 
 ```csharp
 services
@@ -138,11 +138,11 @@ class MyService
 }
 ```
 
-### Configure the HTTP pipeline
+### Configure the HTTP Pipeline
 
 The package also integrates the [HttpClientFactory](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) to implement resilient HTTP requests. For example, this can be used to enable logging or to integrate [Polly](https://thepollyproject.azurewebsites.net/), a resilience and transient-fault-handling library.
 
-You can make changes to the HTTP pipeline with the following method:
+You can implement changes to the HTTP pipeline using the following method:
 
 ```csharp
 serviceCollection.AddSquidexHttpClient()
@@ -152,9 +152,9 @@ serviceCollection.AddSquidexHttpClient()
    });
 ```
 
-## Use concrete clients
+## Use Concrete Clients
 
-The classes for concrete endpoints are properties of the client class. These instances are cached and a single instance is shared between all calls. Therefore, it is not required to store the instance in a separate variable.
+The classes for concrete endpoints are properties of the client class. These instances are cached and a single instance is shared between all calls. Therefore, storing the instance in a separate variable is not required.
 
 <pre class="language-csharp"><code class="lang-csharp">var assetsClient = client.Assets;
 
@@ -176,7 +176,7 @@ The content clients are cached internally using a thread safe dictionary.
 
 ### Using with Dependency Injection
 
-The endpoint clients are not registered in the service locator. You have to register them manually if needed. It is recommended to use the root client class, especially if you work with multiple apps. It is also not needed for performance reasons.
+The endpoint clients are not registered in the service locator. You have to register them manually if needed. It is best to use the root client class, especially if you work with multiple Apps. For performance reasons, this is not required.&#x20;
 
 ```csharp
 services.AddSquidexClient(x => x.Assets);

@@ -1,12 +1,12 @@
 ---
-description: Learn how to install, initialize and create classes for version 14 of the SDK.
+description: Learn How to Install, Initialize and Create Classes for Version 14 of the SDK
 ---
 
-# Version v14 and earlier
+# Version v14 (and Earlier)
 
 ## Introduction
 
-The basic concepts of the SDK are documented at the root page, linked below, because they are the same for all versions of this package.
+The basic concepts of the SDK are documented at the root page, linked below.  Please note, they are the same for all versions of this package.
 
 {% content-ref url="./" %}
 [.](./)
@@ -22,19 +22,19 @@ The SDK is available on [nuget.org](https://www.nuget.org/packages/Squidex.Clien
 dotnet add package Squidex.ClientLibrary
 ```
 
-## Create the classes manually
+## Manually Creating Classes
 
-The main entry class is `SquidexClientManager` which handles authentication and creates the actual client classes, where each client is used for one endpoint such as assets, schemas and so on.
+The main entry class is `SquidexClientManager`, which handles authentication and creates the actual client classes, where each client is used for one endpoint such as assets, schemas and so on.
 
-The client will create an access token using the app client credentials and cache this token in the memory for 30 days. When the token expires it is recreated automatically. The cache is not shared between the instances of your application and not needed.
+The client will create an access token using the App client credentials and cache this token in the memory for 30 days. When the token expires, it is recreated automatically. The cache is not shared between the instances of your application and not needed.
 
-Read more about the authentication flow and best practices below.
+Read more about the authentication flow and best practices below:
 
 {% content-ref url="../../developer-guides/api-overview/authentication.md" %}
 [authentication.md](../../developer-guides/api-overview/authentication.md)
 {% endcontent-ref %}
 
-To instantiate the client manager, you need the _App Name_, the _Client Id_ and _Client Secret_. For self-hosted installations the _Url_ is also needed. For Squidex cloud it is `https://cloud.squidex.io`.
+To instantiate the client manager, you need the _App Name_, the _Client Id_ and _Client Secret_. For self-hosted installations, the _URL_ is also needed. For Squidex Cloud it is `https://cloud.squidex.io`.
 
 <pre class="language-csharp"><code class="lang-csharp"><strong>ISquidexClientManager clientManager =
 </strong>    new SquidexClientManager(
@@ -47,9 +47,9 @@ To instantiate the client manager, you need the _App Name_, the _Client Id_ and 
         });
 </code></pre>
 
-### Configure multiple Apps
+### Configure Multiple Apps
 
-The SDK supports multiple apps using the normal options. When you make a request using an endpoint client you have to define the _App Name_, and the client manager picks the correct credentials. When you create a content client you can also specify the _App Name_.
+The SDK supports multiple Apps using the normal options. When you create a request using an end point client you have to define the _App Name_, and the client manager picks the correct credentials. When you create a content client, you can also specify the _App Name_.
 
 ```csharp
 ISquidexClientManager clientManager =
@@ -71,7 +71,7 @@ ISquidexClientManager clientManager =
         });
 ```
 
-## Create the classes with Dependency Injection
+## Creating Classes with Dependency Injection
 
 If you use [Dependency Injection](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0) (especially in ASP.NET Core) you can use the following package:
 
@@ -93,7 +93,7 @@ This package provides extension methods to register the client manager at the se
 
 You can inject `ISquidexClientManager` to your other classes.
 
-The configuration uses the [Options Pattern](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-7.0), so it can also be configured the following way:
+This configuration uses the [Options Pattern](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-7.0), so it can also be configured the following way:
 
 ```csharp
 services.AddSquidexClient()
@@ -114,9 +114,9 @@ services.Configure<SquidexServiceOptions>(
     configuration.GetSection("squidex"));
 ```
 
-### Configure multiple apps
+### Configure Multiple Apps
 
-You can also configure multiple apps using the normal options.
+You can also configure multiple Apps using the normal options as follows:
 
 ```csharp
 services.AddSquidexClient(options =>
@@ -140,7 +140,7 @@ services.AddSquidexClient(options =>
 
 The package also integrates the [HttpClientFactory](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) to implement resilient HTTP requests. For example, this can be used to enable logging or to integrate [Polly](https://thepollyproject.azurewebsites.net/), a resilience and transient-fault-handling library.
 
-You can make changes to the HTTP pipeline with the following method:&#x20;
+You can make changes to the HTTP pipeline using the following method:&#x20;
 
 ```csharp
 serviceCollection.AddSquidexHttpClient()
@@ -150,9 +150,9 @@ serviceCollection.AddSquidexHttpClient()
    }).Services
 ```
 
-## Use concrete clients
+## Use Concrete Clients
 
-The classes for concrete endpoints can be created with the client manager. These instances are not cached and a new instance is returned for each call. Therefore you should keep the instance as a local variable and field, and use them as often as possible.
+The classes for concrete endpoints can be created with the client manager. These instances are not cached and a new instance is returned for each call. Therefore, you should keep the instance as a local variable and field, and use them as often as possible.
 
 <pre class="language-csharp"><code class="lang-csharp">var assetsClient = client.CreateAssetsClient();
 
@@ -162,7 +162,7 @@ The classes for concrete endpoints can be created with the client manager. These
 </strong><strong>var assets2 = await client.Assets.GetAssetsAsync();
 </strong></code></pre>
 
-The content clients are also not cached. They can be created with the following method:
+The content clients are also not cached. They can be created using the following method:
 
 ```csharp
 var blog1 = client.CreateContentsClient<BlogPost, BlogPostData>("blog1");
@@ -171,9 +171,9 @@ var blog1 = client.CreateContentsClient<BlogPost, BlogPostData>("blog1");
 ReferenceEquals(blog1, blog2) == false;
 ```
 
-### Using with Dependency Injection
+### Using Dependency Injection
 
-The endpoint clients are registered in the service locator. Therefore you can also inject endpoint classes to your service..class MyService
+The endpoint clients are registered in the service locator. Therefore, you can also inject endpoint classes to your service class `MyService`.
 
 ```csharp
 {
@@ -183,7 +183,7 @@ The endpoint clients are registered in the service locator. Therefore you can al
 }
 ```
 
-The content clients need parameters to be created. Therefore you have to register them manually.
+The content clients need parameters to be created. Therefore, you have to register them manually.
 
 ```csharp
 services.AddSquidexClient(

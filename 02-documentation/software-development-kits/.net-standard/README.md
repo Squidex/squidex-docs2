@@ -8,17 +8,17 @@ description: >-
 
 ## Introduction
 
-The SDK is mostly generated from the OpenAPI specification. You can read the API docs at[ https://cloud.squidex.io/api/docs](https://cloud.squidex.io/api/docs).
+The SDK is mostly generated from the OpenAPI specification. You can read the API documentation here:[ https://cloud.squidex.io/api/docs](https://cloud.squidex.io/api/docs).
 
-This means that the API is fully covered, including all endpoints used by the frontend. You can also use the SDK to create and configure apps, schemas and rules.
+This means that the API is fully covered, including all endpoints used by the frontend. You can also use the SDK to create and configure Apps, schemas and rules.
 
-The downside is that some of the methods are not as user friendly as they could be. Most methods have the app name as a required parameter, which is redundant because the SDK is designed to mainly connect to a single app anyway and has the app name as a global configuration option.
+The downside is that some of the methods are not as user-friendly as they could be. Most methods have the App name as a required parameter, which is redundant because the SDK is designed to mainly connect to a single App and has the App name as a global configuration option.
 
-This has been changed with **v15.0.0** and the developer experience has been improved. Therefore this document includes the difference between version 15 and the previous versions.&#x20;
+This has been changed with **v15.0.0,** and the developer experience has been improved. Therefore, this document includes the difference between version 15 and previous versions.&#x20;
 
-## Generating content classes
+## Generating Content Classes
 
-Because of localization, the OpenAPI specification and the generated classes are very difficult to use, especially if your fields are not localized. Therefore we recommend to create the mapping classes for your schemas manually. Of course you can also use OpenAPI to generate them.
+Because of localization, the OpenAPI specification and the generated classes are very difficult to use, especially if your fields are not localized. Therefore, it is best to manually create the mapping classes for your schemas. Of course, you can also use OpenAPI to generate them.
 
 Our recommendation is to use [NSwag](https://github.com/RicoSuter/NSwag). The code generator is also available as a class library to automate the code generation in your CI pipeline.
 
@@ -38,7 +38,7 @@ dotnet add package Squidex.ClientLibrary.ServiceExtensions
 
 ## Instantiate the SDK
 
-As described above, the SDK has been improved with version 15. Therefore it is recommended to read one of the following pages depending on the installed version of the package.
+As described above, the SDK has been improved with version 15. Therefore, it is best to read one of the following pages, depending on the installed version of the package.
 
 {% content-ref url="version-v15-and-later.md" %}
 [version-v15-and-later.md](version-v15-and-later.md)
@@ -48,9 +48,9 @@ As described above, the SDK has been improved with version 15. Therefore it is r
 [version-v14-and-earlier.md](version-v14-and-earlier.md)
 {% endcontent-ref %}
 
-### Get the code from the Management UI
+### Getting the Code from the Management UI
 
-You can get the initialization code directly from the Management UI. Follow the steps below to do so.
+You can get the initialization code directly from the Management UI. To do so, follow the steps below:
 
 * (1) Go to **Settings**.
 * (2) Go to **Clients**.
@@ -58,7 +58,7 @@ You can get the initialization code directly from the Management UI. Follow the 
 
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Client settings for your app</p></figcaption></figure>
 
-Next click on the third link titled **Connect to your App with SDK** to get instructions.
+Next, click on the third link titled **Connect to your App with SDK** to view instructions.
 
 <figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>The Connect wizard for you app client</p></figcaption></figure>
 
@@ -66,13 +66,13 @@ On the next screen, copy and paste the sample code applicable for your version t
 
 <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>The sample code for the client manager</p></figcaption></figure>
 
-## How to work with content items?
+## How to Work with Content Items?
 
-Working with contents requires more work.
+Working with content requires more work!
 
-### Why no code generation?
+### Why is there no Code Generation?
 
-The reason is, the JSON structure of the content data. Lets assume we have a `blog-post` schema with two fields: a localized `title` field and a normal (invariant) `slug` field. The resulting content response would look like the following example:
+The reason there's no code generation is because of the JSON structure of the content data. Let's assume we have a `blog-post` schema with two fields: a localized `title` field and a normal (invariant) `slug` field. The resulting content response would look like the following example:
 
 ```javascript
 {
@@ -86,9 +86,9 @@ The reason is, the JSON structure of the content data. Lets assume we have a `bl
 }
 ```
 
-When you map a structure to a C# class every JSON object is mapped to either a dictionary or a class.
+When you map a structure to a C# class, every JSON object is mapped to either a dictionary or a class.
 
-A code generator would then create the following class structure and would convert all JSON property names to a Pascal-Case naming to align the naming with the C# conventions. So whenever you work with invariant fields you have to access the `Iv` property to get the value.
+A code generator would then create the following class structure and would convert all JSON property names to a _PascalCase_ naming to align the naming with the C# conventions. So, whenever you work with invariant fields you have to access the `Iv` property to get the value.
 
 ```csharp
 public class BlogPostTitle {
@@ -107,11 +107,11 @@ public class BlogPostData {
 }
 ```
 
-This must be repeated for each field and would create a lot of code. Therefore it is better to create the content classes manually and use custom converters to let the Newtonsoft Json serializer deal with that.
+This must be repeated for each field and would create a lot of code. Therefore, it is better to create the content classes manually and use custom converters to let the _Newtonsoft JSON serialiser_ deal with this.
 
-### 1. Create your class model
+### 1. Create Your Class Model
 
-For each schema two classes are needed.
+For each schema two classes are needed:
 
 The data object is the structure of your content data.
 
@@ -145,14 +145,14 @@ public sealed class BlogPost : Content<BlogPostData>
 ```
 
 {% hint style="info" %}
-Please note that the SDK still uses Newtonsoft.JSON and not System.Text.Json. Some types, like JsonConverterAttribute exists in both namespaces, so you have to ensure you add the using to the correct namespace. Otherwise you will get serialization exceptions, because the attributes are not considered.
+Please note that the SDK still uses `Newtonsoft.JSON` and not `System.Text.JSON`. Some types, such as `JSONConverterAttribute` exist in both namespaces, so you have to ensure you add the user to the correct namespace. Otherwise you will get serialization exceptions, because the attributes have not been considered.
 {% endhint %}
 
-#### How to map fields to .NET types
+#### How to Map Fields to .NET Types
 
-It depends on your field type i.e. which .NET type you use for a field.
+This depends on your field type i.e. which .NET type you use for a field.
 
-The following is our recommendation.
+The following is our recommendation:
 
 | Field Type  | .NET Type                                         |
 | ----------- | ------------------------------------------------- |
@@ -167,9 +167,9 @@ The following is our recommendation.
 | Tags        | `System.Collections.Generic.List<Sstring>`        |
 | Array       | A custom class.                                   |
 
-#### Geolocation classes
+#### Geolocation Classes
 
-At the moment the SDK does not provide a ready to use structure for geolocations, but you can use the following class:
+At the moment, the SDK does not provide a ready-to-use structure for geolocations, but you can use the following class:
 
 ```csharp
 public class Geolocation 
@@ -181,7 +181,7 @@ public class Geolocation
 
 #### Arrays
 
-When you have an array field you need a class for your array items, for example:
+When you have an array field, you need a class for your array items, for example:
 
 ```csharp
 using Newtonsoft.Json;
@@ -212,9 +212,9 @@ public sealed class BlogPostData
 Please note that the `InvariantConverter`is only needed for root fields.
 {% endhint %}
 
-### 2. Instantiate the client
+### 2. Instantiate the Client
 
-#### Version 15 and above
+#### Version 15 and Above
 
 Use the schema name and the created types as arguments.
 
@@ -225,7 +225,7 @@ var blogPostsClient =
 
 The client is cached and therefore you can call this method as often as you want.
 
-#### Version 14 and below
+#### Version 14 and Below
 
 Use the schema name and the created types as arguments.
 
@@ -236,23 +236,23 @@ var blogPostsClient =
 
 Do not recreate the client for every request as it is not cached in the client manager.
 
-### 3. Use the client
+### 3. Use the Client
 
 Using the client is very easy, for example:
 
-#### Get a content item by id
+#### Get a Content Item by ID
 
 ```csharp
 var post = await blogPostsClient.GetAsync("10cb16da-60d2-4ff7-bd2c-47d724a4798c");
 ```
 
-#### Get a content item by id and version
+#### Get a Content Item by ID and Version
 
 ```csharp
 var post = await blogPostsClient.GetAsync("10cb16da-60d2-4ff7-bd2c-47d724a4798c", 4);
 ```
 
-#### Create a new content item
+#### Create a New Content Item
 
 ```csharp
 var data = new BlogPostData
@@ -268,7 +268,7 @@ var data = new BlogPostData
 await blogPostsClient.CreateAsync(data);
 ```
 
-#### Update a content item
+#### Update a Content Item
 
 ```csharp
 var data = new BlogPostData
@@ -284,7 +284,7 @@ var data = new BlogPostData
 await blogPostsClient.UpdateAsync("10cb16da-60d2-4ff7-bd2c-47d724a4798c", data);
 ```
 
-#### Query items by filter
+#### Query Items by Filter
 
 ```csharp
 var posts = await blogPostsClient.GetAsync(new ContentQuery
@@ -293,7 +293,7 @@ var posts = await blogPostsClient.GetAsync(new ContentQuery
 });
 ```
 
-## More samples
+## More Samples
 
 We also use the .NET client for API tests. They do not cover all endpoints yet, but are a helpful reference.
 

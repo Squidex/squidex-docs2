@@ -1,6 +1,6 @@
 ---
 description: >-
-  At the moment we only actively maintain the Software Development Kit (SDK) for
+  Currently, We Only Actively Maintain the Software Development Kit (SDK) for
   .NET Standard.
 ---
 
