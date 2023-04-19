@@ -1,70 +1,71 @@
 ---
-description: A short tutorial how to use Squidex with Postman.
+description: A Short Tutorial On How to Use Squidex with Postman.
 ---
 
 # Postman
 
-This documentation is based on the _FoodCrunch_ use case. Please open the below link side by side to this page to understand some of the examples.
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
 
 {% content-ref url="../../introduction-and-use-case.md" %}
 [introduction-and-use-case.md](../../introduction-and-use-case.md)
 {% endcontent-ref %}
 
-## What is Postman
+This is a short tutorial detailing how to create first requests using Postman.
 
-Postman is a free collaboration platform for API development and a good way to get started. You can download Postman from the link below.
+## What is Postman?
 
-[https://www.postman.com/downloads/](https://www.postman.com/downloads/)
+Postman is a free collaboration platform for API development and a good way to get started.
 
-## Using Postman
+{% embed url="https://www.postman.com/downloads/" %}
+
+## Let's Get Started
 
 ### Pre-requisites
 
 * Postman
-* A Squidex app
+* A Squidex App
 
-If you do not have an app, you can refer one of the quick start guides to quickly create an app that has a pre-defined schema and sample content.
+If you do not yet have an App, you can refer to one of the quick start guides to create an App that has a pre-defined schema and sample content.
 
 {% content-ref url="broken-reference" %}
 [Broken link](broken-reference)
 {% endcontent-ref %}
 
-Alternatively, if you wish to create an app from scratch and learn how to create a schema and add content then the following link is a good place to start.\
-
+Alternatively, if you wish to create an app from scratch and learn how to create a schema and add content then the following link is a good place to start.
 
 {% content-ref url="../tutorials/building-a-nextjs-blog-with-squidex.md" %}
 [building-a-nextjs-blog-with-squidex.md](../tutorials/building-a-nextjs-blog-with-squidex.md)
 {% endcontent-ref %}
 
-### 1. Generate a token for the client
+### 1. Generate a Token for the Client
 
-A client represents an application like a mobile app or server application.
+A client represents an application such as a mobile App or server application.
 
-We have implemented the [OpenID client credentials flow](https://docs.axway.com/u/documentation/api\_gateway/7.5.3/webhelp\_portal\_oauth/Content/OAuthGuideTopics/oauth\_flows\_client\_credentials.). It is a secure and open standard to protect your APIs and to provide authentication for clients (aka applications) and users. It is also used by big players like Microsoft, GitHub and Google. When you login to applications using third party logins you have already used it.
+We have implemented the [OpenID client credentials flow](https://docs.axway.com/u/documentation/api\_gateway/7.5.3/webhelp\_portal\_oauth/Content/OAuthGuideTopics/oauth\_flows\_client\_credentials.). It is a secure and open standard to protect your APIs and to provide authentication for clients (aka applications) and users. It is also used by big brands such as Microsoft, GitHub and Google. You've already used it in the past, when you've logged into applications using third party logins.
 
 {% content-ref url="authentication.md" %}
 [authentication.md](authentication.md)
 {% endcontent-ref %}
 
-By default, a client called _default_ is generated for your Squidex app. If this is not the case you are probably running an older version of Squidex. In that case you have to create a new client with a name of your choice.
+By default, a _default_ client is generated for your App. If this is not the case, you are probably running an older version of Squidex. If this is the case, you have to create a new client with a name of your choice.
 
-To acquire a token perform the following steps:
+To acquire a token you should perform the following steps:
 
-Start by navigating to the **Settings** (1) section of your App and then select **Clients** (2). Click the **Connect** (3) button.
+Go to the **Settings** (1) section of your App, select **Clients** (2) under _Security_ and then click the **Connect** (3) button.
 
 <figure><img src="../../../.gitbook/assets/2023-04-10_12-43.png" alt=""><figcaption><p>Acquire a token - 1</p></figcaption></figure>
 
-In the pop-up dialog, we provide explanations on how to connect to your app. For this example we will connect manually with Postman. Click the first option i.e. **Connect manually** (4).
+Next, we provide explanations on how to connect to your App. For now, we must connect manually with Postman. Click the first option i.e. **Connect manually** (4).
 
 <figure><img src="../../../.gitbook/assets/2023-04-10_12-44.png" alt=""><figcaption><p>Acquire a token - 2</p></figcaption></figure>
 
-In the next step you see the token that is generated and how to use it. Copy the token by clicking the **copy-button** (5).
+In the next step, you see the token that is generated for you and how to use it. Just copy the token by clicking the **copy-button** (5) as shown in the screenshot below:
 
 <figure><img src="../../../.gitbook/assets/2023-04-10_12-45.png" alt=""><figcaption><p>Acquire a token - 3</p></figcaption></figure>
 
 This token is valid for 30 days, but can be renewed as often as you want.
 
-You can also access a token with a HTTP request using the client id and secret:
+You can also access the token with an HTTP request using the _Client ID_ and _Client Secret_ as below:
 
 {% code overflow="wrap" %}
 ```bash
@@ -77,37 +78,37 @@ curl \
 
 ### 2. Download the OpenAPI Specification
 
-Squidex creates an OpenAPI documentation for your App. We will download and import it to Postman. To do so:
+Squidex creates an OpenAPI documentation for your App. We are going to download it in order to import it to Postman:
 
-Go to the **API** (1) section of your App. Click the **Content API** (2) link to open the API docs in a new tab.
+Go to the **API** (1) section of your App and click the **Content API** (2) link to open the API docs in a new tab.
 
 <figure><img src="../../../.gitbook/assets/2023-04-10_13-23.png" alt=""><figcaption><p>Content API</p></figcaption></figure>
 
-The documentation shows all the endpoints available for your content. **Download** (3) the OpenAPI specification file and save it in your file system to later import it with Postman. The file is called `swagger.json`.
+The documentation shows all the end points that are available for your content. **Download** (3) the OpenAPI specification file and save it in your file system to import it with Postman. The file is called `swagger.json`.
 
 <figure><img src="../../../.gitbook/assets/2023-04-10_13-26.png" alt=""><figcaption><p>Download OpenAPI specification</p></figcaption></figure>
 
 ### 3. Import the OpenAPI into Postman
 
-Launch Postman. To import the OpenAPI file to Postman, click **Import** (1) in your Workspace (or alternatively click File and then Import).&#x20;
+Next, you need to import the OpenAPI file to Postman. To do this, launch Postman and click the **Import** (1) button in your Workspace (or alternatively click File and then Import).&#x20;
 
 <figure><img src="../../../.gitbook/assets/2023-04-10_13-42.png" alt=""><figcaption><p>Import OpenAPI file - 1 </p></figcaption></figure>
 
-Then, select the downloaded **file** (2) that you have saved before.
+Next, select the downloaded **file** (2) that you have saved before.
 
 <figure><img src="../../../.gitbook/assets/2023-04-10_13-48.png" alt=""><figcaption><p>Import OpenAPI file - 2</p></figcaption></figure>
 
-Select **Postman Collection** (3) (selected by default). Click **Import** (4).
+Select **Postman Collection** (3) (this should be selected by default) and click **Import** (4).
 
 <figure><img src="../../../.gitbook/assets/2023-04-10_13-50.png" alt=""><figcaption><p>Import OpenAPI file - 3</p></figcaption></figure>
 
 You should be able to see the API now.&#x20;
 
-### 4. Make a request using Postman
+### 4. Make a Request using Postman
 
 We are now ready to make requests using Postman. To make a request:&#x20;
 
-1. Go to **Collections** (5).
+1. Go to the **Collections** (5).
 2. Select the ContentAPI (6) for your App, its called _Squidex API_ in this example
 3. Select the endpoints for your **schema** (7). In our example there are two schemas and the _magazine_ schema is selected.
 4. Next, select the **query** endpoint (8) to query all content items.
@@ -115,7 +116,7 @@ We are now ready to make requests using Postman. To make a request:&#x20;
 
 <figure><img src="../../../.gitbook/assets/2023-04-10_14-09.png" alt=""><figcaption><p>GET request using Postman - 1</p></figcaption></figure>
 
-Finally, the last step is to enter the access token. To do so:
+The last step is to enter you access token:
 
 1. Click the **Authorization** (10) tab.
 2. Ensure **Type** (11) is `OAuth 2.0`.
@@ -126,4 +127,4 @@ Finally, the last step is to enter the access token. To do so:
 
 You should see a response body which is the result of the GET request.
 
-You have learnt how to retrieve the content items.
+You have just learnt how to retrieve the content items using Postman!

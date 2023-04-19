@@ -1,10 +1,10 @@
 ---
-description: How to query content with filters, sorting and pagination.
+description: How to Query Content with Filters, Sorting and Pagination
 ---
 
 # Queries
 
-This documentation is based on the _FoodCrunch_ use case. Please open the below link side by side to this page to understand some of the examples.
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
 
 {% content-ref url="../../introduction-and-use-case.md" %}
 [introduction-and-use-case.md](../../introduction-and-use-case.md)
@@ -12,10 +12,10 @@ This documentation is based on the _FoodCrunch_ use case. Please open the below 
 
 ## Query Options
 
-Squidex has a query engine that allows different query languages. As of now the following query languages are available:
+Squidex has a query engine that allows different query languages. So far, the following query languages are available:
 
-1. **OData queries** which is the first system that has been implemented using an existing solution that was easy to adapt and they are easier to write in URLs.
-2. **JSON queries** are newer and are mainly used in the UI, because they are faster and easier to parse. It is recommended to use JSON queries in your client.
+1. **OData Queries** - this is the first system implemented using an existing solution that was easy to adapt, these are easier to write in URLs.
+2. **JSON Queries** are newer and are mainly used for the UI, because they are faster and easier to determine. It is best to use JSON- queries for your client.
 
 Both query languages support the same features:
 
@@ -26,39 +26,39 @@ Both query languages support the same features:
 
 ### OData Queries
 
-OData is an open [protocol](https://en.wikipedia.org/wiki/Protocol\_\(computing\)) which allows the creation and consumption of queryable and interoperable APIs in a simple and standardized way. It was designed and developed by Microsoft and provides ready to use solutions. We have decided to use this query syntax because we wanted to leverage an existing system and parser, and found it easy to adapt to our needs.
+OData is an open [protocol](https://en.wikipedia.org/wiki/Protocol\_\(computing\)) which allows the creation and consumption of queryable and inoperable APIs in a simple, standardized way. It was designed and developed by Microsoft and provides ready-to use-solutions. We have decided to use the Query syntax because we wanted to leverage an existing system and parser and we find it easy to adapt to our needs.
 
 The queries are provided over the URL and have a special syntax. OData query options start with a dollar character, e.g. `$filter`.
 
-An example of it is:
+Here's an example:
 
 ```
 https://.../api/content/the-foodcrunch-mag/startups?$top=30&$skip=10&$search=delivery
 ```
 
 {% hint style="info" %}
-Even though we use OData, we do not support the full capabilities and there are no plans to do so. Some features like select, expand or formatting can be better handled with GraphQL.
+Even though we use OData, we do not support the full capabilities and there are no plans to do so in future. Some features like select, expand or formatting can be handled better with GraphQL.
 {% endhint %}
 
-The full OData convention can be read at the link below.
+The full OData convention can be read at:
 
 {% embed url="https://www.odata.org/documentation/odata-version-2-0/uri-conventions/" %}
 
 ### JSON Queries
 
-JSON queries are passed in as **URL encoded JSON objects** with the `q` query parameter. They are much harder to read for humans but easier and faster to parse. It was introduced when a new query editor was implemented for the Management UI.
+JSON queries are passed in as **URL encoded JSON objects** with the `q` query parameter. They are much harder to read for humans, but easier and faster to parse. This was introduced when a new query editor was implemented for the Management UI.
 
-An example of the same is:
+Here's an example:
 
 ```
 https://.../api/content/the-foodcrunch-mag/startups?q=%7B%22fullText%22%3A%22website%22%2C%22take%22%3A10%2C%22sort%22%3A%5B%5D%2C%22filter%22%3A%7B%22and%22%3A%5B%5D%7D%7
 ```
 
-This method is not legible. Therefore, the examples in this article will show normal JSON examples.
+As you can see it is horrible to read, therefore we will just show normal JSON examples from now on.
 
-## Content structure
+## Content Structure
 
-Let's demonstrate the API concepts based on our _FoodCrunch_ app use case. The app has two schemas, we will consider the `startups` schema which contains a database of startups in the food space.
+Let's demonstrate the API concepts based on our _FoodCrunch_ App use case. The app has two schemas, we will consider the `startups` schema which contains a database of startups in the food space.
 
 The schema has the following fields:
 
@@ -67,7 +67,7 @@ The schema has the following fields:
 | `slug`        | String      | No          | A single slug for Google friendly URLs.     |
 | `name`        | String      | No          | The name of the startup.                    |
 | `description` | String      | Yes         | The description of the startup.             |
-| stage         | String      | No          | Current startup stage                       |
+| `stage`       | String      | No          | Current startup stage                       |
 | `funding`     | Number      | No          | The total funding in Millions (USD).        |
 | `founded`     | Number      | No          | Year when the startup was founded.          |
 | `founders`    | Array       | No          | The founders as list of name and position.  |
@@ -76,7 +76,7 @@ The schema has the following fields:
 | `metadata`    | JSON        | No          | Unstructured metadata.                      |
 | `givenUp`     | Boolean     | No          | Indicates whether the startup has given up. |
 
-Then the content has the following structure in the API:
+Then, your content will have the following structure in the API:
 
 {% code overflow="wrap" %}
 ```javascript
@@ -88,37 +88,43 @@ Then the content has the following structure in the API:
     "lastModifiedBy": ".....",
     "data": {
         "slug": {
-            "iv": "upside-foods"
+            "iv": "foodco"
         },
         "name": {
-            "iv": "UPSIDE Foods"
+            "iv": "FoodCo"
         },
         "description": {
-            "en": "Delicious meat grown directly from animal cells.",
-            "de": "Köstliches Fleisch, das direkt aus tierischen Zellen gewachsen ist."
+            "en": "FoodCo aims to revolutionize the way we eat. Their innovative products focus on sustainability.",
+            "de": "FoodCo zielt darauf ab, die Art und Weise, wie wir essen, zu revolutionieren. Ihre innovativen Produkte setzen auf Nachhaltigkeit.",
+            "it": null,
+            "sv": "FoodCo har som mål att revolutionera vårt sätt att äta. Deras innovativa produkter fokuserar på hållbarhet."
         },
         "stage": {
-            "iv": "Series C"
+            "iv": "Early"
         },
         "founded": {
-            "iv": 2015
+            "iv": 2019
         },
         "funding": {
-            "iv": 598
+            "iv": 234
         },
         "founders": {
-            "iv": []
+            "iv": [
+                {
+                    "name": "John Doe",
+                    "position": null
+                }
+            ]
         },
         "tags": {
             "iv": [
-                "cultured meat",
-                "cell-based meat"
+                "sustainability"
             ]
         },
         "location": {
             "iv": {
-                "latitude": 37.8708393,
-                "longitude": -122.272863
+                "latitude": 32.0237703,
+                "longitude": -92.0390231
             }
         },
         "metadata": {
@@ -132,9 +138,9 @@ Then the content has the following structure in the API:
 ```
 {% endcode %}
 
-Please note that there is one object for each field, because each field has a partitioning. It defines how the field is structured. The most simple partitioning is the invariant partition, which only allows a single key `iv`.
+Please note, that there is one object for each field because each field has a partitioning. This defines how the field is structured. The most simple partitioning is the invariant partition, which only allows a single key `iv`.
 
-If the field is `localizable`, we use the languages codes from the languages that you define in your app settings, as keys.
+If the field is `localizable`, use the languages codes from the languages that you defined in your App settings as keys.
 
 Read more about localization here:
 
@@ -142,34 +148,41 @@ Read more about localization here:
 [localization.md](../../concepts/localization.md)
 {% endcontent-ref %}
 
-### How to identity fields
+### How to Identity Fields
 
-To identify a field of our content item we use the full path to this field, separated by hashes, for example
+To identify the field of our content item, use the full path to this field, separated by hashes.&#x20;
+
+For example:
 
 * `id`
 * `createdBy`
 * `data/name/iv`
 * `data/description/en`
+* `data/description/de`
 * `data/founded/iv`
 
-### Special cases
+### Special Cases
 
-#### Dot Notation in JSON queries
+#### Dot Notation in JSON Queries
 
-When you use JSON queries, you can also use the dot-notation to have a syntax that is closer to Javascript and other programming languages. It is recommended to use this notation. For example:
+When you use JSON queries, you can also use the dot-notation to create a syntax that is closer to Javascript and other programming languages. It is best to use this notation.&#x20;
+
+For example:
 
 * `data.name.iv`
 
 #### OData Restrictions
 
-In OData dash characters (-) are not allowed. Therefore you have to replace them with underscore in your queries. For example, if there was a field called `acquired-by` we would use:
+In OData dash characters (-) are not allowed. Therefore, you should replace them with underscore in your queries.&#x20;
+
+For example, if there was a field called `acquired-by` we would use:
 
 * `data/acquired_by/iv`in OData
 * `data.acquired-by.iv`in JSON
 
 ## Query Features
 
-### Limiting the number of results
+### Limiting the Number of Results
 
 {% hint style="info" %}
 The examples here used the `startups` schema of the _FoodCrunch_ use case.
@@ -194,12 +207,12 @@ https://.../api/content/the-foodcrunch-mag/startups?$top=30
 {% endtabs %}
 
 {% hint style="info" %}
-Because of a stupid error the parameter is called **top** in OData and **take** in JSON.
+Because of an error the parameter is called **top** in OData and **take** in JSON.
 {% endhint %}
 
-### Skipping items in the result set
+### Skipping Items in the Result Set
 
-The `skip` query option requests the number of items in the queried collection that are to be skipped and not included in the result. Use it together with `top` / `take` to read the all your data page by page.
+The `skip` query option requests the number of items in the queried collection to be skipped and not included in the result. Use this together with `top` / `take` to read all your data page by page.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -236,9 +249,9 @@ https://.../api/content/the-foodcrunch-mag/startups?$skip=20&$top=30
 {% endtab %}
 {% endtabs %}
 
-### Get random items
+### Get Random Items
 
-You can get random items with the `random`option:
+You can get random items using the `random`option:
 
 {% tabs %}
 {% tab title="OData" %}
@@ -256,7 +269,9 @@ https://.../api/content/the-foodcrunch-mag/startups?$random=5
 {% endtab %}
 {% endtabs %}
 
-The random operator picks elements from the result set, not from the entire database, for example this query returns 5 random items from the first 200 elements with the default order:
+The random operator picks elements from the result set (not from the entire database).&#x20;
+
+For example, this query returns 5 random items from the first 200 elements with the default order:
 
 {% tabs %}
 {% tab title="OData" %}
@@ -275,9 +290,9 @@ https://.../api/content/the-foodcrunch-mag/startups?$random=5&$top=200
 {% endtab %}
 {% endtabs %}
 
-### Full text searches
+### Full Text Searches
 
-The search query option allows clients to request entities matching a free-text search expression. We add the data of all fields for all keys to a single field in the database and use this combined field to implement the full text search.
+The `search` query option allows clients to request entities matching a free-text search expression. We add the data of all fields for all keys to a single field in the database and use this combined field to implement the full text search.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -296,14 +311,14 @@ https://.../api/content/the-foodcrunch-mag/startups?$search=delivery
 {% endtabs %}
 
 {% hint style="info" %}
-You can either use **search or filter** but not both.
+You can either use **search** or **filter** but not both.
 {% endhint %}
 
 ### Filters
 
-The filter system query option allows clients to filter a collection of resources that are addressed by a request URL.
+The `filter` system query option allows clients to filter a collection of resources that are addressed by a request URL.
 
-E.g. find all startups in the _Seed_ stage.
+For example, find all the startups in the _Seed_ stage.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -325,7 +340,7 @@ https://.../api/content/the-foodcrunch-mag/startups?$filter=data/stage/iv eq See
 {% endtab %}
 {% endtabs %}
 
-E.g. find all startups with a funding of more than a 100 million.
+For example, find all the startups with a funding of more than 100 million USD.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -347,7 +362,7 @@ https://.../api/content/the-foodcrunch-mag/startups?$filter=data/funding/iv gt 1
 {% endtab %}
 {% endtabs %}
 
-E.g. find all startups with a funding of less than 10 million.
+For example, find all the startups with a funding of less than 10 million USD.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -371,7 +386,7 @@ https://.../api/content/the-foodcrunch-mag/startups?$filter=data/funding/iv lt 1
 
 #### Array
 
-If you have fields that have array of values, for example references that are represented as an array of content ids, you can still the equal operator. The API will return a content item if at least one item in the array is equal to the passed in value.
+If you have fields that have an array of values, for example, references that are represented as an array of content IDs, you can still use the equal operator. The API will return a content item if at least one item in the array is equal to the passed in value.
 
 An example of filtering by tags:
 
@@ -399,7 +414,7 @@ https://.../api/content/the-foodcrunch-mag/startups?$filter=data/tags/iv eq 'Hom
 You can either use **search** or **filter** but not both.
 {% endhint %}
 
-#### More examples
+#### More Examples
 
 * Example demonstrating an array (components, array fields, references, assets, strings) cannot be empty:
 
@@ -458,7 +473,7 @@ $filter=created in ('2023-01-19T12:00:00Z', '2022-01-19T12:00:00Z')
 {% endtab %}
 {% endtabs %}
 
-* Example demonstrating an Id must match value:
+* Example demonstrating an ID must match value:
 
 {% tabs %}
 {% tab title="OData" %}
@@ -652,7 +667,7 @@ $filter=matchs(data/name/iv, '/a-z/i') // Case insensitive
 
 * Examples of using operators with false / negation\
   In OData these operators can also be compared with **false**. \
-  In JSON queries you have to use a **not** operation to negate your filter expression.
+  In JSON queries you must use a **not** operation to negate your filter expression.
 
 {% tabs %}
 {% tab title="OData" %}
@@ -850,9 +865,9 @@ not endswith(data/name/iv, 'Food')
 
 ### Sorting
 
-The `orderby` or sorting query option allows clients to request resources in a particular order.
+The `orderby` or `sorting` query option allows clients to request resources in a particular order.
 
-E.g. find the top 20 most funded startups:
+For example, find the top 20 most funded startups:
 
 {% tabs %}
 {% tab title="OData" %}
@@ -899,19 +914,19 @@ https://.../api/content/the-foodcrunch-mag/startups?$orderby=data/funding/iv des
 {% endtab %}
 {% endtabs %}
 
-## Published items
+## Published Items
 
-By default the content API returns only published content. You can use the `X-Unpublished` header to also return draft content.
+By default, the content API only returns published content. You can also use the `X-Unpublished` header to return draft content.
 
 ### Versioning
 
-The API tracks the version of each content element and provides this information in the `ETag` content header if you make an update (POST, PUT, PATCH) or if you request a single resource. If you request multiple resources, the version is provided as a field to each entry.
+The API tracks the version of each content element and provides this information in the `ETag` content header if you create an update (POST, PUT, PATCH) or if you request a single resource. If you request multiple resources, the version is provided as a field to each entry.
 
 You can use this header for two use cases:
 
-1. When you make an update you get the new version. This information can be used to find out if your change has already been written to the read store when you receive the same resource after your update.
-2. When you make an update you can use the `If-Match` header to pass the expected version to the API. If the version does not match to the version in the database another user or client has changed the same resource. Then the `412 (Precondition Failed)` status code is returned. You should provide this information to the user and ask if the user wants to reload the data or if the resource should be overwritten (just do not use the `If-Match` header for the second request).
+1. When you create an update, you get the new version. This information can be used to find out if your change has already been written to the read store when you receive the same resource following your update.
+2. When you create an update, you can use the `If-Match` header to pass the expected version to the API. If the version does not match the version in the database, this means that another user or client has changed the same resource. In which case, the `412 (Precondition Failed)` status code is returned. You should provide this information to the user and ask if the user wants to reload the data or if the resource should be overwritten (but don't use the `If-Match` header for the second request).
 
-Read more about the If-Match header at:
+Read more about the `If-Match` header at:
 
 {% embed url="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Match" %}
