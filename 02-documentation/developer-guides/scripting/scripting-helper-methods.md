@@ -1,13 +1,17 @@
+---
+description: Helper Methods for Scripting
+---
+
 # Scripting Helper Methods
 
-The following helper methods that are not part of the ES5 Javascript standard, but very helpful for a lot of use cases.
+The following helper methods are not part of the ES5 JavaScript standard, but they are very helpful for a lot of use cases.
 
 | Name                       | Description                                                                                                                                        |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `html2Text(text)`          | Converts a HTML string to plain text.                                                                                                              |
 | `markdown2Text(text)`      | Converts a markdown string to plain text.                                                                                                          |
 | `formatDate(date,pattern)` | Formats a JavaScript date object using the specified pattern.                                                                                      |
-| `formatTime(date,pattern)` | Same as formatDate.                                                                                                                                |
+| `formatTime(date,pattern)` | Same as `formatDate`.                                                                                                                              |
 | `wordCount(text)`          | Counts the number of words in a text. Useful in combination with `html2Text` or `markdown2Text`.                                                   |
 | `characterCount(text)`     | Counts the number of characters in a text. Useful in combination with `html2Text` or `markdown2Text`.                                              |
 | `toCamelCase(text)`        | Converts a text to camelCase.                                                                                                                      |
