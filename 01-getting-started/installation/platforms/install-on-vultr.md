@@ -72,7 +72,7 @@ The server will pull all images now and start them in the right order. Furthermo
 
 Squidex is ready for use. If you visit your installation under [https://mydomain.com](https://mydomain.com) you will see a simple setup guide where you can create the initial admin user. If you have configured an external authentication provider (for example Github or Google) you can just login and as the first user you will get admin permissions automatically.
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Setup guide</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Setup guide</p></figcaption></figure>
 
 ## Configuring Object Storage
 
