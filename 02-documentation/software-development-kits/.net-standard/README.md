@@ -56,7 +56,7 @@ You can get the initialization code directly from the Management UI. To do so, f
 * (2) Go to **Clients**.
 * (3) Click the **Connect** button.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Client settings for your app</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Client settings for your app</p></figcaption></figure>
 
 Next, click on the third link titled **Connect to your App with SDK** to view instructions.
 
@@ -64,7 +64,7 @@ Next, click on the third link titled **Connect to your App with SDK** to view in
 
 On the next screen, copy and paste the sample code applicable for your version to the source file.
 
-<figure><img src="../../../.gitbook/assets/image (1) (5).png" alt=""><figcaption><p>The sample code for the client manager</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>The sample code for the client manager</p></figcaption></figure>
 
 ## How to Work with Content Items?
 

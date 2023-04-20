@@ -1,24 +1,24 @@
 ---
-description: How to format rules with Javascript expressions
+description: How to Format Rules with JavaScript Expressions
 ---
 
 # Script
 
-You can use Javascript expressions using the following syntax:
+JavaScript expressions can be used with the following syntax:
 
 ```
 Script(<YOUR_SCRIPT>)
 ```
 
 {% hint style="info" %}
-In newer versions of Squidex the user interface has been improved and custom input fields have been introduced which let you select the syntax and add the necessary prefix automatically.
+In newer versions of Squidex, the user interface has been improved and custom input fields have been introduced which allows selection of the syntax and adds the necessary prefix automatically.
 {% endhint %}
 
 ## Basic Syntax
 
-The scripting engine supports almost all ES6 features with a [few restrictions](https://github.com/sebastienros/jint#ecmascript-2015-es6).\\
+The scripting engine supports almost all ES6 features with a [few restrictions](https://github.com/sebastienros/jint#ecmascript-2015-es6).
 
-Therefore it is recommended to use the [Javascript template string](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/template\_strings) syntax and just reference properties directly:
+Therefore, it is best to use the [Javascript template string](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/template\_strings) syntax and just reference properties directly:
 
 ```javascript
 Script(`${event.appId.id}`)
@@ -34,17 +34,17 @@ Script(`${contentAction()}`)
 Script(`${event.data.city.de}`)
 ```
 
-## Special functions
+## Special Functions
 
-Squidex provides a set of general helper functions for scripting and and rule formatting.
+Squidex provides a set of general helper functions for scripting and rule formatting.
 
-A value list can be found in the documentation about scripting helper methods:
+A value list can be found in the documentation concerning scripting helper methods here:
 
 {% content-ref url="../scripting/scripting-helper-methods.md" %}
 [scripting-helper-methods.md](../scripting/scripting-helper-methods.md)
 {% endcontent-ref %}
 
-In addition to that, there are also methods which are only available for rule format.
+Additionally, there are also methods which are only available for rule formatting.
 
 | Name                  | Description                                                                                                                                                                                                                                                                |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -57,9 +57,9 @@ In addition to that, there are also methods which are only available for rule fo
 
 ## Examples
 
-### Resolve references
+### Resolve References
 
-You can use scripting to resolve references. You have pass over an array of content IDs and a callback, that is invoked with the resulting list of content items.
+You can use scripting to resolve references. You must pass over an array of content IDs and a calback (that is invoked) with the resulting list of content items.
 
 ```javascript
 Script(
@@ -72,7 +72,7 @@ Script(
 )
 ```
 
-or a single reference:
+Or a single reference:
 
 ```javascript
 Script(
@@ -84,9 +84,9 @@ Script(
 )
 ```
 
-### Resolve references
+### Resolve References
 
-You can use scripting to resolve assets. You have pass over an array of assets IDs and a callback, that is invoked with the resulting list of assets.
+You can use scripting to resolve assets. You have to pass over an array of assets IDs and a callback (that is invoked) with the resulting list of assets.
 
 ```javascript
 Script(
@@ -99,7 +99,7 @@ Script(
 )
 ```
 
-or a single asset:
+Or a single asset:
 
 <pre class="language-javascript"><code class="lang-javascript">Script(
 <strong>    getAsset(data.assets.iv[0], function (assets) {
@@ -114,7 +114,7 @@ or a single asset:
 
 You can use if-statements and other JavaScript language features for conditional formatting.
 
-In the following example we create different payloads depending on the asset size.
+In the following example, different payloads have been created, depending on the asset size:
 
 ```javascript
 Script(

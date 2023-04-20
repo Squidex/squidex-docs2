@@ -83,7 +83,7 @@
     * [Script](02-documentation/developer-guides/rule-formatting/script.md)
     * [Liquid](02-documentation/developer-guides/rule-formatting/liquid.md)
   * [Tutorials](02-documentation/developer-guides/tutorials/README.md)
-    * [Building a blog with Squidex and Next.js](02-documentation/developer-guides/tutorials/building-a-nextjs-blog-with-squidex.md)
+    * [Building a Blog with Squidex and Next.js](02-documentation/developer-guides/tutorials/building-a-nextjs-blog-with-squidex.md)
 
 ## Next <a href="#04-next" id="04-next"></a>
 

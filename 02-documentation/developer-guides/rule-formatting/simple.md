@@ -1,10 +1,10 @@
 ---
-description: How to format rules with a custom built solution for basic use cases
+description: How to Format Rules with a Custom-Built Solution for Basic Use Cases
 ---
 
 # Simple
 
-Hello "World"Hello "World"When we started to introduce placeholders we have defined a limited set of placeholders, but this system was too inflexible for our users. Therefore we introduced a new system with 4.2.0 to give you access to all properties.
+When we started to introduce placeholders we defined limited sets of placeholders, but the system was just too inflexible for users. To make it more flexible, a new system was introduced, with 4.2.0.  This gives access to all properties.&#x20;
 
 The syntax is very easy:
 
@@ -14,19 +14,19 @@ ${<TYPE>_<PROPERTYAME> | filters} or
 $<TYPE>_<PROPERTYNAME>
 ```
 
-The \<TYPE> is a prefix that has been used for backwards compatibility and you can use whatever you want, but our recommendation is to stick with prefixes that fit to the type of event, for example _content_ or _asset_. The \<PROPERTY> is the full path to the property in the event, for example:
+The `<TYPE>` is a prefix that has been used for backwards compatibility and users may use whatever they want but the best recommendation is to use prefixes that fit the type of event, for example, _content_ or _asset_. The `<PROPERTY>` is the full path to the property in the event, for example:
 
 * `$CONTENT_TYPE`: _Created_
 * `$CONTENT_SCHEMAID.NAME`: _my-schema_
 * `$CONTENT_DATA.CITY.en`: _Munich_
 
 {% hint style="info" %}
-Always use the first variant with the brackets ( { and } ) if possible.
+If possible, always use the first variant with the brackets ( { and } ).
 {% endhint %}
 
-## Special placeholders
+## Special Placeholders
 
-Furthermore there are still some special placeholders for backwards compatibility or to give you access to information that are not directly part of the event.
+Furthermore, there are still some special placeholders for backwards compatibility or to grant access to information that is not directly part of the event.
 
 | Event                 | Description                                                                                                                                      | New Alternative       |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
@@ -61,25 +61,25 @@ Furthermore there are still some special placeholders for backwards compatibilit
 
 ## Filters
 
-The simple syntax also supports a few functions filters when you use the new syntax:
+This simple syntax also supports a few function filters when using the new syntax:
 
 ```
 ${<TYPE>_<PROPERTYAME> | filters} 
 ```
 
-The following table uses&#x20;
+The following table uses:
 
-| Name            | Description                                                                                         | Example                                                                       |
-| --------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `lower`         | Converts the input to lowercase.                                                                    | <p><code>Hello World</code> </p><p>=> <code>hello world</code></p>            |
-| `upper`         | Converts the output to uppercase.                                                                   | <p><code>Hello World</code> </p><p>=> <code>HELLO WORLD</code></p>            |
-| `escape`        | Escapes the input to a JSON string.                                                                 | <p><code>Hello "World"</code><br>=> <code>Hello \"World\"</code></p>          |
-| `slugify`       | Converts the input to a slow, which can only contain a-z0-9 and `-`.                                | <p><code>Hello World</code> </p><p>=> <code>hello-world</code></p>            |
-| `trim`          | Removes whitespaces at the start and end of the input.                                              | <p> <code>Hello World</code> <br><code></code>=> <code>Hello World</code></p> |
-| `timestamp`     | Parses the input as ISO8601 datetime string and converts it to a unix timestamp using milliseconds. | <p><code>2023-01-10T10:41:32</code><br>=> <code>1673347292000</code></p>      |
-| `timestamp_sec` | Parses the input as ISO8601 datetime string and converts it to a unix timestamp using seconds.      | <p><code>2023-01-10T10:41:32</code><br>=> <code>1673347292</code></p>         |
+| Name            | Description                                                                                         | Example                                                                  |
+| --------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `lower`         | Converts the input to lowercase.                                                                    | <p><code>Hello World</code> </p><p>=> <code>hello world</code></p>       |
+| `upper`         | Converts the output to uppercase.                                                                   | <p><code>Hello World</code> </p><p>=> <code>HELLO WORLD</code></p>       |
+| `escape`        | Escapes the input to a JSON string.                                                                 | <p><code>Hello "World"</code><br>=> <code>Hello \"World\"</code></p>     |
+| `slugify`       | Converts the input to a slow, which can only contain a-z0-9 and `-`.                                | <p><code>Hello World</code> </p><p>=> <code>hello-world</code></p>       |
+| `trim`          | Removes whitespaces at the start and end of the input.                                              | <p> <code>Hello World</code> <br>=> <code>Hello World</code></p>         |
+| `timestamp`     | Parses the input as ISO8601 datetime string and converts it to a unix timestamp using milliseconds. | <p><code>2023-01-10T10:41:32</code><br>=> <code>1673347292000</code></p> |
+| `timestamp_sec` | Parses the input as ISO8601 datetime string and converts it to a unix timestamp using seconds.      | <p><code>2023-01-10T10:41:32</code><br>=> <code>1673347292</code></p>    |
 
-You can also combine filters:
+Filters can also be combined:
 
 ```
 ${CONTENT_DATA.CITY.en | uppercase | escape} 
