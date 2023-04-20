@@ -66,24 +66,13 @@ Click your new server and wait until you get an IP address.
 
 Create a DNS A record to this IP address.
 
-### Step 5: Connect using SSH
+### Step 5: Create the initial admin user
 
-On the same page, you will see the SSH username and password. Login to your server with SSH or Putty for Windows to run the installation script.
+The server will pull all images now and start them in the right order. Furthermore caddy (the reverse proxy) will create a certificate for your domain. This can take a while, depending how fast your DNS record is propagated. If you use a domain that has not been used before, it takes only a few minutes.
 
-Go to the home directory and run the setup script
+Squidex is ready for use. If you visit your installation under [https://mydomain.com](https://mydomain.com) you will see a simple setup guide where you can create the initial admin user. If you have configured an external authentication provider (for example Github or Google) you can just login and as the first user you will get admin permissions automatically.
 
-```bash
-cd /home/
-
-# Run the setup script
-./setup-squidex.sh
-```
-
-You will be asked to enter the domain here. All other values are optional. The installation script will start Docker Compose then and download all images and start them in the right order.
-
-![Running the setup script](<../../../.gitbook/assets/image (20) (1) (1) (2) (1).png>)
-
-Squidex is ready for use. If you visit your installation under [https://mydomain.com](https://mydomain.com) you will see a simple setup guide where you can create the initial admin user.
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Setup guide</p></figcaption></figure>
 
 ## Configuring Object Storage
 
