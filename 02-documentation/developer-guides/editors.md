@@ -1,18 +1,18 @@
 ---
-description: Build and use custom editors to support your content editors.
+description: Build and Use Custom Editors to Support Your Content Editors
 ---
 
 # Custom Editors
 
-## How to write your own editor
+## How to Write Your Own Editor
 
-Custom editors are enable developers to replace the default editors with HTML5 applications so that the editing experience of the Squidex Web App can be customized.
+Custom editors enable developers to replace the default editors with HTML5 applications so that the editing experience of the Squidex Web App can be customized.
 
-Technically speaking a UI editor lives in a sandboxed iframe,which interacts with the web application through a small SDK using messaging. This SDK is a proxy of the Angular [ControlValueAccessor](https://angular.io/api/forms/ControlValueAccessor), without having the dependencies to Angular itself.
+Technically speaking, a UI editor lives in a sandboxed `iframe`,which interacts with the web application through a small SDK using messaging. This SDK is a proxy of the Angular [ControlValueAccessor](https://angular.io/api/forms/ControlValueAccessor), without having the dependencies of Angular itself.
 
 <figure><img src="../../.gitbook/assets/2023-01-04_22-34.png" alt=""><figcaption><p>Using an custom editor for a field</p></figcaption></figure>
 
-Lets take a look at how the code looks like:
+Let's take a look at what the code looks like:
 
 ```markup
 <!DOCTYPE html>
@@ -146,7 +146,7 @@ Example:
 }
 ```
 
-You can use `apiUrl`, `access_token` and `token_type` to retrieve additional information from the API, for example when you build a special editor to manage references or assets.
+You can use `apiUrl`, `access_token` and `token_type` to retrieve additional information from the API, for example, when you build a special editor to manage references or assets.
 
 ## Example editors
 
@@ -154,12 +154,12 @@ Squidex contains a few example editors that can help you to understand the flow,
 
 * [https://cloud.squidex.io/scripts/editor-context.html](https://cloud.squidex.io/scripts/editor-context.html): Demonstrates the structure of the context object by displaying the JSON representation in a text field.
 * [https://cloud.squidex.io/scripts/editor-combined.html](https://cloud.squidex.io/scripts/editor-combined.html): Demonstrates how to use the values of the other fields to calculate the value of the current field.
-* [https://cloud.squidex.io/scripts/editor-log.html](https://cloud.squidex.io/scripts/editor-log.html): Demonstrates the different callbacks by logging them the Browser console.
+* [https://cloud.squidex.io/scripts/editor-log.html](https://cloud.squidex.io/scripts/editor-log.html): Demonstrates the different callbacks by logging them in the browser console.
 * [https://cloud.squidex.io/scripts/editor-simple.html](https://cloud.squidex.io/scripts/editor-simple.html): Demonstrates how to integrate the CKE editor into Squidex.
 
 ## All Examples
 
-Also, we have more example you can use them on your apps.
+There are more example that you can use on your Apps:
 
 ### 1. Simple CKE Editor
 
@@ -171,17 +171,17 @@ Reference: [https://squidex.github.io/squidex-samples/editors/cke-simple.html](h
 
 Clone the sample and configure the CKE editor as you need it.
 
-### 2. Country selector
+### 2. Country Selector
 
 Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/country-selector.html](https://squidex.github.io/squidex-samples/editors/country-selector.html)
 
-Let's assume in our FoodCrunch use case, we want to add a field with the information about the country the startup is from. We can achieve this using the country selector editor.
+Let's assume in the _FoodCrunch_ use case, that a field needs to be added with the information about the country the startup is from. This can be achieved using the country selector editor:
 
 <figure><img src="../../.gitbook/assets/2023-01-04_22-57.png" alt=""><figcaption><p>Country selector editor</p></figcaption></figure>
 
-### 3. Product taxonomy
+### 3. Product Taxonomy
 
 Required Field Type: json
 
@@ -207,7 +207,7 @@ The data format is a list of URL like paths for each product category that will 
 ]
 ```
 
-Citing the FoodCrunch use case again, let's say we want to use a taxonomy to tag startups based on their operations.
+Citing the _FoodCrunch_ use case again, let's say there's need to use a taxonomy to tag startups based on their operations:
 
 <figure><img src="../../.gitbook/assets/2023-01-05_11-47.png" alt=""><figcaption></figcaption></figure>
 
@@ -217,7 +217,7 @@ Required Field Type: `json`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/jstree-editor.html](https://squidex.github.io/squidex-samples/editors/jstree-editor.html)
 
-Create a visual tree for a JSON object. For example, one of the food startups wants to show a visual tree of the locations they operate in around the world.
+Create a visual tree for a JSON object. For example, one of the food startups wants to show a visual tree of the locations they operate in around the world:
 
 <figure><img src="../../.gitbook/assets/2023-01-05_12-05.png" alt=""><figcaption><p>JSON Tree</p></figcaption></figure>
 
@@ -227,7 +227,7 @@ Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
-This editor downloads json schema from the URL that is defined via the URL fragment (everything after #):
+This editor downloads the JSON schema from the URL that is defined via the URL fragment (everything after #):
 
 [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
