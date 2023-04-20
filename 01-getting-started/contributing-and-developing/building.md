@@ -62,11 +62,11 @@ We recommend giving the Docker machine at least 4GB of memory.
 
 ### 2.2. Build Squidex Manually
 
-If you don't want to use Docker, you can also build manually. The project structure has changed slightly since its migration from .NET Core 2.X to .NET Core 3.0.
+If you don't want to use Docker, you can also build manually.
 
-#### 2.2.1. Build the .NET 3.0 Version
+#### 2.2.1. Build the current Version
 
-The new structure differentiates between the frontend and the backend.
+The current structure differentiates between the frontend and the backend.
 
 ![Project structure](<../../.gitbook/assets/image (6).png>)
 
@@ -89,7 +89,9 @@ npm run build
 copy build "../publish/wwwroot/build"
 ```
 
-#### 2.2.2. Build the .NET 2.X Version without Docker
+#### 2.2.2. Build the .NET Core 2.0 Version without Docker
+
+Very old versions that still work with .NET Core 2.0 have a different structure. Therefore the build process is slightly different. For most people this version is not relevant anymore.
 
 ```bash
 npm i
