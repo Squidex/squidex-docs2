@@ -2,6 +2,7 @@
 Description: >-
   Learn how to quickly deploy Squidex (with MongoDB) on Google Cloud Platform
   using Cloud Run & MongoDB Atlas.
+description: Learn How to Install Squidex on the Google Cloud Platform
 ---
 
 # Install on Google Cloud Platform (GCP)
@@ -37,7 +38,6 @@ Over the course of this installation you will create the following resources:
 
 * Default resource allocations
   * Squidex instance: **1 vCPU and 1.5 GiB memory**
-*
 
 ## 1. Create a MongoDB Atlas Cluster
 

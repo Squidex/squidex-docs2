@@ -63,16 +63,16 @@ You need to provide the following information:
 
 | Metadata        | Description                                                                              |
 | --------------- | ---------------------------------------------------------------------------------------- |
-| (3) Title       | A title that describes which system is integrated.                                       |
-| (1) Icon        | The icon as SVG document. Should be white only.                                          |
+| (1) Icon        | The icon as an SVG document. It must be white only.                                      |
 | (1) IconColor   | The background color for your icon.                                                      |
-| (2) Display     | A display name that describes what your action does.                                     |
-| (4) Description | A short description about your action                                                    |
+| (2) Display     | A display name that describes what the action does.                                      |
+| (3) Title       | A title that describes the system that is integrated.                                    |
+| (4) Description | A short description about the action                                                     |
 | (5) ReadMore    | An optional link to additional information, e.g. the website of the integrated solution. |
 
-![The metadata in the rule overview](<../../../.gitbook/assets/image (72) (1) (1).png>)
+<figure><img src="../../../.gitbook/assets/2023-04-21_12-04.png" alt=""><figcaption><p>The metadata in the rule overview</p></figcaption></figure>
 
-![The metadata when selecting an action.](<../../../.gitbook/assets/image (74) (1) (1) (1).png>)
+<figure><img src="../../../.gitbook/assets/2023-04-21_12-10.png" alt=""><figcaption><p>The metadata when selecting an action.</p></figcaption></figure>
 
 ### Configuration Values and Editors
 
@@ -88,7 +88,7 @@ An optional name that is shown as label.
 [Display(Name = "My Name")]
 ```
 
-#### Description (4)
+#### Description (2)
 
 An optional description that is rendered after the input field.
 
@@ -96,15 +96,7 @@ An optional description that is rendered after the input field.
 [Display(Description = "My Description.")]
 ```
 
-#### Required Hint (3)
-
-A hint that the property is required. This will add validation to the API and the Management UI.
-
-```csharp
-[Required]
-```
-
-#### Formattable Hint (2)
+#### Formattable Hint (3)
 
 A hint that describes whether the property supports formatting via scripting or placeholders. More about this later.
 
@@ -112,7 +104,15 @@ A hint that describes whether the property supports formatting via scripting or 
 [Formattable]
 ```
 
-![The formatting options in the UI](<../../../.gitbook/assets/image (70) (1).png>)
+#### Required Hint (4)
+
+A hint that the property is required. This will add validation to the API and the Management UI.
+
+```csharp
+[Required]
+```
+
+<figure><img src="../../../.gitbook/assets/2023-04-21_12-21.png" alt=""><figcaption><p>The formatting options in the UI</p></figcaption></figure>
 
 #### Data Type
 
