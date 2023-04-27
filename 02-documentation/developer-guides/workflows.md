@@ -4,17 +4,23 @@ description: Write Advanced Workflows with Scripting
 
 # Custom Workflows
 
-Custom workflows have been requested several times and were implemented in 2019, but if you are using an older version, this guide will teach you how to implement custom workflows with permissions and scripting.
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
 
-If you are up-to-date with your Squidex version, simply visit the documentation concerning workflows.
-
-{% content-ref url="../concepts/workflows.md" %}
-[workflows.md](../concepts/workflows.md)
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
 {% endcontent-ref %}
+
+{% hint style="info" %}
+Custom workflows were implemented in 2019 and is mainly for older versions of Squidex. This guide will teach you how to implement custom workflows with permissions and scripting.
+
+If you are up-to-date with your Squidex version, simply use the newer _Workflows_ feature. For more information visit the documentation for _Workflows_ linked below:
+
+[workflows.md](../concepts/workflows.md "mention")
+{% endhint %}
 
 ## Our Requirements
 
-In our scenario we manage articles and have three roles:
+In our _FoodCrunch_ use case, we publish magazine articles and have a schema for it called `magazine`. In order to manage these articles we have three roles:
 
 1. **Creators**: Write articles and when they are complete, they mark an article as `Ready`.
 2. **Reviewers**: Review articles and either mark an article as `Approved` or `Rejected`.
@@ -32,39 +38,53 @@ The following diagram visualizes our workflow:
 
 ![Workflow](../../.gitbook/assets/workflow.png)
 
-## Step 1: Create the Schema
+## Step 1: Modify the Schema
 
-In the first step we create a schema. We keep it simple and define 3 fields:
+In the first step we will modify the `magazine` schema to add a field called **Status** which displays the status of the article as a string field with a dropdown editor.
 
-1. **Title**: The title of the article.
-2. **Status**: The status of the article as a string field with a dropdown editor.
-3. **Text**: The text as Markdown.
+To do so, navigate to **Schemas** (1) in the App, select the **schema** i.e. `magazine` (2) and click **+ Add Field** (3).
 
-We will create the first two fields as list fields, which means we will see them in our content lists.
+<figure><img src="../../.gitbook/assets/2023-04-27_17-03.png" alt=""><figcaption><p>Modify the magazine schema</p></figcaption></figure>
 
-In the content list, the schema will look like this:
+Select **String** (4) as the field type, enter **Name** (5) as `status` and click **Create and edit field** (6).
 
-![Articles](../../.gitbook/assets/content-list.png)
+<figure><img src="../../.gitbook/assets/2023-04-27_17-07.png" alt=""><figcaption><p>Create status field</p></figcaption></figure>
 
-Now it's possible to easily see all the articles and their status. However, the reviewer will only be interested in the articles waiting to be reviewed. &#x20;
+Select **Editing** (7), choose **Dropdown** (8) as the Editor type and add the _statuses_ in **Allowed Values** (9). Click **Save and close** (10) to finish editing the schema.
+
+<figure><img src="../../.gitbook/assets/2023-04-27_17-10.png" alt=""><figcaption><p>Change editor type and add allowed values.</p></figcaption></figure>
+
+In the list view, the `magazine` schema will look something like this:
+
+<figure><img src="../../.gitbook/assets/2023-04-27_17-44.png" alt=""><figcaption><p>Magazine articles in list view with Status</p></figcaption></figure>
+
+Now it's possible to easily see all the articles and their status. However, the reviewer will only be interested in the articles `Ready` to be reviewed. &#x20;
 
 It's possible to search for these articles using the following query: `$filter=data/status/iv eq 'Ready'`
 
-It looks a little technical, but reviewers shouldn't worry about this! The query can be saved and given a friendly name, so it can be reused later on.&#x20;
+<figure><img src="../../.gitbook/assets/2023-04-27_17-47.png" alt=""><figcaption><p>Query articles with status 'Ready' </p></figcaption></figure>
 
-![Save Query](../../.gitbook/assets/save-query.png)
+It looks a little technical, but reviewers shouldn't worry about this! The query can be **saved** (1) and given a friendly **name** (2), so it can be reused later on.&#x20;
+
+<figure><img src="../../.gitbook/assets/2023-04-27_17-56.png" alt=""><figcaption><p>Save a query</p></figcaption></figure>
+
+To retrieve the query, click **Filters** from the side bar.
+
+<figure><img src="../../.gitbook/assets/2023-04-27_18-02.png" alt=""><figcaption><p>View saved queries</p></figcaption></figure>
 
 The basic setup is already complete and might work well enough in a small team. It requires a little  discipline and co-operation from all team members. However, if there is critical content such as product texts or there's a large team where it's difficult to rely on other people, it's a good idea to use some rules to ensure that the workflow is utilized correctly. &#x20;
 
 It's also possible to use the new comments feature to share information between reviewer and writer:
 
-![Comments](../../.gitbook/assets/comments.png)
+<figure><img src="../../.gitbook/assets/2023-04-27_18-05.png" alt=""><figcaption><p>Using Comments feature</p></figcaption></figure>
 
 ## Step 2: Enforcing the Workflow
 
-Start by creating Roles in Squidex:
+Start by creating the Creator and Reviewer roles in Squidex:
 
-![Roles](<../../.gitbook/assets/roles (1).png>)
+<figure><img src="../../.gitbook/assets/2023-04-28_00-14.png" alt=""><figcaption><p>Creator role permissions</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/2023-04-28_00-15.png" alt=""><figcaption><p>Reviewer role permissions</p></figcaption></figure>
 
 As you can see in the screenshot above, the **Creator** can only create and update content, but cannot publish it and the **Reviewer** can only update content. Let's use the default role **Editor** for the **Publisher**.
 
@@ -99,9 +119,9 @@ if (ctx.data.status.iv !== 'Draft') {
 
 That's it, there's nothing else to do because the permission system already enforces that only **Creators** can create content.
 
-The UI will show the error message from the script:
+The UI will show an error message from the script if the status of a new article is set to anything other than `Draft`:
 
-![Error Message](../../.gitbook/assets/error.png)
+<figure><img src="../../.gitbook/assets/2023-04-28_00-33.png" alt=""><figcaption><p>Error Message</p></figcaption></figure>
 
 ### The Update Script
 
