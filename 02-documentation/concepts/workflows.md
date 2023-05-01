@@ -40,19 +40,19 @@ Complete the following steps to create a new workflow:
 3. Enter a **Name** (4) for the workflow and click **Add Workflow** (5).\
    Note that this name is only used for this screen and can be changed later.
 
-<figure><img src="../../.gitbook/assets/2022-11-23_15-25.png" alt=""><figcaption><p>Adding a Workflow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2023-05-01_22-04.png" alt=""><figcaption><p>Creating a workflow</p></figcaption></figure>
 
 Typically, the list of workflows is empty here, which means that _default workflow_ is applied to all the schemas. The default workflow has the same structure as the new workflow that's just been created. If a schema has no matching workflow, this default workflow will be applied.
 
 #### The Default Workflow
 
-To visualise the default workflow click on the **Gear icon** (1) ![](../../.gitbook/assets/2022-11-22\_19-23.png) next to the workflow name, then click the **Visualize** (2) tab. You should see the graphical representation of your workflow here.
+To visualize the default workflow click on the **Gear icon** (1) ![](../../.gitbook/assets/2022-11-22\_19-23.png) next to the workflow name, then click the **Visualize** (2) tab. You should see the graphical representation of your workflow here.
 
 <figure><img src="../../.gitbook/assets/2022-11-23_15-58.png" alt=""><figcaption><p>Visualizing the default workflow</p></figcaption></figure>
 
 The default workflow has three statuses as follows:
 
-* **Draft** (3) is the initial status for each content item. The initial status is visualised by an arrow. From Draft, you can either change a content item to "Published" or to "Archived".
+* **Draft** (3) is the initial status for each content item. The initial status is visualized by an arrow. From Draft, you can either change a content item to "Published" or to "Archived".
 * **Archived** (4) is a status that is used to mark deleted content items without actually deleting them. It is a soft delete. Archived content items cannot be updated. You cannot change from "Archived" to "Published" directly, you must change to "Draft" first.
 * **Published** (5) is a special status that cannot be removed. Only content items with a status set to "Published" are available in the normal API. If you do not need a workflow at all, you can delete all other statuses.
 
@@ -62,15 +62,21 @@ The user interface is intuitive enough that it does not need detailed instructio
 
 ### Changing the Initial Status
 
-The initial status is indicated with a small arrow icon (1). You can change this when you move the mouse over a status. Next, the same arrow icon will pop up, which can be clicked to set the status.
+The initial status is indicated with a small **arrow icon** (1). You can change this by moving the mouse over to another status (which displays the same arrow icon next to it) and clicking it.&#x20;
 
-![](<../../.gitbook/assets/image (36).png>)
+In the following screenshot, there are three statuses (this is default in a new workflow) and **Draft** is the initial status, marked with the arrow.
 
-### Changing the Colour of a Status
+<figure><img src="../../.gitbook/assets/2023-05-01_22-15.png" alt=""><figcaption><p>Initial status</p></figcaption></figure>
 
-The status colours can be changed. Just click the coloured circle next to each step to change to the desired colour.
+In the below screenshot, as an example, we are changing the initial status to **Ready**. To do this, we move the mouse over to Ready and click it.
 
-![Change the color of a status](<../../.gitbook/assets/image (29).png>)
+<figure><img src="../../.gitbook/assets/2023-05-02_01-15.png" alt=""><figcaption><p>Changing initial status</p></figcaption></figure>
+
+### Changing the Color of a Status
+
+The status colors can be changed. Just click the colored circle next to each step to change to the desired color.
+
+<figure><img src="../../.gitbook/assets/2023-05-02_01-20.png" alt=""><figcaption><p>Change the color of a status</p></figcaption></figure>
 
 ### Restricting Transitions with Roles
 
@@ -80,7 +86,9 @@ Let's have a look at the following example:
 
 ![A Use Case with a review status](<../../.gitbook/assets/image (31).png>)
 
-Please note, the screenshot has been modified and some UI elements have been removed to make it more compact.
+{% hint style="info" %}
+The screenshot above has been modified and some UI elements have been removed to make it more compact.
+{% endhint %}
 
 In our use case, we have described three user groups:
 
@@ -131,15 +139,15 @@ The structure is explained in detail here in this use case documentation:
 
 Workflows can be assigned to schemas. If no schema is assigned, the workflow handles all schemas where no other workflow is assigned. Other schemas that have no assigned workflow, have an implicit default workflow.
 
-![Assigned schemas](<../../.gitbook/assets/image (32).png>)
+<figure><img src="../../.gitbook/assets/2023-05-02_01-30.png" alt=""><figcaption><p>Assigned schemas</p></figcaption></figure>
 
 You must pay attention not to assign the same schema to multiple workflows. This can happen when you have multiple workflows that have no assigned schemas
 
-![Multiple workflows with no schemas assigned](<../../.gitbook/assets/image (33).png>)
+<figure><img src="../../.gitbook/assets/2023-05-02_01-33.png" alt=""><figcaption><p>Multiple workflows with no schemas assigned</p></figcaption></figure>
 
-or when multiple workflows have the same schema assigned to them.
+Or when multiple workflows have the same schema assigned to them.
 
-![Multiple workflows for the same schema](<../../.gitbook/assets/image (35).png>)
+<figure><img src="../../.gitbook/assets/2023-05-02_01-33_1.png" alt=""><figcaption><p>Multiple workflows for the same schema</p></figcaption></figure>
 
 In both cases, you will receive a warning which should be resolved. You can save workflows and create and update content items as normal but the workflow won't be defined when a content item is updated. It can even change over time and behavior is unpredictable.
 
@@ -149,4 +157,4 @@ You can prevent updates when a content item has a certain status. In some cases,
 
 ![Prevent updates](<../../.gitbook/assets/image (38).png>)
 
-In the default workflow, this situation is used to turn "Archived" content items into read-only, but you can also use this feature to stop updates during the review process.
+In the default workflow, this situation is used to turn **Archived** content items into read-only, but you can also use this feature to stop updates during the review process.
