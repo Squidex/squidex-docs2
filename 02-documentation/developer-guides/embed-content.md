@@ -6,9 +6,15 @@ description: >-
 
 # Embed Content
 
+This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
+
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
+{% endcontent-ref %}
+
 ## Use Case
 
-Let's consider our _FoodCrunch_ use case, which is a new magazine for food startups. When a content author writes an article about new food startups or a review for a product sold by a startup, they might want to add startup information to the article. As the article is unstructured and just Markdown or rich-text, there are limited options mentioned below and none of them really work:
+When a content author writes an article about new food startups or a review for a product sold by a startup, they might want to add startup information to the article. As the article is unstructured and just Markdown or rich-text, there are limited options mentioned below and none of them really work:
 
 1. The author can copy and paste the startup information to the article. When the information about the startup is updated at a later date, the article will contain outdated information.
 2. It's possible to use a special placeholder in the Markdown to reference the startup and ask the developers to resolve this reference in the UI.
@@ -22,23 +28,35 @@ To use this feature follow the steps below:
 
 ### 1. Define Which Schemas Can be Embedded
 
-When you create a string field, you can decide which schemas can be embedded.
+By editing the string field, you can decide which schemas can be embedded. Set **Markdown** (1) as the editor as it provides easy options to insert contents. Next, check **Is embedding contents and assets** (2) and select the schema.&#x20;
 
-<figure><img src="../../.gitbook/assets/2023-01-09_12-20.png" alt=""><figcaption><p>Embedding schemas</p></figcaption></figure>
+In this example, we only allow embedding of contents from the `startups` schema.
 
-In this case, we only allow embedding for the `startups` schema.
+<figure><img src="../../.gitbook/assets/2023-05-01_15-48.png" alt=""><figcaption><p>Enabling embedding on a string field</p></figcaption></figure>
 
 ### 2. Add Links to Your String Field
 
-We can now use the Markdown editor to add links to other content items:
+We can now use the Markdown editor to add links to other content items. To do so, click the **Insert Contents** (1) button in the editor.&#x20;
 
-![Add links](<../../.gitbook/assets/image (79).png>)
+{% hint style="info" %}
+The string field must be set to Markdown editor to see the insert contents button.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/2023-05-01_15-32.png" alt=""><figcaption><p>Adding linked contents from another schema</p></figcaption></figure>
+
+On the popup window, select the entries you wish to link by **checking the box** (2) next to them and click **Link selected contents** (3). Refer to the example screenshot below, here we are selecting a couple of startups:
+
+<figure><img src="../../.gitbook/assets/2023-05-01_15-35.png" alt=""><figcaption><p>Selecting linked contents from another schema</p></figcaption></figure>
+
+The result should be two links appearing in the Markdown editor. An example screenshot is provided below for reference:
+
+<figure><img src="../../.gitbook/assets/2023-05-01_15-41.png" alt=""><figcaption><p>Linked content from another schema</p></figcaption></figure>
 
 ### 3. Use the GraphQL to Fetch References
 
 Use the new GraphQL structure to fetch the text and references. When you allow embedding, the structure of the GraphQL response changes and you can fetch the text and the references with a single request:
 
-![Get the references with GraphQL](<../../.gitbook/assets/image (75).png>)
+<figure><img src="../../.gitbook/assets/2023-05-01_21-16.png" alt=""><figcaption><p>Get the references with GraphQL</p></figcaption></figure>
 
 ### 4. Use the References to Render the Embedded Content
 
