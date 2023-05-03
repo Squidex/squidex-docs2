@@ -6,7 +6,7 @@ description: Quickly Deploy a Simple Vue.js Blog with Squidex
 
 This article provides you with instructions on how to quickly deploy a Vue.js blog with Squidex Cloud. The same approach can also be used for self-hosted Squidex. For installation instructions click [here](../installation/).
 
-#### Prerequisites
+## Prerequisites
 
 * Account at [cloud.squidex.io](https://cloud.squidex.io/) (or a self-hosted Squidex).
 * Account at [app.netlify.com](https://app.netlify.com).
@@ -15,7 +15,7 @@ This article provides you with instructions on how to quickly deploy a Vue.js bl
   * nodejs 16 or above.
   * npm 8 or above.
 
-### Creating the Squidex App
+## Creating the Squidex App
 
 For this quick-start, you can create an App with pre-populated schemas directly in Squidex. To do so, follow the steps below:
 
@@ -29,7 +29,7 @@ For this quick-start, you can create an App with pre-populated schemas directly 
 
     <figure><img src="../../.gitbook/assets/2023-01-01_12-36.png" alt=""><figcaption><p>Accessing the Squidex App</p></figcaption></figure>
 
-### Creating a Client in the Squidex App
+## Creating a Client in the Squidex App
 
 In this step, we will create a client that will be used by the Vue.js code to talk to Squidex. \
 When an App is created, there is a default client already present. However, it has an _Owner_ role by default, so as a best practice, we don't recommend that it's used.
@@ -47,11 +47,11 @@ You are now ready to use this App with the code. &#x20;
 
 If you prefer to run the sample code locally, proceed with these steps [here](vue.js-blog-with-squidex.md#running-the-vue.js-blog-locally).
 
-### Deploying the Vue.js Blog
+## Deploying the Vue.js Blog
 
 You can deploy the Vue.js code using various methods such as self-hosting, as a Docker container or in Kubernetes etc. You can also deploy them to various modern, fast and developer-friendly serverless platforms such as _Netlify_. The instructions here cover the latter:
 
-#### Deploying to Netlify
+### Deploying to Netlify
 
 _Netlify_ is a platform that helps you to quickly build and deploy sites to a global network with a host of features and you can get stated for free!
 

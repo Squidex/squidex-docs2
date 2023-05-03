@@ -6,7 +6,7 @@ description: Quickly Deploy a Simple React.js Blog with Squidex
 
 This articles provides you with instructions on how to quickly deploy a React.js blog with Squidex Cloud. The same approach can also be used for a self-hosted Squidex. For installation instructions click [here](../installation/).
 
-#### Prerequisites
+## Prerequisites
 
 * Account at [cloud.squidex.io](https://cloud.squidex.io/) (or a self-hosted Squidex).
 * Account at [app.netlify.com](https://app.netlify.com).
@@ -15,7 +15,7 @@ This articles provides you with instructions on how to quickly deploy a React.js
   * nodejs 16 or above.
   * npm 8 or above.
 
-### Creating the Squidex App
+## Creating the Squidex App
 
 For this quick-start you can create the App with pre-populated schemas directly in Squidex. To do this follow the steps below:
 
@@ -29,7 +29,7 @@ For this quick-start you can create the App with pre-populated schemas directly 
 
     <figure><img src="../../.gitbook/assets/2023-01-11_48-09.png" alt=""><figcaption><p>Accessing the Squidex App</p></figcaption></figure>
 
-### Creating a Client in the Squidex App
+## Creating a Client in the Squidex App
 
 In this step, let's create a client that will be used by the React.js code to talk to Squidex. \
 When an App is created, there is a default client already present however it has an _Owner_ role by default and so it's best not to use it as a best practice.
@@ -47,11 +47,11 @@ You are now ready to use this App with the code. &#x20;
 
 If you wish to run the sample code locally, proceed with these steps [here](react.js-blog-with-squidex.md#running-the-vue.js-blog-locally), otherwise, continue to deploy the blog to an online platform.
 
-### Deploying the React.js Blog
+## Deploying the React.js Blog
 
 You can deploy the React.js code using various methods such as self-hosting and as a Docker container, in Kubernetes etc. You can also deploy to various modern, fast and developer-friendly serverless platforms such as _Netlify_. The instructions here cover the latter:&#x20;
 
-#### Deploying to Netlify
+### Deploying to Netlify
 
 _Netlify_ is a platform that helps you quickly build and deploy sites to a global network with a host of features and you can get stated for free!
 
