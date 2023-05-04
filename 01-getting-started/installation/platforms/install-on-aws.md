@@ -6,6 +6,8 @@ description: Install on AWS
 
 ## 1. Use the AWS Marketplace Image
 
+Squidex is available in the AWS Marketplace as a listing. To begin, click the **Deploy to AWS** button below.
+
 [![Deploy on AWS](https://img.shields.io/badge/-Deploy%20to%20AWS-232F3E?style=for-the-badge\&logo=amazon-aws\&logoColor=ffffff)](https://aws.amazon.com/marketplace/pp/prodview-zvohj6i2bye7w)
 
 ## 2. Subscribe
@@ -14,45 +16,53 @@ Squidex is free, but you still need to subscribe to the Amazon Marketplace listi
 
 In the listing page, click **Continue to Subscribe** (1).
 
-![Subscribe](../../../.gitbook/assets/aws-2-1.png)
+<figure><img src="../../../.gitbook/assets/2023-05-02_11-45.png" alt=""><figcaption><p>Subscribe to AWS marketplace listing</p></figcaption></figure>
 
-Read the EULA and accept the terms by clicking **Accept Terms** (1).
+Read the EULA and accept the terms by clicking **Accept Terms** (2).
 
-![Accept EULA](../../../.gitbook/assets/aws-2-2.png)
+<figure><img src="../../../.gitbook/assets/2023-05-02_11-48.png" alt=""><figcaption><p>Accept terms to subscribe to the listing</p></figcaption></figure>
 
-Wait until AWS process your subscription.
+Wait until AWS processes your subscription (3).
 
-![Process Subscription](../../../.gitbook/assets/aws-2-3.png)
+<figure><img src="../../../.gitbook/assets/2023-05-02_11-49.png" alt=""><figcaption><p>Subscription being processed by AWS</p></figcaption></figure>
 
 Once that is ready, click **Continue to Configuration** (1).
 
-![Continue to Configuration](../../../.gitbook/assets/aws-2-4.png)
+<figure><img src="../../../.gitbook/assets/2023-05-02_11-51.png" alt=""><figcaption><p>Continue to Configuration</p></figcaption></figure>
 
 ## 3. Instance Configuration
 
-Pick an **Delivery Method** (1), a **Software Version** (2) and a **Region** (3), then click **Continue to Launch** (4).
+Pick a **Delivery Method** (1), a **Software Version** (2) and a **Region** (3), then click **Continue to Launch** (4).
 
-![Software Configuration](../../../.gitbook/assets/aws-3-1.png)
+<figure><img src="../../../.gitbook/assets/2023-05-02_14-06.png" alt=""><figcaption><p>Choose a software configuration</p></figcaption></figure>
 
 This will take you to the configuration of the EC2 instance to be launched.
 
-Pick the **EC2 Instance Type** (1). We recommend at least a **m5.large**.
+Pick the **EC2 Instance Type** (5). We recommend at least a **m5.large**.
 
-![Instance Type](../../../.gitbook/assets/aws-3-2.png)
+<figure><img src="../../../.gitbook/assets/2023-05-04_17-06.png" alt=""><figcaption><p>Choose an instance type</p></figcaption></figure>
 
-Select the **VPC**, **Subnet**, **Security Group** and **Key Pair**, and then click **Launch**.
+Scroll down and select a **VPC** (6) and **Subnet** (7) from the pre-populated list. Next, select a **Security Group** (8) or click **Create New Based On Seller Settings** to automatically create one based on Squidex requirements.&#x20;
 
-![Network Config](../../../.gitbook/assets/aws-3-3.png)
+<figure><img src="../../../.gitbook/assets/2023-05-04_17-10.png" alt=""><figcaption><p>Choose network configuration and security group</p></figcaption></figure>
 
-Once the instance is launched, go to the **EC2 Console** (1).
+Finally, select a **Key Pair** (9) and click **Launch** (10).&#x20;
 
-![EC2 Console](../../../.gitbook/assets/aws-3-4.png)
+{% hint style="info" %}
+You must have an AWS Key Pair and selected here, otherwise you will not be able to login to the EC2 instance later.
+{% endhint %}
+
+<figure><img src="../../../.gitbook/assets/2023-05-04_17-19.png" alt=""><figcaption><p>Select key pair and launch</p></figcaption></figure>
+
+Once the instance is launched, go to the **EC2 Console** (11).
+
+<figure><img src="../../../.gitbook/assets/2023-05-02_15-19.png" alt=""><figcaption><p>EC2 instance successfully deployed</p></figcaption></figure>
 
 ## 4. Connect
 
 Once the instance is ready, take its **Public IPv4** (1) and connect to it using SSH and the key pair you selected previously.
 
-![Public IP](../../../.gitbook/assets/aws-4-1.png)
+<figure><img src="../../../.gitbook/assets/2023-05-02_15-15.png" alt=""><figcaption><p>Retrieve Public IP</p></figcaption></figure>
 
 ```bash
 ssh -i path/to/keypair.pem ubuntu@[PUBLIC IP]
