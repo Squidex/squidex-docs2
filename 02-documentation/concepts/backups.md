@@ -24,7 +24,7 @@ A backup is an ZIP archive file that stores all your data for one App. It contai
 
 If you are the owner of the App, go to **Settings** (1) and then **Backups** (2). To create a new backup press the **Start Backup** (3) button.&#x20;
 
-![Backups in Squidex](<../../.gitbook/assets/image (70).png>)
+<figure><img src="../../.gitbook/assets/2023-05-04_13-18.png" alt=""><figcaption><p>Creating &#x26; managing backups</p></figcaption></figure>
 
 The screen will not refresh immediately and it can take a few seconds until you see the status of your backup.
 
@@ -49,7 +49,7 @@ This option is not available for you in the Cloud.
    If an App with the same name already exists you have to either delete the App first or define a new name for your restored App.
 3. Press the **Restore Backup** button (5) to restore your backup. If you have restored a backup before, you will still see the logs as shown in the following screenshot:
 
-![Restore a backup](<../../.gitbook/assets/image (73) (1) (1).png>)
+<figure><img src="../../.gitbook/assets/2023-05-04_13-36.png" alt=""><figcaption><p>Restoring a backup</p></figcaption></figure>
 
 ### Restore a Backup (Squidex Cloud)
 
