@@ -80,18 +80,13 @@ The scripts are executed in a Sandbox. You do not have access to the file system
 
 ### Variables
 
-All variables are accessible over the `ctx` (Context) variable. The following fields can be used:
+All variables are accessible over the `ctx` (Context) variable. The following fields can be used for all scripts:
 
 | Name            | Type   | Description                                                                                                                                                                                                                                                     |
 | --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ctx.data`      | Object | The data for the content item as it is also described in the [Use Case introduction](../../introduction-and-use-case.md).                                                                                                                                       |
-| `ctx.dataOld`   | Object | The old data of the content item as it is also described in the [Use Case introduction](../../introduction-and-use-case.md). Only for "Update" scripts. You can also use `ctx.oldData`as an alias.                                                              |
-| `ctx.operation` | String | The name of the operation, as it is also used in the UI ("Query", "Create", "Update", "Delete", "Change"). In addition to that "Published" is used when the status is changed to "Published" and "Unpublished" is used when the previous status is "Published". |
-| `ctx.status`    | String | The status of the content.                                                                                                                                                                                                                                      |
-| `ctx.statusOld` | String | The old status of the content item. Only for "Change" scripts. You can also use `ctx.oldStatus`as an alias.                                                                                                                                                     |
-| `ctx.contentId` | String | The ID of the content item.                                                                                                                                                                                                                                     |
 | `ctx.appId`     | String | The ID of the current app.                                                                                                                                                                                                                                      |
 | `ctx.appName`   | String | The name of the current app.                                                                                                                                                                                                                                    |
+| `ctx.operation` | String | The name of the operation, as it is also used in the UI. For assets: "Query", "PrepareQuery", "Annotate", "Create", "Update", "Delete", "Move". For content: "Query", "PrepareQuery", "Create", "Update", "Delete", "Change". In addition to that for content "Published" is used when the status is changed to "Published" and "Unpublished" is used when the previous status is "Published". |
 | `ctx.user`      | Object | Information about the current user. See next table.                                                                                                                                                                                                             |
 
 The user object has the following structure:
@@ -103,6 +98,42 @@ The user object has the following structure:
 | `ctx.user.isClient`   | Boolean | True, if the current user is a client, false otherwise.                                                                                                                                                                                                                                                                              |
 | `ctx.user.claims.xxx` | String  | Each user has a list of claims. Claim are just key-value-pairs. Such a claim could be the display name of the user or the link to the profile picture. Most of them are not interesting for scripting, but you can also go to your profile and add custom properties as claims to your account and use them in the scripts or rules. |
 
+#### Content Script Variables
+
+The following fields can be used for content scripts:
+
+| Name            | Type   | Description                                                                                                                                                                                                                                                     |
+| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ctx.contentId` | String | The ID of the content item.                                                                                                                                                                                                                                     |
+| `ctx.data`      | Object | The data for the content item as it is also described in the [Use Case introduction](../../introduction-and-use-case.md).                                                                                                                                       |
+| `ctx.dataOld`   | Object | The old data of the content item as it is also described in the [Use Case introduction](../../introduction-and-use-case.md). Only for "Update" scripts. You can also use `ctx.oldData` as an alias.                                                              |
+| `ctx.permanent` | Boolean | For delete operations only. True when the content should be deleted permanently.                                                                                                                                                     |
+| `ctx.status`    | String | The status of the content.                                                                                                                                                                                                                                      |
+| `ctx.statusOld` | String | The old status of the content item. Only for "Change" scripts. You can also use `ctx.oldStatus` as an alias.                                                                                                                                                     |
+
+
+#### Asset Script Variables
+
+The following fields can be used for Asset scripts:
+
+| Name            | Type   | Description                                                                                                                                                                                                                                                     |
+| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ctx.assetId` | String | The ID of the asset.                                                                                                                                                                                                                                     |
+| `ctx.asset` | Object | The asset.                                                                                                                                                                                                                                     |
+| `ctx.asset/command.fileHash` | String | The SHA256 hash of the file. Can be null for old files.                                                                                                                                                                                                                                     |
+| `ctx.asset/command.fileName` | String | The file name of the asset.                                                                                                                                                                                                                                     |
+| `ctx.asset/command.fileSize` | Number | The size of the file in bytes.                                                                                                                                                                                                                                     |
+| `ctx.asset/command.fileSlug` | String | The URL slug of the asset.                                                                                                                                                                                                                                     |
+| `ctx.asset.fileVersion` | Number | The version of the file.                                                                                                                                                                                                      |
+| `ctx.asset/command.isProtected` | Boolean | True, when the asset is not public.                                                                                                                                                                                                                                   |
+| `ctx.asset/command.metadata` | Object | The asset metadata.                                                                                                                                                                                                                                   |
+| `ctx.asset/command.metadata['name']` | String | The asset metadata with name 'name'.                                                                                                                                                                                               |
+| `ctx.asset/command.mimeType` | String | The mime type.                                                                                                                                                                                                                                     |
+| `ctx.asset/command.parentId` | String | The ID of the parent folder. Empty for files without parent.                                                                                                                                                                                                                                    |
+| `ctx.asset/command.parentPath` | Array[Object] | The full path in the folder hierarchy as array of folder infos.                                                                                                                                                                                                                                  |
+| `ctx.command.permanent` | Boolean | For delete operations only. True when the asset should be deleted permanently.                                                                                                                                                                                                                                     |
+| `ctx.asset/command.tags` | String | The tags assigned to the asset.                                                                                                                                                                                                                                     |
+
 ### Methods
 
 #### Control Methods
@@ -111,9 +142,10 @@ These methods are used to make changes to the content item or to reject changes.
 
 | Name             | Description                                                                                                                                                    |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `replace()`      | Tells Squidex that you have made modifications to the `ctx.data`object and that this change should be applied to the content.                                  |
+| `replace()`      | Content scripts only. Tells Squidex that you have made modifications to the `ctx.data` object and that this change should be applied to the content.                                  |
 | `disallow()`     | Tells Squidex that this operation is not allowed and that a `403 (Forbidden)` status code should be returned. The user will see an alert in the Management UI. |
 | `reject(reason)` | Tells Squidex that this operation is not valid and that a `400 (BadRequest)`status code should be returned. The user will see an alert in the Management UI.   |
+| `complete()` | Tells Squidex that the script should complete successfully.   |
 
 #### Helper Methods
 
