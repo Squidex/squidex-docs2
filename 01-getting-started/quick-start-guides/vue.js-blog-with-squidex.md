@@ -23,11 +23,19 @@ For this quick-start, you can create an App with pre-populated schemas directly 
 2.  Click **Starter Sample Blog** (1), give it a unique **name** (2) such as `vuejs-blog-with-squidex-[your_initials]` and click **Create** (3). \
 
 
+    <div align="left">
+
     <figure><img src="../../.gitbook/assets/2022-12-31_21-09.png" alt=""><figcaption><p>Creating the Starter Sample Blog App on Squidex</p></figcaption></figure>
+
+    </div>
 3.  Click on the newly created App to navigate into it. You should also make a note of the _App Name_, as it will be required later in the instructions. \
 
 
+    <div align="left">
+
     <figure><img src="../../.gitbook/assets/2023-01-01_12-36.png" alt=""><figcaption><p>Accessing the Squidex App</p></figcaption></figure>
+
+    </div>
 
 ## Creating a Client in the Squidex App
 
@@ -37,11 +45,19 @@ When an App is created, there is a default client already present. However, it h
 1.  Navigate to **Settings** (4) > **Clients** (5) in the App. Next enter a **Name** for the client (6) and click **Add Client** (7).\
 
 
+    <div align="left">
+
     <figure><img src="../../.gitbook/assets/2022-12-31_21-30.png" alt=""><figcaption><p>Create a client for Vue.js</p></figcaption></figure>
+
+    </div>
 2.  This creates a new client with the role of _Editor_. **Copy** (8) the _Client Id_ and _Client Secret_, as they will also be required along with the _App Name_ later in the instructions.\
 
 
+    <div align="left">
+
     <figure><img src="../../.gitbook/assets/2022-12-31_21-36.png" alt=""><figcaption><p>Copy the Client Id &#x26; Client Secret</p></figcaption></figure>
+
+    </div>
 
 You are now ready to use this App with the code. &#x20;
 
@@ -83,7 +99,11 @@ Click [![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg
 4.  Run `npm run serve` to compile and run it in development mode. This will serve the App at `http://localhost:8080/`. (sample screenshot below):\
 
 
+    <div align="left">
+
     <figure><img src="../../.gitbook/assets/2023-01-01_12-17.png" alt=""><figcaption><p>Successfully running Vue.js App</p></figcaption></figure>
+
+    </div>
 
     \
     The development mode supports hot-reload for any live changes.

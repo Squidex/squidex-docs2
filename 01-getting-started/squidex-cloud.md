@@ -24,10 +24,18 @@ In the following example, we will use the starter sample blog to quickly create 
 
 1.  Click **Starter Sample Blog** (1) to get started.
 
+    <div align="left">
+
     <figure><img src="../.gitbook/assets/2023-01-04_13-36.png" alt=""><figcaption></figcaption></figure>
+
+    </div>
 2.  Enter a unique **Name** (2) (in Squidex Cloud if an App name is already taken it will ask you to enter a different name) and click **Create** (3).
 
+    <div align="left">
+
     <figure><img src="../.gitbook/assets/2023-01-04_13-34.png" alt=""><figcaption></figcaption></figure>
+
+    </div>
 3.  Click on the newly create App (4) to access it.
 
     <figure><img src="../.gitbook/assets/2023-01-04_14-45.png" alt=""><figcaption></figcaption></figure>

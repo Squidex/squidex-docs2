@@ -23,11 +23,19 @@ The _Teams_ capability solves the following problems:
 
 To create a team, click **Apps and Team** (1) and click **Create Team** (2).
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-17_19-23.png" alt=""><figcaption><p>Creating a Team - Step 1</p></figcaption></figure>
+
+</div>
 
 Next, enter a **Name** (3) for the team and click **Create** (4).
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-17_19-24.png" alt=""><figcaption><p>Creating a Team - Step 2</p></figcaption></figure>
+
+</div>
 
 
 
@@ -43,7 +51,11 @@ A subscription is shared among all Apps in the team.
 
 Once a team is created, you can move an App to the team. To do so, navigate to the App, click **Settings** (1) and then more **Settings** (2). Then, select the team from the dropdown under **Transfer to team** (3) and click **Transfer** (4).
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-20_22-51 (2).png" alt=""><figcaption><p>Transferring an app to a team</p></figcaption></figure>
+
+</div>
 
 {% hint style="info" %}
 Only when a user has permissions for the App and the team, can they transfer the App to the team.
@@ -53,7 +65,11 @@ At this point, you won't see a confirmation or the screen won't change. A way to
 
 In this example, we moved the _FoodCrunch_ App to the _FoodCrunch_ team.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-20_23-04.png" alt=""><figcaption><p>App part of a team</p></figcaption></figure>
+
+</div>
 
 Once an App has moved to a team, the subscription for the App can only be managed by the team.
 
@@ -65,13 +81,21 @@ As a Subscription is shared among all Apps that are part of the team, the quota 
 
 If you wish to limit API calls for certain Apps (e.g. to protect your API contingent for other Apps that are more important), you can set the Max API Calls parameter for each client in an App.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-20_23-42.png" alt=""><figcaption><p>Setting API limits for clients</p></figcaption></figure>
+
+</div>
 
 ### Team Dashboard
 
 Every team has a dashboard similar to an App and displays the same statistics, including the Apps associated with the team.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-20_23-16.png" alt=""><figcaption><p>Team Dashboard</p></figcaption></figure>
+
+</div>
 
 ### Deleting a Team
 

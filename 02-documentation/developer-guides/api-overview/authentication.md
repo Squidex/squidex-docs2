@@ -26,7 +26,11 @@ Before you gain an access token you must create a client first. A client is just
 
 If you create a new App, it will already have a default client.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-10_11-50.png" alt=""><figcaption><p>Default Client</p></figcaption></figure>
+
+</div>
 
 Each client also has a role assigned to define which updates or queries can be performed with the client. This is particularly useful when your client is a public application that can easily be a reversed engineer, like a mobile App or single page application. You can store your client credentials (_Client ID_ and _Client Secret_) in the application but you have to ensure that you only give your client the necessary permissions and not more.
 

@@ -123,6 +123,6 @@ resources:
 
 For other issues, it is likely that you have a configuration problem not related to hosting under Kubernetes. Checkout the following documentation:
 
-{% content-ref url="../configuration.md" %}
-[configuration.md](../configuration.md)
+{% content-ref url="../configuration/" %}
+[configuration](../configuration/)
 {% endcontent-ref %}

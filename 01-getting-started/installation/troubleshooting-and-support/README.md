@@ -59,8 +59,8 @@ The environment variable for this setting is `IDENTITY__SHOWPII=true`.
 
 Read more about how to configure Squidex here:
 
-{% content-ref url="../configuration.md" %}
-[configuration.md](../configuration.md)
+{% content-ref url="../configuration/" %}
+[configuration](../configuration/)
 {% endcontent-ref %}
 
 #### How to Provide Logs
@@ -127,8 +127,8 @@ To start such a rebuild, you have to execute the following steps:
 
 Read more about how to to use the configuration system here:
 
-{% content-ref url="../configuration.md" %}
-[configuration.md](../configuration.md)
+{% content-ref url="../configuration/" %}
+[configuration](../configuration/)
 {% endcontent-ref %}
 
 ### My Migration is Broken
@@ -137,7 +137,11 @@ In some cases, Squidex needs to run a migration script to convert the database s
 
 Sometimes a migration fails, for example if the application is restarted before the migration is complete or in the case of a bug. Very often, is is best to run the migration again. The state of the migration is stored in MongoDB. Use a tool of your choice and connect to your MongoDB database. Then, search for the `Migration` (1) collection. There is only one document. Decrement the version (2) and ensure that `IsLocked` is set to `false` (3). Then restart Squidex.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-28_14-10.png" alt=""><figcaption><p>Modifying the migration status</p></figcaption></figure>
+
+</div>
 
 ### My Cluster Won't Start
 
@@ -147,4 +151,8 @@ Until Version 7 Squidex used a clustering technology to scale. With this setup, 
 2. Clear the `Orleans_OrleansMembershipSingle` collection.
 3. Restart your cluster.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-28_14-22.png" alt=""><figcaption><p>Clearing the Orleans_OrleansMembershipSingle collection</p></figcaption></figure>
+
+</div>

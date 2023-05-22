@@ -33,7 +33,11 @@ Each App has its own content API. The documentation is generated when you change
 
 You can find the link to your Content API in the API section of the Management UI.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-10_09-53.png" alt=""><figcaption><p>Content API</p></figcaption></figure>
+
+</div>
 
 For example, this this is the Content API for the App that serves the content for the Squidex website:
 
@@ -43,7 +47,11 @@ For example, this this is the Content API for the App that serves the content fo
 
 The [GraphQL ](https://graphql.org)endpoint is also generated per client. The documentation is provided by GraphQL, an integrated, interactive GraphQL query editor. This endpoint can only be used to query content items and assets. Mutations have not yet been implemented due to several restrictions with the underlying GraphQL framework. The GraphQL endpoint is also cached for each API, with a time to live (TTL) of 10 minutes. Therefore, it can take up to 10 minutes before you see your changes.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-10_09-57.png" alt=""><figcaption><p>GraphQL</p></figcaption></figure>
+
+</div>
 
 ### General API
 
@@ -53,7 +61,11 @@ For Squidex Cloud, the generated documentation can be found at:
 
 [https://cloud.squidex.io/api/docs](https://cloud.squidex.io/api/docs)
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-10_09-59.png" alt=""><figcaption><p>General API</p></figcaption></figure>
+
+</div>
 
 ## Cloud CDN (BETA)
 

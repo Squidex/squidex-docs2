@@ -48,6 +48,6 @@ Please check the logs by clicking **Logs** (1) in the service page.
 
 For other issues, it is likely that you have a configuration problem not related to hosting under Render. Checkout the following documentation:
 
-{% content-ref url="../configuration.md" %}
-[configuration.md](../configuration.md)
+{% content-ref url="../configuration/" %}
+[configuration](../configuration/)
 {% endcontent-ref %}

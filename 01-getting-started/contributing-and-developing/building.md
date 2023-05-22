@@ -68,7 +68,11 @@ If you don't want to use Docker, you can also build manually.
 
 The current structure differentiates between the frontend and the backend.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-21_12-41.png" alt=""><figcaption><p>Project structure</p></figcaption></figure>
+
+</div>
 
 The advantage is that the code is separated, so you can use multiple contains to build them independently, this makes better use of caching in Docker. After building frontend and backend,  copy the build artifacts to a common folder. You can use `$SQUIDEX/publish` for this step.
 

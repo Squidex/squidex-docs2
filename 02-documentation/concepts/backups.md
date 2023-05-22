@@ -49,7 +49,11 @@ This option is not available for you in the Cloud.
    If an App with the same name already exists you have to either delete the App first or define a new name for your restored App.
 3. Press the **Restore Backup** button (5) to restore your backup. If you have restored a backup before, you will still see the logs as shown in the following screenshot:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-04_13-36.png" alt=""><figcaption><p>Restoring a backup</p></figcaption></figure>
+
+</div>
 
 ### Restore a Backup (Squidex Cloud)
 

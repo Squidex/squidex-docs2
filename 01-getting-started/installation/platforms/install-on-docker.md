@@ -169,6 +169,6 @@ When you use a local host name or IP address such as `localhost` or `127.0.0.1,`
 
 For other issues, it is likely that you have a configuration problem not related to hosting under Kubernetes. Checkout the following documentation:
 
-{% content-ref url="../configuration.md" %}
-[configuration.md](../configuration.md)
+{% content-ref url="../configuration/" %}
+[configuration](../configuration/)
 {% endcontent-ref %}

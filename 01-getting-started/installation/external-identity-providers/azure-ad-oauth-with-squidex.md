@@ -61,7 +61,11 @@ During this step, you will register an application with Azure AD and gather a fe
     <figure><img src="../../../.gitbook/assets/2023-01-13_01-53.png" alt=""><figcaption><p>Note down client secret value</p></figcaption></figure>
 8.  Finally click on **Authentication** (16), check **ID tokens** (17) and click **Save** (18).
 
+    <div align="left">
+
     <figure><img src="../../../.gitbook/assets/2023-01-13_02-52.png" alt=""><figcaption><p>Enable ID token</p></figcaption></figure>
+
+    </div>
 
 ## Configure Squidex for Azure AD&#x20;
 
@@ -79,13 +83,21 @@ When the values are `null`, Microsoft authentication is disabled.
 
 For example, if using Kubernetes Helm charts, these variables should be updated with the values in the `values.yaml` file.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-01-13_19-03.png" alt=""><figcaption><p>Sample helm values.yaml configuration for enabling Microsoft authentication </p></figcaption></figure>
+
+</div>
 
 ### Azure App Service Example
 
 Similarly, if Squidex is running on an Azure App Service, they are added to the _Configuration_ of the app service. An example is provided below.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-01-13_18-50.png" alt=""><figcaption><p>Sample app service configuration for enabling Microsoft authentication </p></figcaption></figure>
+
+</div>
 
 ### Docker Example
 
@@ -109,7 +121,7 @@ The rest of the steps here refer to a Docker based containerized installation th
 1. Reload the Squidex page and click **Login to Squidex**.
 2.  You should see a **Login with Microsoft** button. In the Signup section, you can also **Signup with Microsoft**.
 
-    <div>
+    <div align="left">
 
     <figure><img src="../../../.gitbook/assets/2023-01-13_02-25.png" alt=""><figcaption><p>Signin with Microsoft</p></figcaption></figure>
 
@@ -121,5 +133,9 @@ The rest of the steps here refer to a Docker based containerized installation th
 3. On the next screen, enter a username and password from the Azure AD tenant.
 4.  When prompted for permissions, click **Accept**.
 
+    <div align="left">
+
     <figure><img src="../../../.gitbook/assets/2023-01-13_02-33.png" alt=""><figcaption><p>Accept permissions</p></figcaption></figure>
+
+    </div>
 5. You should be now be able to Signup or Login with a Microsoft account from the configured Azure AD tenant using OAuth.

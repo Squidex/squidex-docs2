@@ -36,7 +36,11 @@ Therefore we have the following statuses for content:
 
 The following diagram visualizes our workflow:
 
-![Workflow](../../.gitbook/assets/workflow.png)
+<div align="left">
+
+<img src="../../.gitbook/assets/workflow.png" alt="Workflow">
+
+</div>
 
 ## Step 1: Modify the Schema
 
@@ -44,45 +48,81 @@ In the first step we will modify the `magazine` schema to add a field called **S
 
 To do so, navigate to **Schemas** (1) in the App, select the **schema** i.e. `magazine` (2) and click **+ Add Field** (3).
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-27_17-03.png" alt=""><figcaption><p>Modify the magazine schema</p></figcaption></figure>
+
+</div>
 
 Select **String** (4) as the field type, enter **Name** (5) as `status` and click **Create and edit field** (6).
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-27_17-07.png" alt=""><figcaption><p>Create status field</p></figcaption></figure>
+
+</div>
 
 Select **Editing** (7), choose **Dropdown** (8) as the Editor type and add the _statuses_ in **Allowed Values** (9). Click **Save and close** (10) to finish editing the schema.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-27_17-10.png" alt=""><figcaption><p>Change editor type and add allowed values.</p></figcaption></figure>
+
+</div>
 
 In the list view, the `magazine` schema will look something like this:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-27_17-44.png" alt=""><figcaption><p>Magazine articles in list view with Status</p></figcaption></figure>
+
+</div>
 
 Now it's possible to easily see all the articles and their status. However, the reviewer will only be interested in the articles `Ready` to be reviewed. &#x20;
 
 It's possible to search for these articles using the following query: `$filter=data/status/iv eq 'Ready'`
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-27_17-47.png" alt=""><figcaption><p>Query articles with status 'Ready' </p></figcaption></figure>
+
+</div>
 
 It looks a little technical, but reviewers shouldn't worry about this! The query can be **saved** (1) and given a friendly **name** (2), so it can be reused later on.&#x20;
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-27_17-56.png" alt=""><figcaption><p>Save a query</p></figcaption></figure>
+
+</div>
 
 To retrieve the query, click **Filters** from the side bar.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-27_18-02.png" alt=""><figcaption><p>View saved queries</p></figcaption></figure>
+
+</div>
 
 The basic setup is already complete and might work well enough in a small team. It requires a little  discipline and co-operation from all team members. However, if there is critical content such as product texts or there's a large team where it's difficult to rely on other people, it's a good idea to use some rules to ensure that the workflow is utilized correctly. &#x20;
 
 It's also possible to use the new comments feature to share information between reviewer and writer:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-27_18-05.png" alt=""><figcaption><p>Using Comments feature</p></figcaption></figure>
+
+</div>
 
 ## Step 2: Enforcing the Workflow
 
 Start by creating the Creator and Reviewer roles in Squidex:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-28_00-14.png" alt=""><figcaption><p>Creator role permissions</p></figcaption></figure>
+
+</div>
 
 <figure><img src="../../.gitbook/assets/2023-04-28_00-15.png" alt=""><figcaption><p>Reviewer role permissions</p></figcaption></figure>
 
@@ -103,7 +143,11 @@ Not everything is shown in this tutorial, as there is too much information and t
 
 The solution is scripting. If you click the three dots in the schema editor, a menu will pop up with a menu item to the scripting editor. Here you can define scripts that are invoked when a content item is queried, created, updated, deleted or when a status has changed.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-01-09_13-15.png" alt=""><figcaption><p>Scripting</p></figcaption></figure>
+
+</div>
 
 ### The Create Script
 
@@ -121,7 +165,11 @@ That's it, there's nothing else to do because the permission system already enfo
 
 The UI will show an error message from the script if the status of a new article is set to anything other than `Draft`:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-28_00-33.png" alt=""><figcaption><p>Error Message</p></figcaption></figure>
+
+</div>
 
 ### The Update Script
 

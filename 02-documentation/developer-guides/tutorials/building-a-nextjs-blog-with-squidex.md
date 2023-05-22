@@ -49,21 +49,37 @@ The posts schema will have 3 fields, i.e. `Title` for the title of posts, `Slug`
 
 Ensure you are in **Posts** (11) schema under **Schemas** (10) and click **+Add Field** (12) to start adding fields.&#x20;
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-01-05_16-53.png" alt=""><figcaption><p>Adding fields</p></figcaption></figure>
+
+</div>
 
 In the modal window, select **String** (13) enter `Title` (14) in the field provided and click **Create and edit field** (15) as shown below:
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-01-05_16-57.png" alt=""><figcaption><p>Create the Title field</p></figcaption></figure>
+
+</div>
 
 Click the **Validation** (16) tab on the new modal window that opens up, then check **Required** (17). This is needed as every post must have a title, which is why it is a required / mandatory field. Click **Save and add field** (18) to save changes.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-01-05_17-08.png" alt=""><figcaption><p>Configure validation properties of title field</p></figcaption></figure>
+
+</div>
 
 Repeat the steps above to create the remaining two fields i.e, `Slug` and `Content`.&#x20;
 
 The `Slug` field is configured as shown in the screenshots below:
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-01-05_17-10.png" alt=""><figcaption><p>Create slug field</p></figcaption></figure>
+
+</div>
 
 As every post must have a slug (and it has to be unique), complete the _Validation_ tab in the modal that opens as displayed below:
 
@@ -71,17 +87,29 @@ As every post must have a slug (and it has to be unique), complete the _Validati
 
 Finally, switch to the **Editing** tab and select **Slug** as the editor (as displayed below). The options in this _Editor_ section allow the choosing of a preferred editor to be used to edit a particular field. Click **Save and add field** to save the `Slug` field and proceed to add the `Content` field.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-01-05_17-13.png" alt=""><figcaption><p>Configure editing properties of slug field</p></figcaption></figure>
+
+</div>
 
 
 
 The third field, i.e the `Content` field is formatted as [Markdown](https://daringfireball.net/projects/markdown/) text. Configure the `Content` field as displayed below. Click **Create and edit field** to continue:
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-01-05_17-35.png" alt=""><figcaption><p>Create Content field</p></figcaption></figure>
+
+</div>
 
 Set the `Content` field to use a WYSIWYG editor by configuring the Editor to **Markdown** in the **Editing** tab as displayed below. Click **Save and close** to save the changes to the `Content` field.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-01-05_17-36.png" alt=""><figcaption><p>Configure editing properties of content field</p></figcaption></figure>
+
+</div>
 
 The `posts` schema and its fields should now be completed. To  add content under the `posts` schema, it must be published. Click **Published** (situated on the top right corner of the page to do so).
 

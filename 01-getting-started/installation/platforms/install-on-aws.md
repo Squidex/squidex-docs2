@@ -16,31 +16,55 @@ Squidex is free, but you still need to subscribe to the Amazon Marketplace listi
 
 In the listing page, click **Continue to Subscribe** (1).
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-05-02_11-45.png" alt=""><figcaption><p>Subscribe to AWS marketplace listing</p></figcaption></figure>
+
+</div>
 
 Read the EULA and accept the terms by clicking **Accept Terms** (2).
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-05-02_11-48.png" alt=""><figcaption><p>Accept terms to subscribe to the listing</p></figcaption></figure>
+
+</div>
 
 Wait until AWS processes your subscription (3).
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-05-02_11-49.png" alt=""><figcaption><p>Subscription being processed by AWS</p></figcaption></figure>
+
+</div>
 
 Once that is ready, click **Continue to Configuration** (1).
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-05-02_11-51.png" alt=""><figcaption><p>Continue to Configuration</p></figcaption></figure>
+
+</div>
 
 ## 3. Instance Configuration
 
 Pick a **Delivery Method** (1), a **Software Version** (2) and a **Region** (3), then click **Continue to Launch** (4).
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-05-02_14-06.png" alt=""><figcaption><p>Choose a software configuration</p></figcaption></figure>
+
+</div>
 
 This will take you to the configuration of the EC2 instance to be launched.
 
 Pick the **EC2 Instance Type** (5). We recommend at least a **m5.large**.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-05-04_17-06.png" alt=""><figcaption><p>Choose an instance type</p></figcaption></figure>
+
+</div>
 
 Scroll down and select a **VPC** (6) and **Subnet** (7) from the pre-populated list. Next, select a **Security Group** (8) or click **Create New Based On Seller Settings** to automatically create one based on Squidex requirements.&#x20;
 
@@ -52,7 +76,11 @@ Finally, select a **Key Pair** (9) and click **Launch** (10).&#x20;
 You must have an AWS Key Pair and selected here, otherwise you will not be able to login to the EC2 instance later.
 {% endhint %}
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-05-04_17-19.png" alt=""><figcaption><p>Select key pair and launch</p></figcaption></figure>
+
+</div>
 
 Once the instance is launched, go to the **EC2 Console** (11).
 
@@ -84,6 +112,6 @@ For further help, go to [Configuration](https://docs.squidex.io/01-getting-start
 
 For other issues, it is likely that you have a configuration problem not related to hosting under Docker. Checkout the following documentation:
 
-{% content-ref url="../configuration.md" %}
-[configuration.md](../configuration.md)
+{% content-ref url="../configuration/" %}
+[configuration](../configuration/)
 {% endcontent-ref %}

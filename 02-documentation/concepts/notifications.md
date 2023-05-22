@@ -38,7 +38,11 @@ At the time of writing this article, email notifications are not operational.
 
 The notification icon is situated on the top menu bar, next to the user icon. Clicking on this displays _Notifications_, _Archive_ (archived notifications) and the notification _Profile_.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-01-10_01-41.png" alt=""><figcaption><p>Notification icon</p></figcaption></figure>
+
+</div>
 
 ## Subscribing to Changes
 
@@ -47,11 +51,19 @@ Follow the instructions below to subscribe to changes. For this purpose of this 
 1.  Navigate to **Settings** (1) and then **Contributors** (2) for your App.\
 
 
+    <div align="left">
+
     <figure><img src="../../.gitbook/assets/2023-01-04_15-32.png" alt=""><figcaption><p>Contributor settings for the app</p></figcaption></figure>
+
+    </div>
 2.  Next, subscribe to the changes. To do so, click on the **bell icon** (3) and then toggle to the **notification mediums of choice** (4), Notifications can be received by Email and/or Push Notifications. Next, click **Save** (5).\
 
 
+    <div align="left">
+
     <figure><img src="../../.gitbook/assets/2023-01-10_01-17.png" alt=""><figcaption><p>Subscribing to notifications</p></figcaption></figure>
+
+    </div>
 3.  At this point a new contributor can be added or invited. To test notifications, you can add a contributor. \
     \
     To do so, **enter the name or email** (1) address of the contributor (a drop down menu appears making it easy to select an existing user or enter an email address if you wish to add a new user). Next, select the role for example **Editor** (2) and click **Add Contributor** (3). \
@@ -66,4 +78,8 @@ Follow the instructions below to subscribe to changes. For this purpose of this 
 
 To set the notification profile, click the **Notification icon** (1) on the top bar and then select the **Profile** tab (2). You can set your notification preferences, notification email and preferred time zone amongst other settings.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-01-10_01-45.png" alt=""><figcaption><p>Setting notification profile</p></figcaption></figure>
+
+</div>

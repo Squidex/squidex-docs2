@@ -32,7 +32,11 @@ By editing the string field, you can decide which schemas can be embedded. Set *
 
 In this example, we only allow embedding of contents from the `startups` schema.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-01_15-48.png" alt=""><figcaption><p>Enabling embedding on a string field</p></figcaption></figure>
+
+</div>
 
 ### 2. Add Links to Your String Field
 
@@ -42,21 +46,37 @@ We can now use the Markdown editor to add links to other content items. To do so
 The string field must be set to Markdown editor to see the insert contents button.
 {% endhint %}
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-01_15-32.png" alt=""><figcaption><p>Adding linked contents from another schema</p></figcaption></figure>
+
+</div>
 
 On the popup window, select the entries you wish to link by **checking the box** (2) next to them and click **Link selected contents** (3). Refer to the example screenshot below, here we are selecting a couple of startups:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-01_15-35.png" alt=""><figcaption><p>Selecting linked contents from another schema</p></figcaption></figure>
+
+</div>
 
 The result should be two links appearing in the Markdown editor. An example screenshot is provided below for reference:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-01_15-41.png" alt=""><figcaption><p>Linked content from another schema</p></figcaption></figure>
+
+</div>
 
 ### 3. Use the GraphQL to Fetch References
 
 Use the new GraphQL structure to fetch the text and references. When you allow embedding, the structure of the GraphQL response changes and you can fetch the text and the references with a single request:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-01_21-16.png" alt=""><figcaption><p>Get the references with GraphQL</p></figcaption></figure>
+
+</div>
 
 ### 4. Use the References to Render the Embedded Content
 

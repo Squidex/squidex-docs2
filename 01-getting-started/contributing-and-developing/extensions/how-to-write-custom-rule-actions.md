@@ -70,9 +70,17 @@ You need to provide the following information:
 | (4) Description | A short description about the action                                                     |
 | (5) ReadMore    | An optional link to additional information, e.g. the website of the integrated solution. |
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-21_12-04.png" alt=""><figcaption><p>The metadata in the rule overview</p></figcaption></figure>
 
+</div>
+
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-21_12-10.png" alt=""><figcaption><p>The metadata when selecting an action.</p></figcaption></figure>
+
+</div>
 
 ### Configuration Values and Editors
 
@@ -112,7 +120,11 @@ A hint that the property is required. This will add validation to the API and th
 [Required]
 ```
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-21_12-21.png" alt=""><figcaption><p>The formatting options in the UI</p></figcaption></figure>
+
+</div>
 
 #### Data Type
 

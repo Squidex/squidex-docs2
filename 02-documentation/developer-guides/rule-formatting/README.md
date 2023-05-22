@@ -77,7 +77,11 @@ The syntax is selected based on the value of the rule property.
 
 In newer versions of Squidex, the user interface has been improved and custom input fields have been introduced which allows you to select the syntax and automatically add the necessary prefix.
 
-![Custom Editors for rules](<../../../.gitbook/assets/image (68).png>)
+<div align="left">
+
+<img src="../../../.gitbook/assets/image (68).png" alt="Custom Editors for rules">
+
+</div>
 
 
 

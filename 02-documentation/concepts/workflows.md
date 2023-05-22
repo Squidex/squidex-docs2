@@ -40,7 +40,11 @@ Complete the following steps to create a new workflow:
 3. Enter a **Name** (4) for the workflow and click **Add Workflow** (5).\
    Note that this name is only used for this screen and can be changed later.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-01_22-04.png" alt=""><figcaption><p>Creating a workflow</p></figcaption></figure>
+
+</div>
 
 Typically, the list of workflows is empty here, which means that _default workflow_ is applied to all the schemas. The default workflow has the same structure as the new workflow that's just been created. If a schema has no matching workflow, this default workflow will be applied.
 
@@ -48,7 +52,11 @@ Typically, the list of workflows is empty here, which means that _default workfl
 
 To visualize the default workflow click on the **Gear icon** (1) ![](../../.gitbook/assets/2022-11-22\_19-23.png) next to the workflow name, then click the **Visualize** (2) tab. You should see the graphical representation of your workflow here.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2022-11-23_15-58.png" alt=""><figcaption><p>Visualizing the default workflow</p></figcaption></figure>
+
+</div>
 
 The default workflow has three statuses as follows:
 
@@ -66,17 +74,29 @@ The initial status is indicated with a small **arrow icon** (1). You can change 
 
 In the following screenshot, there are three statuses (this is default in a new workflow) and **Draft** is the initial status, marked with the arrow.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-01_22-15.png" alt=""><figcaption><p>Initial status</p></figcaption></figure>
+
+</div>
 
 In the below screenshot, as an example, we are changing the initial status to **Ready**. To do this, we move the mouse over to Ready and click it.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-02_01-15.png" alt=""><figcaption><p>Changing initial status</p></figcaption></figure>
+
+</div>
 
 ### Changing the Color of a Status
 
 The status colors can be changed. Just click the colored circle next to each step to change to the desired color.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-02_01-20.png" alt=""><figcaption><p>Change the color of a status</p></figcaption></figure>
+
+</div>
 
 ### Restricting Transitions with Roles
 
@@ -84,7 +104,11 @@ You can assign one or more roles to a transition. When a role is assigned, only 
 
 Let's have a look at the following example:
 
-![A Use Case with a review status](<../../.gitbook/assets/image (31).png>)
+<div align="left">
+
+<img src="../../.gitbook/assets/image (31).png" alt="A Use Case with a review status">
+
+</div>
 
 {% hint style="info" %}
 The screenshot above has been modified and some UI elements have been removed to make it more compact.
@@ -110,7 +134,11 @@ For example, if you have a schema for different types of editorial content items
 
 In this case, we extend the example from the previous section where we used roles.
 
-![Workflow Expressions](<../../.gitbook/assets/image (37).png>)
+<div align="left">
+
+<img src="../../.gitbook/assets/image (37).png" alt="Workflow Expressions">
+
+</div>
 
 A content item where the type field is set to **News** does not need a review and can be published directly. Articles that need the review process will have previous rules applied.
 
@@ -139,15 +167,27 @@ The structure is explained in detail here in this use case documentation:
 
 Workflows can be assigned to schemas. If no schema is assigned, the workflow handles all schemas where no other workflow is assigned. Other schemas that have no assigned workflow, have an implicit default workflow.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-02_01-30.png" alt=""><figcaption><p>Assigned schemas</p></figcaption></figure>
+
+</div>
 
 You must pay attention not to assign the same schema to multiple workflows. This can happen when you have multiple workflows that have no assigned schemas
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-02_01-33.png" alt=""><figcaption><p>Multiple workflows with no schemas assigned</p></figcaption></figure>
+
+</div>
 
 Or when multiple workflows have the same schema assigned to them.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-05-02_01-33_1.png" alt=""><figcaption><p>Multiple workflows for the same schema</p></figcaption></figure>
+
+</div>
 
 In both cases, you will receive a warning which should be resolved. You can save workflows and create and update content items as normal but the workflow won't be defined when a content item is updated. It can even change over time and behavior is unpredictable.
 
@@ -155,6 +195,10 @@ In both cases, you will receive a warning which should be resolved. You can save
 
 You can prevent updates when a content item has a certain status. In some cases, you can also define an optional expression or role to restrict the updates or for a specific subset of your contributors.
 
-![Prevent updates](<../../.gitbook/assets/image (38).png>)
+<div align="left">
+
+<img src="../../.gitbook/assets/image (38).png" alt="Prevent updates">
+
+</div>
 
 In the default workflow, this situation is used to turn **Archived** content items into read-only, but you can also use this feature to stop updates during the review process.

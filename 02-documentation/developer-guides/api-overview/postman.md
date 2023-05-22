@@ -53,15 +53,27 @@ To acquire a token you should perform the following steps:
 
 Go to the **Settings** (1) section of your App, select **Clients** (2) under _Security_ and then click the **Connect** (3) button.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-10_12-43.png" alt=""><figcaption><p>Acquire a token - 1</p></figcaption></figure>
+
+</div>
 
 Next, we provide explanations on how to connect to your App. For now, we must connect manually with Postman. Click the first option i.e. **Connect manually** (4).
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-10_12-44.png" alt=""><figcaption><p>Acquire a token - 2</p></figcaption></figure>
+
+</div>
 
 In the next step, you see the token that is generated for you and how to use it. Just copy the token by clicking the **copy-button** (5) as shown in the screenshot below:
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-10_12-45.png" alt=""><figcaption><p>Acquire a token - 3</p></figcaption></figure>
+
+</div>
 
 This token is valid for 30 days, but can be renewed as often as you want.
 
@@ -82,7 +94,11 @@ Squidex creates an OpenAPI documentation for your App. We are going to download 
 
 Go to the **API** (1) section of your App and click the **Content API** (2) link to open the API docs in a new tab.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-10_13-23.png" alt=""><figcaption><p>Content API</p></figcaption></figure>
+
+</div>
 
 The documentation shows all the end points that are available for your content. **Download** (3) the OpenAPI specification file and save it in your file system to import it with Postman. The file is called `swagger.json`.
 
@@ -92,11 +108,19 @@ The documentation shows all the end points that are available for your content. 
 
 Next, you need to import the OpenAPI file to Postman. To do this, launch Postman and click the **Import** (1) button in your Workspace (or alternatively click File and then Import).&#x20;
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-10_13-42.png" alt=""><figcaption><p>Import OpenAPI file - 1 </p></figcaption></figure>
+
+</div>
 
 Next, select the downloaded **file** (2) that you have saved before.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-10_13-48.png" alt=""><figcaption><p>Import OpenAPI file - 2</p></figcaption></figure>
+
+</div>
 
 Select **Postman Collection** (3) (this should be selected by default) and click **Import** (4).
 

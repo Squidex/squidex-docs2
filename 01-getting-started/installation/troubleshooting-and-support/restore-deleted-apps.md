@@ -49,7 +49,11 @@ The main data source in Squidex is a list of events. Most other states are deriv
    `{ "Events.Type": "AppDeletedEvent" }`(2).
 3. Delete this document (3).
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-28_14-54.png" alt=""><figcaption><p>Deleting an AppDeletedEvent document from database</p></figcaption></figure>
+
+</div>
 
 ### Step 2: Update the App Document
 

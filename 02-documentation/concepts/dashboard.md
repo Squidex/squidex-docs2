@@ -22,7 +22,11 @@ The default view of the dashboard shows the following statistics as cards:
 * Traffic (MB).
 * History.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-10_00-46.png" alt=""><figcaption><p>Squidex App Dashboard</p></figcaption></figure>
+
+</div>
 
 {% hint style="info" %}
 All assets are **anonymous**, this means you may see anonymous API Calls, Traffic or API performance statistics even though there may be no anonymous access.
@@ -34,7 +38,11 @@ All assets are **anonymous**, this means you may see anonymous API Calls, Traffi
 
 In order to customize the dashboard, click on **Settings** (the gear icon) situated at the top-right of the page.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-10_00-48.png" alt=""><figcaption><p>Customizing the dashboard</p></figcaption></figure>
+
+</div>
 
 To remove a card or statistic, **uncheck** it from the list. To add a statistic, **check** it.
 
@@ -42,11 +50,19 @@ To remove a card or statistic, **uncheck** it from the list. To add a statistic,
 
 The individual cards can also be resized to suit personal preference. To resize, move the mouse over to the bottom-right corner of the card to reveal the resize control.&#x20;
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-08_19-21.png" alt=""><figcaption><p>Resize a card</p></figcaption></figure>
+
+</div>
 
 Next, press and hold the pointer (mouse or touchpad) and drag it left or right to resize.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-08_19-24.png" alt=""><figcaption><p>Resized card</p></figcaption></figure>
+
+</div>
 
 #### Changing Graph View&#x20;
 
@@ -72,7 +88,11 @@ You can filter clients from a metric. This is done by clicking the name which st
 
 For example, in the following screenshot default, reader and Squidex frontend clients are disabled and only anonymous traffic size is displayed.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-10_01-34.png" alt=""><figcaption><p>Filter clients from a metric</p></figcaption></figure>
+
+</div>
 
 ### Expert Mode
 
@@ -84,7 +104,11 @@ An **Expert Mode** is also available (choose from the Settings icon) if you wish
 
 API logs can be downloaded in a CSV format from the dashboard page too. To do so, click on the **Download Log** link on the **API Calls** card.&#x20;
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-03-10_00-52.png" alt=""><figcaption><p>Download API Calls Logs</p></figcaption></figure>
+
+</div>
 
 Additional operations that can be completed from the dashboard include:
 

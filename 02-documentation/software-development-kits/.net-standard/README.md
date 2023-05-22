@@ -56,11 +56,19 @@ You can get the initialization code directly from the Management UI. To do so, f
 * Go to **Clients** (2).
 * Click the **Connect** (3) button next to the client.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-25_18-46.png" alt=""><figcaption><p>Client settings for the App</p></figcaption></figure>
+
+</div>
 
 Next, click on the third link titled **Connect to your App with SDK** (4) to view instructions.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-25_18-48.png" alt=""><figcaption><p>The connect wizard for the App client</p></figcaption></figure>
+
+</div>
 
 On the next screen, **copy** (5) and paste the sample code applicable for your version to the source file.
 
@@ -68,7 +76,11 @@ On the next screen, **copy** (5) and paste the sample code applicable for your v
 As of this writing, SDK version 15 has not been deployed to Squidex Cloud. So Squidex Cloud will only show code for version 14.&#x20;
 {% endhint %}
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2023-04-26_23-18.png" alt=""><figcaption><p>The sample code for the client manager</p></figcaption></figure>
+
+</div>
 
 ## How to Work with Content Items?
 

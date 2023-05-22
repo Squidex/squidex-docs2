@@ -71,7 +71,11 @@ If a field is not required it can also be `null` or **omitted**. A field is also
 
 ### String
 
-![String](../../../.gitbook/assets/string.png)
+<div align="left">
+
+<img src="../../../.gitbook/assets/string.png" alt="String">
+
+</div>
 
 A string is the most used field type and can be used for any type of text, such as product names, descriptions and additional information. It is also the most flexible field and the usage depends very much on the editor you are using:
 
@@ -95,7 +99,11 @@ A string is the most used field type and can be used for any type of text, such 
 
 ### Number
 
-![Number](../../../.gitbook/assets/number.png)
+<div align="left">
+
+<img src="../../../.gitbook/assets/number.png" alt="Number">
+
+</div>
 
 A number can either be a point number or an integer. Typical examples of when to use numbers are quantities, IDs and prices.
 
@@ -113,7 +121,11 @@ A number can either be a point number or an integer. Typical examples of when to
 
 ### Boolean
 
-![Boolean](../../../.gitbook/assets/boolean.png)
+<div align="left">
+
+<img src="../../../.gitbook/assets/boolean.png" alt="Boolean">
+
+</div>
 
 Booleans have only 2 states: True or false, yes or no, 1 or 0.
 
@@ -135,7 +147,11 @@ Booleans have only 2 states: True or false, yes or no, 1 or 0.
 
 ### DateTime
 
-![DateTime](../../../.gitbook/assets/datetime.png)
+<div align="left">
+
+<img src="../../../.gitbook/assets/datetime.png" alt="DateTime">
+
+</div>
 
 Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ssZ`.
 
@@ -153,7 +169,11 @@ Date and time in the ISO8601 standard. The format is: `YYYY-MM-DDTHH:mm:ssZ`.
 
 ### Assets
 
-![Assets](../../../.gitbook/assets/assets.png)
+<div align="left">
+
+<img src="../../../.gitbook/assets/assets.png" alt="Assets">
+
+</div>
 
 Asset fields are used to maintain a list of asset IDs. You can also restrict the number of assets with a minimum and maximum limit, for example, when you want to have a single avatar or preview image for a content. You can use the IDs to load the asset. Read more [here](./). When you delete an asset, a clean-up process will remove the asset id from your content. This process is executed in the background to improve performance and it can take several minutes to complete. Therefore, it is highly recommended to handle cases where a piece of content has an ID added to a deleted asset.
 
@@ -173,7 +193,11 @@ Asset fields are used to maintain a list of asset IDs. You can also restrict the
 
 ### References
 
-![References](../../../.gitbook/assets/references.png)
+<div align="left">
+
+<img src="../../../.gitbook/assets/references.png" alt="References">
+
+</div>
 
 References fields are used to model relationships to other content items. For example, you could have a schema for products and a schema for product categories. A product has a field with references to the categories it belongs to. Both products and categories can be created, updated and managed independently. Please think about the direction of the reference very carefully. For example, a typical product may only be in very few categories, but a product category could have thousand of products. Therefore, it is not recommended to reference the products from the categories. When you delete content, a clean-up process will remove the referenced ID from all content. This process is executed in the background to improve performance and it can take several minutes to complete. This is why it's highly recommended to handle cases where a piece of content has a reference to a deleted content.
 
@@ -193,7 +217,11 @@ References fields are used to model relationships to other content items. For ex
 
 ### Array
 
-![Arrays](../../../.gitbook/assets/array.png)
+<div align="left">
+
+<img src="../../../.gitbook/assets/array.png" alt="Arrays">
+
+</div>
 
 Some content items only exist as child content for another content item. For example, a product could consist of variations such as different sizes and prices. These content items can be represented with array fields, where each item in the field has a specified structure, this is called a **Nested Schema**.
 
@@ -217,7 +245,11 @@ Some content items only exist as child content for another content item. For exa
 
 ### Component
 
-![Component](<../../../.gitbook/assets/image (63).png>)
+<div align="left">
+
+<img src="../../../.gitbook/assets/image (63).png" alt="Component">
+
+</div>
 
 A component is a content item (defined by another schema) that is embedded into the current content.
 
@@ -239,7 +271,11 @@ A component is a content item (defined by another schema) that is embedded into 
 
 ### Components
 
-![Components](<../../../.gitbook/assets/image (64).png>)
+<div align="left">
+
+<img src="../../../.gitbook/assets/image (64).png" alt="Components">
+
+</div>
 
 The components field is used to embed multiple content items (defined by other schemas) into the current item. The order is defined when creating or updating the content item and can be changed in the UI.
 
@@ -270,7 +306,11 @@ The components field is used to embed multiple content items (defined by other s
 
 ### Geolocation
 
-![Geolocation](../../../.gitbook/assets/geolocation.png)
+<div align="left">
+
+<img src="../../../.gitbook/assets/geolocation.png" alt="Geolocation">
+
+</div>
 
 The geolocation field represents a sequence of latitude and longitude and is designed to be used in combination with maps. It does not store additional data about the location, such as names, addresses or other information. You have to add additional fields for this purpose.
 
@@ -291,7 +331,11 @@ The geolocation field represents a sequence of latitude and longitude and is des
 
 ### Tags
 
-![Tags](../../../.gitbook/assets/tags.png)
+<div align="left">
+
+<img src="../../../.gitbook/assets/tags.png" alt="Tags">
+
+</div>
 
 Tags are lists of strings that are use in the combination tag editor in the Management UI. They are especially useful if you enrich your content with external systems. At the moment, the tag editor does not support advanced tag management, such as global lists of tags, renaming and merging of tags.
 
@@ -313,7 +357,11 @@ Tags are lists of strings that are use in the combination tag editor in the Mana
 
 ### Json
 
-![Json](../../../.gitbook/assets/json.png)
+<div align="left">
+
+<img src="../../../.gitbook/assets/json.png" alt="Json">
+
+</div>
 
 A json field is for developers. Whenever you have some structured or unstructured content, that you can't cover with the built-in field types or editors, you should use the json field. You should either write a [custom editor](../../developer-guides/editors.md) when the content editors can edit the field or disable the field when the content for this field comes from an external source. Editing the json manually is delicate and can easily dismantle your processes.
 
@@ -333,6 +381,10 @@ A json field is for developers. Whenever you have some structured or unstructure
 
 ### UI
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/Screenshot 2022-10-27 at 6.30.02 PM.png" alt=""><figcaption><p>UI</p></figcaption></figure>
+
+</div>
 
 Separator for editing UI.

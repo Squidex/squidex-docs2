@@ -20,7 +20,11 @@ To schedule your content, select _Save_ content. Once your content is saved, nav
 
 On the pop-up prompt select **Set to Published at a later point date and time** (3) and click **Confirm** (4). Click on the time zone to change between _Local_ & _UTC,_ if required.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/2022-12-20_19-40.png" alt=""><figcaption><p>Selecting a schedule</p></figcaption></figure>
+
+</div>
 
 You can now see your content publishing schedule under **Scheduled Contents**.
 

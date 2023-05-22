@@ -8,7 +8,11 @@ description: How to Provide a Translation for the Squidex API and Management UI.
 
 There are several translation files in the repository but the files used by the API or the Management UI are automated using the translation tool. To use it, you only have to update the files under `backend/i18n/source`.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-21_12-58.png" alt=""><figcaption><p>The file structure for source translation files</p></figcaption></figure>
+
+</div>
 
 There are separate files for frontend and backend, one for each language.
 
@@ -85,8 +89,16 @@ The translator tool will also create the final files. It will take all translati
 
 The frontend files are also generated as JSON files under `backend/i18n`:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-21_13-02.png" alt=""><figcaption><p>Final frontend files</p></figcaption></figure>
+
+</div>
 
 The backend translations are generated as RESX files under `backend/src/Squidex.Shared/`:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-04-21_13-12.png" alt=""><figcaption><p>Final backend files</p></figcaption></figure>
+
+</div>

@@ -43,7 +43,11 @@ You must have a storage account before continuing. The steps do not cover the pr
 2.  Create a container named `etc-squidex-assets`(3). Do not make any other modifications, click **Create** (4).\
 
 
+    <div align="left">
+
     <figure><img src="../../../.gitbook/assets/2022-10-17_19-55.png" alt=""><figcaption></figcaption></figure>
+
+    </div>
 3.  Similarly, select **File shares** (5), click **+ File share** (6) and create a file share named `etc-squidex-mongodb` (7). Click **Create** (8).\
 
 
@@ -135,7 +139,11 @@ To connect to it from MongoDB Compass, create a connection string that contains 
     7. Click **Next: Docker** to continue with the next steps.\
 
 
+    <div align="left">
+
     <figure><img src="../../../.gitbook/assets/2022-10-22_09-32.png" alt=""><figcaption></figcaption></figure>
+
+    </div>
 
     <figure><img src="../../../.gitbook/assets/2022-10-22_09-58.png" alt=""><figcaption></figcaption></figure>
 2.  In the _Docker_ settings tab, configure as following:
@@ -168,7 +176,11 @@ During this step, we will add the configuration values to the Web App and restar
 
 1.  From the previous step you should already be in the Web App page. Click **Configuration** (1) and then **Advanced edit** (2).
 
+    <div align="left">
+
     <figure><img src="../../../.gitbook/assets/2022-10-22_11-23.png" alt=""><figcaption></figcaption></figure>
+
+    </div>
 2.  Copy and paste the following JSON into the code window (**DO NOT click OK.**)
 
     ```javascript
@@ -263,10 +275,18 @@ During this step, we will add the configuration values to the Web App and restar
 3.  Replace all placeholders with your values (without additional quotes). It should look similar to the screenshot below. Click **OK** (3) when done.\
     Configuration values for external authentication providers are empty to turn them off.
 
+    <div align="left">
+
     <figure><img src="../../../.gitbook/assets/2022-10-22_11-35.png" alt=""><figcaption></figcaption></figure>
+
+    </div>
 4.  Click **Save** (4).
 
+    <div align="left">
+
     <figure><img src="../../../.gitbook/assets/2022-10-22_11-37.png" alt=""><figcaption></figcaption></figure>
+
+    </div>
 5.  Click **Overview** (5) and then click **Restart** (6). Click **Yes** (7) when prompted.\
 
 
@@ -290,12 +310,16 @@ You can then use the _Log stream_ to view all log entries
 1.  Next from the left menu scroll down (or search) and click on **App Service logs** (1). Enable Application logging by clicking on **File System** (2) and click **Save** (3).\
 
 
+    <div align="left">
+
     <figure><img src="../../../.gitbook/assets/2022-10-22_12-15.png" alt=""><figcaption></figcaption></figure>
+
+    </div>
 
 ## More issues?
 
 For other issues, it is likely that you have a configuration problem not related to hosting under Azure. Checkout the following documentation:
 
-{% content-ref url="../configuration.md" %}
-[configuration.md](../configuration.md)
+{% content-ref url="../configuration/" %}
+[configuration](../configuration/)
 {% endcontent-ref %}

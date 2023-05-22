@@ -10,7 +10,11 @@ Custom editors enable developers to replace the default editors with HTML5 appli
 
 Technically speaking, a UI editor lives in a sandboxed `iframe`,which interacts with the web application through a small SDK using messaging. This SDK is a proxy of the Angular [ControlValueAccessor](https://angular.io/api/forms/ControlValueAccessor), without having the dependencies of Angular itself.
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-01-04_22-34.png" alt=""><figcaption><p>Using an custom editor for a field</p></figcaption></figure>
+
+</div>
 
 Let's take a look at what the code looks like:
 
@@ -167,7 +171,11 @@ Required Field Type: `string`
 
 Reference: [https://squidex.github.io/squidex-samples/editors/cke-simple.html](https://squidex.github.io/squidex-samples/editors/cke-simple.html)
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-01-04_22-48.png" alt=""><figcaption><p>Example of a field using the simple CKE editor</p></figcaption></figure>
+
+</div>
 
 Clone the sample and configure the CKE editor as you need it.
 
@@ -179,7 +187,11 @@ Reference: [https://squidex.github.io/squidex-samples/editors/country-selector.h
 
 Let's assume in the _FoodCrunch_ use case, that a field needs to be added with the information about the country the startup is from. This can be achieved using the country selector editor:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-01-04_22-57.png" alt=""><figcaption><p>Country selector editor</p></figcaption></figure>
+
+</div>
 
 ### 3. Product Taxonomy
 
@@ -209,7 +221,11 @@ The data format is a list of URL like paths for each product category that will 
 
 Citing the _FoodCrunch_ use case again, let's say there's need to use a taxonomy to tag startups based on their operations:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-01-05_11-47.png" alt=""><figcaption></figcaption></figure>
+
+</div>
 
 ### 4. JSON Tree
 
@@ -219,7 +235,11 @@ Reference: [https://squidex.github.io/squidex-samples/editors/jstree-editor.html
 
 Create a visual tree for a JSON object. For example, one of the food startups wants to show a visual tree of the locations they operate in around the world:
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-01-05_12-05.png" alt=""><figcaption><p>JSON Tree</p></figcaption></figure>
+
+</div>
 
 ### 5. JSON Schema Editor
 
@@ -231,6 +251,14 @@ This editor downloads the JSON schema from the URL that is defined via the URL f
 
 [https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json](https://squidex.github.io/squidex-samples/editors/react-jsonschema.html#https://gist.githubusercontent.com/SebastianStehle/4bb9ef57258dd95e98a19d738fdc9c2b/raw/52112bc67905f27b6f6d7754bf2e40dc40646087/schema.json)
 
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-01-05_12-50.png" alt=""><figcaption><p>JSON Schema from external URL</p></figcaption></figure>
 
+</div>
+
+<div align="left">
+
 <figure><img src="../../.gitbook/assets/2023-01-05_12-53.png" alt=""><figcaption><p>JSON schema used in the example above</p></figcaption></figure>
+
+</div>
