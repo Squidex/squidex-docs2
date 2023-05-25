@@ -166,13 +166,7 @@ To connect to it from MongoDB Compass, create a connection string that contains 
 
 During this step, we will add the configuration values to the Web App and restart the Web App. Before proceeding ensure you have the following info handy, you will need it:
 
-| Key                        | Description                                                | Sample                                      |
-| -------------------------- | ---------------------------------------------------------- | ------------------------------------------- |
-| `[AZURE_CONNECTIONSTRING]` | The connection string to your storage account. See step 1. |                                             |
-| `[MONGO_USERNAME]`         | The username of the MongoDB user.                          | For example in this instruction: "root"     |
-| `[MONGO_PASSWORD]`         | The password of the MongoDB user.                          | For example in this instruction: "1q2w3e$R" |
-| `[MONGO_IP]`               | The IP address to your MongoDB container.                  | See Step 2.1                                |
-| `[WEBAPP_NAME]`            | The name of your webapp.                                   | For example in this instruction "squidexio" |
+<table><thead><tr><th width="306.3333333333333">Key</th><th>Description</th><th>Sample</th></tr></thead><tbody><tr><td><code>[AZURE_CONNECTIONSTRING]</code></td><td>The connection string to your storage account. See step 1.</td><td></td></tr><tr><td><code>[MONGO_USERNAME]</code></td><td>The username of the MongoDB user.</td><td>For example in this instruction: "root"</td></tr><tr><td><code>[MONGO_PASSWORD]</code></td><td>The password of the MongoDB user.</td><td>For example in this instruction: "1q2w3e$R"</td></tr><tr><td><code>[MONGO_IP]</code></td><td>The IP address to your MongoDB container.</td><td>See Step 2.1</td></tr><tr><td><code>[WEBAPP_NAME]</code></td><td>The name of your webapp. </td><td>For example in this instruction "squidexio"</td></tr></tbody></table>
 
 1.  From the previous step you should already be in the Web App page. Click **Configuration** (1) and then **Advanced edit** (2).
 
@@ -320,6 +314,6 @@ You can then use the _Log stream_ to view all log entries
 
 For other issues, it is likely that you have a configuration problem not related to hosting under Azure. Checkout the following documentation:
 
-{% content-ref url="../configuration/" %}
-[configuration](../configuration/)
+{% content-ref url="../configuration.md" %}
+[configuration.md](../configuration.md)
 {% endcontent-ref %}

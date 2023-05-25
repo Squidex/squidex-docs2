@@ -23,7 +23,7 @@ If you want to install Squidex in the Cloud.
 
 For all installations.
 
-* [Configuration Options](configuration/)
+* [Configuration Options](configuration.md)
 
 ## Optional: Configure Squidex.Identity
 

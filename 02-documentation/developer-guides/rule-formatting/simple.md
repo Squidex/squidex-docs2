@@ -47,11 +47,7 @@ Furthermore, there are still some special placeholders for backwards compatibili
 
 #### Special Placeholders for Comment Events
 
-| Event              | Description                              | New Alternative                 |
-| ------------------ | ---------------------------------------- | ------------------------------- |
-| `$MENTIONED_ID`    | The id of the mentioned user.            | `${EVENT_MENTIONEDUSER.ID}`     |
-| `$MENTIONED_NAME`  | The display name of the mentioned user.  | `${EVENT_MENTIONEDUSER.NAME}`   |
-| `$MENTIONED_EMAIL` | The email address of the mentioned user. | `${EVENT_MENTIONEDUSER.EMAIL}`S |
+<table><thead><tr><th>Event</th><th width="247.33333333333331">Description</th><th>New Alternative</th></tr></thead><tbody><tr><td><code>$MENTIONED_ID</code></td><td>The id of the mentioned user.</td><td><code>${EVENT_MENTIONEDUSER.ID}</code></td></tr><tr><td><code>$MENTIONED_NAME</code></td><td>The display name of the mentioned user.</td><td><code>${EVENT_MENTIONEDUSER.NAME}</code></td></tr><tr><td><code>$MENTIONED_EMAIL</code></td><td>The email address of the mentioned user.</td><td><code>${EVENT_MENTIONEDUSER.EMAIL}</code>S</td></tr></tbody></table>
 
 #### Special Placeholders for Asset Events
 
@@ -69,15 +65,7 @@ ${<TYPE>_<PROPERTYAME> | filters}
 
 The following table uses:
 
-| Name            | Description                                                                                         | Example                                                                  |
-| --------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| `lower`         | Converts the input to lowercase.                                                                    | <p><code>Hello World</code> </p><p>=> <code>hello world</code></p>       |
-| `upper`         | Converts the output to uppercase.                                                                   | <p><code>Hello World</code> </p><p>=> <code>HELLO WORLD</code></p>       |
-| `escape`        | Escapes the input to a JSON string.                                                                 | <p><code>Hello "World"</code><br>=> <code>Hello \"World\"</code></p>     |
-| `slugify`       | Converts the input to a slow, which can only contain a-z0-9 and `-`.                                | <p><code>Hello World</code> </p><p>=> <code>hello-world</code></p>       |
-| `trim`          | Removes whitespaces at the start and end of the input.                                              | <p> <code>Hello World</code> <br>=> <code>Hello World</code></p>         |
-| `timestamp`     | Parses the input as ISO8601 datetime string and converts it to a unix timestamp using milliseconds. | <p><code>2023-01-10T10:41:32</code><br>=> <code>1673347292000</code></p> |
-| `timestamp_sec` | Parses the input as ISO8601 datetime string and converts it to a unix timestamp using seconds.      | <p><code>2023-01-10T10:41:32</code><br>=> <code>1673347292</code></p>    |
+<table><thead><tr><th width="189">Name</th><th width="277">Description</th><th>Example</th></tr></thead><tbody><tr><td><code>lower</code></td><td>Converts the input to lowercase.</td><td><p><code>Hello World</code> </p><p>=> <code>hello world</code></p></td></tr><tr><td><code>upper</code></td><td>Converts the output to uppercase.</td><td><p><code>Hello World</code> </p><p>=> <code>HELLO WORLD</code></p></td></tr><tr><td><code>escape</code></td><td>Escapes the input to a JSON string.</td><td><code>Hello "World"</code><br>=> <code>Hello \"World\"</code></td></tr><tr><td><code>slugify</code></td><td>Converts the input to a slow, which can only contain a-z0-9 and <code>-</code>.</td><td><p><code>Hello World</code> </p><p>=> <code>hello-world</code></p></td></tr><tr><td><code>trim</code></td><td>Removes whitespaces at the start and end of the input.</td><td> <code>Hello World</code> <br>=> <code>Hello World</code></td></tr><tr><td><code>timestamp</code></td><td>Parses the input as ISO8601 datetime string and converts it to a unix timestamp using milliseconds.</td><td><code>2023-01-10T10:41:32</code><br>=> <code>1673347292000</code></td></tr><tr><td><code>timestamp_sec</code></td><td>Parses the input as ISO8601 datetime string and converts it to a unix timestamp using seconds.</td><td><code>2023-01-10T10:41:32</code><br>=> <code>1673347292</code></td></tr></tbody></table>
 
 Filters can also be combined:
 

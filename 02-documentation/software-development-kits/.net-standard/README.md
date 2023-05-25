@@ -170,18 +170,7 @@ This depends on your field type i.e. which .NET type you use for a field.
 
 The following is our recommendation:
 
-| Field Type  | .NET Type                                         |
-| ----------- | ------------------------------------------------- |
-| Assets      | `System.Collections.Generic.List<System.Guid>`    |
-| Boolean     | `bool`                                            |
-| DateTime    | `System.DateTime` or `System.DateTimeOffset`      |
-| Geolocation | A custom class.                                   |
-| Json        | `Newtonsoft.Json.Linq.JObject` or a custom class. |
-| Number      | `double`                                          |
-| References  | `System.Collections.Generic.List<System.Guid>`    |
-| String      | `string`                                          |
-| Tags        | `System.Collections.Generic.List<Sstring>`        |
-| Array       | A custom class.                                   |
+<table><thead><tr><th width="197">Field Type</th><th>.NET Type</th></tr></thead><tbody><tr><td>Assets</td><td><code>System.Collections.Generic.List&#x3C;System.Guid></code></td></tr><tr><td>Boolean</td><td><code>bool</code></td></tr><tr><td>DateTime</td><td><code>System.DateTime</code> or <code>System.DateTimeOffset</code></td></tr><tr><td>Geolocation</td><td>A custom class.</td></tr><tr><td>Json</td><td><code>Newtonsoft.Json.Linq.JObject</code> or a custom class.</td></tr><tr><td>Number</td><td><code>double</code></td></tr><tr><td>References</td><td><code>System.Collections.Generic.List&#x3C;System.Guid></code></td></tr><tr><td>String</td><td><code>string</code></td></tr><tr><td>Tags</td><td><code>System.Collections.Generic.List&#x3C;Sstring></code></td></tr><tr><td>Array</td><td>A custom class.</td></tr></tbody></table>
 
 #### Geolocation Classes
 

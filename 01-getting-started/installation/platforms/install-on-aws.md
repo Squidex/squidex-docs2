@@ -112,6 +112,6 @@ For further help, go to [Configuration](https://docs.squidex.io/01-getting-start
 
 For other issues, it is likely that you have a configuration problem not related to hosting under Docker. Checkout the following documentation:
 
-{% content-ref url="../configuration/" %}
-[configuration](../configuration/)
+{% content-ref url="../configuration.md" %}
+[configuration.md](../configuration.md)
 {% endcontent-ref %}

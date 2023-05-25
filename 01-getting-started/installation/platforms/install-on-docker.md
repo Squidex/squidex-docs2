@@ -74,11 +74,7 @@ Download the following files to your server:
 
 Open the `.env` file and set the following variables:
 
-| Variable                | Description                                                                                                                                                                                                |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SQUIDEX_DOMAIN`        | Your domain name, that you want to use for your installation. For example the domain name for the Squidex cloud is `cloud.squidex.io`. If you can Squidex on your local machine it is `localhost`.         |
-| `SQUIDEX_ADMINEMAIL`    | The email address of the admin user. You can leave it empty to create a new user with the setup page when you visit your Squidex installation in the browser.                                              |
-| `SQUIDEX_ADMINPASSWORD` | The password of the admin user. Must contain a lowercase and uppercase letter, a number and a special character. You can leave it empty to create a new user with the setup page when you visit your Squid |
+<table><thead><tr><th width="294.5">Variable</th><th>Description</th></tr></thead><tbody><tr><td><code>SQUIDEX_DOMAIN</code></td><td>Your domain name, that you want to use for your installation. For example the domain name for the Squidex cloud is <code>cloud.squidex.io</code>. If you can Squidex on your local machine it is <code>localhost</code>.</td></tr><tr><td><code>SQUIDEX_ADMINEMAIL</code></td><td>The email address of the admin user. You can leave it empty to create a new user with the setup page when you visit your Squidex installation in the browser.</td></tr><tr><td><code>SQUIDEX_ADMINPASSWORD</code></td><td>The password of the admin user. Must contain a lowercase and uppercase letter, a number and a special character. You can leave it empty to create a new user with the setup page when you visit your Squid</td></tr></tbody></table>
 
 You can keep the other settings empty for now.
 
@@ -169,6 +165,6 @@ When you use a local host name or IP address such as `localhost` or `127.0.0.1,`
 
 For other issues, it is likely that you have a configuration problem not related to hosting under Kubernetes. Checkout the following documentation:
 
-{% content-ref url="../configuration/" %}
-[configuration](../configuration/)
+{% content-ref url="../configuration.md" %}
+[configuration.md](../configuration.md)
 {% endcontent-ref %}

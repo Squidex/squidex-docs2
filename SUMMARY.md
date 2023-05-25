@@ -17,7 +17,7 @@
     * [Install on IIS](01-getting-started/installation/platforms/install-on-iis.md)
     * [Install on Render](01-getting-started/installation/platforms/install-on-render.md)
     * [Install on Vultr](01-getting-started/installation/platforms/install-on-vultr.md)
-  * [Configuration](01-getting-started/installation/configuration/README.md)
+  * [Configuration](01-getting-started/installation/configuration.md)
     * [Deploying the Image Resizer Service](01-getting-started/installation/configuration/deploying-the-image-resizer-service.md)
   * [Troubleshooting and Support](01-getting-started/installation/troubleshooting-and-support/README.md)
     * [Diagnose Runtime Issues](01-getting-started/installation/troubleshooting-and-support/diagnose-runtime-issues.md)

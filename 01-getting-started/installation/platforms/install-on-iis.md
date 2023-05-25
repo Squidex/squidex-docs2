@@ -182,6 +182,6 @@ To fetch the referenced content items or assets the user interfaces makes an API
 
 For other issues, it is likely that you have a configuration problem not related to hosting under IIS. Checkout the following documentation:
 
-{% content-ref url="../configuration/" %}
-[configuration](../configuration/)
+{% content-ref url="../configuration.md" %}
+[configuration.md](../configuration.md)
 {% endcontent-ref %}

@@ -181,13 +181,7 @@ Set **Container port** to _5000_ (10) and set Memory to _1_ and CPU to _1_ (11).
 
 Finally we set the environment variables. Click **+Add Variable** (12) and set the following environment variables (13) one by one replacing the values with your actual values where applicable, click **Create** (14) when done.
 
-| Key                                    | Value                          | Notes                    |
-| -------------------------------------- | ------------------------------ | ------------------------ |
-| `[ASSETSTORE__TYPE]`                   | GoogleCloud                    | Do not change this value |
-| `[ASSETSTORE__GOOGLECLOUD__BUCKET]`    | _\[STORAGE BUCKET NAME]_       | Provide your own value   |
-| `[EVENTSTORE__MONGODB__CONFIGURATION]` | _\[MONGODB CONNECTION STRING]_ | Provide your own value   |
-| `[STORE__MONGODB__CONFIGURATION]`      | _\[MONGODB CONNECTION STRING]_ | Provide your own value   |
-| `[ASPNETCORE_URLS]`                    | http://+:5000                  | Do not change this value |
+<table><thead><tr><th width="414.33333333333337">Key</th><th>Value</th><th>Notes</th></tr></thead><tbody><tr><td><code>[ASSETSTORE__TYPE]</code></td><td>GoogleCloud</td><td>Do not change this value</td></tr><tr><td><code>[ASSETSTORE__GOOGLECLOUD__BUCKET]</code></td><td><em>[STORAGE BUCKET NAME]</em></td><td>Provide your own value</td></tr><tr><td><code>[EVENTSTORE__MONGODB__CONFIGURATION]</code></td><td><em>[MONGODB CONNECTION STRING]</em></td><td>Provide your own value</td></tr><tr><td><code>[STORE__MONGODB__CONFIGURATION]</code></td><td><em>[MONGODB CONNECTION STRING]</em></td><td>Provide your own value</td></tr><tr><td><code>[ASPNETCORE_URLS]</code></td><td>http://+:5000</td><td>Do not change this value</td></tr></tbody></table>
 
 ![Create Cloud Run Step 6](../../../images/started/gcp/2022-10-20\_13-42.png)
 

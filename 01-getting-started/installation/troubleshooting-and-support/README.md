@@ -59,8 +59,8 @@ The environment variable for this setting is `IDENTITY__SHOWPII=true`.
 
 Read more about how to configure Squidex here:
 
-{% content-ref url="../configuration/" %}
-[configuration](../configuration/)
+{% content-ref url="../configuration.md" %}
+[configuration.md](../configuration.md)
 {% endcontent-ref %}
 
 #### How to Provide Logs
@@ -127,8 +127,8 @@ To start such a rebuild, you have to execute the following steps:
 
 Read more about how to to use the configuration system here:
 
-{% content-ref url="../configuration/" %}
-[configuration](../configuration/)
+{% content-ref url="../configuration.md" %}
+[configuration.md](../configuration.md)
 {% endcontent-ref %}
 
 ### My Migration is Broken

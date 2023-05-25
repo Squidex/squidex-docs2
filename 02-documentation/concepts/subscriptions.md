@@ -78,12 +78,7 @@ The API limits include contingencies in each plan. If you exceed the API limit, 
 
 In addition to this, each paid plan has a maximum limit of three times the default API limit. The table below explains this:
 
-| Plan         | Included API Limit | Blocking API Limit | Additional Cost                       |
-| ------------ | ------------------ | ------------------ | ------------------------------------- |
-| Free         | 20,000             | 20,000             | N/A                                   |
-| Basic        | 100,000            | 300,000            | 0.2€ / 1000 API calls after 100,000   |
-| Professional | 500,000            | 1,500,000          | 0.2€ / 1000 API calls after 500,000   |
-| Business     | 1,500,000          | 4,500,000          | 0.2€ / 1000 API calls after 1,500,000 |
+<table><thead><tr><th width="145">Plan</th><th width="173">Included API Limit</th><th width="180">Blocking API Limit</th><th>Additional Cost</th></tr></thead><tbody><tr><td>Free</td><td>20,000</td><td>20,000</td><td>N/A</td></tr><tr><td>Basic</td><td>100,000</td><td>300,000</td><td>0.2€ / 1000 API calls after 100,000</td></tr><tr><td>Professional</td><td>500,000</td><td>1,500,000</td><td>0.2€ / 1000 API calls after 500,000</td></tr><tr><td>Business</td><td>1,500,000</td><td>4,500,000</td><td>0.2€ / 1000 API calls after 1,500,000</td></tr></tbody></table>
 
 When this maximum limit is reached, API calls are blocked, but we will inform you if we foresee this happening.
 

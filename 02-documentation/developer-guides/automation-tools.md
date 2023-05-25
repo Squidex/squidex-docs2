@@ -140,18 +140,7 @@ The `sync in` command also provides flags to control the synchronization process
 .\sq.exe sync in --help
 ```
 
-| Flag                    | Description                                                                                                                                                                     |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`                   | The name of the app. If not provided then app configured in `currentApp` gets created.                                                                                          |
-| `targets`               | This flag can be used to only import certain parts of your app. You can use multiple parameters. E.g. 'sync in -t contents -t schemas'. Use `sync targets` to view all targets. |
-| `language`              | The content language to synchronize.                                                                                                                                            |
-| `content-action`        | <p>Defines how to handle content. </p><p>Allowed values: <strong>Upsert, UpsertPatch, Create, Update, Patch</strong>.</p>                                                       |
-| `delete`                | Use this flag to also delete entities.                                                                                                                                          |
-| `patch-content`         | Make content updates as patch.                                                                                                                                                  |
-| `recreate`              | Use this flag to also recreate entities.                                                                                                                                        |
-| `skip-assets`           | Use this flag to sync asset folders but not assets.                                                                                                                             |
-| `update-current-client` | Also update the client that is used during the sync process.                                                                                                                    |
-| `emulate`               | Use this flag to only emulate the changes, like a dry run.                                                                                                                      |
+<table><thead><tr><th width="374">Flag</th><th>Description</th></tr></thead><tbody><tr><td><code>app</code></td><td>The name of the app. If not provided then app configured in <code>currentApp</code> gets created.</td></tr><tr><td><code>targets</code></td><td>This flag can be used to only import certain parts of your app. You can use multiple parameters. E.g. 'sync in -t contents -t schemas'. Use <code>sync targets</code> to view all targets.</td></tr><tr><td><code>language</code></td><td>The content language to synchronize.</td></tr><tr><td><code>content-action</code></td><td><p>Defines how to handle content. </p><p>Allowed values: <strong>Upsert, UpsertPatch, Create, Update, Patch</strong>.</p></td></tr><tr><td><code>delete</code></td><td>Use this flag to also delete entities.</td></tr><tr><td><code>patch-content</code></td><td>Make content updates as patch.</td></tr><tr><td><code>recreate</code></td><td>Use this flag to also recreate entities.</td></tr><tr><td><code>skip-assets</code></td><td>Use this flag to sync asset folders but not assets.</td></tr><tr><td><code>update-current-client</code></td><td>Also update the client that is used during the sync process.</td></tr><tr><td><code>emulate</code></td><td>Use this flag to only emulate the changes, like a dry run.</td></tr></tbody></table>
 
 #### Use Case - Export (Synchronize Configuration from App to Folder)
 
@@ -187,11 +176,7 @@ The `sync out` command also provide flags to control the synchronization process
 .\sq.exe sync out --help
 ```
 
-| Flag       | Description                                                                                                                                                                        |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`      | The name of the app. If not provided then app configured in currentApp gets created.                                                                                               |
-| `targets`  | This flag can be used to only export certain parts of your app. You can use multiple parameters. E.g. 'sync out -t contents -t schemas'. Use '`sync targets`' to view all targets. |
-| `describe` | Create a README.md file.                                                                                                                                                           |
+<table><thead><tr><th width="374">Flag</th><th>Description</th></tr></thead><tbody><tr><td><code>app</code></td><td>The name of the app. If not provided then app configured in currentApp gets created.</td></tr><tr><td><code>targets</code></td><td>This flag can be used to only export certain parts of your app. You can use multiple parameters. E.g. 'sync out -t contents -t schemas'. Use '<code>sync targets</code>' to view all targets.</td></tr><tr><td><code>describe</code></td><td>Create a README.md file.</td></tr></tbody></table>
 
 #### Restrictions
 
