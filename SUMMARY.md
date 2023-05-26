@@ -62,6 +62,7 @@
   * [Dashboard](02-documentation/concepts/dashboard.md)
   * [Workflows](02-documentation/concepts/workflows.md)
 * [Software Development Kits](02-documentation/software-development-kits/README.md)
+  * [TypeScript](02-documentation/software-development-kits/typescript.md)
   * [.NET Standard](02-documentation/software-development-kits/.net-standard/README.md)
     * [Version v14 (and Earlier)](02-documentation/software-development-kits/.net-standard/version-v14-and-earlier.md)
     * [Version v15 (and Later)](02-documentation/software-development-kits/.net-standard/version-v15-and-later.md)

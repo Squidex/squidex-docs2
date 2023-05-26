@@ -1,7 +1,5 @@
 ---
-description: >-
-  Currently, We Only Actively Maintain the Software Development Kit (SDK) for
-  .NET Standard.
+description: We Provide Software Development Kits (SDKs) for .NET Standard and TypeScript
 ---
 
 # Software Development Kits
