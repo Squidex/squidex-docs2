@@ -131,22 +131,23 @@ For each schema two classes are needed:
 
 The data object is the structure of your content data.
 
-<pre class="language-csharp"><code class="lang-csharp">using Newtonsoft.Json;
+```csharp
+using Newtonsoft.Json;
 using Squidex.ClientLibrary;
 
-<strong>namespace YourNamespace;
-</strong><strong>
-</strong><strong>public sealed class BlogPostData
-</strong>{
+namespace YourNamespace;
+
+public sealed class BlogPostData
+{
     // The invariant converter converts the object to a flat property.
     [JsonConverter(typeof(InvariantConverter))]
     public string Slug { get; set; }
 
     // For localizable fields you can use dictionaries.
     [JsonProperty("my_title")]
-    public Dictionary&#x3C;string, string> Title { get; set; }
+    public Dictionary<string, string> Title { get; set; }
 }
-</code></pre>
+```
 
 Another class is created for the blog post itself, which holds the data and metadata.
 
@@ -298,8 +299,58 @@ var posts = await blogPostsClient.GetAsync(new ContentQuery
 });
 ```
 
+### Control the Casing
+
+The SDK uses camelCasing when serializing properties, but ignores the casing when deserializing properties. This is important, because Squidex is case sensitive and does not accept unknown properties. Therefore the following data class
+
+```csharp
+using Newtonsoft.Json;
+using Squidex.ClientLibrary;
+
+namespace YourNamespace;
+
+public sealed class BlogPostData
+{
+    [JsonConverter(typeof(InvariantConverter))]
+    public string Slug { get; set; }
+}
+```
+
+is serialized to
+
+```json
+{
+    "slug": "my-blog-post"
+}
+```
+
+If you want to use PascalCase for your Squidex schema field names you have two options:
+
+You can either disable the conversion to camel case with the `KeepCasingAttribute`:
+
+```csharp
+[KeepCasing]
+public sealed class BlogPostData
+{
+    [JsonConverter(typeof(InvariantConverter))]
+    public string Slug { get; set; }
+}
+```
+
+or you control for each property how it will be serialized.
+
+```csharp
+[KeepCasing]
+public sealed class BlogPostData
+{
+    [JsonConverter(typeof(InvariantConverter))]
+    [JsonProperty("Slug")]
+    public string Slug { get; set; }
+}
+```
+
 ## More Samples
 
-We also use the .NET client for API tests. They do not cover all endpoints yet, but are a helpful reference.
+We also use the .NET client for API tests. These tests cover almost all endpoints and especially edge cases and are therefore a good reference if you want to understand this class library.
 
 [https://github.com/Squidex/squidex/tree/master/tools/TestSuite](https://github.com/Squidex/squidex/tree/master/tools/TestSuite)
