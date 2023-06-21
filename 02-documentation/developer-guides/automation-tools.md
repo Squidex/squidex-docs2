@@ -93,7 +93,7 @@ The syntax for it is:
 The `sync` command can be used to export or import your App settings to a set of JSON files. This command is able to synchronize the following settings:
 
 * Schemas
-* Contents (this setting can be imported only)
+* Contents
 * Contributors (this setting can be imported only)
 * Clients
 * Roles
