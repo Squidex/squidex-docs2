@@ -4,6 +4,10 @@ description: Install on AWS
 
 # Install on AWS
 
+{% hint style="danger" %}
+The following AWS Marketplace Image is no longer available. We are working on updating the instructions.
+{% endhint %}
+
 ## 1. Use the AWS Marketplace Image
 
 Squidex is available in the AWS Marketplace as a listing. To begin, click the **Deploy to AWS** button below.
