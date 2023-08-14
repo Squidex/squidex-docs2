@@ -52,7 +52,7 @@ Additionally, there are also methods which are only available for rule formattin
 
 ### Resolve References
 
-You can use scripting to resolve references. You must pass over an array of content IDs and a calback (that is invoked) with the resulting list of content items.
+You can use scripting to resolve references. You must pass over an array of content IDs and a callback (that is invoked) with the resulting list of content items.
 
 ```javascript
 Script(
@@ -79,7 +79,7 @@ Script(
 
 ### Resolve References
 
-You can use scripting to resolve assets. You have to pass over an array of assets IDs and a callback (that is invoked) with the resulting list of assets.
+You can use scripting to resolve assets. You have to pass over an array of asset IDs and a callback (that is invoked) with the resulting list of assets.
 
 ```javascript
 Script(
