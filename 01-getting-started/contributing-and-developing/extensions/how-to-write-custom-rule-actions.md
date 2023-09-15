@@ -12,8 +12,8 @@ We will use the `WebhookAction` as an example to show you the basic principles.
 
 To get started with your first rule action you might want to gain an understanding about the rule system first. Please read the following document before you continue:
 
-{% content-ref url="../../../02-documentation/concepts/rules.md" %}
-[rules.md](../../../02-documentation/concepts/rules.md)
+{% content-ref url="../../../02-documentation/concepts/rules/" %}
+[rules](../../../02-documentation/concepts/rules/)
 {% endcontent-ref %}
 
 ## Step 2. Define Your Action Class

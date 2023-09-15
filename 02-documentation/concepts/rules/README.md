@@ -6,8 +6,8 @@ description: Rules are Used to Automate Workflows by Reacting to Events
 
 This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
 
-{% content-ref url="../introduction-and-use-case.md" %}
-[introduction-and-use-case.md](../introduction-and-use-case.md)
+{% content-ref url="../../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../../introduction-and-use-case.md)
 {% endcontent-ref %}
 
 ## Concepts
@@ -22,20 +22,20 @@ A rule has two parts:
     The following triggers are currently available in rules:\
 
 
-    <figure><img src="../../.gitbook/assets/2022-11-08_23-32.png" alt=""><figcaption><p>Triggers in rules</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/2022-11-08_23-32.png" alt=""><figcaption><p>Triggers in rules</p></figcaption></figure>
 2.  An **Action** that defines what to do. This is otherwise called **then** in the UI.\
     The following actions are currently available:\
 
 
-    <figure><img src="../../.gitbook/assets/2022-11-08_23-33.png" alt=""><figcaption><p>Actions in rules</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/2022-11-08_23-33.png" alt=""><figcaption><p>Actions in rules</p></figcaption></figure>
 
 To create a rule go to **Rules** (1) and click **+ Add Rule** (2) or **+ New Rule**.
 
-<figure><img src="../../.gitbook/assets/2022-11-08_23-16.png" alt=""><figcaption><p>Creating a rule</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/2022-11-08_23-16.png" alt=""><figcaption><p>Creating a rule</p></figcaption></figure>
 
 The final list of rules would look something similar to the screenshot below:
 
-![A rule that creates a twitter update when content has changed](../../images/articles/rules/rule.png)
+![A rule that creates a twitter update when content has changed](../../../images/articles/rules/rule.png)
 
 ## Workflow
 
@@ -136,7 +136,7 @@ It is important to understand the structure because it is used in the matching s
 
 Let's have a look at a trigger definition first:
 
-![Triggers when a blog post is published or restored](../../.gitbook/assets/content-trigger.png)
+![Triggers when a blog post is published or restored](../../../.gitbook/assets/content-trigger.png)
 
 In the matching process, it is checked whether the action should be executed. There are several conditions:
 
@@ -177,8 +177,8 @@ Almost all text settings for actions support placeholders that allow information
 
 More information can be found at:
 
-{% content-ref url="../developer-guides/rule-formatting/" %}
-[rule-formatting](../developer-guides/rule-formatting/)
+{% content-ref url="../../developer-guides/rule-formatting/" %}
+[rule-formatting](../../developer-guides/rule-formatting/)
 {% endcontent-ref %}
 
 ### 4. Execution
