@@ -8,8 +8,8 @@ This Page Explains the Rule Formatting System in Detail.
 
 To gain an understanding of the rule system, read the following page:
 
-{% content-ref url="../../concepts/rules/" %}
-[rules](../../concepts/rules/)
+{% content-ref url="../../concepts/rules.md" %}
+[rules.md](../../concepts/rules.md)
 {% endcontent-ref %}
 
 ## Introduction
