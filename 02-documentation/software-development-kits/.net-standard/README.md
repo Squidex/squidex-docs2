@@ -1,10 +1,8 @@
 ---
-description: >-
-  Read more on how to use the .NET Standard SDK for .NET Framework, .NET Core
-  and Xamarin.
+description: Read more on how to use the .NET Core and .NET Standard
 ---
 
-# .NET Standard
+# .NET
 
 ## Introduction
 

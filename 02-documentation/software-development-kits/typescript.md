@@ -1,5 +1,5 @@
 ---
-description: Learn How to Use the TypeScript SDK for Node and Browsers.
+description: Learn how to use the TypeScript SDK for Node and Browsers.
 ---
 
 # TypeScript
