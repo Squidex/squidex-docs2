@@ -107,13 +107,13 @@ $createdSchema = $this->client->schemas()->postSchema($request);
 In order to work with contents, use the `contents` property.
 
 ```php
-$value = uniqid();
-
-$createdContent = $this->client->contents()->postContent(static::$schema->getName(), [
-        'field1' => [
-            'iv' => $value
-        ]
-    ]);
+$data = [
+    'field1' => [
+        'iv' => 'My Value'
+    ]
+];
+    
+$createdContent = $this->client->contents()->postContent(static::$schema->getName(), $data);
 ```
 
 ### Error Handling
