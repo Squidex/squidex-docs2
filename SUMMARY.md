@@ -70,6 +70,7 @@
     * [Version v14 (and Earlier)](02-documentation/software-development-kits/.net-standard/version-v14-and-earlier.md)
     * [Version v15 (and Later)](02-documentation/software-development-kits/.net-standard/version-v15-and-later.md)
   * [PHP](02-documentation/software-development-kits/php.md)
+  * [Java](02-documentation/software-development-kits/java.md)
 * [Developer Guides](02-documentation/developer-guides/README.md)
   * [API](02-documentation/developer-guides/api-overview/README.md)
     * [Authentication](02-documentation/developer-guides/api-overview/authentication.md)
