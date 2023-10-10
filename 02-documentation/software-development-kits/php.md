@@ -97,7 +97,7 @@ $field->setName('field1');
 $field->setProperties(new StringFieldPropertiesDto());
 
 $request = new CreateSchemaDto();
-$request->setName("schema-$id");
+$request->setName("my-schema");
 $request->setIsPublished(true);
 $request->setFields([$field]);
 
