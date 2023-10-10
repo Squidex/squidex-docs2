@@ -125,7 +125,7 @@ Refer to the code snippet below for an example:
 ```php
 try {
     $request = new CreateAppDto();
-    $request->setName($appName);
+    $request->setName('my-app');
 
     $client->getClient()->apps()->postApp($request);
 } catch (ApiException $e) {
