@@ -87,7 +87,7 @@ The endpoint format is: `https://contents.squidex.io/<app>/<schema>` instead of 
 
 The assets CDN endpoint only provides access to your content items and should be used for images.
 
-The endpoint format is `https://contents.squidex.io/<app>/<asset-id>` instead of `https://cloud.squidex.io/api/contents/<app>/<asset-id>`.
+The endpoint format is `https://contents.squidex.io/<app>/<asset-id>` instead of `https://cloud.squidex.io/api/assets/<app>/<asset-id>`.
 
 ### How Caching works
 
