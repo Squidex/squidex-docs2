@@ -11,5 +11,5 @@ or
 
 ```
 // Unix
-file://home/backups/backup.zip
+file:///home/backups/backup.zip
 ```
