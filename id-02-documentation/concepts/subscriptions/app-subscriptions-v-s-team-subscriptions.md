@@ -28,17 +28,22 @@ Note that App owner and Subscription owner is not the same, especially in App se
 
 ### How can I transfer an _app subscription_ ownership to another user?
 
-Unfortunately, **subscription ownership transfer in Apps is not possible**. You can only cancel the subscription.
+Unfortunately, **subscription ownership transfer in Apps is not possible**. You can only cancel the subscription, which does not delete any data.
 
 ### What happens when the _app subscription_ owner leaves the company?
 
-Create a support request at [https://support.squidex.io/](https://support.squidex.io/) to get it cancelled. **On cancelling the subscription, the App will fall back to the free plan but no data will be lost.**&#x20;
+Create a support request at [https://support.squidex.io/](https://support.squidex.io/) to get it cancelled. **On cancelling the subscription, the App will fall back to the free plan but no data will be lost.** Please remember that you cannot add new members anymore, because the limits of the free plan apply.
 
 ### What happens if there is some money left in the _app subscription_?
 
-Start with a subscription cancellation request first. You can then subscribe to the cheapest plan and create a support request to get promotional credit for your balance. Use the promotional credit to subscribe to the target plan.
+Start with a subscription cancellation request first. You can then subscribe to the cheapest plan and create a support request to get promotional credit for your balance. When you change your new subscription to the target plan the promotional credit will be applied and deducted from your invoice.
 
-### Can an App be moved to a Team with a different subscription plan? (For example App subscription is _Professional_, where as Teams subscription is _Basic_)
+### Can I apply usage restrictions to an app in a shared subscription?
 
-Unfortunately **No**. The process is to cancel the current subscription for the App first and the move the App into the Team.
+There is no system in place to restrict the usage for a single app. But if you go the client settings of your app you can configure a limit for the number of API calls that a single client can make. Use this setting to ensure that one app does not dry out other apps.
+
+### Can an app be moved to a team with a different subscription plan?&#x20;
+
+(For example app subscription is _Professional_, where as teams subscription is _Basic_)\
+Unfortunately **No**. The process is to cancel the current subscription for the App first and the move the App into the Team. Otherwise the applied limits would be inconsistent and confusing.
 

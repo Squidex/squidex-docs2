@@ -8,8 +8,8 @@ description: >-
 
 This documentation is based on the _FoodCrunch_ use case. Please open the link below alongside this page to understand the examples.
 
-{% content-ref url="../../../02-documentation/introduction-and-use-case.md" %}
-[introduction-and-use-case.md](../../../02-documentation/introduction-and-use-case.md)
+{% content-ref url="../introduction-and-use-case.md" %}
+[introduction-and-use-case.md](../introduction-and-use-case.md)
 {% endcontent-ref %}
 
 In Squidex Cloud (i.e. cloud.squidex.io) each App has a subscription and each subscription has a quota, which is a defined number of the following:
@@ -39,7 +39,7 @@ Follow the steps below to subscribe to a paid plan:
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/2023-05-03_20-43.png" alt=""><figcaption><p>Subscribe to a paid plan for the App</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2023-05-03_20-43.png" alt=""><figcaption><p>Subscribe to a paid plan for the App</p></figcaption></figure>
 
 </div>
 
@@ -56,7 +56,7 @@ Follow the steps below to subscribe to a paid plan for a team:
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/2023-05-03_20-26.png" alt=""><figcaption><p>Subscribe to a paid plan for a team</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2023-05-03_20-26.png" alt=""><figcaption><p>Subscribe to a paid plan for a team</p></figcaption></figure>
 
 </div>
 
@@ -94,7 +94,7 @@ Squidex provides access to a billing portal for this purpose. Using this portal 
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/2023-05-04_00-06.png" alt=""><figcaption><p>Billing portal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2023-05-04_00-06.png" alt=""><figcaption><p>Billing portal</p></figcaption></figure>
 
 </div>
 
@@ -102,6 +102,6 @@ To access the Billing Portal, navigate to **Subscription** in **Settings** and c
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/2023-05-03_20-56.png" alt=""><figcaption><p>Link to the billing portal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2023-05-03_20-56.png" alt=""><figcaption><p>Link to the billing portal</p></figcaption></figure>
 
 </div>

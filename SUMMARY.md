@@ -60,7 +60,7 @@
     * [Publish an Event to Azure Queues using Rules](02-documentation/concepts/rules/publish-an-event-to-azure-queues-using-rules.md)
     * [Populate Elasticsearch Index](02-documentation/concepts/rules/populate-elasticsearch-index.md)
   * [Backups](02-documentation/concepts/backups.md)
-  * [Subscriptions](id-02-documentation/concepts/subscriptions/README.md)
+  * [Subscriptions](02-documentation/concepts/subscriptions.md)
     * [App Subscriptions v/s Team Subscriptions](id-02-documentation/concepts/subscriptions/app-subscriptions-v-s-team-subscriptions.md)
   * [Notifications](02-documentation/concepts/notifications.md)
   * [Dashboard](02-documentation/concepts/dashboard.md)
