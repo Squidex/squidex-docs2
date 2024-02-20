@@ -1,0 +1,44 @@
+---
+description: >-
+  Common differences between app and team subscriptions, and frequently asked
+  questions
+---
+
+# App Subscriptions v/s Team Subscriptions
+
+{% hint style="info" %}
+Subscriptions apply to Squidex Cloud only.
+{% endhint %}
+
+Teams were introduced to solve problems with sharing costs and changing subscription ownership. This article tries to provide differences between _App Subscriptions_ and _Teams Subscriptions_ and answer some of the frequently asked questions. &#x20;
+
+Let's start with a table provides a difference between App Subscriptions and Team Subscriptions
+
+| (Single) App Subscriptions                                                                                                                 | Team Subscriptions                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
+| Each App has its own subscription.                                                                                                         | Multiple Apps that are part of a Team share the subscription. |
+| Contributors in an App with the role "owner" are not subscription owners. Only the contributor that created the subscription is the owner. | All contributors of a team are subscription owners as well.   |
+| App subscription ownership cannot be transferred to another contributor                                                                    | Subscription transfer issues do not apply to teams.           |
+
+{% hint style="info" %}
+Note that App owner and Subscription owner is not the same, especially in App settings where you can add more than one owner, these owners are App owners.&#x20;
+{% endhint %}
+
+## Frequently Asked Questions (FAQs) about _App Subscriptions_
+
+### How can I transfer an _app subscription_ ownership to another user?
+
+Unfortunately, **subscription ownership transfer in Apps is not possible**. You can only cancel the subscription.
+
+### What happens when the _app subscription_ owner leaves the company?
+
+Create a support request at [https://support.squidex.io/](https://support.squidex.io/) to get it cancelled. **On cancelling the subscription, the App will fall back to the free plan but no data will be lost.**&#x20;
+
+### What happens if there is some money left in the _app subscription_?
+
+Start with a subscription cancellation request first. You can then subscribe to the cheapest plan and create a support request to get promotional credit for your balance. Use the promotional credit to subscribe to the target plan.
+
+### Can an App be moved to a Team with a different subscription plan? (For example App subscription is _Professional_, where as Teams subscription is _Basic_)
+
+Unfortunately **No**. The process is to cancel the current subscription for the App first and the move the App into the Team.
+

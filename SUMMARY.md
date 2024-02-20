@@ -2,7 +2,7 @@
 
 * [Welcome to Squidex](README.md)
 
-## Getting Started <a href="#01-getting-started" id="01-getting-started"></a>
+## Getting Started <a href="#id-01-getting-started" id="id-01-getting-started"></a>
 
 * [Squidex Cloud](01-getting-started/squidex-cloud.md)
 * [Installation Instructions](01-getting-started/installation/README.md)
@@ -41,7 +41,7 @@
   * [React.js Blog with Squidex](01-getting-started/quick-start-guides/react.js-blog-with-squidex.md)
   * [Angular Blog with Squidex](01-getting-started/quick-start-guides/angular-blog-with-squidex.md)
 
-## Documentation <a href="#02-documentation" id="02-documentation"></a>
+## Documentation <a href="#id-02-documentation" id="id-02-documentation"></a>
 
 * [Introduction and Use Case](02-documentation/introduction-and-use-case.md)
 * [Concepts](02-documentation/concepts/README.md)
@@ -60,7 +60,8 @@
     * [Publish an Event to Azure Queues using Rules](02-documentation/concepts/rules/publish-an-event-to-azure-queues-using-rules.md)
     * [Populate Elasticsearch Index](02-documentation/concepts/rules/populate-elasticsearch-index.md)
   * [Backups](02-documentation/concepts/backups.md)
-  * [Subscriptions](02-documentation/concepts/subscriptions.md)
+  * [Subscriptions](id-02-documentation/concepts/subscriptions/README.md)
+    * [App Subscriptions v/s Team Subscriptions](id-02-documentation/concepts/subscriptions/app-subscriptions-v-s-team-subscriptions.md)
   * [Notifications](02-documentation/concepts/notifications.md)
   * [Dashboard](02-documentation/concepts/dashboard.md)
   * [Workflows](02-documentation/concepts/workflows.md)
@@ -92,6 +93,6 @@
   * [Tutorials](02-documentation/developer-guides/tutorials/README.md)
     * [Building a Blog with Squidex and Next.js](02-documentation/developer-guides/tutorials/building-a-nextjs-blog-with-squidex.md)
 
-## Next <a href="#04-next" id="04-next"></a>
+## Next <a href="#id-04-next" id="id-04-next"></a>
 
 * [Squidex 3.0: API Compatibility](04-next/3.0-compatibility.md)
