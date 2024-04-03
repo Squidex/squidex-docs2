@@ -419,9 +419,30 @@ You can either use **search** or **filter** but not both.
 * Example demonstrating an array (components, array fields, references, assets, strings) cannot be empty:
 
 {% tabs %}
-{% tab title="First Tab" %}
+{% tab title="OData" %}
 ```
-// Some code
+$filter=empty(data/founders/iv)
+$filter=empty(data/founders/iv) eq true
+$filter=empty(data/founders/iv) eq false // Not empty
+$filter=not empty(data/founders/iv)      // Not empty
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```json
+{
+    "filter": {
+        "not": {
+            "path": "data.founders.iv",
+            "op": "empty"
+        }
+    }
+}
+    "filter": {
+        "path": "data.founders.iv",
+        "op": "empty"
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
