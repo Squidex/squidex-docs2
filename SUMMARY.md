@@ -2,6 +2,8 @@
 
 * [Welcome to Squidex](README.md)
 
+## Documentation <a href="#02-documentation" id="02-documentation"></a>
+
 ## Getting Started <a href="#id-01-getting-started" id="id-01-getting-started"></a>
 
 * [Squidex Cloud](01-getting-started/squidex-cloud.md)
