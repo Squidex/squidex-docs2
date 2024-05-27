@@ -1,0 +1,27 @@
+{
+  "name": "test-langchain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "start": "tsc && node dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hubspot/api-client": "^11.0.0",
+    "@langchain/community": "^0.0.30",
+    "@langchain/openai": "^0.0.14",
+    "@langchain/pinecone": "^0.0.7",
+    "@pinecone-database/pinecone": "^2.2.1",
+    "dotenv": "^16.4.5",
+    "ignore": "^5.3.1",
+    "langchain": "^0.1.17",
+    "pg": "^8.11.3",
+    "typescript": "^5.3.3"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/pg": "^8.11.0"
+  }
+}
