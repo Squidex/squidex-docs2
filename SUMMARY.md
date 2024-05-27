@@ -63,7 +63,7 @@
     * [Populate Elasticsearch Index](02-documentation/concepts/rules/populate-elasticsearch-index.md)
   * [Backups](02-documentation/concepts/backups.md)
   * [Subscriptions](02-documentation/concepts/subscriptions.md)
-    * [App Subscriptions v/s Team Subscriptions](id-02-documentation/concepts/subscriptions/app-subscriptions-v-s-team-subscriptions.md)
+    * [App Subscriptions v/s Team Subscriptions](02-documentation/concepts/subscriptions/app-subscriptions-v-s-team-subscriptions.md)
   * [Notifications](02-documentation/concepts/notifications.md)
   * [Dashboard](02-documentation/concepts/dashboard.md)
   * [Workflows](02-documentation/concepts/workflows.md)
