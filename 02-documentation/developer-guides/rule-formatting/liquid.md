@@ -143,3 +143,20 @@ Calculates the slug of a text by removing all special characters and white space
 #### trim
 
 The same as [strip](https://shopify.github.io/liquid/filters/strip/). Removes all white space (tabs, spaces, and newlines) from both the left and right sides of a string. This does not affect spaces between words.
+
+## How to handle JSON
+
+The template engine is not aware what kind of content you create. Therefore it cannot be optimized for JSON or other formats. If you inject strings into a JSON object or array you have to ensure that the value a valid JSON string.
+
+The solution is to use the `escape`filter for string fields:
+
+```liquid
+{
+    "title": "{{event.data.title.en-US | escape}}",
+    "text": "{{event.data.text.en-US | escape}}",
+    "date": "{{event.data.date.iv}}",
+    "price": {{event.data.price}}"
+}
+```
+
+You can omit the filter for fields that follow a specific format, as for the `date` field above.
