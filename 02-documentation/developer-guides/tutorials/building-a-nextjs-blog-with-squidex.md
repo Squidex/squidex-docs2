@@ -539,7 +539,7 @@ This returns data for the blog post associated with a particular slug or returns
 
 At this point, you may receive an error because when you use `getStaticPaths` with dynamic paths in Next.js, you are required to also export a `getStaticPaths` function that tells Next.js [what pages to generate at build time](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation).
 
-Export a `getStaticPaths` function in `squidex-blog/pages/index.js`:
+Export a `getStaticPaths` function in `squidex-blog/pages/[slug].js`:
 
 ```js
 export async function getStaticPaths() {
