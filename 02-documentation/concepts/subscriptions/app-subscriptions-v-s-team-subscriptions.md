@@ -14,11 +14,7 @@ Teams were introduced to solve problems with sharing costs and changing subscrip
 
 Let's start with a table provides a difference between App Subscriptions and Team Subscriptions
 
-| (Single) App Subscriptions                                                                                                                 | Team Subscriptions                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
-| Each App has its own subscription.                                                                                                         | Multiple Apps that are part of a Team share the subscription. |
-| Contributors in an App with the role "owner" are not subscription owners. Only the contributor that created the subscription is the owner. | All contributors of a team are subscription owners as well.   |
-| App subscription ownership cannot be transferred to another contributor                                                                    | Subscription transfer issues do not apply to teams.           |
+<table data-full-width="false"><thead><tr><th width="375">(Single) App Subscriptions</th><th>Team Subscriptions</th></tr></thead><tbody><tr><td>Each App has its own subscription.</td><td>Multiple Apps that are part of a Team share the subscription.</td></tr><tr><td>Contributors in an App with the role "owner" are not subscription owners. Only the contributor that created the subscription is the owner.</td><td>All contributors of a team are subscription owners as well.</td></tr><tr><td>App subscription ownership cannot be transferred to another contributor</td><td>Subscription transfer issues do not apply to teams.</td></tr></tbody></table>
 
 {% hint style="info" %}
 Note that App owner and Subscription owner is not the same, especially in App settings where you can add more than one owner, these owners are App owners.&#x20;
