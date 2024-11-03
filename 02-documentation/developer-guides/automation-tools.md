@@ -8,12 +8,20 @@ description: >-
 
 The Squidex CLI (Command Line Interface) is a terminal application available for Windows, Linux and macOS (OS X).
 
-You can download the CLI at the GitHub release page here: [https://github.com/Squidex/squidex-samples/releases](https://github.com/Squidex/squidex-samples/releases)
-
 The CLI has two main advantages:
 
 1. It is easy to automate things in your build and release processes, for example, you can trigger nightly updates and schema migrations from one App to another or export content.
 2. It is easier to integrate complex features, such as export to CSV because it takes more time to write a good user interface than the export routine itself.
+
+## Installation
+
+The CLI can be installed by downloading the binaries from the GitHub release page here: [https://github.com/Squidex/squidex-samples/releases](https://github.com/Squidex/squidex-samples/releases)
+
+If you are a .NET developer you can also install the CLI from [Nuget](https://www.nuget.org/packages/Squidex.CLI):
+
+```bash
+dotnet tool install --global Squidex.CLI
+```
 
 ## How to Use the CLI?
 
