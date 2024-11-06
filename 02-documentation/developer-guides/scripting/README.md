@@ -86,24 +86,25 @@ The following fields can be used for all scripts:
 
 
 
-<pre class="language-javascript"><code class="lang-javascript"><strong>var ctx = {
-</strong><strong>    // The ID of the current app.
-</strong><strong>    appId: string,
-</strong><strong>    
-</strong><strong>    // The name of the current app.
-</strong><strong>    appName: string,
-</strong><strong>    
-</strong><strong>    // The name of the operation, as it is also used in the UI.
-</strong><strong>    // 
-</strong><strong>    // For assets:
-</strong><strong>    //  * Query
-</strong><strong>    //  * PrepareQuery    Once for all assets
-</strong><strong>    //  * Update
-</strong><strong>    //  * Delete
-</strong><strong>    //  * Move
-</strong><strong>    //
-</strong><strong>    // For content
-</strong>    //  * Query
+```javascript
+var ctx = {
+    // The ID of the current app.
+    appId: string,
+    
+    // The name of the current app.
+    appName: string,
+    
+    // The name of the operation, as it is also used in the UI.
+    // 
+    // For assets:
+    //  * Query
+    //  * PrepareQuery    Once for all assets
+    //  * Update
+    //  * Delete
+    //  * Move
+    //
+    // For content
+    //  * Query
     //  * PrepareQuery    Once for all contents
     //  * Create
     //  * Update
@@ -111,36 +112,36 @@ The following fields can be used for all scripts:
     //  * Change
     //  * Published
     //  * Unpublished
-<strong>    operation: string,
-</strong><strong>    
-</strong><strong>    user: {
-</strong><strong>        // The ID of the user or the name of the client,
-</strong><strong>        // if the update or query is invoked from a client.
-</strong><strong>        id: string,
-</strong><strong>        
-</strong><strong>        // The email address of the user, 
-</strong><strong>        // if the user is not a client.
-</strong><strong>        email: string,
-</strong><strong>        
-</strong><strong>        // True, if the current user is a client, false otherwise.
-</strong><strong>        isClient: boolean,
-</strong><strong>        
-</strong><strong>        // Each user has a list of claims.
-</strong><strong>        // Claim are just key-value-pairs. 
-</strong><strong>        // Such a claim could be ... 
-</strong><strong>        // * The display name of the user or
-</strong><strong>        // * The link to the profile picture.
-</strong><strong>        // 
-</strong><strong>        // Most of them are not interesting for scripting,
-</strong><strong>        // but you can also go to your profile and
-</strong><strong>        // add custom properties as claims to your account 
-</strong><strong>        // and use them in the scripts or rules.
-</strong><strong>        claims: {
-</strong><strong>            key: string
-</strong><strong>        },
-</strong><strong>    }
-</strong><strong>}
-</strong></code></pre>
+    operation: string,
+    
+    user: {
+        // The ID of the user or the name of the client,
+        // if the update or query is invoked from a client.
+        id: string,
+        
+        // The email address of the user, 
+        // if the user is not a client.
+        email: string,
+        
+        // True, if the current user is a client, false otherwise.
+        isClient: boolean,
+        
+        // Each user has a list of claims.
+        // Claim are just key-value-pairs. 
+        // Such a claim could be ... 
+        // * The display name of the user or
+        // * The link to the profile picture.
+        // 
+        // Most of them are not interesting for scripting,
+        // but you can also go to your profile and
+        // add custom properties as claims to your account 
+        // and use them in the scripts or rules.
+        claims: {
+            key: string
+        },
+    }
+}
+```
 
 #### Content Script Variables
 
