@@ -80,37 +80,184 @@ The scripts are executed in a Sandbox. You do not have access to the file system
 
 ### Variables
 
-All variables are accessible over the `ctx` (Context) variable. The following fields can be used for all scripts:
+All variables are accessible over the `ctx` (Context) variable.&#x20;
 
-<table><thead><tr><th width="188.33333333333331">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>ctx.appId</code></td><td>String</td><td>The ID of the current app.</td></tr><tr><td><code>ctx.appName</code></td><td>String</td><td>The name of the current app.</td></tr><tr><td><code>ctx.operation</code></td><td>String</td><td>The name of the operation, as it is also used in the UI. For assets: "Query", "PrepareQuery", "Annotate", "Create", "Update", "Delete", "Move". For content: "Query", "PrepareQuery", "Create", "Update", "Delete", "Change". In addition to that for content "Published" is used when the status is changed to "Published" and "Unpublished" is used when the previous status is "Published".</td></tr><tr><td><code>ctx.user</code></td><td>Object</td><td>Information about the current user. See next table.</td></tr></tbody></table>
+The following fields can be used for all scripts:
 
-The user object has the following structure:
 
-| Field                 | Type    | Description                                                                                                                                                                                                                                                                                                                          |
-| --------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ctx.user.id`         | String  | The ID of the user or the name of the client, if the update or query is invoked from a client.                                                                                                                                                                                                                                       |
-| `ctx.user.email`      | String  | The email address of the user, if the user is not a client.                                                                                                                                                                                                                                                                          |
-| `ctx.user.isClient`   | Boolean | True, if the current user is a client, false otherwise.                                                                                                                                                                                                                                                                              |
-| `ctx.user.claims.xxx` | String  | Each user has a list of claims. Claim are just key-value-pairs. Such a claim could be the display name of the user or the link to the profile picture. Most of them are not interesting for scripting, but you can also go to your profile and add custom properties as claims to your account and use them in the scripts or rules. |
+
+<pre class="language-javascript"><code class="lang-javascript"><strong>var ctx = {
+</strong><strong>    // The ID of the current app.
+</strong><strong>    appId: string,
+</strong><strong>    
+</strong><strong>    // The name of the current app.
+</strong><strong>    appName: string,
+</strong><strong>    
+</strong><strong>    // The name of the operation, as it is also used in the UI.
+</strong><strong>    // 
+</strong><strong>    // For assets:
+</strong><strong>    //  * Query
+</strong><strong>    //  * PrepareQuery    Once for all assets
+</strong><strong>    //  * Update
+</strong><strong>    //  * Delete
+</strong><strong>    //  * Move
+</strong><strong>    //
+</strong><strong>    // For content
+</strong>    //  * Query
+    //  * PrepareQuery    Once for all contents
+    //  * Create
+    //  * Update
+    //  * Delete
+    //  * Change
+    //  * Published
+    //  * Unpublished
+<strong>    operation: string,
+</strong><strong>    
+</strong><strong>    user: {
+</strong><strong>        // The ID of the user or the name of the client,
+</strong><strong>        // if the update or query is invoked from a client.
+</strong><strong>        id: string,
+</strong><strong>        
+</strong><strong>        // The email address of the user, 
+</strong><strong>        // if the user is not a client.
+</strong><strong>        email: string,
+</strong><strong>        
+</strong><strong>        // True, if the current user is a client, false otherwise.
+</strong><strong>        isClient: boolean,
+</strong><strong>        
+</strong><strong>        // Each user has a list of claims.
+</strong><strong>        // Claim are just key-value-pairs. 
+</strong><strong>        // Such a claim could be ... 
+</strong><strong>        // * The display name of the user or
+</strong><strong>        // * The link to the profile picture.
+</strong><strong>        // 
+</strong><strong>        // Most of them are not interesting for scripting,
+</strong><strong>        // but you can also go to your profile and
+</strong><strong>        // add custom properties as claims to your account 
+</strong><strong>        // and use them in the scripts or rules.
+</strong><strong>        claims: {
+</strong><strong>            key: string
+</strong><strong>        },
+</strong><strong>    }
+</strong><strong>}
+</strong></code></pre>
 
 #### Content Script Variables
 
 The following fields can be used for content scripts:
 
-| Name            | Type    | Description                                                                                                                                                                                         |
-| --------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ctx.contentId` | String  | The ID of the content item.                                                                                                                                                                         |
-| `ctx.data`      | Object  | The data for the content item as it is also described in the [Use Case introduction](../../introduction-and-use-case.md).                                                                           |
-| `ctx.dataOld`   | Object  | The old data of the content item as it is also described in the [Use Case introduction](../../introduction-and-use-case.md). Only for "Update" scripts. You can also use `ctx.oldData` as an alias. |
-| `ctx.permanent` | Boolean | For delete operations only. True when the content should be deleted permanently.                                                                                                                    |
-| `ctx.status`    | String  | The status of the content.                                                                                                                                                                          |
-| `ctx.statusOld` | String  | The old status of the content item. Only for "Change" scripts. You can also use `ctx.oldStatus` as an alias.                                                                                        |
+```javascript
+var ctx = {
+    ... ALL FROM ABOVE,
+    
+    // The ID of the content item.
+    contentId: string,
+    
+    // The data for the content item.
+    data: {
+        field: {
+            iv: any,
+        },
+        localizedField: {
+            en: any,
+            de: any,
+        }
+    },
+    
+    // The old data of the content item for 'Update' scripts.
+    dataOld: {
+        field: {
+            iv: any,
+        },
+        localizedField: {
+            en: any,
+            de: any,
+        }
+    },
+    
+    // Same as dataOld,
+    oldData: ...
+    
+    // The status of the content.
+    status: string,
+    
+    // The old status of the content item.
+    // For 'Change' scripts only.
+    statusOld: string,
+    
+    // True when the content should be deleted permanently.
+    // For 'Delete' scripts only.
+    permanent: boolean,
+}
+```
 
 #### Asset Script Variables
 
 The following fields can be used for Asset scripts:
 
-<table><thead><tr><th width="300.3333333333333">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>ctx.assetId</code></td><td>String</td><td>The ID of the asset.</td></tr><tr><td><code>ctx.asset</code></td><td>Object</td><td>The asset.</td></tr><tr><td><code>ctx.asset.fileHash</code> or<br><code>command.fileHash</code></td><td>String</td><td>The SHA256 hash of the file. Can be null for old files.</td></tr><tr><td><code>ctx.asset.fileName</code> or<br><code>command.fileName</code></td><td>String</td><td>The file name of the asset.</td></tr><tr><td><code>ctx.asset.fileSize</code> or<br><code>command.fileSize</code></td><td>Number</td><td>The size of the file in bytes.</td></tr><tr><td><code>ctx.asset.fileSlug</code> or<br><code>command.fileSlug</code></td><td>String</td><td>The URL slug of the asset.</td></tr><tr><td><code>ctx.asset.fileVersion</code></td><td>Number</td><td>The version of the file.</td></tr><tr><td><code>ctx.asset.isProtected</code> or<br><code>command.isProtected</code></td><td>Boolean</td><td>True, when the asset is not public.</td></tr><tr><td><code>ctx.asset.metadata</code> or<br><code>command.metadata</code></td><td>Object</td><td>The asset metadata.</td></tr><tr><td><code>ctx.asset.metadata['n']</code> or<br><code>command.metadata['n']</code></td><td>String</td><td>The asset metadata with name 'n'.</td></tr><tr><td><code>ctx.asset.mimeType</code> or<br><code>command.mimeType</code></td><td>String</td><td>The mime type.</td></tr><tr><td><code>ctx.asset.parentId</code> or<br><code>command.parentId</code></td><td>String</td><td>The ID of the parent folder. Empty for files without parent.</td></tr><tr><td><code>ctx.asset.parentPath</code> or<br><code>command.parentPath</code></td><td>Array[Object]</td><td>The full path in the folder hierarchy as array of folder infos.</td></tr><tr><td><code>ctx.command.permanent</code></td><td>Boolean</td><td>For delete operations only. True when the asset should be deleted permanently.</td></tr><tr><td><code>ctx.asset.tags</code> or<br><code>command.tags</code></td><td>String</td><td>The tags assigned to the asset.</td></tr></tbody></table>
+```javascript
+var ctx = {
+    ... ALL FROM ABOVE,
+    
+    // The ID of the asset.
+    assetId: string,
+    
+    // The asset.
+    asset: {
+        // The SHA256 hash of the file. Can be null for old files.
+        fileHash: string,
+        
+        // The file name of the asset, e.g. 'My File.png'
+        fileName: string,
+        
+        // The size of the file in bytes.
+        fileSize: nummber,
+        
+        // The URL slug of the asset, e.g. 'my-file.png'
+        fileSlug: string;
+        
+        // True, when the asset is not public.
+        isProtected: boolean,
+        
+        // The asset metadata.
+        metadata: {
+            // Example for images:
+            pixelWidth: number,
+            pixelHeight: number,
+            
+            // In general:
+            key: string,
+        },
+        
+        // The content type, e.g. 'image/png'.
+        mimeType: string,
+        
+        // The ID of the folder.
+        parentId: string,
+        
+        // All parent folders from the root to the current folder.
+        parentPath: [{
+            id: string,
+            folderName: string,
+        }],
+        
+        // True when the asset should be deleted permanently.
+        // For delete operations only. 
+        permanent: boolean,
+        
+        // The tags assigned to the asset.
+        tags: [
+            string,
+            string
+        ]
+    },
+};
+
+// Contains new values, when something has been changed.
+var command = {
+    // SEE: ctx.asset.    
+};
+```
 
 ### Methods
 
@@ -134,7 +281,7 @@ In addition to that, there are also methods that are only available for scriptin
 
 ## Use Cases
 
-### Debugging: Write the Context to a Field
+### Write the Context to a Field
 
 If you want to understand your data structure and the context object, you can just write it to a string field.
 
