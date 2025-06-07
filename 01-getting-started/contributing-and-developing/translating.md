@@ -25,11 +25,13 @@ If you want to add a new language you have to complete a few manual steps:
 1. Add the language to the backend: [https://github.com/Squidex/squidex/blob/de60af0bbb857cfb936edd3d1059d892e8f0bd1c/backend/src/Squidex/Config/Web/WebExtensions.cs#L35](https://github.com/Squidex/squidex/blob/de60af0bbb857cfb936edd3d1059d892e8f0bd1c/backend/src/Squidex/Config/Web/WebExtensions.cs#L35) (called culture in .NET).
 2. Add the language to the frontend: [https://github.com/Squidex/squidex/blob/master/frontend/src/app/shared/state/ui-languages.ts](https://github.com/Squidex/squidex/blob/master/frontend/src/app/shared/state/ui-languages.ts). Please use the native name in your language as the display name.
 3. Add the language to the translator tool: [https://github.com/Squidex/squidex/blob/master/backend/i18n/translator/Squidex.Translator/Commands.cs#L143](https://github.com/Squidex/squidex/blob/master/backend/i18n/translator/Squidex.Translator/Commands.cs#L143).
-4. Create the backend translation file in the following folder: [https://github.com/Squidex/squidex/tree/master/backend/i18n/source](https://github.com/Squidex/squidex/tree/master/backend/i18n/source).
-5. Create the frontend translation file in the following folder: [https://github.com/Squidex/squidex/tree/master/backend/i18n/source](https://github.com/Squidex/squidex/tree/master/backend/i18n/source).
-6. Translate everything.
-7. Run the translator.
-8. Provide a PR.
+4. Include the frontend translation file as an embedded resource: [https://github.com/Squidex/squidex/blob/4aa7f77df6945fcfe028e5ad092361f4e8e23aa4/backend/src/Squidex/Squidex.csproj#L144](https://github.com/Squidex/squidex/blob/4aa7f77df6945fcfe028e5ad092361f4e8e23aa4/backend/src/Squidex/Squidex.csproj#L144)
+5. Create the backend translation file in the following folder: [https://github.com/Squidex/squidex/tree/master/backend/i18n/source](https://github.com/Squidex/squidex/tree/master/backend/i18n/source).
+6. Create the frontend translation file in the following folder: [https://github.com/Squidex/squidex/tree/master/backend/i18n/source](https://github.com/Squidex/squidex/tree/master/backend/i18n/source).
+7. Also create/copy the frontend translation file in the following folder: [https://github.com/Squidex/squidex/tree/master/backend/i18n](https://github.com/Squidex/squidex/tree/master/backend/i18n).
+8. Translate everything.
+9. Run the translator.
+10. Provide a PR.
 
 ## How to Update a Language
 
