@@ -28,10 +28,9 @@ If you want to add a new language you have to complete a few manual steps:
 4. Include the frontend translation file as an embedded resource: [https://github.com/Squidex/squidex/blob/4aa7f77df6945fcfe028e5ad092361f4e8e23aa4/backend/src/Squidex/Squidex.csproj#L144](https://github.com/Squidex/squidex/blob/4aa7f77df6945fcfe028e5ad092361f4e8e23aa4/backend/src/Squidex/Squidex.csproj#L144)
 5. Create the backend translation file in the following folder: [https://github.com/Squidex/squidex/tree/master/backend/i18n/source](https://github.com/Squidex/squidex/tree/master/backend/i18n/source).
 6. Create the frontend translation file in the following folder: [https://github.com/Squidex/squidex/tree/master/backend/i18n/source](https://github.com/Squidex/squidex/tree/master/backend/i18n/source).
-7. Also create/copy the frontend translation file in the following folder: [https://github.com/Squidex/squidex/tree/master/backend/i18n](https://github.com/Squidex/squidex/tree/master/backend/i18n).
-8. Translate everything.
-9. Run the translator.
-10. Provide a PR.
+7. Translate everything.
+8. Run the translator.
+9. Provide a PR.
 
 ## How to Update a Language
 
