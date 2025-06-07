@@ -1,13 +1,13 @@
 # Installation Instructions
 
-## Choose your target platform
+## Choose your Target Platform
 
 If you want to install Squidex on a bare metal server or virtual machine.
 
 * [Install with IIS under Windows](platforms/install-on-iis.md)
 * [Install with Docker (Linux, OS X, Windows)](platforms/install-on-docker.md)
 
-## Choose your cloud provider
+## Choose your Cloud provider
 
 If you want to install Squidex in the Cloud.
 
@@ -19,7 +19,7 @@ If you want to install Squidex in the Cloud.
 * [Install on Render](platforms/install-on-render.md)
 * [Install on VULTR](platforms/install-on-vultr.md)
 
-## How to configure Squidex
+## How to Configure Squidex
 
 For all installations.
 

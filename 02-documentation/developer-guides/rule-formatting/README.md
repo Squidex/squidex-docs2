@@ -1,11 +1,12 @@
 ---
-description: How to use scripting or placeholders to control the output of rules.
+description: How to Use Scripting or Placeholders to Control the Output of Rules
 ---
 
 # Rule Formatting
 
-This page explains the rule formatting system in detail. \
-To get an understanding of the rule system read the following page:
+This Page Explains the Rule Formatting System in Detail.
+
+To gain an understanding of the rule system, read the following page:
 
 {% content-ref url="../../concepts/rules.md" %}
 [rules.md](../../concepts/rules.md)
@@ -13,11 +14,11 @@ To get an understanding of the rule system read the following page:
 
 ## Introduction
 
-The rule formatting is used to format your custom payloads in rule actions, for example when you use email actions and you want to use certain values from the event inside the email subject or body.
+Rule formatting is used to format your custom payloads in rule actions, for example, when you use email actions and you want to use certain values from the event that's inside the email subject or body.
 
-To get an understanding what we can do with the rule system we need to have a look to an event.
+To gain an understanding of what can be done with the rule system let's have a look at an event.
 
-This example is a full content event that has been triggered when a new content item has been created.
+The example below is a full content event that has been triggered following creation of a new item:
 
 ```javascript
 {
@@ -52,9 +53,9 @@ This example is a full content event that has been triggered when a new content 
 
 ## Formatting Options
 
-The rule formatter gives us access to all properties of this events.&#x20;
+The rule formatter grants access to all of this event's properties.
 
-At the moment there are 3 options for formatting:
+At the moment, there are three options for formatting:
 
 {% content-ref url="simple.md" %}
 [simple.md](simple.md)
@@ -70,18 +71,20 @@ At the moment there are 3 options for formatting:
 
 The syntax is selected based on the value of the rule property.
 
-* If a value follows the format `Liquid(<Template>)`, then `Template` is interpreted as liquid syntax.
-* If a value follows the format `Script(<Script>)`, then `Script`is interpreted as Javascript.
-* If none of the syntaxes above is detected, the value is interpreted as simple formatting.
+* If a value follows the format `Liquid(<Template>)`, then `Template` is interpreted as a liquid syntax. It is interpreted using a template engine.
+* If a value follows the format `Script(<Script>)`, then `Script` is interpreted as Javascript expression and interpreted using a scripting engine.
+* If none of the syntaxes above are detected, the value is interpreted as simple formatting.  Therefore, it is interpreted using a built-in solution.
 
-In newer versions of Squidex custom input fields and text areas have been introduced, which add the correct prefix and suffix automatically:\
+In newer versions of Squidex, the user interface has been improved and custom input fields have been introduced which allows you to select the syntax and automatically add the necessary prefix.
+
+<div align="left">
+
+<img src="../../../.gitbook/assets/image (68).png" alt="Custom Editors for rules">
+
+</div>
 
 
-![Custom Editors for rules](<../../../.gitbook/assets/image (68).png>)
-
-1. Simple placeholders
-2. Javascript expressions that usually return a string.
 
 {% hint style="info" %}
-The liquid syntax is the most powerful but still easy option and therefore recommended for most use cases.
+The liquid syntax is the most powerful and easiest option, which is why it is recommended for most user cases.
 {% endhint %}

@@ -1,32 +1,32 @@
 ---
 description: >-
-  Rule actions are used to integrate external systems to Squidex. In this guide
-  we will show you how to extend the rule system with custom actions.
+  Rule Actions are Used to Integrate External Systems to Squidex, Learn How to
+  Extend the Rule System Using Custom Actions
 ---
 
-# Custom rule action
+# Custom Rule Action
 
-In this guide we use the webhook action as an example to show you the basic principles.
+We will use the `WebhookAction` as an example to show you the basic principles.
 
-## Step 1: Get ready
+## Step 1: Get Ready
 
-To get started with your first rule action you might want to get an understanding about the rule system first. Please read the following documentation before you continue:
+To get started with your first rule action you might want to gain an understanding about the rule system first. Please read the following document before you continue:
 
 {% content-ref url="../../../02-documentation/concepts/rules.md" %}
 [rules.md](../../../02-documentation/concepts/rules.md)
 {% endcontent-ref %}
 
-## Step 2. Define your action class
+## Step 2. Define Your Action Class
 
-In the first step we have to define an action class.
+In the first step, let's define an action class.
 
 The action class has several purposes:
 
 1. It provides general metadata, such as the name of the action.
 2. It holds all configuration values for your rule action.
-3. It is used to automatically create the editor that is used to create or edit an action.
+3. It is used to automatically create the editor that is then used to create or edit an action.
 
-Lets have a look to the `WebhookAction`
+Let's have a look at the `WebhookAction`:
 
 ```csharp
 [RuleAction(
@@ -59,26 +59,34 @@ public sealed class WebhookAction : RuleAction
 
 The metadata is provided with the `[RuleAction]` attribute and is mainly used in the Management UI.
 
-You have to provide the following information:
+You need to provide the following information:
 
 | Metadata        | Description                                                                              |
 | --------------- | ---------------------------------------------------------------------------------------- |
-| (3) Title       | A title that describes which system is integrated.                                       |
-| (1) Icon        | The icon as SVG document. Should be white only.                                          |
+| (1) Icon        | The icon as an SVG document. It must be white only.                                      |
 | (1) IconColor   | The background color for your icon.                                                      |
-| (2) Display     | A display name that describes what your action does.                                     |
-| (4) Description | A short description about your action                                                    |
+| (2) Display     | A display name that describes what the action does.                                      |
+| (3) Title       | A title that describes the system that is integrated.                                    |
+| (4) Description | A short description about the action                                                     |
 | (5) ReadMore    | An optional link to additional information, e.g. the website of the integrated solution. |
 
-![The metadata in the rule overview](<../../../.gitbook/assets/image (72) (1) (1).png>)
+<div align="left">
 
-![The metadata when selecting an action.](<../../../.gitbook/assets/image (74) (1) (1) (1).png>)
+<figure><img src="../../../.gitbook/assets/2023-04-21_12-04.png" alt=""><figcaption><p>The metadata in the rule overview</p></figcaption></figure>
 
-### Configuration values and editors
+</div>
 
-The properties of your action class hold the configuration values. You can only use primitives that can serialized to JSON, such as `string`, `bool` or `int`.
+<div align="left">
 
-Each property can also have a...
+<figure><img src="../../../.gitbook/assets/2023-04-21_12-10.png" alt=""><figcaption><p>The metadata when selecting an action.</p></figcaption></figure>
+
+</div>
+
+### Configuration Values and Editors
+
+The properties of your action class hold the configuration values. You can only use primitives that can be serialized to JSON, such as `string`, `bool` or `int`.
+
+Each property can also have a:
 
 #### Name (1)
 
@@ -88,7 +96,7 @@ An optional name that is shown as label.
 [Display(Name = "My Name")]
 ```
 
-#### Description (4)
+#### Description (2)
 
 An optional description that is rendered after the input field.
 
@@ -96,15 +104,7 @@ An optional description that is rendered after the input field.
 [Display(Description = "My Description.")]
 ```
 
-#### Required Hint (3)
-
-A hint that the property is required. This will add validation to the API and the Management UI.
-
-```csharp
-[Required]
-```
-
-#### Formattable Hint (2)
+#### Formattable Hint (3)
 
 A hint that describes whether the property supports formatting via scripting or placeholders. More about this later.
 
@@ -112,7 +112,19 @@ A hint that describes whether the property supports formatting via scripting or 
 [Formattable]
 ```
 
-![The formatting options in the UI](<../../../.gitbook/assets/image (70) (1).png>)
+#### Required Hint (4)
+
+A hint that the property is required. This will add validation to the API and the Management UI.
+
+```csharp
+[Required]
+```
+
+<div align="left">
+
+<figure><img src="../../../.gitbook/assets/2023-04-21_12-21.png" alt=""><figcaption><p>The formatting options in the UI</p></figcaption></figure>
+
+</div>
 
 #### Data Type
 
@@ -125,12 +137,12 @@ An optional data type to define the HTML control that is used:
 | URL Input      | <p>Used with with the attribute</p><p><code>[Editor(RuleFieldEditor.Url)]</code>.</p> |
 | Password Input | <p>Used with the attribute</p><p><code>[Editor(RuleFieldEditor.Password)]</code>.</p> |
 | Email Input    | <p>Used with the attribute</p><p><code>[Editor(RuleFieldEditor.Email)]</code>.</p>    |
-| Textarea       | <p>Used with the attribute</p><p><code>[Editor(RuleFieldEditor.TextArea)]</code>.</p> |
+| Text Area      | <p>Used with the attribute</p><p><code>[Editor(RuleFieldEditor.TextArea)]</code>.</p> |
 | Input          | For all other cases.                                                                  |
 
-## Step 3: Develop your action handler.
+## Step 3: Develop Your Action Handler
 
-As you know from the documentation about the rule system, the rules are executed in two steps:
+As you know from the documentation concerning the rule system, the rules are executed in two steps:
 
 1. The event is converted to a job that includes all formatted data.
 2. The job is then executed.
@@ -168,7 +180,7 @@ The `WebhookJob` contains all data that we want to store in the database and is 
 
 ### Create the Job
 
-The first method we need to override is used to create the Job:
+The first method we need to override is used to create the job:
 
 ```csharp
 protected override (string Description, WebhookJob Data) 
@@ -185,11 +197,11 @@ protected override (string Description, WebhookJob Data)
 }
 ```
 
-As you can see, we create the job from the passed in action and also provide a short description about what we do.\
+As you can see, we create the job from the passed in action and also provide a short description about what we've done.\
 \
 We use the `Format` method to call the `RuleEventFormatter` that has been passed in via the constructor to apply formatting rules to our configuration values.
 
-Whenever we do this, we should add the `[Formattable]` attribute to the properties to point out this behavior to the end users.
+Whenever we do this, we must add the `[Formattable]` attribute to the properties to point out this behavior to the end users.
 
 ### Execute the Job
 
@@ -212,15 +224,15 @@ protected override async Task<Result>
 }
 ```
 
-In this case we make a HTTP call with the provided request URL and body. We have to return a result object to indicate whether our Job was successful or not.
+In this case, make an HTTP call with the provided request URL and body. We have to return a result object to indicate whether our job was successful or not.
 
-Exceptions are always handled anyway, but we can use the approach above to provide an optional request dump with all necessary information to make debugging easy. Such a request dump should contain the request body and response or headers.
+Either way, exceptions are always handled but using the approach above we can provide an optional request dump with all necessary information to make debugging easy. This type of request dump should contain the request body and response or headers.
 
 The passed in cancellation token should be used to handle timeouts correctly and the cancel long running requests when they have exceeded the allowed execution limit.
 
-## Step 4: Register the rule action
+## Step 4: Register the Rule Action
 
-We are almost done, we just have to register our rule action. We write a custom plugin for that:
+We are almost done! Now, let's register the rule action, so for that, write a custom plugin:
 
 ```csharp
 public sealed class WebhookPlugin : IPlugin
@@ -232,6 +244,6 @@ public sealed class WebhookPlugin : IPlugin
 }
 ```
 
-That's it.
+That's it!
 
 If you have written a custom rule action for a public system, like an SaaS solution, you can provide your implementation as a pull request.

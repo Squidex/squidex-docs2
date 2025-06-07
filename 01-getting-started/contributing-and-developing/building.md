@@ -1,72 +1,82 @@
 ---
-description: How to build Squidex using Docker or manually.
+description: How to Build Squidex Using Docker or Manually
 ---
 
 # Building
 
 ## 1. Build for docker
 
-We provide docker images on docker hub: [https://hub.docker.com/r/squidex/squidex/](https://hub.docker.com/r/squidex/squidex/)
+You can view provided Docker images on Docker hub: [https://hub.docker.com/r/squidex/squidex/](https://hub.docker.com/r/squidex/squidex/)
 
-* `squidex/squidex:latest` is the latest stable version.
-* `squidex/squidex:vX.XX` is a specific stable version.
-* `squidex/squidex:dev` is the latest dev version (master branch).
-* `squidex/squidex:dex-XXXX` is a specific dev version (master branch).
+* `squidex/squidex:latest` (the latest stable version).
+* `squidex/squidex:vX.XX` (a specific stable version).
+* `squidex/squidex:dev` (the latest dev version - master branch).
+* `squidex/squidex:dev-XXXX` (a specific dev version - master branch).
 
-To build a custom image use our multistage dockerfile. Just run:
+To build a custom image, use the multistage `Dockerfile` and simply run the following command:
 
 ```bash
 docker build . -t my/squidex
 ```
 
-## 2. Build for manual deployment
+## 2. Build Squidex for Manual Deployment
 
-In this paragraph `$SQUIDEX`is a placeholder for the path to your local copy of the Squidex source code.
-
-When you want to deploy to IIS or Nginx you might want to build it manually. But keep in mind that we also provide the prebuild binaries on Github:
+When you want to deploy to IIS or NGINX you may prefer to build manually. Note that we also provide prebuilt binaries on GitHub, link below:
 
 [https://github.com/Squidex/squidex/releases](https://github.com/Squidex/squidex/releases)
 
-You can then find the files under `$SQUIDEX/publish`.
+You will find the built files under `$SQUIDEX/publish`.
 
-### 2.1. Build with docker
+{% hint style="info" %}
+`$SQUIDEX`is a placeholder for the path to your local copy of the Squidex source code.
+{% endhint %}
 
-Run the following commands in Powershell or bash to build Squidex with docker:
+### 2.1. Build Squidex with Docker
+
+Run the following commands in _PowerShell_ or _bash_ to build Squidex with Docker:
 
 ```bash
 # Build the image
-docker build . -t squidex-build-image -f dockerfile.build
+docker build . -t squidex-build-image
 
-# Open the image
+# Create the container
 docker create --name squidex-build-container squidex-build-image
 
 # Copy the output to the host file system
-docker cp squidex-build-container:/out ./publish
+docker cp squidex-build-container:/app/. ./publish
 
 # Cleanup
 docker rm squidex-build-container
+docker rmi squidex-build-image
 ```
 
-Under windows just use the `build.ps` script.
+Alternatively, we also provide a script file (containing these commands) for both Windows and Linux.
+
+For Windows, use the `build.ps1` script.
+
+For Linux, use the `build.sh` script.
 
 {% hint style="info" %}
-We recommend to give your Docker machine at least 4GB of memory.
+We recommend giving the Docker machine at least 4GB of memory.
 {% endhint %}
 
-### 2.2. Build it manually
+### 2.2. Build Squidex Manually
 
-If you don't want to use docker, you can also build it manually. The project structure has changed slightly when we migrated Squidex from .NET Core 2.X to .NET Core 3.0.
+If you don't want to use Docker, you can also build manually.
 
-#### 2.2.1. Build the .NET 3.0 version
+#### 2.2.1. Build the current Version
 
-The new structure differentiates between the frontend and the backend:\
+The current structure differentiates between the frontend and the backend.
 
+<div align="left">
 
-![Project structure](../../.gitbook/assets/image.png)
+<figure><img src="../../.gitbook/assets/2023-04-21_12-41.png" alt=""><figcaption><p>Project structure</p></figcaption></figure>
 
-This has the advantage that the code is separated and that we can using multiple contains to build them independently and make better use of caching in docker. After both, frontend and backend, have been built, you need to copy the build artifacts to a common folder. We just assume that we use `$SQUIDEX/publish` for that.
+</div>
 
-To build the backend you have to run the following commands.
+The advantage is that the code is separated, so you can use multiple contains to build them independently, this makes better use of caching in Docker. After building frontend and backend,  copy the build artifacts to a common folder. You can use `$SQUIDEX/publish` for this step.
+
+To build the backend, run the following commands.
 
 ```bash
 cd backend
@@ -74,7 +84,7 @@ cd src/Squidex
 dotnet publish --configuration Release --output "../../../publish"
 ```
 
-To build the frontend you have to use the following commands.
+To build the frontend, run the following commands.
 
 ```bash
 cd frontend
@@ -83,7 +93,9 @@ npm run build
 copy build "../publish/wwwroot/build"
 ```
 
-#### 2.2.2. Build the .NET 2.X without docker
+#### 2.2.2. Build the .NET Core 2.0 Version without Docker
+
+Very old versions that still work with .NET Core 2.0 have a different structure. Therefore the build process is slightly different. For most people this version is not relevant anymore.
 
 ```bash
 npm i
@@ -93,14 +105,12 @@ dotnet restore
 dotnet publish --configuration Release --output "../../publish"
 ```
 
-Please note that on windows to install all required build tools for node-sass you have to run
+Please note, on Windows you must run _PowerShell_ or _CMD.exe_ in elevated mode (**Run as Administrator**) to install the required build tools for `node-sass`.
 
 ```bash
 npm install --global --production windows-build-tools
 ```
 
-from an elevated PowerShell or CMD.exe (run as Administrator).
-
 {% hint style="info" %}
-We recommend to build Squidex with docker, because it ensures that you have a clean environment. Because of the docker [layers](http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/) the build is not much slower and can be even faster in some situations.
+We recommend building Squidex with Docker, because it ensures a clean environment. Due to Docker [layers](http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/), the build isn't much slower and in some cases, it can actually be quicker.
 {% endhint %}

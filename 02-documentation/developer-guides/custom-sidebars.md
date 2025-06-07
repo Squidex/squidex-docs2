@@ -1,31 +1,35 @@
 ---
-description: Build and use custom sidebar extensions to support your editorial workflow.
+description: Build and Use Custom Sidebar Extensions to Support your Editorial Workflow
 ---
 
 # Custom Sidebars
 
-## How to write your own sidebar plugin
+## How to Write Your Own Sidebar Plugin
 
-Custom sidebar plugins are enabling developers to add custom UI extensions to the sidebar of a single content item or a list of content items.
+Custom sidebar plugins enable developers to add custom UI extensions to the sidebar of a single content item, or to a list of content items.
 
-Technically speaking a UI editor lives in a sandboxed iframe, which interacts with the web application through a small SDK using messaging. You cannot directly interact with other elements of the Management UI.
+Below is an example of a custom sidebar extension for a search:
+
+<figure><img src="../../.gitbook/assets/2023-01-05_14-13.png" alt=""><figcaption><p>Custom Sidebar Extension</p></figcaption></figure>
+
+Technically speaking, a UI editor lives in a sandboxed `iframe`, which interacts with the web application through a small SDK using messaging. The UI editor cannot directly interact with other elements of the Management UI.
 
 ### Configure the URL to the sidebar plugin
 
-You can configure the sidebar plugin for each schema individually. Each schema has two URLs, where the first URL points to the sidebar plugin for the content list and the second URL points to the sidebar plugin for single content items. You can only configure one of them or both. Of course you can also point both settings to the same URL.
+You can configure the sidebar plugin for each schema individually. Each schema has two URLs, the first URL named **Contents Sidebar Extension** (notice Contents as plural) points to the sidebar plugin for the content list. The second URL,  named Content Sidebar Extension (notice Content as singular) points to the sidebar plugin for single content items. You can only configure one of them or both. You can point both settings to the same URL.
 
-![How to configure the sidebar plugin](<../../.gitbook/assets/image (20).png>)
+<figure><img src="../../.gitbook/assets/2023-01-05_14-19.png" alt=""><figcaption><p>Configuring sidebar plugin</p></figcaption></figure>
 
 ### Write a sidebar plugin
 
-The following code snippet shows a very simple sidecar plugin. It renders two textarea elements and displays the current content item and the context as JSON strings.
+The following code snippet shows a very simple sidebar plugin. It renders two _TextArea_ elements and displays the current content item and the context as JSON strings.
 
-You create a very simple HTML page and then you reference the editor SDK. In your custom script element you create new instance of the `SquidexPlugin` class. This instance is responsible to communicate via the Management UI via messaging:
+You create a very simple HTML page and then you reference the editor SDK. In your custom script element, you create a new instance of the `SquidexPlugin` class. This instance is responsible for communicating via the Management UI, through messaging:
 
-1. First it sends a `ready`message to the Management UI to tell it that it is available now and ready for communication. It also sends the height of plugin to the Management UI.
-2. When the Management UI receives the `ready`message it sends an `init`message back with the context object, that contains information like the name of the api and the user profile. You should subscribe to the `init`message and then initialize your sidebar plugin.
-3. When the sidebar plugin is used for a single content item, the full content item is also send to the plugin and resend, whenever it is changed. You can get the current content item by subscribing with the `onContentChanged` method. Intermediate updates are not send to the editor, only after you have saved your changes.
-4. Furthermore the plugin has a timer running in the background that periodically measures the height of the plugin. The problem is that when you use iframes, you have to give them a fixed height. You cannot make them resize automatically. Therefore the plugin has to notify the Management UI whenever the size has been changed.
+1. First it sends a `ready` message to the Management UI to state that it is available now and ready for communication. It also sends the height of plugin to the Management UI.
+2. When the Management UI receives the `ready` message, it sends an `init` message back with the context object which contains information such as the name of the API and the user profile. You should subscribe to the `init` message and then initialize your sidebar plugin.
+3. When the sidebar plugin is used for a single content item, the full content item is also sent to the plugin and resent whenever it is changed. You can get the current content item by subscribing using the `onContentChanged` method. Intermediate updates are not sent to the editor, they are only sent after you have saved your changes.
+4. The plugin also has a timer running in the background that periodically measures the height of the plugin. The problem is that when you use `iframes`, you have to give them a fixed height. You cannot make them resize them, automatically. Therefore the plugin has to notify the Management UI whenever the size changes.
 
 ```markup
 <!DOCTYPE html>
@@ -123,15 +127,15 @@ Example:
 
 You can use `apiUrl`, `access_token` and `token_type` to retrieve additional information from the API, for example when you build a special editor to manage references or assets.
 
-## Example plugins
+## Example Plugins
 
-Squidex contains a few example plugins that can help you to understand the flow, for example:
+Squidex contains a few sample plugins that can help you to understand the flow, for example:
 
-* [https://cloud.squidex.io/scripts/sidebar-context.html](https://cloud.squidex.io/scripts/editor-context.html): Demonstrates the structure of the context object by displaying the JSON representation in a text field.
+* [https://cloud.squidex.io/scripts/sidebar-context.html](https://cloud.squidex.io/scripts/editor-context.html): This demonstrates the structure of the context object by displaying the JSON representation in a text field.
 
-## More examples
+## More Examples
 
-Also, we have a more examples that you can use in your apps.
+Here are some more examples that you can use in your Apps.
 
 ### 1. Algolia Search
 
