@@ -122,11 +122,7 @@ The CLI creates a set of sample configuration files that begin with \_\_ (see sc
 
 The screenshot below shows a typical folder structure with sample configuration files:
 
-<div align="left">
-
-<figure><img src="../../.gitbook/assets/2023-03-02_20-00.png" alt=""><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../../.gitbook/assets/2023-03-02_20-00.png" alt=""><figcaption></figcaption></figure></div>
 
 The CLI also generates JSON schema files that are referenced by the configuration files and provide basic intelligence features in editors such as [Visual Studio Code](https://code.visualstudio.com). You will see error messages when you do not follow the JSON schema. Do also look out for additional errors that might occur when synchronizing your configuration.
 
@@ -172,11 +168,7 @@ For example, in the following screenshot we are exporting the configuration of a
 .\sq.exe sync out blog-with-squidex
 ```
 
-<div align="left">
-
-<figure><img src="../../.gitbook/assets/2023-03-02_20-22.png" alt=""><figcaption><p>Synchronize out / Export configuration from app to folder</p></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../../.gitbook/assets/2023-03-02_20-22.png" alt=""><figcaption><p>Synchronize out / Export configuration from app to folder</p></figcaption></figure></div>
 
 The `sync out` command also provide flags to control the synchronization process.
 
@@ -191,8 +183,7 @@ The `sync out` command also provide flags to control the synchronization process
 The synchronization feature has a few restrictions:
 
 1. **Contributors Cannot be Exported**. We use the email address of the users to add new contributors to your App. However, because Squidex protects the PII (Personally Identifiable Information) of our users, we do not expose email addresses via the API and therefore cannot export the contributors.
-2. **Content Cannot be Exported.** In contrast to other entities, such as schemas or workflows, an App can have tens of thousands of content items and therefore it does not make sense to export them.
-3. **Content Cannot be Deleted.** It is just too complicated!
+2. **Content Cannot be Deleted.** It is just too complicated!
 
 ### Synchronizing Schemas
 
@@ -363,18 +354,10 @@ For example `--help` at the utility level will show all features the CLI support
 
 `.\sq.exe --help`
 
-<div align="left">
-
-<figure><img src="../../.gitbook/assets/2023-03-01_12-28.png" alt=""><figcaption><p>Help Example 1</p></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../../.gitbook/assets/2023-03-01_12-28.png" alt=""><figcaption><p>Help Example 1</p></figcaption></figure></div>
 
 Similarly a `--help` parameter after a feature gives information about all the commands the feature supports. For example:
 
 `.\sq.exe config --help`
 
-<div align="left">
-
-<figure><img src="../../.gitbook/assets/2023-03-01_12-30.png" alt=""><figcaption><p>Help Example 2</p></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../../.gitbook/assets/2023-03-01_12-30.png" alt=""><figcaption><p>Help Example 2</p></figcaption></figure></div>
