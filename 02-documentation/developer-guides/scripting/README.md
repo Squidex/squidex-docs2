@@ -266,7 +266,33 @@ var command = {
 
 These methods are used to make changes to the content item or to reject changes.
 
-<table><thead><tr><th width="235">Name</th><th>Description</th></tr></thead><tbody><tr><td><code>replace()</code></td><td>Content scripts only. Tells Squidex that you have made modifications to the <code>ctx.data</code> object and that this change should be applied to the content.</td></tr><tr><td><code>disallow()</code></td><td>Tells Squidex that this operation is not allowed and that a <code>403 (Forbidden)</code> status code should be returned. The user will see an alert in the Management UI.</td></tr><tr><td><code>reject(reason)</code></td><td>Tells Squidex that this operation is not valid and that a <code>400 (BadRequest)</code>status code should be returned. The user will see an alert in the Management UI.</td></tr><tr><td><code>complete()</code></td><td>Tells Squidex that the script should complete successfully.</td></tr></tbody></table>
+```javascript
+/**
+ * - Content scripts only.
+ * - Tells Squidex that you have made modifications to the ctx.data object.
+ * - This change should be applied to the content.
+ */
+function replace() {}
+
+/**
+ * - Tells Squidex that this operation is not allowed.
+ * - A 403 (Forbidden) status code should be returned.
+ * - The user will see an alert in the Management UI.
+ */
+function disallow() {}
+
+/**
+ * - Tells Squidex that this operation is not valid.
+ * - A 400 (BadRequest) status code should be returned.
+ * - The user will see an alert in the Management UI.
+ */
+function reject(reason) {}
+
+/**
+ * - Tells Squidex that the script should complete successfully.
+ */
+function complete() {}
+```
 
 #### Helper Methods
 
