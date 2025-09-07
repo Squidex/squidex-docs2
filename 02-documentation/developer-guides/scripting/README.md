@@ -278,7 +278,80 @@ Squidex provides a set of general helper functions for scripting and rule format
 
 In addition to that, there are also methods that are only available for scripting.
 
-<table><thead><tr><th width="314">Name</th><th>Description</th></tr></thead><tbody><tr><td><ul><li><code>getJSON(url,</code> <br>   <code>callback, headers?)</code></li><li><code>postJSON(url, body,</code> <br>   <code>callback, headers?)</code></li><li><code>putJSON(url, body,</code> <br>   <code>callback, headers?)</code></li><li><code>patchJSON(url, body,</code><br>   <code>callback, headers?)</code></li><li><code>deleteJSON(url,</code><br>   <code>callback, headers?)</code></li></ul></td><td>Makes a request to the defined URL. If the request succeeds with a HTTP response status code (2XX) and a valid JSON response is returned the callback is invoked and the JSON response is passed to the callback as a JSON object. The script fails otherwise. You can also pass in an object with headers</td></tr><tr><td><code>getReferences(ids,</code><br>    <code>callback)</code></td><td>Queries the content items with the specified IDs and invokes the callback with the resulting content items when the request has been completed. If the current user does not have permissions to read the content items, the callback is invoked with an empty array.</td></tr><tr><td><code>getReference(id,</code><br>    <code>callback)</code></td><td>Queries the content item with the specified ID and invokes the callback with an array that includes the resulting content item when the request has been completed. If the current user does not have permissions to read the content item, the callback is invoked with an empty array.</td></tr><tr><td><code>getAssets(ids,</code><br>    <code>callback)</code></td><td>Queries the assets with the specified IDs and invokes the callback with the resulting assets when the request has been completed. If the current user does not have permissions to read assets, the script will fail.</td></tr><tr><td><code>getAsset(id,</code><br>    <code>callback)</code></td><td>Queries the asset with the specified ID and invokes the callback with an array that includes the resolved asset when the request has been completed. If the current user does not have permissions to read assets, the script will fail.</td></tr><tr><td><code>getAssetV2(id,</code><br>    <code>callback)</code></td><td>Queries the asset with the specified ID and invokes the callback with a a single asset when the request has been completed. If the current user does not have permissions to read assets, the script will fail.</td></tr><tr><td><code>getAssetText(asset,</code><br>    <code>callback)</code></td><td>Takes the specified asset and computes the text. The asset can not be larger than 4 MB, otherwise an error is returned.</td></tr><tr><td><code>getAssetBlurHash(asset,</code><br>    <code>callback)</code></td><td>Takes the specified asset and computes the blur hash. <br>Read more: <a href="https://blurha.sh/">https://blurha.sh/</a></td></tr><tr><td><code>translate(</code><br>    <code>text,</code><br>    <code>targetLanguage,</code><br>    <code>callback,</code><br>    <code>sourceLanguage?)</code></td><td>Translates a given text to the target language and invokes the callback with the translated text when completed. The source language is usually detected automatically, but can be passed in and usually provides better results.</td></tr><tr><td><code>generate(prompt,</code><br>    <code>callback)</code></td><td>Generates content described by the prompt using OpenAI or other services and invokes the callback with the generated text.</td></tr></tbody></table>
+```javascript
+/**
+ * - Makes a request to the defined URL.
+ * - If the request succeeds with a HTTP response status code (2XX) and a valid JSON response is returned
+ *   the callback is invoked and the JSON response is passed to the callback as a JSON object.
+ * - The script fails otherwise.
+ * - You can also pass in an object with headers.
+ */
+function getJSON(url, callback, headers?) {}
+function postJSON(url, body, callback, headers?) {}
+function putJSON(url, body, callback, headers?) {}
+function patchJSON(url, body, callback, headers?) {}
+function deleteJSON(url, callback, headers?) {}
+
+/**
+ * - Queries the content items with the specified IDs.
+ * - Invokes the callback with the resulting content items when the request has been completed.
+ * - If the current user does not have permissions to read the content items, the callback is invoked with an empty array.
+ */
+function getReferences(ids, callback) {}
+
+/**
+ * - Queries the content item with the specified ID.
+ * - Invokes the callback with an array that includes the resulting content item when the request has been completed.
+ * - If the current user does not have permissions to read the content item, the callback is invoked with an empty array.
+ */
+function getReference(id, callback) {}
+
+/**
+ * - Queries the assets with the specified IDs.
+ * - Invokes the callback with the resulting assets when the request has been completed.
+ * - If the current user does not have permissions to read assets, the script will fail.
+ */
+function getAssets(ids, callback) {}
+
+/**
+ * - Queries the asset with the specified ID.
+ * - Invokes the callback with an array that includes the resolved asset when the request has been completed.
+ * - If the current user does not have permissions to read assets, the script will fail.
+ */
+function getAsset(id, callback) {}
+
+/**
+ * - Queries the asset with the specified ID.
+ * - Invokes the callback with a single asset when the request has been completed.
+ * - If the current user does not have permissions to read assets, the script will fail.
+ */
+function getAssetV2(id, callback) {}
+
+/**
+ * - Takes the specified asset and computes the text.
+ * - The asset can not be larger than 4 MB, otherwise an error is returned.
+ */
+function getAssetText(asset, callback) {}
+
+/**
+ * - Takes the specified asset and computes the blur hash.
+ * - Read more: https://blurha.sh/
+ */
+function getAssetBlurHash(asset, callback) {}
+
+/**
+ * - Translates a given text to the target language.
+ * - Invokes the callback with the translated text when completed.
+ * - The source language is usually detected automatically, but can be passed in and usually provides better results.
+ */
+function translate(text, targetLanguage, callback, sourceLanguage?) {}
+
+/**
+ * - Generates content described by the prompt using OpenAI or other services.
+ * - Invokes the callback with the generated text.
+ */
+function generate(prompt, callback) {}
+```
 
 ## Use Cases
 
