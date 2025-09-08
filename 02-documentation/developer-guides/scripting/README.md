@@ -311,12 +311,14 @@ In addition to that, there are also methods that are only available for scriptin
  *   the callback is invoked and the JSON response is passed to the callback as a JSON object.
  * - The script fails otherwise.
  * - You can also pass in an object with headers.
+ * - If ignoreError is true, non-2XX responses return an object with the schema instead of throwing.
+ *   { statusCode: number, headers: { [key: string]: string }, body: string }
  */
-function getJSON(url, callback, headers?) {}
-function postJSON(url, body, callback, headers?) {}
-function putJSON(url, body, callback, headers?) {}
-function patchJSON(url, body, callback, headers?) {}
-function deleteJSON(url, callback, headers?) {}
+function getJSON(url, callback, headers?, ignoreError?) {}
+function postJSON(url, body, callback, headers?, ignoreError?) {}
+function putJSON(url, body, callback, headers?, ignoreError?) {}
+function patchJSON(url, body, callback, headers?, ignoreError?) {}
+function deleteJSON(url, callback, headers?, ignoreError?) {}
 
 /**
  * - Queries the content items with the specified IDs.
