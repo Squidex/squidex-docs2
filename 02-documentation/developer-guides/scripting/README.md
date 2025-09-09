@@ -491,8 +491,6 @@ When you make an asynchronous call to another service or content, the script eng
 Using async/await with an Immediately Invoked Function Expression (IIFE) eliminates the complexity of callback-based patterns and enables clean asynchronous code. This approach is ideal for handling multiple external service calls or avoiding callback hell.
 
 ```javascript
-(async () => {
-
 const data = ctx.data;
 const url = 'https://jsonplaceholder.typicode.com/todos/1';
 
