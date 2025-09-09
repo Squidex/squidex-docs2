@@ -76,7 +76,7 @@ In the editor you can define scripts for the following actions:
 
 ## Execution and Variables
 
-The scripts are executed in a Sandbox. You do not have access to the file system and only to allowed functions. Only the ES5 JavaScript syntax is implemented so far, which means you cannot use Lambda expressions, Promises or classes.
+The scripts are executed in a Sandbox. You do not have access to the file system and only to allowed functions. The latest ECMAScript 2024 (ES15) JavaScript syntax is implemented, which means you can use lambda expressions, Promises, or classes. For more details on supported features, refer to the [Jint ECMAScript Compatibility](https://github.com/sebastienros/jint/tree/v4.1.0?tab=readme-ov-file#supported-features)
 
 ### Variables
 
@@ -485,6 +485,37 @@ getJSON(url, function(result) {
 ```
 
 When you make an asynchronous call to another service or content, the script engine cannot stop the script automatically. Therefore, it is very important to finish the script with a call to `replace()`, even if you do not make a change to the content data.
+
+### Advanced Use Case with Modern ECMAScript
+
+Using async/await with an Immediately Invoked Function Expression (IIFE) eliminates the complexity of callback-based patterns and enables clean asynchronous code. This approach is ideal for handling multiple external service calls or avoiding callback hell.
+
+```javascript
+(async () => {
+
+const data = ctx.data;
+const url = 'https://jsonplaceholder.typicode.com/todos/1';
+
+function todoRequest(url) {
+    return new Promise((resolve, reject) => {
+        getJSON(url, (result) => {
+            result.id === 1 ? resolve(result) : reject(new Error('failure'));
+        });
+    });
+}
+
+(async () => {
+    try {
+        const todo = await todoRequest(url);
+        data.title.iv = todo.title;
+
+        // Tell Squidex that the content should be replaced.
+        replace();
+    } catch(ex) {
+        reject(ex.message);
+    }
+})()
+```
 
 ## Restrictions
 
