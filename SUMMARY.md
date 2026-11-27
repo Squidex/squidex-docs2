@@ -37,6 +37,7 @@
   * [Squidex Docs Program](01-getting-started/contributing-and-developing/squidex-docs-program.md)
 * [Roadmap](01-getting-started/roadmap.md)
 * [Quick Start Guides](01-getting-started/quick-start-guides/README.md)
+  * [Verify Squidex content survives a local Compose rebuild](01-getting-started/quick-start-guides/verify-local-compose-content.md)
   * [Vue.js Blog with Squidex](01-getting-started/quick-start-guides/vue.js-blog-with-squidex.md)
   * [React.js Blog with Squidex](01-getting-started/quick-start-guides/react.js-blog-with-squidex.md)
   * [Angular Blog with Squidex](01-getting-started/quick-start-guides/angular-blog-with-squidex.md)
